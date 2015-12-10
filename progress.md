@@ -99,7 +99,7 @@
  - [ ] 11.2 Test Functions
  - [ ] 11.3 Coverage
  - [ ] 11.4 Benchmark Functions
- - [ ] 11.5 Profiling
+ - [x] 11.5 Profiling
  - [x] 11.6 Example Functions
 - [ ] Chapter 12: Reflection
  - [ ] 12.1 Why Reflection?
