@@ -72,7 +72,7 @@
  - [ ] 8.3 Example: Concu rent Echo Server
  - [ ] 8.4 Channels
  - [ ] 8.5 Looping in Parallel
- - [ ] 8.6 Example: Concurrent Web Crawler
+ - [x] 8.6 Example: Concurrent Web Crawler
  - [ ] 8.7 Multiplexing with select
  - [ ] 8.8 Example: Concurrent Directory Traversal
  - [ ] 8.9 Cancellation
