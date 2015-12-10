@@ -2,9 +2,10 @@
 
 作為 [《The Go Programming Language》](http://gopl.io/) (中文名[《Go編程語言》](http://golang-china.github.io/gopl-zh)) 英文原版紙質圖書的購買者, [《Go聖經讀書筆記》](http://golang-china.github.io/gopl-zh) 是我們的 **讀書筆記** 和 **習題解答**, 僅供學習交流用.
 
-- 此中文版 **讀書筆記** 在綫預覽: http://golang-china.github.io/gopl-zh
-- 此中文版 **讀書筆記** 的源文件: http://github.com/golang-china/gopl-zh
-- 此中文版 **讀書筆記** 項目進度: http://github.com/golang-china/gopl-zh/blob/master/progress.md
+- 此 **讀書筆記** 在綫預覽: http://golang-china.github.io/gopl-zh
+- 此 **讀書筆記** 的源文件: http://github.com/golang-china/gopl-zh
+- 此 **讀書筆記** 項目進度: http://github.com/golang-china/gopl-zh/blob/master/progress.md
+- 此 **讀書筆記** 蔘與人員: http://github.com/golang-china/gopl-zh/blob/master/CONTRIBUTORS.md
 - 原版官網: http://gopl.io
 
 [![](cover_small.jpg)](https://github.com/golang-china/gopl-zh)

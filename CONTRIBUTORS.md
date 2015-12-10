@@ -3,10 +3,13 @@
 
 *大傢幫助完善, 請保證列錶有序(忽略大小寫)!*
 
-```
-chai2010       <chaishushan@gmail.com>
-Xargin         <cao1988228@163.com>
-```
+
+作者                                   | 章節
+-------------------------------------- | -------------------------
+`chai2010     <chaishushan@gmail.com>` | 前言/第二章/第十章/第十三章
+`Xargin       <cao1988228@163.com>`    | 第一章/第六章/第八章
+`foreversmart <njutree@gmail.com>`     | 第七章(0和1節)
+`CrazySssst`                           | 第七章(0節)
 
 # 版權
 
