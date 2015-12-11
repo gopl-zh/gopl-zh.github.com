@@ -74,7 +74,7 @@
  - [ ] 8.5 Looping in Parallel
  - [x] 8.6 Example: Concurrent Web Crawler
  - [ ] 8.7 Multiplexing with select
- - [ ] 8.8 Example: Concurrent Directory Traversal
+ - [x] 8.8 Example: Concurrent Directory Traversal
  - [ ] 8.9 Cancellation
  - [ ] 8.10 Example: Chat Server
 - [ ] Chapter 9: Concurrency with Shared Variables
