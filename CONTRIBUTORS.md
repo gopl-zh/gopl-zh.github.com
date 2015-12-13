@@ -6,7 +6,7 @@
 
 作者                                   | 章節
 -------------------------------------- | -------------------------
-`chai2010     <chaishushan@gmail.com>` | 前言/第二章/第十章/第十一章/第十三章
+`chai2010     <chaishushan@gmail.com>` | 前言/第二章/第十章/第十一章/第十二章/第十三章
 `CrazySssst`                           | 第三章(0節)
 `foreversmart <njutree@gmail.com>`     | 第七章(0節和1節)
 `Xargin       <cao1988228@163.com>`    | 第一章/第六章/第八章
