@@ -103,7 +103,7 @@
  - [x] 11.6 Example Functions
 - [x] Chapter 12: Reflection
  - [x] 12.1 Why Reflection?
- - [ ] 12.2 reflect.Type and reflect.Value
+ - [x] 12.2 reflect.Type and reflect.Value
  - [ ] 12.3 Display, a Recursive Value Printer
  - [ ] 12.4 Example: Encoding S-Expressions
  - [ ] 12.5 Setting Variables with reflect.Value
