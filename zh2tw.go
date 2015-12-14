@@ -25,7 +25,10 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"unicode/utf8"
 )
+
+const MaxFileSize = 8 << 20 // 8MB
 
 const usage = `
 Usage: zh2tw dir [nameFilter]
@@ -79,8 +82,8 @@ func main() {
 		if mathed {
 			if changed := convertFile(path, method); changed {
 				fmt.Printf("%s\n", relpath)
+				total++
 			}
-			total++
 		}
 		return nil
 	})
@@ -93,9 +96,20 @@ func convertFile(path, method string) (changed bool) {
 		log.Fatal("convertFile: filepath.Abs:", err)
 	}
 
+	fi, err := os.Lstat(abspath)
+	if err != nil {
+		log.Fatal("convertFile: os.Lstat:", err)
+	}
+	if fi.Size() > MaxFileSize {
+		return false
+	}
+
 	oldData, err := ioutil.ReadFile(abspath)
 	if err != nil {
 		log.Fatal("convertFile: ioutil.ReadFile:", err)
+	}
+	if !utf8.Valid(oldData) {
+		return false
 	}
 
 	newData := oldData

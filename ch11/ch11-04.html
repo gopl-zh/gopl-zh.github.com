@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="11.4" data-chapter-title="基準測試" data-filepath="ch11/ch11-04.md" data-basepath=".." data-revision="Wed Dec 09 2015 15:54:13 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="11.4" data-chapter-title="基準測試" data-filepath="ch11/ch11-04.md" data-basepath=".." data-revision="Mon Dec 14 2015 11:30:54 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -2060,7 +2060,72 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="114-&#x57FA;&#x6E96;&#x6E2C;&#x8A66;">11.4. &#x57FA;&#x6E96;&#x6E2C;&#x8A66;</h2>
-<p>TODO</p>
+<p>&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x662F;&#x6E2C;&#x91CF;&#x4E00;&#x7B87;&#x7A0B;&#x5E8F;&#x5728;&#x56FA;&#x5B9A;&#x5DE5;&#x4F5C;&#x8CA0;&#x8F09;&#x4E0B;&#x7684;&#x6027;&#x80FD;. &#x5728;Go&#x8A9E;&#x8A00;&#x4E2D;, &#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;&#x548C;&#x666E;&#x901A;&#x6E2C;&#x8A66;&#x51FD;&#x6578;&#x985E;&#x4F3C;, &#x4F46;&#x662F;&#x4EE5;Benchmark&#x7232;&#x524D;&#x7DB4;&#x540D;, &#x4F75;&#x4E14;&#x5E36;&#x6709;&#x4E00;&#x7B87; <code>*testing.B</code> &#x985E;&#x578B;&#x7684;&#x53C3;&#x6578;; <code>*testing.B</code> &#x9664;&#x4E86;&#x63D0;&#x4F9B;&#x548C; <code>*testing.T</code> &#x985E;&#x4F3C;&#x7684;&#x65B9;&#x6CD5;, &#x9084;&#x6709;&#x984D;&#x5916;&#x4E00;&#x4E9B;&#x548C;&#x6027;&#x80FD;&#x6E2C;&#x91CF;&#x76F8;&#x95DC;&#x7684;&#x65B9;&#x6CD5;. &#x5B83;&#x9084;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7B87;&#x6574;&#x6578;N, &#x7528;&#x65BC;&#x6307;&#x5B9A;&#x64CD;&#x4F5C;&#x57F7;&#x884C;&#x7684;&#x5FAA;&#x74B0;&#x6B21;&#x6578;.</p>
+<p>&#x4E0B;&#x9EAB;&#x662F; IsPalindrome &#x51FD;&#x6578;&#x7684;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;, &#x5176;&#x4E2D;&#x5FAA;&#x74B0;&#x5C07;&#x57F7;&#x884C;N&#x6B21;.</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;testing&quot;</span>
+
+<span class="hljs-keyword">func</span> BenchmarkIsPalindrome(b *testing.B) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        IsPalindrome(<span class="hljs-string">&quot;A man, a plan, a canal: Panama&quot;</span>)
+    }
+}
+</code></pre>
+<p>&#x6211;&#x5011;&#x7528;&#x4E0B;&#x9EAB;&#x7684;&#x547D;&#x4EE4;&#x904B;&#x884C;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;. &#x548C;&#x666E;&#x901A;&#x6E2C;&#x8A66;&#x4E0D;&#x8855;&#x7684;&#x662F;, &#x9ED8;&#x8A8D;&#x60C5;&#x6CC1;&#x4E0B;&#x4E0D;&#x904B;&#x884C;&#x4EFB;&#x4F55;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;. &#x6211;&#x5011;&#x9700;&#x8981;&#x901A;&#x904E; <code>-bench</code> &#x547D;&#x4EE4;&#x884C;&#x6A19;&#x8A8C;&#x53C3;&#x6578;&#x624B;&#x5DE5;&#x6307;&#x5B9A;&#x8981;&#x904B;&#x884C;&#x7684;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;. &#x8A72;&#x53C3;&#x6578;&#x662F;&#x4E00;&#x7B87;&#x6B63;&#x5247;&#x9336;&#x9054;&#x5F0F;, &#x7528;&#x65BC;&#x5339;&#x914D;&#x8981;&#x57F7;&#x884C;&#x7684;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;&#x7684;&#x540D;&#x5B57;, &#x9ED8;&#x8A8D;&#x503C;&#x662F;&#x7A7A;&#x7684;. &#x5176;&#x4E2D; &#x2018;&#x2018;.&#x2019;&#x2019; &#x6A21;&#x5F0F;&#x5C07;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x6240;&#x6709;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;, &#x4F46;&#x662F;&#x9019;&#x88E1;&#x7E3D;&#x5171;&#x96BB;&#x6709;&#x4E00;&#x7B87;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;, &#x56E0;&#x6B64; &#x548C; <code>-bench=IsPalindrome</code> &#x53C3;&#x6578;&#x662F;&#x7B49;&#x50F9;&#x7684;&#x6548;&#x679C;.</p>
+<pre><code>$ cd $GOPATH/src/gopl.io/ch11/word2
+$ go test -bench=.
+PASS
+BenchmarkIsPalindrome-8 1000000                1035 ns/op
+ok      gopl.io/ch11/word2      2.179s
+</code></pre><p>&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x540D;&#x7684;&#x6578;&#x5B57;&#x5F8C;&#x7DB4;&#x90E8;&#x5206;, &#x9019;&#x88E1;&#x662F;8, &#x9336;&#x793A;&#x904B;&#x884C;&#x6642;&#x5C0D;&#x61C9;&#x7684; GOMAXPROCS &#x7684;&#x503C;, &#x9019;&#x5C0D;&#x65BC;&#x4E00;&#x4E9B;&#x548C;&#x4F75;&#x767C;&#x76F8;&#x95DC;&#x7684;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x662F;&#x91CD;&#x8981;&#x7684;&#x4FE1;&#x606F;.</p>
+<p>&#x5831;&#x544A;&#x986F;&#x793A;&#x6BCF;&#x6B21;&#x8ABF;&#x7528; IsPalindrome &#x51FD;&#x6578;&#x82B1;&#x8CBB; 1.035&#x5FAE;&#x79D2;, &#x662F;&#x57F7;&#x884C; 1,000,000 &#x6B21;&#x7684;&#x5E73;&#x5747;&#x6642;&#x9593;. &#x56E0;&#x7232;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x9A45;&#x52D5;&#x5668;&#x4F75;&#x4E0D;&#x77E5;&#x9053;&#x6BCF;&#x7B87;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;&#x904B;&#x884C;&#x6240;&#x82B1;&#x7684;&#x6642;&#x5019;, &#x5B83;&#x6703;&#x5617;&#x8A66;&#x5728;&#x771E;&#x6B63;&#x904B;&#x884C;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x524D;&#x5148;&#x5617;&#x8A66;&#x7528;&#x8F03;&#x5C0F;&#x7684; N &#x904B;&#x884C;&#x6E2C;&#x8A66;&#x4F86;&#x4F30;&#x7B97;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;&#x6240;&#x9700;&#x8981;&#x7684;&#x6642;&#x9593;, &#x7136;&#x5F8C;&#x63A8;&#x65B7;&#x4E00;&#x7B87;&#x8F03;&#x5927;&#x7684;&#x6642;&#x9593;&#x4FDD;&#x8A3C;&#x7A69;&#x5B9A;&#x7684;&#x6E2C;&#x91CF;&#x7D50;&#x679C;.</p>
+<p>&#x5FAA;&#x74B0;&#x5728;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;&#x5167;&#x5BE6;&#x73FE;, &#x800C;&#x4E0D;&#x662F;&#x653E;&#x5728;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x6846;&#x67B6;&#x5167;&#x5BE6;&#x73FE;, &#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x8B93;&#x6BCF;&#x7B87;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;&#x6709;&#x6A5F;&#x6703;&#x5728;&#x5FAA;&#x74B0;&#x555F;&#x52D5;&#x524D;&#x57F7;&#x884C;&#x521D;&#x59CB;&#x5316;&#x4EE3;&#x78BC;, &#x9019;&#x6A23;&#x4F75;&#x4E0D;&#x6703;&#x986F;&#x8457;&#x5F71;&#x97FF;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x5E73;&#x5747;&#x904B;&#x884C;&#x6642;&#x9593;. &#x5982;&#x679C;&#x9084;&#x662F;&#x64D4;&#x5FC3;&#x521D;&#x59CB;&#x5316;&#x4EE3;&#x78BC;&#x90E8;&#x5206;&#x5C0D;&#x6E2C;&#x91CF;&#x6642;&#x9593;&#x5E36;&#x4F86;&#x4E7E;&#x64FE;, &#x90A3;&#x9EBC;&#x53EF;&#x4EE5;&#x901A;&#x904E; testing.B &#x53C3;&#x6578;&#x7684;&#x65B9;&#x6CD5;&#x4F86;&#x81E8;&#x6642;&#x95DC;&#x9589;&#x6216;&#x91CD;&#x7F6E;&#x8A08;&#x6642;&#x5668;, &#x4E0D;&#x904E;&#x9019;&#x4E9B;&#x4E00;&#x822C;&#x5F88;&#x5C11;&#x6703;&#x7528;&#x5230;.</p>
+<p>&#x73FE;&#x5728;&#x6211;&#x5011;&#x6709;&#x4E86;&#x4E00;&#x7B87;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x548C;&#x666E;&#x901A;&#x6E2C;&#x8A66;, &#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x6E2C;&#x8A66;&#x65B0;&#x7684;&#x8B93;&#x7A0B;&#x5E8F;&#x904B;&#x884C;&#x66F4;&#x5FEB;&#x7684;&#x60F3;&#x6CD5;. &#x4E5F;&#x8A31;&#x6700;&#x660E;&#x986F;&#x7684;&#x512A;&#x5316;&#x662F;&#x5728; IsPalindrome &#x51FD;&#x6578;&#x4E2D;&#x7B2C;&#x4E8C;&#x7B87;&#x5FAA;&#x74B0;&#x7684;&#x505C;&#x6B62;&#x6AA2;&#x67FB;, &#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x6BCF;&#x7B87;&#x6BD4;&#x8F03;&#x90FD;&#x505A;&#x5169;&#x6B21;:</p>
+<pre><code class="lang-Go">n := <span class="hljs-built_in">len</span>(letters)/<span class="hljs-number">2</span>
+<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; n; i++ {
+    <span class="hljs-keyword">if</span> letters[i] != letters[<span class="hljs-built_in">len</span>(letters)-<span class="hljs-number">1</span>-i] {
+        <span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
+    }
+}
+<span class="hljs-keyword">return</span> <span class="hljs-constant">true</span>
+</code></pre>
+<p>&#x4E0D;&#x904E;&#x5F88;&#x591A;&#x60C5;&#x6CC1;&#x4E0B;, &#x4E00;&#x7B87;&#x660E;&#x986F;&#x7684;&#x512A;&#x5316;&#x4F75;&#x4E0D;&#x4E00;&#x5B9A;&#x5C31;&#x80FD;&#x4EE3;&#x78BC;&#x9810;&#x671F;&#x7684;&#x6548;&#x679C;. &#x9019;&#x7B87;&#x6539;&#x9032;&#x5728;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x4E2D;&#x503C;&#x5E36;&#x4F86;&#x4E86; 4% &#x7684;&#x6027;&#x80FD;&#x63D0;&#x6607;.</p>
+<pre><code>$ go test -bench=.
+PASS
+BenchmarkIsPalindrome-8 1000000              992 ns/op
+ok      gopl.io/ch11/word2      2.093s
+</code></pre><p>&#x53E6;&#x4E00;&#x7B87;&#x6539;&#x9032;&#x60F3;&#x6CD5;&#x662F;&#x5728;&#x958B;&#x59CB;&#x7232;&#x6BCF;&#x7B87;&#x5B57;&#x7B26;&#x9810;&#x5148;&#x5206;&#x914D;&#x4E00;&#x7B87;&#x8DB3;&#x5920;&#x5927;&#x7684;&#x6578;&#x7D44;, &#x9019;&#x6A23;&#x5C31;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x5728; append &#x8ABF;&#x7528;&#x6642;&#x53EF;&#x80FD;&#x6703;&#x5C0E;&#x7DFB;&#x5167;&#x5B58;&#x7684;&#x591A;&#x6B21;&#x91CD;&#x65B0;&#x5206;&#x914D;. &#x8072;&#x660E;&#x4E00;&#x7B87; letters &#x6578;&#x7D44;&#x8B8A;&#x91CF;, &#x4F75;&#x6307;&#x5B9A;&#x95A4;&#x9069;&#x7684;&#x5927;&#x5C0F;, &#x50CF;&#x9019;&#x6A23;,</p>
+<pre><code class="lang-Go">letters := <span class="hljs-built_in">make</span>([]<span class="hljs-typename">rune</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(s))
+<span class="hljs-keyword">for</span> _, r := <span class="hljs-keyword">range</span> s {
+    <span class="hljs-keyword">if</span> unicode.IsLetter(r) {
+        letters = <span class="hljs-built_in">append</span>(letters, unicode.ToLower(r))
+    }
+}
+</code></pre>
+<p>&#x9019;&#x7B87;&#x6539;&#x9032;&#x63D0;&#x6607;&#x6027;&#x80FD;&#x7D04; 35%, &#x5831;&#x544A;&#x7D50;&#x679C;&#x662F;&#x57FA;&#x65BC; 2,000,000 &#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x5E73;&#x5747;&#x904B;&#x884C;&#x6642;&#x9593;&#x7D71;&#x8A08;.</p>
+<pre><code>$ go test -bench=.
+PASS
+BenchmarkIsPalindrome-8 2000000                      697 ns/op
+ok      gopl.io/ch11/word2      1.468s
+</code></pre><p>&#x5982;&#x9019;&#x7B87;&#x4F8B;&#x5B50;&#x6240;&#x793A;, &#x5FEB;&#x7684;&#x7A0B;&#x5E8F;&#x5F80;&#x5F80;&#x662F;&#x6709;&#x5F88;&#x5C11;&#x7684;&#x5167;&#x5B58;&#x5206;&#x914D;. <code>-benchmem</code> &#x547D;&#x4EE4;&#x884C;&#x6A19;&#x8A8C;&#x53C3;&#x6578;&#x5C07;&#x5728;&#x5831;&#x544A;&#x4E2D;&#x5305;&#x542B;&#x5167;&#x5B58;&#x7684;&#x5206;&#x914D;&#x6578;&#x64DA;&#x7D71;&#x8A08;. &#x6211;&#x5011;&#x53EF;&#x4EE5;&#x6BD4;&#x8F03;&#x512A;&#x5316;&#x524D;&#x5F8C;&#x5167;&#x5B58;&#x7684;&#x5206;&#x914D;&#x60C5;&#x6CC1;:</p>
+<pre><code>$ go test -bench=. -benchmem
+PASS
+BenchmarkIsPalindrome    1000000   1026 ns/op    304 B/op  4 allocs/op
+</code></pre><p>&#x9019;&#x662F;&#x512A;&#x5316;&#x4E4B;&#x5F8C;&#x7684;&#x7D50;&#x679C;:</p>
+<pre><code>$ go test -bench=. -benchmem
+PASS
+BenchmarkIsPalindrome    2000000    807 ns/op    128 B/op  1 allocs/op
+</code></pre><p>&#x4E00;&#x6B21;&#x5167;&#x5B58;&#x5206;&#x914D;&#x4EE3;&#x66FF;&#x591A;&#x6B21;&#x7684;&#x5167;&#x5B58;&#x5206;&#x914D;&#x7BC0;&#x7701;&#x4E86;75%&#x7684;&#x5206;&#x914D;&#x8ABF;&#x7528;&#x6B21;&#x6578;&#x548C;&#x6E1B;&#x5C11;&#x8FD1;&#x4E00;&#x534A;&#x7684;&#x5167;&#x5B58;&#x9700;&#x6C42;.</p>
+<p>&#x9019;&#x7B87;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x544A;&#x8A34;&#x6211;&#x5011;&#x6240;&#x9700;&#x7684;&#x7D55;&#x5C0D;&#x6642;&#x9593;&#x4F9D;&#x8CF4;&#x7D66;&#x5B9A;&#x7684;&#x5177;&#x9AD4;&#x64CD;&#x4F5C;, &#x5169;&#x7B87;&#x4E0D;&#x8855;&#x7684;&#x64CD;&#x4F5C;&#x6240;&#x9700;&#x6642;&#x9593;&#x7684;&#x5DEE;&#x7570;&#x4E5F;&#x662F;&#x548C;&#x4E0D;&#x8855;&#x74B0;&#x5883;&#x76F8;&#x95DC;&#x7684;. &#x4F8B;&#x5982;, &#x5982;&#x679C;&#x4E00;&#x7B87;&#x51FD;&#x6578;&#x9700;&#x8981; 1ms &#x8655;&#x7406; 1,000 &#x7B87;&#x5143;&#x7D20;, &#x90A3;&#x9EBC;&#x8655;&#x7406; 10000 &#x6216; 1&#x767E;&#x842C; &#x5C07;&#x9700;&#x8981;&#x591A;&#x5C11;&#x6642;&#x9593;&#x5462;? &#x9019;&#x6A23;&#x7684;&#x6BD4;&#x8F03;&#x63ED;&#x793A;&#x4E86;&#x6F38;&#x8FD1;&#x589E;&#x9577;&#x51FD;&#x6578;&#x7684;&#x904B;&#x884C;&#x6642;&#x9593;. &#x53E6;&#x4E00;&#x7B87;&#x4F8B;&#x5B50;: I/O &#x7DE9;&#x5B58;&#x8A72;&#x8A2D;&#x7F6E;&#x7232;&#x591A;&#x5927;&#x5462;? &#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x53EF;&#x4EE5;&#x5E6B;&#x52A9;&#x6211;&#x5011;&#x9078;&#x64C7;&#x8F03;&#x5C0F;&#x7684;&#x7DE9;&#x5B58;&#x4F46;&#x80FD;&#x5E36;&#x4F86;&#x6EFF;&#x610F;&#x7684;&#x6027;&#x80FD;. &#x7B2C;&#x4E09;&#x7B87;&#x4F8B;&#x5B50;: &#x5C0D;&#x65BC;&#x4E00;&#x7B87;&#x78BA;&#x5B9A;&#x7684;&#x5DE5;&#x4F5C;&#x90A3;&#x7A2E;&#x7B97;&#x6CD5;&#x66F4;&#x597D;? &#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x53EF;&#x4EE5;&#x8A55;&#x4F30;&#x5169;&#x7A2E;&#x4E0D;&#x8855;&#x7B97;&#x6CD5;&#x5C0D;&#x65BC;&#x76F8;&#x8855;&#x7684;&#x8F38;&#x5165;&#x5728;&#x4E0D;&#x8855;&#x7684;&#x5834;&#x666F;&#x548C;&#x8CA0;&#x8F09;&#x4E0B;&#x7684;&#x512A;&#x7F3A;&#x9EDE;.</p>
+<p>&#x6BD4;&#x8F03;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x90FD;&#x662F;&#x7D50;&#x69CB;&#x985E;&#x4F3C;&#x7684;&#x4EE3;&#x78BC;. &#x5B83;&#x5011;&#x901A;&#x5E38;&#x662F;&#x5BC0;&#x7528;&#x4E00;&#x7B87;&#x53C3;&#x6578;&#x7684;&#x51FD;&#x6578;, &#x5F9E;&#x5E7E;&#x7B87;&#x6A19;&#x8A8C;&#x7684;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x51FD;&#x6578;&#x5165;&#x53E3;&#x8ABF;&#x7528;, &#x5C31;&#x50CF;&#x9019;&#x6A23;:</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> benchmark(b *testing.B, size <span class="hljs-typename">int</span>) { <span class="hljs-comment">/* ... */</span> }
+<span class="hljs-keyword">func</span> Benchmark10(b *testing.B)         { benchmark(b, <span class="hljs-number">10</span>) }
+<span class="hljs-keyword">func</span> Benchmark100(b *testing.B)        { benchmark(b, <span class="hljs-number">100</span>) }
+<span class="hljs-keyword">func</span> Benchmark1000(b *testing.B)       { benchmark(b, <span class="hljs-number">1000</span>) }
+</code></pre>
+<p>&#x901A;&#x904E;&#x51FD;&#x6578;&#x53C3;&#x6578;&#x4F86;&#x6307;&#x5B9A;&#x8F38;&#x5165;&#x7684;&#x5927;&#x5C0F;, &#x4F46;&#x662F;&#x53C3;&#x6578;&#x8B8A;&#x91CF;&#x5C0D;&#x65BC;&#x6BCF;&#x7B87;&#x5177;&#x9AD4;&#x7684;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x90FD;&#x662F;&#x56FA;&#x5B9A;&#x7684;. &#x8981;&#x907F;&#x514D;&#x76F4;&#x63A5;&#x8129;&#x6539; b.N &#x4F86;&#x63A7;&#x88FD;&#x8F38;&#x5165;&#x7684;&#x5927;&#x5C0F;. &#x9664;&#x975E;&#x4F60;&#x5C07;&#x5B83;&#x4F5C;&#x7232;&#x4E00;&#x7B87;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x8FED;&#x4EE3;&#x8A08;&#x7B97;&#x8F38;&#x5165;, &#x5426;&#x5247;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x7684;&#x7D50;&#x679C;&#x5C07;&#x6BEB;&#x7121;&#x610F;&#x7FA9;.</p>
+<p>&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x5C0D;&#x65BC;&#x7DE8;&#x5BEB;&#x4EE3;&#x78BC;&#x662F;&#x5F88;&#x6709;&#x5E6B;&#x52A9;&#x7684;, &#x4F46;&#x662F;&#x537D;&#x4F7F;&#x5DE5;&#x4F5C;&#x5B8C;&#x6210;&#x4E86;&#x61C9;&#x61C9;&#x5679;&#x4FDD;&#x5B58;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x4EE3;&#x78BC;. &#x56E0;&#x7232;&#x96A8;&#x7740;&#x9805;&#x76EE;&#x7684;&#x767C;&#x5C55;, &#x6216;&#x8005;&#x662F;&#x8F38;&#x5165;&#x7684;&#x589E;&#x52A0;, &#x6216;&#x8005;&#x662F;&#x90E8;&#x7F72;&#x5230;&#x65B0;&#x7684;&#x64CD;&#x4F5C;&#x7E6B;&#x7D71;&#x6216;&#x4E0D;&#x8855;&#x7684;&#x8655;&#x7406;&#x5668;, &#x6211;&#x5011;&#x53EF;&#x4EE5;&#x518D;&#x6B21;&#x7528;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;&#x4F86;&#x5E6B;&#x52A9;&#x6211;&#x5011;&#x6539;&#x9032;&#x8A2D;&#x8A08;.</p>
+<p><strong>&#x7DF4;&#x7FD2; 11.6:</strong> &#x7232; 2.6.2&#x7BC0; &#x7684; &#x7DF4;&#x7FD2; 2.4 &#x548C; &#x7DF4;&#x7FD2; 2.5 &#x7684; PopCount &#x51FD;&#x6578;&#x7DE8;&#x5BEB;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;. &#x770B;&#x770B;&#x57FA;&#x65BC;&#x9336;&#x683C;&#x7B97;&#x6CD5;&#x5728;&#x4E0D;&#x8855;&#x60C5;&#x6CC1;&#x4E0B;&#x7684;&#x6027;&#x80FD;.</p>
+<p><strong>&#x7DF4;&#x7FD2; 11.7:</strong> &#x7232; *IntSet (&#xA7;6.5) &#x7684; Add, UnionWith &#x548C; &#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x7DE8;&#x5BEB;&#x57FA;&#x6E96;&#x6E2C;&#x8A66;, &#x4F7F;&#x7528;&#x5927;&#x91CF;&#x96A8;&#x6A5F;&#x9F63;&#x5165;. &#x4F60;&#x53EF;&#x4EE5;&#x8B93;&#x9019;&#x4E9B;&#x65B9;&#x6CD5;&#x8DD1;&#x591A;&#x5FEB;? &#x9078;&#x64C7;&#x5B57;&#x7684;&#x5927;&#x5C0F;&#x5C0D;&#x65BC;&#x6027;&#x80FD;&#x7684;&#x5F71;&#x97FF;&#x5982;&#x4F55;? IntSet &#x548C;&#x57FA;&#x65BC;&#x5167;&#x5EFA; map &#x7684;&#x5BE6;&#x73FE;&#x76F8;&#x6BD4;&#x6709;&#x591A;&#x5FEB;?</p>
 
                     
                     </section>

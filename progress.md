@@ -72,10 +72,10 @@
  - [ ] 8.3 Example: Concu rent Echo Server
  - [ ] 8.4 Channels
  - [ ] 8.5 Looping in Parallel
- - [ ] 8.6 Example: Concurrent Web Crawler
+ - [x] 8.6 Example: Concurrent Web Crawler
  - [ ] 8.7 Multiplexing with select
- - [ ] 8.8 Example: Concurrent Directory Traversal
- - [ ] 8.9 Cancellation
+ - [x] 8.8 Example: Concurrent Directory Traversal
+ - [x] 8.9 Cancellation
  - [ ] 8.10 Example: Chat Server
 - [ ] Chapter 9: Concurrency with Shared Variables
  - [ ] 9.1 Race Conditions
@@ -97,13 +97,13 @@
 - [x] Chapter 11: Testing
  - [x] 11.1 The go test Tool
  - [ ] 11.2 Test Functions
- - [ ] 11.3 Coverage
- - [ ] 11.4 Benchmark Functions
- - [ ] 11.5 Profiling
+ - [x] 11.3 Coverage
+ - [x] 11.4 Benchmark Functions
+ - [x] 11.5 Profiling
  - [x] 11.6 Example Functions
-- [ ] Chapter 12: Reflection
- - [ ] 12.1 Why Reflection?
- - [ ] 12.2 reflect.Type and reflect.Value
+- [x] Chapter 12: Reflection
+ - [x] 12.1 Why Reflection?
+ - [x] 12.2 reflect.Type and reflect.Value
  - [ ] 12.3 Display, a Recursive Value Printer
  - [ ] 12.4 Example: Encoding S-Expressions
  - [ ] 12.5 Setting Variables with reflect.Value
@@ -117,6 +117,5 @@
  - [x] 13.3 Example: Deep Equivalence
  - [x] 13.4 Calling C Code with cgo
  - [x] 13.5 Another Word of Caution
-- [ ] Exercise and Answer
 - [ ] Errata
 
