@@ -75,7 +75,7 @@
  - [x] 8.6 Example: Concurrent Web Crawler
  - [ ] 8.7 Multiplexing with select
  - [x] 8.8 Example: Concurrent Directory Traversal
- - [ ] 8.9 Cancellation
+ - [x] 8.9 Cancellation
  - [ ] 8.10 Example: Chat Server
 - [ ] Chapter 9: Concurrency with Shared Variables
  - [ ] 9.1 Race Conditions
@@ -98,7 +98,7 @@
  - [x] 11.1 The go test Tool
  - [ ] 11.2 Test Functions
  - [x] 11.3 Coverage
- - [ ] 11.4 Benchmark Functions
+ - [x] 11.4 Benchmark Functions
  - [x] 11.5 Profiling
  - [x] 11.6 Example Functions
 - [x] Chapter 12: Reflection
@@ -117,6 +117,5 @@
  - [x] 13.3 Example: Deep Equivalence
  - [x] 13.4 Calling C Code with cgo
  - [x] 13.5 Another Word of Caution
-- [ ] Exercise and Answer
 - [ ] Errata
 
