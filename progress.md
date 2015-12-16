@@ -96,7 +96,7 @@
  - [x] 10.7 The Go Tool
 - [x] Chapter 11: Testing
  - [x] 11.1 The go test Tool
- - [ ] 11.2 Test Functions
+ - [x] 11.2 Test Functions
  - [x] 11.3 Coverage
  - [x] 11.4 Benchmark Functions
  - [x] 11.5 Profiling
