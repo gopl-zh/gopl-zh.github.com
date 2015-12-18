@@ -23,6 +23,10 @@
 
 如果是使用簡體中文的用戶, 可在執行上述命令前運行 `make tw2zh` 命令, 將繁體中文轉換爲簡體中文.
 
+### Markdown 格式预览
+
+- [SUMMARY-github.md](SUMMARY-github.md)
+
 # 版權聲明
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
