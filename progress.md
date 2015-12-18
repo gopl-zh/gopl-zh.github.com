@@ -21,7 +21,7 @@
 - [x] Chapter 3: Basic Data Types
  - [ ] 3.1 Integers
  - [ ] 3.2 Floating-Point Numbers
- - [ ] 3.3 Complex Numbers
+ - [x] 3.3 Complex Numbers
  - [x] 3.4 Booleans
  - [x] 3.5 Strings
  - [ ] 3.6 Constants
