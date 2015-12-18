@@ -1,7 +1,7 @@
-# 貢獻者列錶
+# 貢獻者列表
 
 
-*大傢幫助完善, 請保證列錶有序(忽略大小寫)!*
+*大傢幫助完善, 請保証列表有序(忽略大小寫)!*
 
 
 作者                                   | 章節
@@ -13,5 +13,5 @@
 
 # 版權
 
-除特彆註明外, 本站內容均採用[知識共享-署名(CC-BY) 3.0協議](http://creativecommons.org/licenses/by/3.0/)授權, 代碼遵循[Go項目的BSD協議](http://golang.org/LICENSE)授權.
+除特別註明外, 本站內容均採用[知識共享-署名(CC-BY) 3.0協議](http://creativecommons.org/licenses/by/3.0/)授權, 代碼遵循[Go項目的BSD協議](http://golang.org/LICENSE)授權.
 

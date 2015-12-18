@@ -1,20 +1,20 @@
-# 朮語翻譯
+# 術語翻譯
 
-單詞              | 譯法              | 詞性   | 類彆 | 備註
+單詞              | 譯法              | 詞性   | 類別 | 備註
 ----------------- | ----------------- | ------ | ---- | ----
 approximation     | 近似[值]/逼近式   | n      |      |
 argument          | 實參              | n      |      |
 assignment        | 賦值              | n      |      |
 block             | 塊/阻塞           | n      |      | “阻塞”僅用於信道
 body              | 執行體            | n      |      |
-buffer            | 緩衝區            | n      |      |
+buffer            | 緩沖區            | n      |      |
 cache             | 緩存              | n      |      |
-case              | 情況/寫法         | n      |      | 在用作大小寫時譯作“寫法”，因為有些字母還有其它多種寫法
+case              | 情況/寫法         | n      |      | 在用作大小寫時譯作“寫法”，因爲有些字母還有其它多種寫法
 channel           | 信道              | n      |      |
 char/character    | 字符              | n      |      |
 code point        | 碼點              | n      |      |
 coefficient       | 繫數              | n      |      |
-commit            | 提交              | v      |      | 卽直接曏repo提交代碼
+commit            | 提交              | v      |      | 卽直接向repo提交代碼
 compatibility     | 兼容性            | n/adj  |      |
 complex           | 復數              | n      |      |
 constant          | 常量              | n      |      |
@@ -22,13 +22,13 @@ constructor       | 構造函數          | n      |      |
 convention        | 約定              | n      |      |
 defer             | 推遲              | v      |      |
 degree            | 階                | n      |      | 僅用於多項式
-distribute        | 分髮              | v      |      |
-distribution      | 分髮              | n      |      |
+distribute        | 分發              | v      |      |
+distribution      | 分發              | n      |      |
 embedding         | 內嵌              | n/v    |      | 用作類型，與“嵌入式”分開
 error             | 錯誤/誤差         | n      |      | “誤差”用於數學
 evaluation        | 求值              | n      |      |
 even              | 偶(數)            | n/adj  |      |
-expression        | 錶達式            | n      |      |
+expression        | 表達式            | n      |      |
 flag              | 標誌              | n      |      |
 floating-point    | 浮點數            | n      |      |
 form              | 形式              | n      |      |
@@ -53,13 +53,13 @@ recover           | 恢復              | v      |      |
 reduction         | 換算              | n      |      |
 reference         | 引用              | n/v    |      |
 repository        | [源碼]倉庫/源碼庫 | n      |      |
-round             | 捨入              | v/adj  |      | 在數學中為捨入
+round             | 捨入              | v/adj  |      | 在數學中爲捨入
 rune              | 符文              | n      |      |
 scope             | 作用域            | n      |      |
 script            | 腳本/書寫[繫統]   | n      |      | 在Unicode中譯作“書寫[繫統]”
 source code       | 源碼/源代碼       | n      |      |
 statement         | 語句              | n      |      |
-stride            | 間距              | n      |      | 用作兩個碼點的間距。如從A(0x41)到a(0x61)的間距為32(0x20)
+stride            | 間距              | n      |      | 用作兩個碼點的間距。如從A(0x41)到a(0x61)的間距爲32(0x20)
 struct            | 結構體            | n      |      |
 submit            | 遞交              | v      |      | 指遞交至主代碼樹
 tag               | 標記              | n      |      | 多指struct tag，上下文隻與xml/html相關時仍作“標簽”

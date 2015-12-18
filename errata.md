@@ -1,4 +1,4 @@
-# 附彔B: 勘誤
+# 附録B: 勘誤
 
 **p.9, ¶2:** for "can compared", read "can be compared".
     (Thanks to Antonio Macías Ojeda, 2015-10-22.)
