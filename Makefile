@@ -16,3 +16,8 @@ zh2tw:
 
 tw2zh:
 	go run zh2tw.go . .md$$ tw2zh
+
+loop:
+	go run zh2tw.go . .md$$ tw2zh
+	go run zh2tw.go . .md$$ zh2tw
+
