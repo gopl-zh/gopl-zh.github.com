@@ -161,7 +161,7 @@ func tw2zh(s string) string {
 func init() {
 	// 作为map键的繁体没有重复
 	// 但一个繁体可能对应多个简体, 需要按照key字典顺序导入
-	// 只保留根据key字典顺序一个出现的简体
+	// 只保留根据繁体key字典顺序第一个出现的简体
 	kkMap := make([]int, 0, len(_TSCharactersMap))
 	for k, _ := range _TSCharactersMap {
 		kkMap = append(kkMap, int(k))
