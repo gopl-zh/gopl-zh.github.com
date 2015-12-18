@@ -23,7 +23,7 @@
  - [ ] 3.2 Floating-Point Numbers
  - [ ] 3.3 Complex Numbers
  - [x] 3.4 Booleans
- - [ ] 3.5 Strings
+ - [x] 3.5 Strings
  - [ ] 3.6 Constants
 - [ ] Chapter 4: Composite Types
  - [ ] 4.1 Arrays
