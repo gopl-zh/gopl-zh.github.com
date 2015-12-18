@@ -175,12 +175,30 @@ func init() {
 	for k, v := range _TSCharactersMap {
 		zh2twMap[v] = k
 	}
+
+	// 修正错误的转换
+	for k, v := range zh2twMapPatch {
+		zh2twMap[k] = v
+	}
 }
 
 var (
 	zh2twMap = make(map[rune]rune)
 	tw2zhMap = _TSCharactersMap
 )
+
+// 修正错误的转换
+var zh2twMapPatch = map[rune]rune{
+	'面': '面',
+	'发': '發',
+	'参': '參',
+	'表': '表',
+	'同': '同',
+	'向': '向',
+	'合': '合',
+	'針': '针',
+	'別': '别',
+}
 
 var _TSCharactersMap = map[rune]rune{
 	'㑮': '𫝈',
