@@ -8,7 +8,7 @@
 # https://github.com/GitbookIO/gitbook
 # https://github.com/wastemobile/gitbook
 
-default: zh2tw
+default:
 	gitbook build
 
 zh2tw:
