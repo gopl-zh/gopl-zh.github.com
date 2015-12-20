@@ -19,7 +19,7 @@
  - [x] 2.6 Packages and Files
  - [x] 2.7 Scope
 - [x] Chapter 3: Basic Data Types
- - [ ] 3.1 Integers
+ - [x] 3.1 Integers
  - [ ] 3.2 Floating-Point Numbers
  - [x] 3.3 Complex Numbers
  - [x] 3.4 Booleans
