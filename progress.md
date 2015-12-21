@@ -24,7 +24,7 @@
  - [x] 3.3 Complex Numbers
  - [x] 3.4 Booleans
  - [x] 3.5 Strings
- - [ ] 3.6 Constants
+ - [x] 3.6 Constants
 - [ ] Chapter 4: Composite Types
  - [ ] 4.1 Arrays
  - [ ] 4.2 Slices
