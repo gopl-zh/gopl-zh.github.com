@@ -8,7 +8,7 @@
 # https://github.com/GitbookIO/gitbook
 # https://github.com/wastemobile/gitbook
 
-default: zh2tw
+default:
 	gitbook build
 
 zh2tw:
@@ -16,3 +16,8 @@ zh2tw:
 
 tw2zh:
 	go run zh2tw.go . .md$$ tw2zh
+
+loop:
+	go run zh2tw.go . .md$$ tw2zh
+	go run zh2tw.go . .md$$ zh2tw
+

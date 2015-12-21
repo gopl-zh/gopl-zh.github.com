@@ -25,6 +25,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"unicode/utf8"
 )
 
@@ -158,29 +159,49 @@ func tw2zh(s string) string {
 }
 
 func init() {
-	// 剔除出现多次的字符
-	vvMap := make(map[rune]int)
-	for k, v := range _TSCharactersMap {
-		vvMap[k]++
-		vvMap[v]++
+	// 作为map键的繁体没有重复
+	// 但一个繁体可能对应多个简体, 需要按照key字典顺序导入
+	// 只保留根据繁体key字典顺序第一个出现的简体
+	kkMap := make([]int, 0, len(_TSCharactersMap))
+	for k, _ := range _TSCharactersMap {
+		kkMap = append(kkMap, int(k))
 	}
-	for k, v := range _TSCharactersMap {
-		if vvMap[k] > 1 {
-			delete(_TSCharactersMap, k)
-		}
-		if vvMap[v] > 1 {
-			delete(_TSCharactersMap, v)
-		}
-	}
-	for k, v := range _TSCharactersMap {
+	sort.Ints(kkMap)
+
+	// 导入初始转换表
+	for _, k := range kkMap {
+		k := rune(k)
+		v := _TSCharactersMap[k]
+		tw2zhMap[k] = v
 		zh2twMap[v] = k
+	}
+
+	// 修正错误的转换(仅简体到繁体)
+	for k, v := range zh2twMapPatch {
+		zh2twMap[k] = v
 	}
 }
 
 var (
 	zh2twMap = make(map[rune]rune)
-	tw2zhMap = _TSCharactersMap
+	tw2zhMap = make(map[rune]rune)
 )
+
+// 修正错误的转换
+var zh2twMapPatch = map[rune]rune{
+	'面': '面',
+	'发': '發',
+	'参': '參',
+	'表': '表',
+	'同': '同',
+	'向': '向',
+	'合': '合',
+	'针': '針',
+	'别': '别',
+	'个': '個',
+	'家': '家',
+	'当': '當',
+}
 
 var _TSCharactersMap = map[rune]rune{
 	'㑮': '𫝈',

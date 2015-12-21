@@ -19,12 +19,12 @@
  - [x] 2.6 Packages and Files
  - [x] 2.7 Scope
 - [x] Chapter 3: Basic Data Types
- - [ ] 3.1 Integers
- - [ ] 3.2 Floating-Point Numbers
- - [ ] 3.3 Complex Numbers
- - [ ] 3.4 Booleans
- - [ ] 3.5 Strings
- - [ ] 3.6 Constants
+ - [x] 3.1 Integers
+ - [x] 3.2 Floating-Point Numbers
+ - [x] 3.3 Complex Numbers
+ - [x] 3.4 Booleans
+ - [x] 3.5 Strings
+ - [x] 3.6 Constants
 - [ ] Chapter 4: Composite Types
  - [ ] 4.1 Arrays
  - [ ] 4.2 Slices
