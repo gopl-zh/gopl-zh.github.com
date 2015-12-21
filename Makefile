@@ -21,3 +21,8 @@ loop:
 	go run zh2tw.go . .md$$ tw2zh
 	go run zh2tw.go . .md$$ zh2tw
 
+review:
+	go run zh2tw.go . .md$$ tw2zh
+	gitbook build
+	go run zh2tw.go . .md$$ zh2tw
+

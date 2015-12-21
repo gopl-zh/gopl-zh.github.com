@@ -1,11 +1,11 @@
-# 關於 [《Go聖經讀書筆記》](http://golang-china.github.io/gopl-zh)
+# 《Go編程語言》
 
-作爲 [《The Go Programming Language》](http://gopl.io/) (中文名[《Go編程語言》](http://golang-china.github.io/gopl-zh)) 英文原版紙質圖書的購買者, [《Go聖經讀書筆記》](http://golang-china.github.io/gopl-zh) 是我們的 **讀書筆記** 和 **習題解答**, 僅供學習交流用.
+[《Go編程語言》](http://golang-china.github.io/gopl-zh) 是 Go語言聖經 [《The Go Programming Language》](http://gopl.io/) 的中文翻譯版本, 僅供編程和英語學習交流之用, 請在下載後24小時內刪除.
 
-- 此 **讀書筆記** 在線預覽: http://golang-china.github.io/gopl-zh
-- 此 **讀書筆記** 的源文件: http://github.com/golang-china/gopl-zh
-- 此 **讀書筆記** 項目進度: http://github.com/golang-china/gopl-zh/blob/master/progress.md
-- 此 **讀書筆記** 參與人員: http://github.com/golang-china/gopl-zh/blob/master/CONTRIBUTORS.md
+- 項目主頁: http://github.com/golang-china/gopl-zh
+- 項目進度: http://github.com/golang-china/gopl-zh/blob/master/progress.md
+- 參與人員: http://github.com/golang-china/gopl-zh/blob/master/CONTRIBUTORS.md
+- 在線預覽: http://golang-china.github.io/gopl-zh
 - 原版官網: http://gopl.io
 
 [![](cover_small.jpg)](https://github.com/golang-china/gopl-zh)
@@ -33,7 +33,7 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="./images/by-nc-sa-4.0-88x31.png"></img></a>
 
-嚴禁任何商業行爲使用或引用該 **讀書筆記** 的全部或部分內容!
+嚴禁任何商業行爲使用或引用該文檔的全部或部分內容!
 
 歡迎大家提供建議!
 
