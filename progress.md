@@ -76,7 +76,7 @@
  - [ ] 8.7 Multiplexing with select
  - [x] 8.8 Example: Concurrent Directory Traversal
  - [x] 8.9 Cancellation
- - [ ] 8.10 Example: Chat Server
+ - [x] 8.10 Example: Chat Server
 - [ ] Chapter 9: Concurrency with Shared Variables
  - [ ] 9.1 Race Conditions
  - [ ] 9.2 Mutual Exclusion: sync.Mutex
