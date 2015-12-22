@@ -8,6 +8,8 @@
 # https://github.com/GitbookIO/gitbook
 # https://github.com/wastemobile/gitbook
 
+# http://www.imagemagick.org/
+
 default:
 	gitbook build
 
@@ -25,4 +27,9 @@ review:
 	go run zh2tw.go . .md$$ tw2zh
 	gitbook build
 	go run zh2tw.go . .md$$ zh2tw
+
+cover:
+	composite  cover_patch.png cover_bgd.png cover.jpg
+	convert    -resize 1800x2360! cover.jpg  cover.jpg
+	convert    -resize 200x262!   cover.jpg  cover_small.jpg
 
