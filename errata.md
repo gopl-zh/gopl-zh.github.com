@@ -1,4 +1,4 @@
-# 附録B: 勘誤
+# 附録: 勘誤
 
 **p.9, ¶2:** for "can compared", read "can be compared".
     (Thanks to Antonio Macías Ojeda, 2015-10-22.)
@@ -18,6 +18,7 @@ each time it is run. (Thanks to Randall McPherson, 2015-10-19.)
 
 **p.52, ¶2:** for "an synonym", read "a synonym", twice.
 
+**p.52, ¶9:** for "The integer arithmetic operators", read "The arithmetic operators". (Thanks to Yoshiki Shibata, 2015-12-20.)
 
 **p.68:** the table of UTF-8 encodings is missing a bit from each first byte.
 The corrected table is shown below.  (Thanks to Akshay Kumar, 2015-11-02.)
@@ -49,5 +50,7 @@ statement is a declaration; the other three are assignments.
 (Thanks to Toni Suter, 2015-11-21.)
 
 **p.166, ¶2:** for "way", read "a way".
+
+**p.200, TestEval function:** the format string in the final call to t.Errorf should format test.env with %v, not %s. (Thanks to Mitsuteru Sawa, 2015-12-07.)
 
 **p.362:** the `gopl.io/ch13/bzip` program does not comply with the [proposed rules for passing pointers between Go and C code](https://github.com/golang/proposal/blob/master/design/12416-cgo-pointers.md) because the C function `bz2compress` temporarily stores a Go pointer (in) into the Go heap (the `bz_stream` variable). The `bz_stream` variable should be allocated, and explicitly freed after the call to `BZ2_bzCompressEnd`, by C functions. (Thanks to Joe Tsai, 2015-11-18.)
