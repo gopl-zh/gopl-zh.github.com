@@ -22,7 +22,7 @@
 
 *“Go是一個開源的編程語言，它很容易用於構建簡單、可靠和高效的軟件。”（摘自Go語言官方網站：http://golang.org ）*
 
-Go語言由來自Google公司的Robert Griesemer，Rob Pike和Ken Thompson三位大牛於2007年9月開始設計和實現，然後於2009年的11月對外正式發布（译注：关于Go语言的创世纪细节请参考 http://talks.golang.org/2015/how-go-was-made.slide ）。語言及其配套工具的設計目標是具有表達力，高效的編譯和執行效率，有效地編寫高效和健壯的程序。
+Go語言由來自Google公司的Robert Griesemer，Rob Pike和Ken Thompson三位大牛於2007年9月開始設計和實現，然後於2009年的11月對外正式發布（譯註：關於Go語言的創世紀細節請參考 http://talks.golang.org/2015/how-go-was-made.slide ）。語言及其配套工具的設計目標是具有表達力，高效的編譯和執行效率，有效地編寫高效和健壯的程序。
 
 Go語言有着和C語言類似的語法外表，和C語言一樣是專業程序員的必備工具，可以用最小的代價穫得最大的戰果。
 但是它不僅僅是一個更新的C語言。它還從其他語言借鑒了很多好的想法，同時避免引入過度的複雜性。
