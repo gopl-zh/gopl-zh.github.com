@@ -1,6 +1,6 @@
-# 《Go編程語言》
+# Go語言聖經（中文版）
 
-[《Go編程語言》](http://golang-china.github.io/gopl-zh) 是 Go語言聖經 [《The Go Programming Language》](http://gopl.io/) 的中文翻譯版本，僅供編程和英語學習交流之用，請在下載後24小時內刪除。
+Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本，僅供編程和英語學習交流之用，請在下載後24小時內刪除。
 
 - 項目主頁：http://github.com/golang-china/gopl-zh
 - 項目進度：http://github.com/golang-china/gopl-zh/blob/master/progress.md
