@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="3.5" data-chapter-title="字符串" data-filepath="ch3/ch3-05.md" data-basepath=".." data-revision="Mon Dec 21 2015 12:51:02 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="3.5" data-chapter-title="字符串" data-filepath="ch3/ch3-05.md" data-basepath=".." data-revision="Thu Dec 24 2015 14:42:02 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -1975,16 +1975,16 @@
             
         </li>
     
-        <li class="chapter " data-level="14" data-path="errata.html">
+        <li class="chapter " data-level="14" data-path="CONTRIBUTORS.html">
             
                 
-                    <a href="../errata.html">
+                    <a href="../CONTRIBUTORS.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>14.</b>
                         
-                        勘誤
+                        附録
                     </a>
             
             
@@ -2030,7 +2030,6 @@
 fmt.Println(<span class="hljs-built_in">len</span>(s))     <span class="hljs-comment">// &quot;12&quot;</span>
 fmt.Println(s[<span class="hljs-number">0</span>], s[<span class="hljs-number">7</span>]) <span class="hljs-comment">// &quot;104 119&quot; (&apos;h&apos; and &apos;w&apos;)</span>
 </code></pre>
-<p>Attempting to access a byte outside this range results in a panic:</p>
 <p>&#x5982;&#x679C;&#x8996;&#x5716;&#x8A2A;&#x554F;&#x8D85;&#x9F63;&#x5B57;&#x7B26;&#x4E32;&#x8303;&#x570D;&#x7684;&#x5B57;&#x7BC0;&#x5C07;&#x6703;&#x5C0E;&#x81F4;panic&#x7570;&#x5E38;:</p>
 <pre><code class="lang-Go">c := s[<span class="hljs-built_in">len</span>(s)] <span class="hljs-comment">// panic: index out of range</span>
 </code></pre>
@@ -2093,10 +2092,10 @@ Usage:
 <p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5C07;&#x4E00;&#x500B;&#x7B26;&#x6587;&#x5E8F;&#x5217;&#x8868;&#x793A;&#x7232;&#x4E00;&#x500B;int32&#x5E8F;&#x5217;. &#x9019;&#x7A2E;&#x7DE8;&#x78BC;&#x65B9;&#x5F0F;&#x53EB;UTF-32&#x6216;UCS-4, &#x6BCF;&#x500B;Unicode&#x78BC;&#x9EDE;&#x90FD;&#x4F7F;&#x7528;&#x540C;&#x6A23;&#x7684;&#x5927;&#x5C0F;32bit&#x4F86;&#x8868;&#x793A;. &#x9019;&#x7A2E;&#x65B9;&#x5F0F;&#x6BD4;&#x8F03;&#x7C21;&#x55AE;&#x7D71;&#x4E00;, &#x5B83;&#x6703;&#x6D6A;&#x8CBB;&#x5F88;&#x591A;&#x5B58;&#x5132;&#x7A7A;&#x9593;, &#x56E0;&#x7232;&#x5927;&#x6578;&#x64DA;&#x8A08;&#x7B97;&#x6A5F;&#x53EF;&#x8B80;&#x7684;&#x6587;&#x672C;&#x662F;ASCII&#x5B57;&#x7B26;, &#x672C;&#x4F86;&#x6BCF;&#x500B;ASCII&#x5B57;&#x7B26;&#x96BB;&#x9700;&#x8981;8bit&#x6216;1&#x5B57;&#x7BC0;&#x5C31;&#x80FD;&#x8868;&#x793A;. &#x537D;&#x4F7F;&#x662F;&#x5E38;&#x7528;&#x7684;&#x5B57;&#x7B26;&#x4E5F;&#x9060;&#x5C11;&#x65BC;65,536&#x500B;, &#x4E5F;&#x5C31;&#x662F;&#x8AAC;&#x7528;16bit&#x7DE8;&#x78BC;&#x65B9;&#x5F0F;&#x5C31;&#x80FD;&#x8868;&#x9054;&#x5E38;&#x7528;&#x5B57;&#x7B26;. &#x4F46;&#x662F;, &#x9084;&#x6709;&#x66F4;&#x597D;&#x7684;&#x7DE8;&#x78BC;&#x65B9;&#x6CD5;&#x55CE;?</p>
 <h3 id="353-utf8">3.5.3. UTF-8</h3>
 <p>UTF8&#x662F;&#x4E00;&#x500B;&#x5C07;Unicode&#x78BC;&#x9EDE;&#x7DE8;&#x78BC;&#x7232;&#x5B57;&#x7BC0;&#x5E8F;&#x5217;&#x7684;&#x8B8A;&#x9577;&#x7DE8;&#x78BC;. UTF8&#x7DE8;&#x78BC;&#x7531;Go&#x8A9E;&#x8A00;&#x4E4B;&#x7236; Ken Thompson &#x548C; Rob Pike &#x5171;&#x540C;&#x767C;&#x660E;, &#x73FE;&#x5728;&#x5DF2;&#x7D93;&#x662F;Unicode&#x7684;&#x6A19;&#x6E96;. UTF8&#x4F7F;&#x7528;1&#x5230;4&#x500B;&#x5B57;&#x7BC0;&#x4F86;&#x8868;&#x793A;&#x6BCF;&#x500B;Unicode&#x78BC;&#x9EDE;&#x7B26;&#x865F;, ASCII&#x90E8;&#x5206;&#x5B57;&#x7B26;&#x96BB;&#x4F7F;&#x7528;1&#x500B;&#x5B57;&#x7BC0;, &#x5E38;&#x7528;&#x5B57;&#x7B26;&#x90E8;&#x5206;&#x4F7F;&#x7528;2&#x6216;3&#x500B;&#x5B57;&#x7BC0;. &#x6BCF;&#x500B;&#x7B26;&#x865F;&#x7DE8;&#x78BC;&#x5F8C;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x7BC0;&#x7684;&#x9AD8;&#x7AEF;bit&#x4F4D;&#x7528;&#x65BC;&#x8868;&#x793A;&#x7E3D;&#x5171;&#x6709;&#x591A;&#x5C11;&#x500B;&#x5B57;&#x7BC0;. &#x5982;&#x679C;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x7BC0;&#x7684;&#x9AD8;&#x7AEF;bit&#x7232;0, &#x5247;&#x8868;&#x793A;&#x5C0D;&#x61C9;7bit&#x7684;ASCII&#x5B57;&#x7B26;, &#x6BCF;&#x500B;&#x5B57;&#x7B26;&#x4E00;&#x500B;&#x5B57;&#x7BC0;, &#x548C;&#x50B3;&#x7D71;&#x7684;ASCII&#x7DE8;&#x78BC;&#x517C;&#x5BB9;. &#x5982;&#x679C;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x7BC0;&#x7684;&#x9AD8;&#x7AEF;bit&#x662F;110, &#x5247;&#x8AAC;&#x660E;&#x9700;&#x8981;2&#x500B;&#x5B57;&#x7BC0;; &#x5F8C;&#x7E8C;&#x7684;&#x6BCF;&#x500B;&#x9AD8;&#x7AEF;bit&#x90FD;&#x4EE5;10&#x958B;&#x982D;. &#x66F4;&#x5927;&#x7684;Unicode&#x78BC;&#x9EDE;&#x4E5F;&#x662F;&#x91C7;&#x7528;&#x985E;&#x4F3C;&#x7684;&#x7B56;&#x7565;&#x8655;&#x7406;.</p>
-<pre><code>0xxxxxx                             runes 0-127    (ASCII)
-11xxxxx 10xxxxxx                    128-2047       (values &lt;128 unused)
-110xxxx 10xxxxxx 10xxxxxx           2048-65535     (values &lt;2048 unused)
-1110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536-0x10ffff (other values unused)
+<pre><code>0xxxxxxx                             runes 0-127    (ASCII)
+110xxxxx 10xxxxxx                    128-2047       (values &lt;128 unused)
+1110xxxx 10xxxxxx 10xxxxxx           2048-65535     (values &lt;2048 unused)
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536-0x10ffff (other values unused)
 </code></pre><p>&#x8B8A;&#x9577;&#x7684;&#x7DE8;&#x78BC;&#x7121;&#x6CD5;&#x76F4;&#x63A5;&#x901A;&#x904E;&#x7D22;&#x5F15;&#x4F86;&#x8A2A;&#x554F;&#x7B2C;n&#x500B;&#x5B57;&#x7B26;, &#x4F46;&#x662F;UTF8&#x7A6B;&#x5F97;&#x4E86;&#x5F88;&#x591A;&#x984D;&#x5916;&#x7684;&#x512A;&#x9EDE;. &#x9996;&#x5148;UTF8&#x7DE8;&#x78BC;&#x6BD4;&#x8F03;&#x7DCA;&#x6E4A;, &#x517C;&#x5BB9;ASCII, &#x4F75;&#x4E14;&#x53EF;&#x4EE5;&#x81EA;&#x52D5;&#x540C;&#x6B65;: &#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x5411;&#x524D;&#x8FF4;&#x6714;&#x6700;&#x591A;2&#x500B;&#x5B57;&#x7BC0;&#x5C31;&#x80FD;&#x78BA;&#x5B9A;&#x7576;&#x524D;&#x5B57;&#x7B26;&#x7DE8;&#x78BC;&#x7684;&#x958B;&#x59CB;&#x5B57;&#x7BC0;&#x7684;&#x4F4D;&#x7F6E;. &#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x500B;&#x524D;&#x7DB4;&#x7DE8;&#x78BC;, &#x6240;&#x4EE5;&#x7576;&#x5F9E;&#x5DE6;&#x5411;&#x53F3;&#x89E3;&#x78BC;&#x6642;&#x4E0D;&#x6703;&#x6709;&#x4EFB;&#x4F55;&#x6B67;&#x7FA9;&#x4E5F;&#x4F75;&#x4E0D;&#x9700;&#x8981;&#x5411;&#x524D;&#x67FB;&#x770B;. &#x6C92;&#x6709;&#x4EFB;&#x4F55;&#x5B57;&#x7B26;&#x7684;&#x7DE8;&#x78BC;&#x662F;&#x5176;&#x5B83;&#x5B57;&#x7B26;&#x7DE8;&#x78BC;&#x7684;&#x5B50;&#x4E32;, &#x6216;&#x662F;&#x5176;&#x5B83;&#x7DE8;&#x78BC;&#x5E8F;&#x5217;&#x7684;&#x5B57;&#x4E32;, &#x56E0;&#x6B64;&#x8490;&#x7D22;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x6642;&#x96BB;&#x8981;&#x8490;&#x7D22;&#x5B83;&#x7684;&#x5B57;&#x7BC0;&#x7DE8;&#x78BC;&#x5E8F;&#x5217;&#x537D;&#x53EF;, &#x4E0D;&#x7528;&#x64D4;&#x5FC3;&#x524D;&#x5F8C;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x6703;&#x5C0D;&#x8490;&#x7D22;&#x7D50;&#x679C;&#x7523;&#x751F;&#x69A6;&#x64FE;. &#x540C;&#x6642;UTF8&#x7DE8;&#x78BC;&#x7684;&#x9806;&#x5E8F;&#x548C;Unicode&#x78BC;&#x9EDE;&#x7684;&#x9806;&#x5E8F;&#x4E00;&#x81F4;, &#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6392;&#x5E8F;UTF8&#x7DE8;&#x78BC;&#x5E8F;&#x5217;. &#x540C;&#x696D;&#x4E5F;&#x6C92;&#x6709;&#x5D4C;&#x5165;&#x7684;NUL(0)&#x5B57;&#x7BC0;, &#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x5730;&#x517C;&#x5BB9;&#x90A3;&#x4E9B;&#x4F7F;&#x7528;NUL&#x4F5C;&#x7232;&#x5B57;&#x7B26;&#x4E32;&#x7D50;&#x5C3E;&#x7684;&#x7DE8;&#x7A0B;&#x8A9E;&#x8A00;.</p>
 <p>Go&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x91C7;&#x7528;UTF8&#x7DE8;&#x78BC;, &#x4F75;&#x4E14;Go&#x8655;&#x7406;UTF8&#x7DE8;&#x78BC;&#x7684;&#x6587;&#x672C;&#x4E5F;&#x5F88;&#x9F63;&#x8272;. unicode &#x5305;&#x63D0;&#x4F9B;&#x4E86;&#x8AF8;&#x591A;&#x8655;&#x7406; rune &#x5B57;&#x7B26;&#x76F8;&#x95DC;&#x529F;&#x80FD;&#x7684;&#x51FD;&#x6578;&#x51FD;&#x6578;(&#x5340;&#x5206;&#x5B57;&#x6BCD;&#x548C;&#x6578;&#x7D44;, &#x6216;&#x8005;&#x662F;&#x5B57;&#x6BCD;&#x7684;&#x5927;&#x5BEB;&#x548C;&#x5C0F;&#x5BEB;&#x8F49;&#x63DB;&#x7B49;), unicode/utf8 &#x5305;&#x4E86;&#x63D0;&#x4F9B;&#x4E86;rune &#x5B57;&#x7B26;&#x5E8F;&#x5217;&#x7684;UTF8&#x7DE8;&#x78BC;&#x548C;&#x89E3;&#x78BC;&#x7684;&#x529F;&#x80FD;.</p>
 <p>&#x6709;&#x5F88;&#x591A;Unicode&#x5B57;&#x7B26;&#x5F88;&#x96E3;&#x76F4;&#x63A5;&#x5F9E;&#x9375;&#x76E4;&#x8F38;&#x5165;, &#x4F75;&#x4E14;&#x5F88;&#x591A;&#x5B57;&#x7B26;&#x6709;&#x7740;&#x76F8;&#x4F3C;&#x7684;&#x7D50;&#x69CB;; &#x6709;&#x4E00;&#x4E9B;&#x751A;&#x81F3;&#x662F;&#x4E0D;&#x53EF;&#x898B;&#x7684;&#x5B57;&#x7B26;. Go&#x5B57;&#x7B26;&#x4E32;&#x9762;&#x503C;&#x4E2D;&#x7684;Unicode&#x8F49;&#x7FA9;&#x5B57;&#x7B26;&#x8B93;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x901A;&#x904E;Unicode&#x78BC;&#x9EDE;&#x8F38;&#x5165;&#x7279;&#x6B8A;&#x7684;&#x5B57;&#x7B26;. &#x6709;&#x5169;&#x7A2E;&#x5F62;&#x5F0F;, \uhhhh &#x5C0D;&#x61C9;16bit&#x7684;&#x78BC;&#x9EDE;&#x503C;, \Uhhhhhhhh &#x5C0D;&#x61C9;32bit&#x7684;&#x78BC;&#x9EDE;&#x503C;, &#x5176;&#x4E2D;h&#x662F;&#x4E00;&#x500B;&#x5341;&#x516D;&#x9032;&#x88FD;&#x6578;&#x5B57;; &#x4E00;&#x822C;&#x5F88;&#x5C11;&#x9700;&#x8981;&#x4F7F;&#x7528;32bit&#x7684;&#x5F62;&#x5F0F;. &#x6BCF;&#x4E00;&#x500B;&#x5C0D;&#x61C9;&#x78BC;&#x9EDE;&#x7684;UTF8&#x7DE8;&#x78BC;. &#x4F8B;&#x5982;: &#x4E0B;&#x9762;&#x7684;&#x5B57;&#x6BCD;&#x4E32;&#x9762;&#x503C;&#x90FD;&#x8868;&#x793A;&#x76F8;&#x540C;&#x7684;&#x503C;:</p>

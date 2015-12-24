@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="7.1" data-chapter-title="接口是合約" data-filepath="ch7/ch7-01.md" data-basepath=".." data-revision="Mon Dec 21 2015 12:51:02 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="7.1" data-chapter-title="接口是合約" data-filepath="ch7/ch7-01.md" data-basepath=".." data-revision="Thu Dec 24 2015 14:42:02 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -1975,16 +1975,16 @@
             
         </li>
     
-        <li class="chapter " data-level="14" data-path="errata.html">
+        <li class="chapter " data-level="14" data-path="CONTRIBUTORS.html">
             
                 
-                    <a href="../errata.html">
+                    <a href="../CONTRIBUTORS.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>14.</b>
                         
-                        勘誤
+                        附録
                     </a>
             
             
@@ -2042,17 +2042,17 @@
 &#x4F75;&#x4E0D;&#x662F;&#x4E00;&#x500B;&#x6587;&#x4EF6;&#x985E;&#x578B;&#x76E1;&#x7BA1;&#x5B83;&#x5728;&#x67D0;&#x7A2E;&#x610F;&#x7FA9;&#x4E0A;&#x548C;&#x6587;&#x4EF6;&#x985E;&#x578B;&#x76F8;&#x4F3C;&#x3002;</p>
 <p>&#x537D;&#x4F7F;Fprintf&#x51FD;&#x6578;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x53C3;&#x6578;&#x4E5F;&#x4E0D;&#x662F;&#x4E00;&#x500B;&#x6587;&#x4EF6;&#x985E;&#x578B;&#x3002;&#x5B83;&#x662F;io.Writer&#x985E;&#x578B;&#x9019;&#x662F;&#x4E00;&#x500B;&#x63A5;&#x53E3;&#x985E;&#x578B;&#x5B9A;&#x7FA9;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">package</span> io
-     <span class="hljs-comment">// Writer is the interface that wraps the basic Write method.</span>
-     <span class="hljs-keyword">type</span> Writer <span class="hljs-keyword">interface</span> {
+<span class="hljs-comment">// Writer is the interface that wraps the basic Write method.</span>
+<span class="hljs-keyword">type</span> Writer <span class="hljs-keyword">interface</span> {
+    <span class="hljs-comment">// Write writes len(p) bytes from p to the underlying data stream.</span>
+    <span class="hljs-comment">// It returns the number of bytes written from p (0 &lt;= n &lt;= len(p))</span>
+    <span class="hljs-comment">// and any error encountered that caused the write to stop early.</span>
+    <span class="hljs-comment">// Write must return a non-nil error if it returns n &lt; len(p).</span>
+    <span class="hljs-comment">// Write must not modify the slice data, even temporarily.</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// Implementations must not retain p.</span>
+    Write(p []<span class="hljs-typename">byte</span>) (n <span class="hljs-typename">int</span>, err error)
 }
-<span class="hljs-comment">// Write writes len(p) bytes from p to the underlying data stream.</span>
-<span class="hljs-comment">// It returns the number of bytes written from p (0 &lt;= n &lt;= len(p))</span>
-<span class="hljs-comment">// and any error encountered that caused the write to stop early.</span>
-<span class="hljs-comment">// Write must return a non-nil error if it returns n &lt; len(p).</span>
-<span class="hljs-comment">// Write must not modify the slice data, even temporarily.</span>
-<span class="hljs-comment">//</span>
-<span class="hljs-comment">// Implementations must not retain p.</span>
-Write(p []<span class="hljs-typename">byte</span>) (n <span class="hljs-typename">int</span>, err error)
 </code></pre>
 <p>io.Writer&#x985E;&#x578B;&#x5B9A;&#x7FA9;&#x4E86;&#x51FD;&#x6578;Fprintf&#x548C;&#x9019;&#x500B;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x8005;&#x4E4B;&#x9593;&#x7684;&#x7D04;&#x5B9A;&#x3002;&#x4E00;&#x65B9;&#x9762;&#x9019;&#x500B;&#x7D04;&#x5B9A;&#x9700;&#x8981;&#x8ABF;&#x7528;&#x8005;&#x63D0;&#x4F9B;&#x5177;&#x9AD4;&#x985E;&#x578B;&#x7684;&#x503C;&#x5C31;&#x50CF;*os.File&#x548C;*bytes.Buffer&#xFF0C;&#x9019;&#x4E9B;&#x985E;&#x578B;&#x90FD;&#x6709;&#x4E00;&#x500B;&#x7279;&#x5B9A;&#x7C64;&#x540D;&#x548C;&#x884C;&#x7232;&#x7684;Write&#x7684;&#x51FD;&#x6578;&#x3002;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#x9019;&#x500B;&#x7D04;&#x5B9A;&#x4FDD;&#x8B49;&#x4E86;Fprintf&#x63A5;&#x53D7;&#x4EFB;&#x4F55;&#x6EFF;&#x8DB3;io.Writer&#x63A5;&#x53E3;&#x7684;&#x503C;&#x90FD;&#x53EF;&#x4EE5;&#x5DE5;&#x4F5C;&#x3002;Fprintf&#x51FD;&#x6578;&#x53EF;&#x80FD;&#x6C92;&#x6709;&#x5047;&#x5B9A;&#x5BEB;&#x5165;&#x7684;&#x662F;&#x4E00;&#x500B;&#x6587;&#x4EF6;&#x6216;&#x662F;&#x4E00;&#x6BB5;&#x5167;&#x5B58;&#xFF0C;&#x800C;&#x662F;&#x5BEB;&#x5165;&#x4E00;&#x500B;&#x53EF;&#x4EE5;&#x8ABF;&#x7528;Write&#x51FD;&#x6578;&#x7684;&#x503C;&#x3002;</p>
 <p>&#x56E0;&#x7232;fmt.Fprintf&#x51FD;&#x6578;&#x6C92;&#x6709;&#x5C0D;&#x5177;&#x9AD4;&#x64CD;&#x4F5C;&#x7684;&#x503C;&#x505A;&#x4EFB;&#x4F55;&#x5047;&#x8A2D;&#x800C;&#x662F;&#x50C5;&#x50C5;&#x901A;&#x904E;io.Writer&#x63A5;&#x53E3;&#x7684;&#x7D04;&#x5B9A;&#x4F86;&#x4FDD;&#x8B49;&#x884C;&#x7232;&#xFF0C;&#x6240;&#x4EE5;&#x7B2C;&#x4E00;&#x500B;&#x53C3;&#x6578;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x5730;&#x50B3;&#x5165;&#x4E00;&#x500B;&#x4EFB;&#x4F55;&#x5177;&#x9AD4;&#x985E;&#x578B;&#x7684;&#x503C;&#x96BB;&#x9700;&#x8981;&#x6EFF;&#x8DB3;io.Writer&#x63A5;&#x53E3;&#x3002;&#x4E00;&#x500B;&#x985E;&#x578B;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x7684;&#x4F7F;&#x7528;&#x53E6;&#x4E00;&#x500B;&#x6EFF;&#x8DB3;&#x76F8;&#x540C;&#x63A5;&#x53E3;&#x7684;&#x985E;&#x578B;&#x4F86;&#x9032;&#x884C;&#x66FF;&#x63DB;&#x88AB;&#x7A31;&#x4F5C;&#x53EF;&#x66FF;&#x63DB;&#x6027;(LSP&#x91CC;&#x6C0F;&#x66FF;&#x63DB;)&#x3002;&#x9019;&#x662F;&#x4E00;&#x500B;&#x9762;&#x5411;&#x5C0D;&#x8C61;&#x7684;&#x7279;&#x5FB5;&#x3002;</p>
