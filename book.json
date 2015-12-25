@@ -4,5 +4,6 @@
 	"language": "zh",
 	"structure": {
 		"readme": "preface.md"
-	}
+	},
+	"plugins": ["-search"]
 }
