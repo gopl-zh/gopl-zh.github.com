@@ -16,9 +16,30 @@ _book
 *.pdf
 
 # user defined
-vendor
 docs
+tools
+vendor
 cover_bgd.png
 cover_patch.png
 /images/cover.png
 /images/gopher/go_lang_mascot_by_kirael_art-d7kunhu.gif
+zh2tw.go
+Makefile
+make.bat
+SUMMARY-github.md
+
+/ch0/*.md
+/ch1/*.md
+/ch2/*.md
+/ch3/*.md
+/ch4/*.md
+/ch5/*.md
+/ch6/*.md
+/ch7/*.md
+/ch8/*.md
+/ch9/*.md
+/ch10/*.md
+/ch11/*.md
+/ch12/*.md
+/ch13/*.md
+
