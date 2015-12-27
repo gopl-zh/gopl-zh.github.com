@@ -68,7 +68,7 @@ func main() {
 			log.Fatal("filepath.Walk: ", err)
 			return err
 		}
-		if info.IsDir() || path == "node_modules" {
+		if info.IsDir() {
 			return nil
 		}
 		relpath, err := filepath.Rel(dir, path)
