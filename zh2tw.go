@@ -68,7 +68,7 @@ func main() {
 			log.Fatal("filepath.Walk: ", err)
 			return err
 		}
-		if info.IsDir() {
+		if info.IsDir() || path == "node_modules" {
 			return nil
 		}
 		relpath, err := filepath.Rel(dir, path)
@@ -203,6 +203,8 @@ var zh2twMapPatch = map[rune]rune{
 	'当': '當',
 	'才': '才',
 	'出': '出',
+	'台': '台',
+	'国': '国',
 }
 
 var _TSCharactersMap = map[rune]rune{

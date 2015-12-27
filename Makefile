@@ -5,7 +5,9 @@
 # install gitbook
 # npm install gitbook-cli -g
 
+# https://github.com/GitbookIO
 # https://github.com/GitbookIO/gitbook
+# https://github.com/GitbookIO/plugin-katex
 # https://github.com/wastemobile/gitbook
 
 # http://www.imagemagick.org/

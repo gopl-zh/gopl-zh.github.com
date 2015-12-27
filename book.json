@@ -5,5 +5,8 @@
 	"structure": {
 		"readme": "preface.md"
 	},
-	"plugins": ["-search"]
+	"plugins": [
+		"katex",
+		"-search"
+	]
 }
