@@ -1,6 +1,6 @@
 # Go語言聖經（中文版）
 
-Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本，僅供編程和英語學習交流之用，請在下載後24小時內刪除。
+Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本，僅供編程、英語學習、Gitbook、Markdown等學習交流之用。
 
 - 項目主頁：http://github.com/golang-china/gopl-zh
 - 項目進度：http://github.com/golang-china/gopl-zh/blob/master/progress.md
@@ -16,7 +16,7 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 先安裝Go語言環境，Git工具和GitBook命令行工具(`npm install gitbook-cli -g`命令)。
 
-1. 運行`go get github.com/golang-china/gopl-zh`，穫取源文件。
+1. 運行`go get github.com/golang-china/gopl-zh`，獲取源文件。
 2. 運行`go generate github.com/golang-china/gopl-zh`，生成`_book`目録。
 3. 打開`_book/index.html`文件。
 
