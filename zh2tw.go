@@ -205,6 +205,7 @@ var zh2twMapPatch = map[rune]rune{
 	'出': '出',
 	'台': '台',
 	'国': '国',
+	'获': '獲',
 }
 
 var _TSCharactersMap = map[rune]rune{
