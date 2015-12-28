@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="10.6" data-chapter-title="包和命名" data-filepath="ch10/ch10-06.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="10.6" data-chapter-title="包和命名" data-filepath="ch10/ch10-06.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2040,7 +2044,7 @@
 <span class="hljs-keyword">type</span> Reader <span class="hljs-keyword">struct</span>{ <span class="hljs-comment">/* ... */</span> }
 <span class="hljs-keyword">func</span> NewReader(s <span class="hljs-typename">string</span>) *Reader
 </code></pre>
-<p>string &#x672C;&#x8EAB;&#x4F75;&#x6C92;&#x6709;&#x9F63;&#x73FE;&#x5728;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x540D;&#x5B57;&#x4E2D;. &#x56E0;&#x7232;&#x7528;&#x6236;&#x6703;&#x9019;&#x6A23;&#x5F15;&#x7528;&#x9019;&#x4E9B;&#x6210;&#x54E1; strings.Index, strings.Replacer &#x7B49;.</p>
+<p>string &#x672C;&#x8EAB;&#x4F75;&#x6C92;&#x6709;&#x51FA;&#x73FE;&#x5728;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x540D;&#x5B57;&#x4E2D;. &#x56E0;&#x7232;&#x7528;&#x6236;&#x6703;&#x9019;&#x6A23;&#x5F15;&#x7528;&#x9019;&#x4E9B;&#x6210;&#x54E1; strings.Index, strings.Replacer &#x7B49;.</p>
 <p>&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x5305;, &#x53EF;&#x80FD;&#x96BB;&#x63CF;&#x8FF0;&#x4E86;&#x55AE;&#x4E00;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;, &#x4F8B;&#x5982; html/template &#x548C; math/rand &#x7B49;, &#x96BB;&#x66B4;&#x9732;&#x4E00;&#x500B;&#x4E3B;&#x8981;&#x7684;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x548C;&#x8207;&#x5B83;&#x76F8;&#x95DC;&#x7684;&#x65B9;&#x6CD5;, &#x9084;&#x6709;&#x4E00;&#x500B; New &#x540D;&#x5B57;&#x7684;&#x51FD;&#x6578;&#x7528;&#x65BC;&#x5275;&#x5EFA;&#x5BE6;&#x4F8B;.</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">package</span> rand <span class="hljs-comment">// &quot;math/rand&quot;</span>
 
@@ -2081,7 +2085,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

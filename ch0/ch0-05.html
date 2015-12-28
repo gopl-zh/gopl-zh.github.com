@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="0.5" data-chapter-title="致謝" data-filepath="ch0/ch0-05.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="0.5" data-chapter-title="致謝" data-filepath="ch0/ch0-05.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2020,8 +2024,8 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="&#x81F4;&#x8B1D;">&#x81F4;&#x8B1D;</h2>
-<p>Rob Pike&#x548C;Russ Cox&#xFF0C;&#x4EE5;&#x53CA;&#x5F88;&#x591A;&#x5176;&#x4ED6;Go&#x7CF0;&#x968A;&#x7684;&#x8988;&#x5FC3;&#x6210;&#x54E1;&#x591A;&#x6B21;&#x4ED4;&#x7D30;&#x95B2;&#x8B80;&#x4E86;&#x672C;&#x66F8;&#x7684;&#x624B;&#x7A3F;&#xFF0C;&#x4ED6;&#x5011;&#x5C0D;&#x672C;&#x66F8;&#x7684;&#x7D44;&#x7E54;&#x7D50;&#x69CB;&#x548C;&#x8868;&#x8FF0;&#x7528;&#x8A5E;&#x7B49;&#x7D66;&#x9F63;&#x4E86;&#x5F88;&#x591A;&#x5BF6;&#x8CB4;&#x7684;&#x5EFA;&#x8B70;&#x3002;&#x5728;&#x6E96;&#x5099;&#x65E5;&#x6587;&#x7248;&#x7FFB;&#x8B6F;&#x7684;&#x6642;&#x5019;&#xFF0C;Yoshiki Shibata&#x66F4;&#x662F;&#x4ED4;&#x7D30;&#x5730;&#x5BE9;&#x95B2;&#x4E86;&#x672C;&#x66F8;&#x7684;&#x6BCF;&#x500B;&#x90E8;&#x5206;&#xFF0C;&#x53CA;&#x6642;&#x767C;&#x73FE;&#x4E86;&#x8AF8;&#x591A;&#x82F1;&#x6587;&#x548C;&#x4EE3;&#x78BC;&#x7684;&#x932F;&#x8AA4;&#x3002;&#x6211;&#x5011;&#x975E;&#x5E38;&#x611F;&#x8B1D;&#x672C;&#x66F8;&#x7684;&#x6BCF;&#x4E00;&#x4F4D;&#x5BE9;&#x95B2;&#x8005;&#xFF0C;&#x4F75;&#x611F;&#x8B1D;&#x5C0D;&#x672C;&#x66F8;&#x7D66;&#x9F63;&#x4E86;&#x91CD;&#x8981;&#x7684;&#x5EFA;&#x8B70;&#x7684;Brian Goetz&#x3001;Corey Kosak&#x3001;Arnold Robbins&#x3001;Josh Bleecher Snyder&#x548C;Peter Weinberger&#x7B49;&#x4EBA;&#x3002;</p>
-<p>&#x6211;&#x5011;&#x9084;&#x611F;&#x8B1D;Sameer Ajmani&#x3001;Ittai Balaban&#x3001;David Crawshaw&#x3001;Billy Donohue&#x3001;Jonathan Feinberg&#x3001;Andrew Gerrand&#x3001;Robert Griesemer&#x3001;John Linderman&#x3001;Minux Ma&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x4E2D;&#x570B;&#x4EBA;&#xFF0C;Go&#x7CF0;&#x968A;&#x6210;&#x54E1;&#x3002;&#xFF09;&#x3001;Bryan Mills&#x3001;Bala Natarajan&#x3001;Cosmos Nicolaou&#x3001;Paul Staniforth&#x3001;Nigel Tao&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x597D;&#x50CF;&#x662F;&#x9676;&#x54F2;&#x8ED2;&#x7684;&#x5144;&#x5F1F;&#xFF09;&#x4EE5;&#x53CA;Howard Trickey&#x7D66;&#x9F63;&#x7684;&#x8A31;&#x591A;&#x6709;&#x50F9;&#x503C;&#x7684;&#x5EFA;&#x8B70;&#x3002;&#x6211;&#x5011;&#x9084;&#x8981;&#x611F;&#x8B1D;David Brailsford&#x548C;Raph Levien&#x95DC;&#x65BC;&#x985E;&#x578B;&#x8A2D;&#x7F6E;&#x7684;&#x5EFA;&#x8B70;&#x3002;</p>
+<p>Rob Pike&#x548C;Russ Cox&#xFF0C;&#x4EE5;&#x53CA;&#x5F88;&#x591A;&#x5176;&#x4ED6;Go&#x7CF0;&#x968A;&#x7684;&#x8988;&#x5FC3;&#x6210;&#x54E1;&#x591A;&#x6B21;&#x4ED4;&#x7D30;&#x95B2;&#x8B80;&#x4E86;&#x672C;&#x66F8;&#x7684;&#x624B;&#x7A3F;&#xFF0C;&#x4ED6;&#x5011;&#x5C0D;&#x672C;&#x66F8;&#x7684;&#x7D44;&#x7E54;&#x7D50;&#x69CB;&#x548C;&#x8868;&#x8FF0;&#x7528;&#x8A5E;&#x7B49;&#x7D66;&#x51FA;&#x4E86;&#x5F88;&#x591A;&#x5BF6;&#x8CB4;&#x7684;&#x5EFA;&#x8B70;&#x3002;&#x5728;&#x6E96;&#x5099;&#x65E5;&#x6587;&#x7248;&#x7FFB;&#x8B6F;&#x7684;&#x6642;&#x5019;&#xFF0C;Yoshiki Shibata&#x66F4;&#x662F;&#x4ED4;&#x7D30;&#x5730;&#x5BE9;&#x95B2;&#x4E86;&#x672C;&#x66F8;&#x7684;&#x6BCF;&#x500B;&#x90E8;&#x5206;&#xFF0C;&#x53CA;&#x6642;&#x767C;&#x73FE;&#x4E86;&#x8AF8;&#x591A;&#x82F1;&#x6587;&#x548C;&#x4EE3;&#x78BC;&#x7684;&#x932F;&#x8AA4;&#x3002;&#x6211;&#x5011;&#x975E;&#x5E38;&#x611F;&#x8B1D;&#x672C;&#x66F8;&#x7684;&#x6BCF;&#x4E00;&#x4F4D;&#x5BE9;&#x95B2;&#x8005;&#xFF0C;&#x4F75;&#x611F;&#x8B1D;&#x5C0D;&#x672C;&#x66F8;&#x7D66;&#x51FA;&#x4E86;&#x91CD;&#x8981;&#x7684;&#x5EFA;&#x8B70;&#x7684;Brian Goetz&#x3001;Corey Kosak&#x3001;Arnold Robbins&#x3001;Josh Bleecher Snyder&#x548C;Peter Weinberger&#x7B49;&#x4EBA;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x9084;&#x611F;&#x8B1D;Sameer Ajmani&#x3001;Ittai Balaban&#x3001;David Crawshaw&#x3001;Billy Donohue&#x3001;Jonathan Feinberg&#x3001;Andrew Gerrand&#x3001;Robert Griesemer&#x3001;John Linderman&#x3001;Minux Ma&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x4E2D;&#x56FD;&#x4EBA;&#xFF0C;Go&#x7CF0;&#x968A;&#x6210;&#x54E1;&#x3002;&#xFF09;&#x3001;Bryan Mills&#x3001;Bala Natarajan&#x3001;Cosmos Nicolaou&#x3001;Paul Staniforth&#x3001;Nigel Tao&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x597D;&#x50CF;&#x662F;&#x9676;&#x54F2;&#x8ED2;&#x7684;&#x5144;&#x5F1F;&#xFF09;&#x4EE5;&#x53CA;Howard Trickey&#x7D66;&#x51FA;&#x7684;&#x8A31;&#x591A;&#x6709;&#x50F9;&#x503C;&#x7684;&#x5EFA;&#x8B70;&#x3002;&#x6211;&#x5011;&#x9084;&#x8981;&#x611F;&#x8B1D;David Brailsford&#x548C;Raph Levien&#x95DC;&#x65BC;&#x985E;&#x578B;&#x8A2D;&#x7F6E;&#x7684;&#x5EFA;&#x8B70;&#x3002;</p>
 <p>&#x6211;&#x5011;&#x7684;&#x4F86;&#x81EA;Addison-Wesley&#x7684;&#x7DE8;&#x8F2F;Greg Doench&#x6536;&#x5230;&#x4E86;&#x5F88;&#x591A;&#x5E6B;&#x52A9;&#xFF0C;&#x5F9E;&#x6700;&#x958B;&#x59CB;&#x5C31;&#x5F97;&#x5230;&#x4E86;&#x8D8A;&#x4F86;&#x8D8A;&#x591A;&#x7684;&#x5E6B;&#x52A9;&#x3002;&#x4F86;&#x81EA;AW&#x751F;&#x7523;&#x7CF0;&#x968A;&#x7684;John Fuller&#x3001;Dayna Isley&#x3001;Julie Nahil&#x3001;Chuti Prasertsith&#x5230;Barbara Wood&#xFF0C;&#x611F;&#x8B1D;&#x4F60;&#x5011;&#x7684;&#x71B1;&#x5FC3;&#x5E6B;&#x52A9;&#x3002;</p>
 <p>Alan Donovan&#x7279;&#x522B;&#x611F;&#x8B1D;&#xFF1A;Sameer Ajmani&#x3001;Chris Demetriou&#x3001;Walt Drummond&#x548C;Google&#x516C;&#x53F8;&#x7684;Reid Tatge&#x5141;&#x8A31;&#x4ED6;&#x6709;&#x5145;&#x88D5;&#x7684;&#x6642;&#x9593;&#x53BB;&#x5BEB;&#x672C;&#x66F8;&#xFF1B;&#x611F;&#x8B1D;Stephen Donovan&#x7684;&#x5EFA;&#x8B70;&#x548C;&#x59CB;&#x7D42;&#x5982;&#x4E00;&#x7684;&#x9F13;&#x52F5;&#xFF0C;&#x4EE5;&#x53CA;&#x4ED6;&#x7684;&#x59BB;&#x5B50;Leila Kazemi&#x4F75;&#x6C92;&#x6709;&#x8B93;&#x4ED6;&#x7232;&#x4E86;&#x5BB6;&#x5EAD;&#x7463;&#x4E8B;&#x800C;&#x5206;&#x5FC3;&#xFF0C;&#x4F75;&#x71B1;&#x60C5;&#x5805;&#x5B9A;&#x5730;&#x652F;&#x6301;&#x9019;&#x500B;&#x9805;&#x76EE;&#x3002;</p>
 <p>Brian Kernighan&#x7279;&#x522B;&#x611F;&#x8B1D;&#xFF1A;&#x670B;&#x53CB;&#x548C;&#x540C;&#x4E8B;&#x5C0D;&#x4ED6;&#x7684;&#x8010;&#x5FC3;&#x548C;&#x5BEC;&#x5BB9;&#xFF0C;&#x8B93;&#x4ED6;&#x6162;&#x6162;&#x5730;&#x68B3;&#x7406;&#x672C;&#x66F8;&#x7684;&#x5BEB;&#x4F5C;&#x601D;&#x8DEF;&#x3002;&#x540C;&#x6642;&#x611F;&#x8B1D;&#x4ED6;&#x7684;&#x59BB;&#x5B50;Meg&#x548C;&#x5176;&#x4ED6;&#x5F88;&#x591A;&#x670B;&#x53CB;&#x5C0D;&#x4ED6;&#x5BEB;&#x4F5C;&#x4E8B;&#x696D;&#x7684;&#x652F;&#x6301;&#x3002;</p>
@@ -2057,7 +2061,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

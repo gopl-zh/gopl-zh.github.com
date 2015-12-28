@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="2.7" data-chapter-title="作用域" data-filepath="ch2/ch2-07.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="2.7" data-chapter-title="作用域" data-filepath="ch2/ch2-07.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2020,13 +2024,13 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="27-&#x4F5C;&#x7528;&#x57DF;">2.7. &#x4F5C;&#x7528;&#x57DF;</h2>
-<p>&#x4E00;&#x500B;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x5C07;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5BE6;&#x9AD4;&#x548C;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x95DC;&#x806F;, &#x6BD4;&#x5982;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x6216;&#x4E00;&#x500B;&#x8B8A;&#x91CF;. &#x8072;&#x660E;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x6307;&#x6E90;&#x4EE3;&#x78BC;&#x4E2D;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x4F7F;&#x7528;&#x9019;&#x500B;&#x540D;&#x5B57;&#x7684;&#x8303;&#x570D;.</p>
-<p>&#x4E0D;&#x8981;&#x5C07;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x751F;&#x547D;&#x9031;&#x671F;&#x6DF7;&#x7232;&#x4E00;&#x8AC7;. &#x8072;&#x660E;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5C0D;&#x61C9;&#x7684;&#x662F;&#x4E00;&#x500B;&#x6E90;&#x4EE3;&#x78BC;&#x7684;&#x6587;&#x672C;&#x5340;&#x57DF;; &#x5B83;&#x662F;&#x4E00;&#x500B;&#x7DE8;&#x8B6F;&#x6642;&#x7684;&#x5C6C;&#x6027;. &#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x7684;&#x751F;&#x547D;&#x9031;&#x671F;&#x662F;&#x7A0B;&#x5E8F;&#x904B;&#x884C;&#x6642;&#x8B8A;&#x91CF;&#x5B58;&#x5728;&#x7684;&#x6709;&#x6548;&#x6642;&#x9593;&#x6BB5;, &#x5728;&#x6B64;&#x6642;&#x9593;&#x5340;&#x57DF;&#x5167;&#x5B58;&#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x7A0B;&#x5E8F;&#x7684;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x5F15;&#x7528;. &#x662F;&#x4E00;&#x500B;&#x904B;&#x884C;&#x6642;&#x7684;&#x6982;&#x5FF5;.</p>
-<p>&#x8A9E;&#x6CD5;&#x584A;&#x662F;&#x7531;&#x82B1;&#x62EC;&#x5F27;&#x6240;&#x5305;&#x542B;&#x7684;&#x4E00;&#x7E6B;&#x5217;&#x8A9E;&#x53E5;, &#x5C31;&#x50CF;&#x51FD;&#x6578;&#x9AD4;&#x6216;&#x5FAA;&#x74B0;&#x9AD4;&#x90A3;&#x6A23;. &#x8A9E;&#x6CD5;&#x584A;&#x5167;&#x90E8;&#x8072;&#x660E;&#x7684;&#x540D;&#x5B57;&#x662F;&#x7121;&#x6CD5;&#x88AB;&#x5916;&#x90E8;&#x8A9E;&#x6CD5;&#x584A;&#x8A2A;&#x554F;&#x7684;. &#x8A9E;&#x6CD5;&#x6C7A;&#x5B9A;&#x4E86;&#x5167;&#x90E8;&#x8072;&#x660E;&#x7684;&#x540D;&#x5B57;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;. &#x6211;&#x5011;&#x53EF;&#x4EE5;&#x9019;&#x6A23;&#x7406;&#x89E3;, &#x8A9E;&#x6CD5;&#x584A;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x5176;&#x4ED6;&#x985E;&#x4F3C;&#x7D44;&#x6279;&#x91CF;&#x8072;&#x660E;&#x7B49;&#x6C92;&#x6709;&#x7528;&#x82B1;&#x62EC;&#x5F27;&#x5305;&#x542B;&#x7684;&#x4EE3;&#x78BC;, &#x6211;&#x5011;&#x7A31;&#x4E4B;&#x7232;&#x8A5E;&#x6ED9;&#x584A;. &#x6709;&#x4E00;&#x500B;&#x8A9E;&#x6CD5;&#x6C7A;&#x7232;&#x6574;&#x500B;&#x6E90;&#x4EE3;&#x78BC;, &#x7A31;&#x7232;&#x5168;&#x5C40;&#x584A;; &#x7136;&#x5F8C;&#x662F;&#x6BCF;&#x500B;&#x5305;&#x7684;&#x8A9E;&#x6CD5;&#x6C7A;; &#x6BCF;&#x500B; for, if &#x548C; switch &#x8A9E;&#x53E5;&#x7684;&#x8A9E;&#x6CD5;&#x6C7A;; &#x6BCF;&#x500B; switch &#x6216; select &#x5206;&#x652F;&#x7684; &#x8A9E;&#x6CD5;&#x6C7A;; &#x7576;&#x7136;&#x4E5F;&#x5305;&#x542B;&#x986F;&#x793A;&#x7DE8;&#x5BEB;&#x7684;&#x8A9E;&#x6CD5;&#x584A;(&#x82B1;&#x62EC;&#x5F27;&#x5305;&#x542B;).</p>
-<p>&#x8072;&#x660E;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x6C7A;&#x5B9A;&#x4E86;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;&#x662F;&#x5927;&#x9084;&#x662F;&#x5C0F;. &#x5167;&#x7F6E;&#x7684;&#x985E;&#x578B;, &#x51FD;&#x6578;&#x548C;&#x5E38;&#x91CF;, &#x6BD4;&#x5982; int, len &#x548C; true &#x7B49;&#x662F;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x7684;, &#x53EF;&#x4EE5;&#x5728;&#x6574;&#x500B;&#x7A0B;&#x5E8F;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;. &#x4EFB;&#x4F55;&#x5728;&#x5728;&#x51FD;&#x6578;&#x5916;&#x90E8;(&#x4E5F;&#x5C31;&#x662F;&#x5305;&#x7D1A;&#x4F5C;&#x7528;&#x57DF;)&#x8072;&#x660E;&#x7684;&#x540D;&#x5B57;&#x53EF;&#x4EE5;&#x5728;&#x540C;&#x4E00;&#x500B;&#x5305;&#x7684;&#x4EFB;&#x4F55;Go&#x6587;&#x4EF6;&#x8A2A;&#x554F;. &#x5C0E;&#x5165;&#x7684;&#x5305;, &#x4F8B;&#x5982; tempconv &#x5C0E;&#x5165;&#x7684; fmt &#x5305;, &#x5247;&#x662F;&#x5C0D;&#x61C9;&#x6587;&#x4EF6;&#x7D1A;&#x7684;&#x4F5C;&#x7528;&#x57DF;, &#x56E0;&#x6B64;&#x96BB;&#x80FD;&#x5728;&#x7576;&#x524D;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#x8A2A;&#x554F; fmt &#x5305;, &#x7576;&#x524D;&#x5305;&#x7684;&#x5176;&#x5B83;&#x6587;&#x4EF6;&#x7121;&#x6CD5;&#x8A2A;&#x554F;&#x7576;&#x524D;&#x6587;&#x4EF6;&#x5C0E;&#x5165;&#x7684;&#x5305;. &#x9084;&#x6709;&#x8A31;&#x591A;&#x8072;&#x660E;, &#x6BD4;&#x5982; tempconv.CToF &#x51FD;&#x6578;&#x4E2D;&#x7684;&#x8B8A;&#x91CF; c, &#x5247;&#x662F;&#x5C40;&#x90E8;&#x4F5C;&#x7528;&#x57DF;&#x7684;, &#x5B83;&#x96BB;&#x80FD;&#x5728;&#x51FD;&#x6578;&#x5167;&#x90E8;(&#x751A;&#x81F3;&#x96BB;&#x80FD;&#x662F;&#x67D0;&#x4E9B;&#x90E8;&#x5206;)&#x8A2A;&#x554F;.</p>
-<p>&#x63A7;&#x88FD;&#x6D41;&#x6A19;&#x7C64;, &#x4F8B;&#x5982; break, continue &#x6216; goto &#x5F8C;&#x9762;&#x8DDF;&#x7740;&#x7684;&#x90A3;&#x7A2E;&#x6A19;&#x7C64;, &#x5247;&#x662F;&#x51FD;&#x6578;&#x7D1A;&#x7684;&#x4F5C;&#x7528;&#x57DF;.</p>
-<p>&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x591A;&#x500B;&#x540C;&#x540D;&#x7684;&#x8072;&#x660E;, &#x96BB;&#x6709;&#x5B83;&#x5011;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x5C31;&#x6C92;&#x6709;&#x95DC;&#x7E6B;. &#x4F8B;&#x5982;, &#x4F60;&#x53EF;&#x4EE5;&#x8072;&#x660E;&#x4E00;&#x500B;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;, &#x548C;&#x5305;&#x7D1A;&#x7684;&#x8B8A;&#x91CF;&#x540C;&#x540D;. &#x6216;&#x8005;&#x662F; 2.3.3&#x7BC0;&#x7684;&#x90A3;&#x6A23;, &#x4F60;&#x53EF;&#x4EE5;&#x5C07;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x53C3;&#x6578;&#x7684;&#x540D;&#x5B57;&#x8072;&#x660E;&#x7232; new, &#x96D6;&#x7136;&#x5167;&#x7F6E;&#x7684;new&#x662F;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x7684;. &#x4F46;&#x662F;&#x7269;&#x6975;&#x5FC5;&#x53CD;, &#x5982;&#x679C;&#x6FEB;&#x7528;&#x91CD;&#x540D;&#x7684;&#x7279;&#x6027;, &#x53EF;&#x80FD;&#x5C0E;&#x81F4;&#x7A0B;&#x5E8F;&#x5F88;&#x96E3;&#x95B2;&#x8B80;.</p>
-<p>&#x7576;&#x7DE8;&#x8B6F;&#x5668;&#x9047;&#x5230;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x5F15;&#x7528;, &#x5B83;&#x770B;&#x8D77;&#x4F86;&#x50CF;&#x4E00;&#x500B;&#x8072;&#x660E;, &#x5B83;&#x9996;&#x5148;&#x5F9E;&#x6700;&#x5167;&#x5C64;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x5411;&#x5168;&#x5C40;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x67FB;&#x627E;. &#x5982;&#x679C;&#x67FB;&#x627E;&#x5931;&#x6557;, &#x5247;&#x5831;&#x544A; &quot;&#x672A;&#x8072;&#x660E;&#x7684;&#x540D;&#x5B57;&quot; &#x9019;&#x6A23;&#x7684;&#x932F;&#x8AA4;. &#x5982;&#x679C;&#x540D;&#x5B57;&#x5728;&#x5167;&#x90E8;&#x548C;&#x5916;&#x90E8;&#x7684;&#x584A;&#x5206;&#x522B;&#x8072;&#x660E;, &#x5247;&#x5167;&#x90E8;&#x584A;&#x7684;&#x8072;&#x660E;&#x9996;&#x5148;&#x88AB;&#x627E;&#x5230;. &#x5728;&#x9019;&#x7A2E;&#x60C5;&#x6CC1;&#x4E0B;, &#x5167;&#x90E8;&#x8072;&#x660E;&#x5C4F;&#x853D;&#x4E86;&#x5916;&#x90E8;&#x540C;&#x540D;&#x7684;&#x8072;&#x660E;, &#x8B93;&#x5916;&#x90E8;&#x7684;&#x8072;&#x660E;&#x7121;&#x6CD5;&#x88AB;&#x8A2A;&#x554F;:</p>
+<p>&#x4E00;&#x500B;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x5C07;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5BE6;&#x9AD4;&#x548C;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x95DC;&#x806F;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x6216;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x3002;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x6307;&#x6E90;&#x4EE3;&#x78BC;&#x4E2D;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x4F7F;&#x7528;&#x9019;&#x500B;&#x540D;&#x5B57;&#x7684;&#x8303;&#x570D;&#x3002;</p>
+<p>&#x4E0D;&#x8981;&#x5C07;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x751F;&#x547D;&#x9031;&#x671F;&#x6DF7;&#x7232;&#x4E00;&#x8AC7;&#x3002;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5C0D;&#x61C9;&#x7684;&#x662F;&#x4E00;&#x500B;&#x6E90;&#x4EE3;&#x78BC;&#x7684;&#x6587;&#x672C;&#x5340;&#x57DF;&#xFF1B;&#x5B83;&#x662F;&#x4E00;&#x500B;&#x7DE8;&#x8B6F;&#x6642;&#x7684;&#x5C6C;&#x6027;&#x3002;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x7684;&#x751F;&#x547D;&#x9031;&#x671F;&#x662F;&#x6307;&#x7A0B;&#x5E8F;&#x904B;&#x884C;&#x6642;&#x8B8A;&#x91CF;&#x5B58;&#x5728;&#x7684;&#x6709;&#x6548;&#x6642;&#x9593;&#x6BB5;&#xFF0C;&#x5728;&#x6B64;&#x6642;&#x9593;&#x5340;&#x57DF;&#x5167;&#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x7A0B;&#x5E8F;&#x7684;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x5F15;&#x7528;&#xFF1B;&#x662F;&#x4E00;&#x500B;&#x904B;&#x884C;&#x6642;&#x7684;&#x6982;&#x5FF5;&#x3002;</p>
+<p>&#x8A9E;&#x6CD5;&#x584A;&#x662F;&#x7531;&#x82B1;&#x62EC;&#x5F27;&#x6240;&#x5305;&#x542B;&#x7684;&#x4E00;&#x7E6B;&#x5217;&#x8A9E;&#x53E5;&#xFF0C;&#x5C31;&#x50CF;&#x51FD;&#x6578;&#x9AD4;&#x6216;&#x5FAA;&#x74B0;&#x9AD4;&#x82B1;&#x62EC;&#x5F27;&#x5C0D;&#x61C9;&#x7684;&#x8A9E;&#x6CD5;&#x584A;&#x90A3;&#x6A23;&#x3002;&#x8A9E;&#x6CD5;&#x584A;&#x5167;&#x90E8;&#x8072;&#x660E;&#x7684;&#x540D;&#x5B57;&#x662F;&#x7121;&#x6CD5;&#x88AB;&#x5916;&#x90E8;&#x8A9E;&#x6CD5;&#x584A;&#x8A2A;&#x554F;&#x7684;&#x3002;&#x8A9E;&#x6CD5;&#x6C7A;&#x5B9A;&#x4E86;&#x5167;&#x90E8;&#x8072;&#x660E;&#x7684;&#x540D;&#x5B57;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x9019;&#x6A23;&#x7406;&#x89E3;&#xFF0C;&#x8A9E;&#x6CD5;&#x584A;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x5176;&#x4ED6;&#x985E;&#x4F3C;&#x7D44;&#x6279;&#x91CF;&#x8072;&#x660E;&#x7B49;&#x6C92;&#x6709;&#x7528;&#x82B1;&#x62EC;&#x5F27;&#x5305;&#x542B;&#x7684;&#x4EE3;&#x78BC;&#xFF0C;&#x6211;&#x5011;&#x7A31;&#x4E4B;&#x7232;&#x8A9E;&#x6CD5;&#x584A;&#x3002;&#x6709;&#x4E00;&#x500B;&#x8A9E;&#x6CD5;&#x584A;&#x7232;&#x6574;&#x500B;&#x6E90;&#x4EE3;&#x78BC;&#xFF0C;&#x7A31;&#x7232;&#x5168;&#x5C40;&#x8A9E;&#x6CD5;&#x584A;&#xFF1B;&#x7136;&#x5F8C;&#x662F;&#x6BCF;&#x500B;&#x5305;&#x7684;&#x5305;&#x8A9E;&#x6CD5;&#x6C7A;&#xFF1B;&#x6BCF;&#x500B;for&#x3001;if&#x548C;switch&#x8A9E;&#x53E5;&#x7684;&#x8A9E;&#x6CD5;&#x6C7A;&#xFF1B;&#x6BCF;&#x500B;switch&#x6216;select&#x7684;&#x5206;&#x652F;&#x4E5F;&#x6709;&#x7368;&#x7ACB;&#x7684;&#x8A9E;&#x6CD5;&#x6C7A;&#xFF1B;&#x7576;&#x7136;&#x4E5F;&#x5305;&#x62EC;&#x986F;&#x5F0F;&#x66F8;&#x5BEB;&#x7684;&#x8A9E;&#x6CD5;&#x584A;&#xFF08;&#x82B1;&#x62EC;&#x5F27;&#x5305;&#x542B;&#x7684;&#x8A9E;&#x53E5;&#xFF09;&#x3002;</p>
+<p>&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x5C0D;&#x61C9;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x6C7A;&#x5B9A;&#x4E86;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x5C0D;&#x65BC;&#x5167;&#x7F6E;&#x7684;&#x985E;&#x578B;&#x3001;&#x51FD;&#x6578;&#x548C;&#x5E38;&#x91CF;&#xFF0C;&#x6BD4;&#x5982;int&#x3001;len&#x548C;true&#x7B49;&#x662F;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5728;&#x6574;&#x500B;&#x7A0B;&#x5E8F;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;&#x4EFB;&#x4F55;&#x5728;&#x5728;&#x51FD;&#x6578;&#x5916;&#x90E8;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x5305;&#x7D1A;&#x8A9E;&#x6CD5;&#x57DF;&#xFF09;&#x8072;&#x660E;&#x7684;&#x540D;&#x5B57;&#x53EF;&#x4EE5;&#x5728;&#x540C;&#x4E00;&#x500B;&#x5305;&#x7684;&#x4EFB;&#x4F55;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x8A2A;&#x554F;&#x7684;&#x3002;&#x5C0D;&#x65BC;&#x5C0E;&#x5165;&#x7684;&#x5305;&#xFF0C;&#x4F8B;&#x5982;tempconv&#x5C0E;&#x5165;&#x7684;fmt&#x5305;&#xFF0C;&#x5247;&#x662F;&#x5C0D;&#x61C9;&#x6E90;&#x6587;&#x4EF6;&#x7D1A;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x56E0;&#x6B64;&#x96BB;&#x80FD;&#x5728;&#x7576;&#x524D;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#x8A2A;&#x554F;&#x5C0E;&#x5165;&#x7684;fmt&#x5305;&#xFF0C;&#x7576;&#x524D;&#x5305;&#x7684;&#x5176;&#x5B83;&#x6E90;&#x6587;&#x4EF6;&#x7121;&#x6CD5;&#x8A2A;&#x554F;&#x5728;&#x7576;&#x524D;&#x6E90;&#x6587;&#x4EF6;&#x5C0E;&#x5165;&#x7684;&#x5305;&#x3002;&#x9084;&#x6709;&#x8A31;&#x591A;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#xFF0C;&#x6BD4;&#x5982;tempconv.CToF&#x51FD;&#x6578;&#x4E2D;&#x7684;&#x8B8A;&#x91CF;c&#xFF0C;&#x5247;&#x662F;&#x5C40;&#x90E8;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#xFF0C;&#x5B83;&#x96BB;&#x80FD;&#x5728;&#x51FD;&#x6578;&#x5167;&#x90E8;&#xFF08;&#x751A;&#x81F3;&#x96BB;&#x80FD;&#x662F;&#x5C40;&#x90E8;&#x7684;&#x67D0;&#x4E9B;&#x90E8;&#x5206;&#xFF09;&#x8A2A;&#x554F;&#x3002;</p>
+<p>&#x63A7;&#x88FD;&#x6D41;&#x6A19;&#x865F;&#xFF0C;&#x5C31;&#x662F;break&#x3001;continue&#x6216;goto&#x8A9E;&#x53E5;&#x5F8C;&#x9762;&#x8DDF;&#x7740;&#x7684;&#x90A3;&#x7A2E;&#x6A19;&#x865F;&#xFF0C;&#x5247;&#x662F;&#x51FD;&#x6578;&#x7D1A;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p>
+<p>&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x591A;&#x500B;&#x540C;&#x540D;&#x7684;&#x8072;&#x660E;&#xFF0C;&#x96BB;&#x8981;&#x5B83;&#x5011;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x5C31;&#x6C92;&#x6709;&#x95DC;&#x7E6B;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x8072;&#x660E;&#x4E00;&#x500B;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;&#xFF0C;&#x548C;&#x5305;&#x7D1A;&#x7684;&#x8B8A;&#x91CF;&#x540C;&#x540D;&#x3002;&#x6216;&#x8005;&#x662F;&#x50CF;2.3.3&#x7BC0;&#x7684;&#x4F8B;&#x5B50;&#x90A3;&#x6A23;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5C07;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x53C3;&#x6578;&#x7684;&#x540D;&#x5B57;&#x8072;&#x660E;&#x7232;new&#xFF0C;&#x96D6;&#x7136;&#x5167;&#x7F6E;&#x7684;new&#x662F;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x3002;&#x4F46;&#x662F;&#x7269;&#x6975;&#x5FC5;&#x53CD;&#xFF0C;&#x5982;&#x679C;&#x6FEB;&#x7528;&#x4E0D;&#x540C;&#x8A5E;&#x6CD5;&#x57DF;&#x53EF;&#x91CD;&#x540D;&#x7684;&#x7279;&#x6027;&#x7684;&#x8A71;&#xFF0C;&#x53EF;&#x80FD;&#x5C0E;&#x81F4;&#x7A0B;&#x5E8F;&#x5F88;&#x96E3;&#x95B2;&#x8B80;&#x3002;</p>
+<p>&#x7576;&#x7DE8;&#x8B6F;&#x5668;&#x9047;&#x5230;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x5F15;&#x7528;&#x6642;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x770B;&#x8D77;&#x4F86;&#x50CF;&#x4E00;&#x500B;&#x8072;&#x660E;&#xFF0C;&#x5B83;&#x9996;&#x5148;&#x5F9E;&#x6700;&#x5167;&#x5C64;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x5411;&#x5168;&#x5C40;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x67FB;&#x627E;&#x3002;&#x5982;&#x679C;&#x67FB;&#x627E;&#x5931;&#x6557;&#xFF0C;&#x5247;&#x5831;&#x544A;&#x201C;&#x672A;&#x8072;&#x660E;&#x7684;&#x540D;&#x5B57;&#x201D;&#x9019;&#x6A23;&#x7684;&#x932F;&#x8AA4;&#x3002;&#x5982;&#x679C;&#x8A72;&#x540D;&#x5B57;&#x5728;&#x5167;&#x90E8;&#x548C;&#x5916;&#x90E8;&#x7684;&#x584A;&#x5206;&#x522B;&#x8072;&#x660E;&#x904E;&#xFF0C;&#x5247;&#x5167;&#x90E8;&#x584A;&#x7684;&#x8072;&#x660E;&#x9996;&#x5148;&#x88AB;&#x627E;&#x5230;&#x3002;&#x5728;&#x9019;&#x7A2E;&#x60C5;&#x6CC1;&#x4E0B;&#xFF0C;&#x5167;&#x90E8;&#x8072;&#x660E;&#x5C4F;&#x853D;&#x4E86;&#x5916;&#x90E8;&#x540C;&#x540D;&#x7684;&#x8072;&#x660E;&#xFF0C;&#x8B93;&#x5916;&#x90E8;&#x7684;&#x8072;&#x660E;&#x7684;&#x540D;&#x5B57;&#x7121;&#x6CD5;&#x88AB;&#x8A2A;&#x554F;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">func</span> f() {}
 
 <span class="hljs-keyword">var</span> g = <span class="hljs-string">&quot;g&quot;</span>
@@ -2038,7 +2042,7 @@
     fmt.Println(h) <span class="hljs-comment">// compile error: undefined: h</span>
 }
 </code></pre>
-<p>&#x5728;&#x51FD;&#x6578;&#x4E2D;&#x8A5E;&#x6CD5;&#x57DF;&#x53EF;&#x4EE5;&#x6DF1;&#x5EA6;&#x5D4C;&#x5957;, &#x56E0;&#x6B64;&#x5167;&#x90E8;&#x7684;&#x4E00;&#x500B;&#x8072;&#x660E;&#x53EF;&#x80FD;&#x5C4F;&#x853D;&#x5916;&#x90E8;&#x7684;&#x8072;&#x660E;. &#x9084;&#x6709;&#x8A31;&#x591A;&#x584A;&#x662F;if&#x6216;for&#x7B49;&#x63A7;&#x88FD;&#x6D41;&#x8A9E;&#x53E5;&#x69CB;&#x9020;&#x7684;. &#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x6709;&#x4E09;&#x500B;&#x4E0D;&#x540C;&#x7684;&#x8B8A;&#x91CF;x, &#x56E0;&#x7232;&#x5B83;&#x5011;&#x662F;&#x5B9A;&#x7FA9;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x7684;&#x539F;&#x56E0;. (&#x9019;&#x500B;&#x4F8B;&#x5B50;&#x96BB;&#x662F;&#x7232;&#x4E86;&#x6F14;&#x793A;&#x4F5C;&#x7528;&#x57DF;&#x898F;&#x5247;, &#x4F46;&#x4E0D;&#x662F;&#x597D;&#x7684;&#x7DE8;&#x7A0B;&#x98A8;&#x683C;.)</p>
+<p>&#x5728;&#x51FD;&#x6578;&#x4E2D;&#x8A5E;&#x6CD5;&#x57DF;&#x53EF;&#x4EE5;&#x6DF1;&#x5EA6;&#x5D4C;&#x5957;&#xFF0C;&#x56E0;&#x6B64;&#x5167;&#x90E8;&#x7684;&#x4E00;&#x500B;&#x8072;&#x660E;&#x53EF;&#x80FD;&#x5C4F;&#x853D;&#x5916;&#x90E8;&#x7684;&#x8072;&#x660E;&#x3002;&#x9084;&#x6709;&#x8A31;&#x591A;&#x8A9E;&#x6CD5;&#x584A;&#x662F;if&#x6216;for&#x7B49;&#x63A7;&#x88FD;&#x6D41;&#x8A9E;&#x53E5;&#x69CB;&#x9020;&#x7684;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x6709;&#x4E09;&#x500B;&#x4E0D;&#x540C;&#x7684;&#x8B8A;&#x91CF;x&#xFF0C;&#x56E0;&#x7232;&#x5B83;&#x5011;&#x662F;&#x5B9A;&#x7FA9;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#xFF08;&#x9019;&#x500B;&#x4F8B;&#x5B50;&#x96BB;&#x662F;&#x7232;&#x4E86;&#x6F14;&#x793A;&#x4F5C;&#x7528;&#x57DF;&#x898F;&#x5247;&#xFF0C;&#x4F46;&#x4E0D;&#x662F;&#x597D;&#x7684;&#x7DE8;&#x7A0B;&#x98A8;&#x683C;&#xFF09;&#x3002;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">func</span> main() {
     x := <span class="hljs-string">&quot;hello!&quot;</span>
     <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(x); i++ {
@@ -2050,9 +2054,9 @@
     }
 }
 </code></pre>
-<p>&#x5728; <code>x[i]</code> &#x548C; <code>x + &apos;A&apos; - &apos;a&apos;</code> &#x8072;&#x660E;&#x521D;&#x59CB;&#x5316;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x4E2D;&#x90FD;&#x5F15;&#x7528;&#x4E86;&#x5916;&#x90E8;&#x4F5C;&#x7528;&#x57DF;&#x8072;&#x660E;&#x7684;x&#x8B8A;&#x91CF;, &#x7A0D;&#x5F8C;&#x6211;&#x5011;&#x6703;&#x89E3;&#x91CB;&#x9019;&#x500B;. (&#x8A3B;&#x610F;, &#x5F8C;&#x9762;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x548C;unicode.ToUpper&#x4F75;&#x4E0D;&#x7B49;&#x50F9;.)</p>
-<p>&#x6B63;&#x5982;&#x4E0A;&#x9762;&#x6240;&#x793A;, &#x4F75;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x90FD;&#x986F;&#x793A;&#x5730;&#x5C0D;&#x61C9;&#x5230;&#x7531;&#x82B1;&#x62EC;&#x5F27;&#x5305;&#x542B;&#x7684;&#x8A9E;&#x53E5;; &#x9084;&#x6709;&#x4E00;&#x4E9B;&#x96B1;&#x542B;&#x7684;&#x898F;&#x5247;. &#x4E0A;&#x9762;&#x7684;for&#x8A9E;&#x53E5;&#x5275;&#x5EFA;&#x4E86;&#x5169;&#x500B;&#x8A5E;&#x6CD5;&#x57DF;: &#x82B1;&#x62EC;&#x5F27;&#x5305;&#x542B;&#x7684;&#x662F;&#x986F;&#x5F0F;&#x7684;&#x90E8;&#x5206;&#x662F;for&#x7684;&#x5FAA;&#x74B0;&#x9AD4;, &#x53E6;&#x5916;&#x4E00;&#x500B;&#x96B1;&#x5F0F;&#x7684;&#x90E8;&#x5206;&#x5247;&#x662F;&#x5FAA;&#x74B0;&#x7684;&#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;, &#x6BD4;&#x5982;&#x7528;&#x65BC;&#x8FED;&#x4EE3;&#x8B8A;&#x91CF; i &#x7684;&#x521D;&#x59CB;&#x5316;. &#x96B1;&#x5F0F;&#x7684;&#x90E8;&#x5206;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x9084;&#x5305;&#x542B;&#x689D;&#x4EF6;&#x6E2C;&#x8A66;&#x90E8;&#x5206;&#x548C;&#x5FAA;&#x74B0;&#x5F8C;&#x7684;&#x8FED;&#x4EE3;&#x90E8;&#x5206;(i++), &#x7576;&#x7136;&#x4E5F;&#x5305;&#x542B;&#x5FAA;&#x74B0;&#x9AD4;.</p>
-<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x540C;&#x6A23;&#x6709;&#x4E09;&#x500B;&#x4E0D;&#x540C;&#x7684;x&#x8B8A;&#x91CF;, &#x6BCF;&#x500B;&#x8072;&#x660E;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x584A;, &#x4E00;&#x500B;&#x5728;&#x51FD;&#x6578;&#x9AD4;&#x584A;, &#x4E00;&#x500B;&#x5728;for&#x8A9E;&#x53E5;&#x584A;, &#x4E00;&#x500B;&#x5728;&#x5FAA;&#x74B0;&#x9AD4;&#x584A;; &#x96BB;&#x6709;&#x5169;&#x500B;&#x584A;&#x662F;&#x986F;&#x5F0F;&#x5275;&#x5EFA;&#x7684;:</p>
+<p>&#x5728;<code>x[i]</code>&#x548C;<code>x + &apos;A&apos; - &apos;a&apos;</code>&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x7684;&#x521D;&#x59CB;&#x5316;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x4E2D;&#x90FD;&#x5F15;&#x7528;&#x4E86;&#x5916;&#x90E8;&#x4F5C;&#x7528;&#x57DF;&#x8072;&#x660E;&#x7684;x&#x8B8A;&#x91CF;&#xFF0C;&#x7A0D;&#x5F8C;&#x6211;&#x5011;&#x6703;&#x89E3;&#x91CB;&#x9019;&#x500B;&#x3002;&#xFF08;&#x8A3B;&#x610F;&#xFF0C;&#x5F8C;&#x9762;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x8207;unicode.ToUpper&#x4F75;&#x4E0D;&#x7B49;&#x50F9;&#x3002;&#xFF09;</p>
+<p>&#x6B63;&#x5982;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x6240;&#x793A;&#xFF0C;&#x4F75;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x90FD;&#x986F;&#x5F0F;&#x5730;&#x5C0D;&#x61C9;&#x5230;&#x7531;&#x82B1;&#x62EC;&#x5F27;&#x5305;&#x542B;&#x7684;&#x8A9E;&#x53E5;&#xFF1B;&#x9084;&#x6709;&#x4E00;&#x4E9B;&#x96B1;&#x542B;&#x7684;&#x898F;&#x5247;&#x3002;&#x4E0A;&#x9762;&#x7684;for&#x8A9E;&#x53E5;&#x5275;&#x5EFA;&#x4E86;&#x5169;&#x500B;&#x8A5E;&#x6CD5;&#x57DF;&#xFF1A;&#x82B1;&#x62EC;&#x5F27;&#x5305;&#x542B;&#x7684;&#x662F;&#x986F;&#x5F0F;&#x7684;&#x90E8;&#x5206;&#x662F;for&#x7684;&#x5FAA;&#x74B0;&#x9AD4;&#x90E8;&#x5206;&#x8A5E;&#x6CD5;&#x57DF;&#xFF0C;&#x53E6;&#x5916;&#x4E00;&#x500B;&#x96B1;&#x5F0F;&#x7684;&#x90E8;&#x5206;&#x5247;&#x662F;&#x5FAA;&#x74B0;&#x7684;&#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;&#xFF0C;&#x6BD4;&#x5982;&#x7528;&#x65BC;&#x8FED;&#x4EE3;&#x8B8A;&#x91CF;i&#x7684;&#x521D;&#x59CB;&#x5316;&#x3002;&#x96B1;&#x5F0F;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x90E8;&#x5206;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x9084;&#x5305;&#x542B;&#x689D;&#x4EF6;&#x6E2C;&#x8A66;&#x90E8;&#x5206;&#x548C;&#x5FAA;&#x74B0;&#x5F8C;&#x7684;&#x8FED;&#x4EE3;&#x90E8;&#x5206;&#xFF08;<code>i++</code>&#xFF09;&#xFF0C;&#x7576;&#x7136;&#x4E5F;&#x5305;&#x542B;&#x5FAA;&#x74B0;&#x9AD4;&#x8A5E;&#x6CD5;&#x57DF;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x540C;&#x6A23;&#x6709;&#x4E09;&#x500B;&#x4E0D;&#x540C;&#x7684;x&#x8B8A;&#x91CF;&#xFF0C;&#x6BCF;&#x500B;&#x8072;&#x660E;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#xFF0C;&#x4E00;&#x500B;&#x5728;&#x51FD;&#x6578;&#x9AD4;&#x8A5E;&#x6CD5;&#x57DF;&#xFF0C;&#x4E00;&#x500B;&#x5728;for&#x96B1;&#x5F0F;&#x7684;&#x521D;&#x59CB;&#x5316;&#x8A5E;&#x6CD5;&#x57DF;&#xFF0C;&#x4E00;&#x500B;&#x5728;for&#x5FAA;&#x74B0;&#x9AD4;&#x8A5E;&#x6CD5;&#x57DF;&#xFF1B;&#x96BB;&#x6709;&#x5169;&#x500B;&#x584A;&#x662F;&#x986F;&#x5F0F;&#x5275;&#x5EFA;&#x7684;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">func</span> main() {
     x := <span class="hljs-string">&quot;hello&quot;</span>
     <span class="hljs-keyword">for</span> _, x := <span class="hljs-keyword">range</span> x {
@@ -2061,7 +2065,7 @@
     }
 }
 </code></pre>
-<p>&#x548C;&#x5F7F;&#x5982;&#x5FAA;&#x74B0;&#x985E;&#x4F3C;, if&#x548C;switch&#x8A9E;&#x53E5;&#x4E5F;&#x6703;&#x5728;&#x689D;&#x4EF6;&#x90E8;&#x5206;&#x5275;&#x5EFA;&#x96B1;&#x5F0F;&#x584A;, &#x9084;&#x6709;&#x5B83;&#x5011;&#x5C0D;&#x61C9;&#x7684;&#x57F7;&#x884C;&#x9AD4;&#x584A;. &#x4E0B;&#x9762;&#x7684; if-else &#x6E2C;&#x8A66;&#x93C8;&#x6F14;&#x793A;&#x7684; x &#x548C; y &#x7684;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;:</p>
+<p>&#x548C;for&#x5FAA;&#x74B0;&#x985E;&#x4F3C;&#xFF0C;if&#x548C;switch&#x8A9E;&#x53E5;&#x4E5F;&#x6703;&#x5728;&#x689D;&#x4EF6;&#x90E8;&#x5206;&#x5275;&#x5EFA;&#x96B1;&#x5F0F;&#x8A5E;&#x6CD5;&#x57DF;&#xFF0C;&#x9084;&#x6709;&#x5B83;&#x5011;&#x5C0D;&#x61C9;&#x7684;&#x57F7;&#x884C;&#x9AD4;&#x8A5E;&#x6CD5;&#x57DF;&#x3002;&#x4E0B;&#x9762;&#x7684;if-else&#x6E2C;&#x8A66;&#x93C8;&#x6F14;&#x793A;&#x4E86;x&#x548C;y&#x7684;&#x6709;&#x6548;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">if</span> x := f(); x == <span class="hljs-number">0</span> {
     fmt.Println(x)
 } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> y := g(x); x == y {
@@ -2071,17 +2075,17 @@
 }
 fmt.Println(x, y) <span class="hljs-comment">// compile error: x and y are not visible here</span>
 </code></pre>
-<p>&#x7B2C;&#x4E8C;&#x500B;if&#x8A9E;&#x53E5;&#x5D4C;&#x5957;&#x5728;&#x7B2C;&#x4E00;&#x500B;&#x5167;&#x90E8;, &#x56E0;&#x6B64;&#x4E00;&#x500B;if&#x8A9E;&#x53E5;&#x689D;&#x4EF6;&#x584A;&#x8072;&#x660E;&#x7684;&#x8B8A;&#x91CF;&#x5728;&#x7B2C;&#x4E8C;&#x500B;if&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x8A2A;&#x554F;. switch&#x8A9E;&#x53E5;&#x7684;&#x6BCF;&#x500B;&#x5206;&#x652F;&#x4E5F;&#x6709;&#x985E;&#x4F3C;&#x7684;&#x898F;&#x5247;: &#x689D;&#x4EF6;&#x90E8;&#x5206;&#x7232;&#x4E00;&#x500B;&#x96B1;&#x5F0F;&#x584A;, &#x7136;&#x5F8C;&#x6BCF;&#x500B;&#x662F;&#x6BCF;&#x500B;&#x5206;&#x652F;&#x7684;&#x4E3B;&#x9AD4;&#x584A;.</p>
-<p>&#x5728;&#x5305;&#x7D1A;&#x522B;, &#x8072;&#x660E;&#x7684;&#x9806;&#x5E8F;&#x4F75;&#x4E0D;&#x6703;&#x5F71;&#x97FF;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;, &#x56E0;&#x6B64;&#x4E00;&#x500B;&#x5148;&#x8072;&#x660E;&#x7684;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5B83;&#x81EA;&#x8EAB;&#x6216;&#x8005;&#x662F;&#x5F15;&#x7528;&#x5F8C;&#x9762;&#x7684;&#x4E00;&#x500B;&#x8072;&#x660E;, &#x9019;&#x53EF;&#x4EE5;&#x8B93;&#x6211;&#x5011;&#x5B9A;&#x7FA9;&#x4E00;&#x4E9B;&#x76F8;&#x4E92;&#x5D4C;&#x5957;&#x6216;&#x905E;&#x6B78;&#x7684;&#x985E;&#x578B;&#x6216;&#x51FD;&#x6578;. &#x4F46;&#x662F;&#x5982;&#x679C;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x6216;&#x5E38;&#x91CF;&#x905E;&#x6B78;&#x5F15;&#x7528;&#x4E86;&#x81EA;&#x8EAB;, &#x5247;&#x6703;&#x7523;&#x751F;&#x7DE8;&#x8B6F;&#x932F;&#x8AA4;.</p>
-<p>&#x5728;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x4E2D;:</p>
+<p>&#x7B2C;&#x4E8C;&#x500B;if&#x8A9E;&#x53E5;&#x5D4C;&#x5957;&#x5728;&#x7B2C;&#x4E00;&#x500B;&#x5167;&#x90E8;&#xFF0C;&#x56E0;&#x6B64;&#x7B2C;&#x4E00;&#x500B;if&#x8A9E;&#x53E5;&#x689D;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x8A5E;&#x6CD5;&#x57DF;&#x8072;&#x660E;&#x7684;&#x8B8A;&#x91CF;&#x5728;&#x7B2C;&#x4E8C;&#x500B;if&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x8A2A;&#x554F;&#x3002;switch&#x8A9E;&#x53E5;&#x7684;&#x6BCF;&#x500B;&#x5206;&#x652F;&#x4E5F;&#x6709;&#x985E;&#x4F3C;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x898F;&#x5247;&#xFF1A;&#x689D;&#x4EF6;&#x90E8;&#x5206;&#x7232;&#x4E00;&#x500B;&#x96B1;&#x5F0F;&#x8A5E;&#x6CD5;&#x57DF;&#xFF0C;&#x7136;&#x5F8C;&#x6BCF;&#x500B;&#x662F;&#x6BCF;&#x500B;&#x5206;&#x652F;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x3002;</p>
+<p>&#x5728;&#x5305;&#x7D1A;&#x522B;&#xFF0C;&#x8072;&#x660E;&#x7684;&#x9806;&#x5E8F;&#x4F75;&#x4E0D;&#x6703;&#x5F71;&#x97FF;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;&#xFF0C;&#x56E0;&#x6B64;&#x4E00;&#x500B;&#x5148;&#x8072;&#x660E;&#x7684;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5B83;&#x81EA;&#x8EAB;&#x6216;&#x8005;&#x662F;&#x5F15;&#x7528;&#x5F8C;&#x9762;&#x7684;&#x4E00;&#x500B;&#x8072;&#x660E;&#xFF0C;&#x9019;&#x53EF;&#x4EE5;&#x8B93;&#x6211;&#x5011;&#x5B9A;&#x7FA9;&#x4E00;&#x4E9B;&#x76F8;&#x4E92;&#x5D4C;&#x5957;&#x6216;&#x905E;&#x6B78;&#x7684;&#x985E;&#x578B;&#x6216;&#x51FD;&#x6578;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x6216;&#x5E38;&#x91CF;&#x905E;&#x6B78;&#x5F15;&#x7528;&#x4E86;&#x81EA;&#x8EAB;&#xFF0C;&#x5247;&#x6703;&#x7523;&#x751F;&#x7DE8;&#x8B6F;&#x932F;&#x8AA4;&#x3002;</p>
+<p>&#x5728;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">if</span> f, err := os.Open(fname); err != <span class="hljs-constant">nil</span> { <span class="hljs-comment">// compile error: unused: f</span>
     <span class="hljs-keyword">return</span> err
 }
 f.ReadByte() <span class="hljs-comment">// compile error: undefined f</span>
 f.Close()    <span class="hljs-comment">// compile error: undefined f</span>
 </code></pre>
-<p>&#x8B8A;&#x91CF; f &#x7684;&#x4F5C;&#x7528;&#x57DF;&#x96BB;&#x6709;if&#x8A9E;&#x53E5;&#x5167;, &#x56E0;&#x6B64;&#x5F8C;&#x9762;&#x7684;&#x8A9E;&#x53E5;&#x5C07;&#x7121;&#x6CD5;&#x5F15;&#x5165;&#x5B83;, &#x5C07;&#x5C0E;&#x81F4;&#x7DE8;&#x8B6F;&#x932F;&#x8AA4;. &#x4F60;&#x53EF;&#x80FD;&#x6703;&#x6536;&#x5230;&#x4E00;&#x500B;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;f&#x6C92;&#x6709;&#x8072;&#x660E;&#x7684;&#x932F;&#x8AA4;&#x63D0;&#x793A;, &#x5177;&#x9AD4;&#x932F;&#x8AA4;&#x4FE1;&#x606F;&#x4F9D;&#x8CF4;&#x7DE8;&#x8B6F;&#x5668;&#x7684;&#x5BE6;&#x73FE;.</p>
-<p>&#x901A;&#x5E38;&#x9700;&#x8981;&#x5728;if&#x4E4B;&#x524D;&#x8072;&#x660E;&#x8B8A;&#x91CF;, &#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x78BA;&#x4FDD;&#x5F8C;&#x9762;&#x7684;&#x8A9E;&#x53E5;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x8A2A;&#x554F;&#x8B8A;&#x91CF;:</p>
+<p>&#x8B8A;&#x91CF;f&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x96BB;&#x6709;&#x5728;if&#x8A9E;&#x53E5;&#x5167;&#xFF0C;&#x56E0;&#x6B64;&#x5F8C;&#x9762;&#x7684;&#x8A9E;&#x53E5;&#x5C07;&#x7121;&#x6CD5;&#x5F15;&#x5165;&#x5B83;&#xFF0C;&#x9019;&#x5C07;&#x5C0E;&#x81F4;&#x7DE8;&#x8B6F;&#x932F;&#x8AA4;&#x3002;&#x4F60;&#x53EF;&#x80FD;&#x6703;&#x6536;&#x5230;&#x4E00;&#x500B;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;f&#x6C92;&#x6709;&#x8072;&#x660E;&#x7684;&#x932F;&#x8AA4;&#x63D0;&#x793A;&#xFF0C;&#x5177;&#x9AD4;&#x932F;&#x8AA4;&#x4FE1;&#x606F;&#x4F9D;&#x8CF4;&#x7DE8;&#x8B6F;&#x5668;&#x7684;&#x5BE6;&#x73FE;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x9700;&#x8981;&#x5728;if&#x4E4B;&#x524D;&#x8072;&#x660E;&#x8B8A;&#x91CF;&#xFF0C;&#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x78BA;&#x4FDD;&#x5F8C;&#x9762;&#x7684;&#x8A9E;&#x53E5;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x8A2A;&#x554F;&#x8B8A;&#x91CF;&#xFF1A;</p>
 <pre><code class="lang-Go">f, err := os.Open(fname)
 <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
     <span class="hljs-keyword">return</span> err
@@ -2089,7 +2093,7 @@ f.Close()    <span class="hljs-comment">// compile error: undefined f</span>
 f.ReadByte()
 f.Close()
 </code></pre>
-<p>&#x4F60;&#x53EF;&#x80FD;&#x6703;&#x8003;&#x616E;&#x901A;&#x904E;&#x5C07;ReadByte&#x548C;Close&#x79FB;&#x52D5;&#x5230;if&#x7684;else&#x584A;&#x4F86;&#x89E3;&#x6C7A;&#x9019;&#x500B;&#x554F;&#x984C;:</p>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x6703;&#x8003;&#x616E;&#x901A;&#x904E;&#x5C07;ReadByte&#x548C;Close&#x79FB;&#x52D5;&#x5230;if&#x7684;else&#x584A;&#x4F86;&#x89E3;&#x6C7A;&#x9019;&#x500B;&#x554F;&#x984C;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">if</span> f, err := os.Open(fname); err != <span class="hljs-constant">nil</span> {
     <span class="hljs-keyword">return</span> err
 } <span class="hljs-keyword">else</span> {
@@ -2098,8 +2102,8 @@ f.Close()
     f.Close()
 }
 </code></pre>
-<p>&#x4F46;&#x9019;&#x4E0D;&#x662F;Go&#x63A8;&#x85A6;&#x7684;&#x505A;&#x6CD5;, Go&#x7684;&#x7FD2;&#x6163;&#x662F;&#x5728;if&#x4E2D;&#x8655;&#x7406;&#x932F;&#x8AA4;&#x7136;&#x5F8C;&#x76F4;&#x63A5;&#x8FD4;&#x8FF4;, &#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x78BA;&#x4FDD;&#x6B63;&#x5E38;&#x6210;&#x529F;&#x57F7;&#x884C;&#x7684;&#x8A9E;&#x53E5;&#x4E0D;&#x9700;&#x8981;&#x4EE3;&#x78BC;&#x7E2E;&#x9032;.</p>
-<p>&#x8981;&#x7279;&#x522B;&#x8A3B;&#x610F;&#x77ED;&#x7684;&#x8B8A;&#x91CF;&#x8072;&#x660E;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;, &#x8003;&#x616E;&#x4E0B;&#x9762;&#x7684;&#x7A0B;&#x5E8F;, &#x5B83;&#x7684;&#x76EE;&#x7684;&#x662F;&#x7A6B;&#x53D6;&#x7576;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x9332;&#x7136;&#x5F8C;&#x4FDD;&#x5B58;&#x5230;&#x4E00;&#x500B;&#x5305;&#x7D1A;&#x7684;&#x8B8A;&#x91CF;&#x4E2D;. &#x9019;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x76F4;&#x63A5;&#x8ABF;&#x7528; os.Getwd &#x5B8C;&#x6210;, &#x4F46;&#x662F;&#x5C07;&#x9019;&#x500B;&#x5F9E;&#x4E3B;&#x908F;&#x8F2F;&#x4E2D;&#x5206;&#x96E2;&#x9F63;&#x4F86;&#x53EF;&#x80FD;&#x6703;&#x66F4;&#x597D;, &#x7279;&#x522B;&#x662F;&#x5728;&#x9700;&#x8981;&#x8655;&#x7406;&#x932F;&#x8AA4;&#x7684;&#x6642;&#x5019;. &#x51FD;&#x6578; log.Fatalf &#x6253;&#x5370;&#x4FE1;&#x606F;, &#x7136;&#x5F8C;&#x8ABF;&#x7528; os.Exit(1) &#x7D42;&#x6B62;&#x7A0B;&#x5E8F;.</p>
+<p>&#x4F46;&#x9019;&#x4E0D;&#x662F;Go&#x8A9E;&#x8A00;&#x63A8;&#x85A6;&#x7684;&#x505A;&#x6CD5;&#xFF0C;Go&#x8A9E;&#x8A00;&#x7684;&#x7FD2;&#x6163;&#x662F;&#x5728;if&#x4E2D;&#x8655;&#x7406;&#x932F;&#x8AA4;&#x7136;&#x5F8C;&#x76F4;&#x63A5;&#x8FD4;&#x8FF4;&#xFF0C;&#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x78BA;&#x4FDD;&#x6B63;&#x5E38;&#x57F7;&#x884C;&#x7684;&#x8A9E;&#x53E5;&#x4E0D;&#x9700;&#x8981;&#x4EE3;&#x78BC;&#x7E2E;&#x9032;&#x3002;</p>
+<p>&#x8981;&#x7279;&#x522B;&#x8A3B;&#x610F;&#x77ED;&#x8B8A;&#x91CF;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x8303;&#x570D;&#xFF0C;&#x8003;&#x616E;&#x4E0B;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x5B83;&#x7684;&#x76EE;&#x7684;&#x662F;&#x7372;&#x53D6;&#x7576;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x9332;&#x7136;&#x5F8C;&#x4FDD;&#x5B58;&#x5230;&#x4E00;&#x500B;&#x5305;&#x7D1A;&#x7684;&#x8B8A;&#x91CF;&#x4E2D;&#x3002;&#x9019;&#x53EF;&#x4EE5;&#x672C;&#x4F86;&#x901A;&#x904E;&#x76F4;&#x63A5;&#x8ABF;&#x7528;os.Getwd&#x5B8C;&#x6210;&#xFF0C;&#x4F46;&#x662F;&#x5C07;&#x9019;&#x500B;&#x5F9E;&#x4E3B;&#x908F;&#x8F2F;&#x4E2D;&#x5206;&#x96E2;&#x51FA;&#x4F86;&#x53EF;&#x80FD;&#x6703;&#x66F4;&#x597D;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5728;&#x9700;&#x8981;&#x8655;&#x7406;&#x932F;&#x8AA4;&#x7684;&#x6642;&#x5019;&#x3002;&#x51FD;&#x6578;log.Fatalf&#x7528;&#x65BC;&#x6253;&#x5370;&#x65E5;&#x8A8C;&#x4FE1;&#x606F;&#xFF0C;&#x7136;&#x5F8C;&#x8ABF;&#x7528;os.Exit(1)&#x7D42;&#x6B62;&#x7A0B;&#x5E8F;&#x3002;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">var</span> cwd <span class="hljs-typename">string</span>
 
 <span class="hljs-keyword">func</span> init() {
@@ -2109,8 +2113,8 @@ f.Close()
     }
 }
 </code></pre>
-<p>&#x96D6;&#x7136;cwd&#x5728;&#x5916;&#x90E8;&#x5DF2;&#x7D93;&#x8072;&#x660E;&#x904E;, &#x4F46;&#x662F; <code>:=</code> &#x8A9E;&#x53E5;&#x9084;&#x662F;&#x5C07; cwd &#x548C; err &#x91CD;&#x65B0;&#x8072;&#x660E;&#x7232;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;. &#x5167;&#x90E8;&#x8072;&#x660E;&#x7684; cwd &#x5C07;&#x5C4F;&#x853D;&#x5916;&#x90E8;&#x7684;&#x8072;&#x660E;, &#x56E0;&#x6B64;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x4F75;&#x4E0D;&#x6703;&#x66F4;&#x65B0;&#x5305;&#x7D1A;&#x8072;&#x660E;&#x7684; cwd &#x8B8A;&#x91CF;.</p>
-<p>&#x7576;&#x524D;&#x7684;&#x7DE8;&#x8B6F;&#x5668;&#x5C07;&#x6AA2;&#x6E2C;&#x5230;&#x5C40;&#x90E8;&#x8072;&#x660E;&#x7684;cwd&#x4F75;&#x6C92;&#x6709;&#x672C;&#x4F7F;&#x7528;, &#x7136;&#x5F8C;&#x5831;&#x544A;&#x9019;&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x500B;&#x932F;&#x8AA4;, &#x4F46;&#x662F;&#x9019;&#x7A2E;&#x6AA2;&#x6E2C;&#x4F75;&#x4E0D;&#x53EF;&#x9760;. &#x4E00;&#x4E9B;&#x5C0F;&#x7684;&#x4EE3;&#x78BC;&#x8B8A;&#x66F4;, &#x4F8B;&#x5982;&#x589E;&#x52A0;&#x4E00;&#x500B;&#x5C40;&#x90E8;cwd&#x7684;&#x6253;&#x5370;&#x8A9E;&#x53E5;, &#x5C31;&#x53EF;&#x80FD;&#x5C0E;&#x81F4;&#x9019;&#x7A2E;&#x6AA2;&#x6E2C;&#x5931;&#x6548;.</p>
+<p>&#x96D6;&#x7136;cwd&#x5728;&#x5916;&#x90E8;&#x5DF2;&#x7D93;&#x8072;&#x660E;&#x904E;&#xFF0C;&#x4F46;&#x662F;<code>:=</code>&#x8A9E;&#x53E5;&#x9084;&#x662F;&#x5C07;cwd&#x548C;err&#x91CD;&#x65B0;&#x8072;&#x660E;&#x7232;&#x65B0;&#x7684;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;&#x3002;&#x56E0;&#x7232;&#x5167;&#x90E8;&#x8072;&#x660E;&#x7684;cwd&#x5C07;&#x5C4F;&#x853D;&#x5916;&#x90E8;&#x7684;&#x8072;&#x660E;&#xFF0C;&#x56E0;&#x6B64;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x4F75;&#x4E0D;&#x6703;&#x6B63;&#x78BA;&#x66F4;&#x65B0;&#x5305;&#x7D1A;&#x8072;&#x660E;&#x7684;cwd&#x8B8A;&#x91CF;&#x3002;</p>
+<p>&#x7531;&#x65BC;&#x7576;&#x524D;&#x7684;&#x7DE8;&#x8B6F;&#x5668;&#x6703;&#x6AA2;&#x6E2C;&#x5230;&#x5C40;&#x90E8;&#x8072;&#x660E;&#x7684;cwd&#x4F75;&#x6C92;&#x6709;&#x672C;&#x4F7F;&#x7528;&#xFF0C;&#x7136;&#x5F8C;&#x5831;&#x544A;&#x9019;&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x500B;&#x932F;&#x8AA4;&#xFF0C;&#x4F46;&#x662F;&#x9019;&#x7A2E;&#x6AA2;&#x6E2C;&#x4F75;&#x4E0D;&#x53EF;&#x9760;&#x3002;&#x56E0;&#x7232;&#x4E00;&#x4E9B;&#x5C0F;&#x7684;&#x4EE3;&#x78BC;&#x8B8A;&#x66F4;&#xFF0C;&#x4F8B;&#x5982;&#x589E;&#x52A0;&#x4E00;&#x500B;&#x5C40;&#x90E8;cwd&#x7684;&#x6253;&#x5370;&#x8A9E;&#x53E5;&#xFF0C;&#x5C31;&#x53EF;&#x80FD;&#x5C0E;&#x81F4;&#x9019;&#x7A2E;&#x6AA2;&#x6E2C;&#x5931;&#x6548;&#x3002;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">var</span> cwd <span class="hljs-typename">string</span>
 
 <span class="hljs-keyword">func</span> init() {
@@ -2121,8 +2125,8 @@ f.Close()
     log.Printf(<span class="hljs-string">&quot;Working directory = %s&quot;</span>, cwd)
 }
 </code></pre>
-<p>&#x5168;&#x5C40;&#x7684;cwd&#x8B8A;&#x91CF;&#x4F9D;&#x7136;&#x662F;&#x6C92;&#x6709;&#x88AB;&#x6B63;&#x78BA;&#x521D;&#x59CB;&#x5316;&#x7684;, &#x800C;&#x4E14;&#x770B;&#x4F3C;&#x6B63;&#x5E38;&#x7684;&#x65E5;&#x8A8C;&#x8F38;&#x9F63;&#x66F4;&#x662F;&#x9019;&#x500B;BUG&#x66F4;&#x52A0;&#x96B1;&#x6666;.</p>
-<p>&#x6709;&#x8A31;&#x591A;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x9F63;&#x73FE;&#x985E;&#x4F3C;&#x6F5B;&#x5728;&#x7684;&#x554F;&#x984C;. &#x6700;&#x76F4;&#x63A5;&#x7684;&#x662F;&#x901A;&#x904E;&#x55AE;&#x7368;&#x8072;&#x660E;err&#x8B8A;&#x91CF;, &#x4F86;&#x907F;&#x514D;&#x4F7F;&#x7528; <code>:=</code> &#x7684;&#x7C21;&#x77ED;&#x8072;&#x660E;&#x65B9;&#x5F0F;:</p>
+<p>&#x5168;&#x5C40;&#x7684;cwd&#x8B8A;&#x91CF;&#x4F9D;&#x7136;&#x662F;&#x6C92;&#x6709;&#x88AB;&#x6B63;&#x78BA;&#x521D;&#x59CB;&#x5316;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x770B;&#x4F3C;&#x6B63;&#x5E38;&#x7684;&#x65E5;&#x8A8C;&#x8F38;&#x51FA;&#x66F4;&#x662F;&#x8B93;&#x9019;&#x500B;BUG&#x66F4;&#x52A0;&#x96B1;&#x6666;&#x3002;</p>
+<p>&#x6709;&#x8A31;&#x591A;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73FE;&#x985E;&#x4F3C;&#x6F5B;&#x5728;&#x7684;&#x554F;&#x984C;&#x3002;&#x6700;&#x76F4;&#x63A5;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x901A;&#x904E;&#x55AE;&#x7368;&#x8072;&#x660E;err&#x8B8A;&#x91CF;&#xFF0C;&#x4F86;&#x907F;&#x514D;&#x4F7F;&#x7528;<code>:=</code>&#x7684;&#x7C21;&#x77ED;&#x8072;&#x660E;&#x65B9;&#x5F0F;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">var</span> cwd <span class="hljs-typename">string</span>
 
 <span class="hljs-keyword">func</span> init() {
@@ -2133,8 +2137,7 @@ f.Close()
     }
 }
 </code></pre>
-<p>&#x6211;&#x5011;&#x5DF2;&#x7D93;&#x770B;&#x5230;&#x5305;, &#x6587;&#x4EF6;, &#x8072;&#x660E;&#x548C;&#x8A9E;&#x53E5;&#x5982;&#x4F55;&#x4F86;&#x8868;&#x9054;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#x7D50;&#x69CB;. &#x5728;&#x4E0B;&#x9762;&#x7684;&#x5169;&#x500B;&#x7AE0;&#x7BC0;, &#x6211;&#x5011;&#x5C07;&#x63A2;&#x8A0E;&#x6578;&#x64DA;&#x7684;&#x7D50;&#x69CB;.</p>
-<p><strong>&#x8B6F;&#x8A3B;: &#x672C;&#x7AE0;&#x7684;&#x8A5E;&#x6CD5;&#x57DF;&#x548C;&#x4F5C;&#x7528;&#x57DF;&#x6982;&#x5FF5;&#x6709;&#x4E9B;&#x6DF7;&#x6DC6;, &#x9700;&#x8981;&#x91CD;&#x8B6F;&#x4E00;&#x904D;.</strong></p>
+<p>&#x6211;&#x5011;&#x5DF2;&#x7D93;&#x770B;&#x5230;&#x5305;&#x3001;&#x6587;&#x4EF6;&#x3001;&#x8072;&#x660E;&#x548C;&#x8A9E;&#x53E5;&#x5982;&#x4F55;&#x4F86;&#x8868;&#x9054;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#x7D50;&#x69CB;&#x3002;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x5169;&#x500B;&#x7AE0;&#x7BC0;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x63A2;&#x8A0E;&#x6578;&#x64DA;&#x7684;&#x7D50;&#x69CB;&#x3002;</p>
 
                     
                     </section>
@@ -2166,7 +2169,7 @@ f.Close()
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="6.1" data-chapter-title="方法聲明" data-filepath="ch6/ch6-01.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="6.1" data-chapter-title="方法聲明" data-filepath="ch6/ch6-01.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2042,7 +2046,7 @@
 </code></pre>
 <p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x91CC;&#x90A3;&#x500B;&#x9644;&#x52A0;&#x7684;&#x53C3;&#x6578;p&#xFF0C;&#x53EB;&#x505A;&#x65B9;&#x6CD5;&#x7684;&#x63A5;&#x6536;&#x5668;(receiver)&#xFF0C;&#x65E9;&#x671F;&#x7684;&#x9762;&#x5411;&#x5C0D;&#x8C61;&#x8A9E;&#x8A00;&#x7559;&#x4E0B;&#x7684;&#x907A;&#x7523;&#x5C07;&#x8ABF;&#x7528;&#x4E00;&#x500B;&#x65B9;&#x6CD5;&#x7A31;&#x7232;&#x201C;&#x5411;&#x4E00;&#x500B;&#x5C0D;&#x8C61;&#x767C;&#x9001;&#x6D88;&#x606F;&#x201D;&#x3002;</p>
 <p>&#x5728;Go&#x8A9E;&#x8A00;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x4F75;&#x4E0D;&#x6703;&#x50CF;&#x5176;&#x5B83;&#x8A9E;&#x8A00;&#x90A3;&#x6A23;&#x7528;this&#x6216;&#x8005;self&#x4F5C;&#x7232;&#x63A5;&#x6536;&#x5668;&#xFF1B;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4EFB;&#x610F;&#x7684;&#x9078;&#x64C7;&#x63A5;&#x6536;&#x5668;&#x7684;&#x540D;&#x5B57;&#x3002;&#x7531;&#x65BC;&#x63A5;&#x6536;&#x5668;&#x7684;&#x540D;&#x5B57;&#x7D93;&#x5E38;&#x6703;&#x88AB;&#x4F7F;&#x7528;&#x5230;&#xFF0C;&#x6240;&#x4EE5;&#x4FDD;&#x6301;&#x5176;&#x5728;&#x65B9;&#x6CD5;&#x9593;&#x50B3;&#x905E;&#x6642;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x548C;&#x7C21;&#x77ED;&#x6027;&#x662F;&#x4E0D;&#x932F;&#x7684;&#x4E3B;&#x610F;&#x3002;&#x9019;&#x91CC;&#x7684;&#x5EFA;&#x8B70;&#x662F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x985E;&#x578B;&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x6BCD;&#xFF0C;&#x6BD4;&#x5982;&#x9019;&#x91CC;&#x4F7F;&#x7528;&#x4E86;Point&#x7684;&#x9996;&#x5B57;&#x6BCD;p&#x3002;</p>
-<p>&#x5728;&#x65B9;&#x6CD5;&#x8ABF;&#x7528;&#x904E;&#x7A0B;&#x4E2D;&#xFF0C;&#x63A5;&#x6536;&#x5668;&#x53C3;&#x6578;&#x4E00;&#x822C;&#x6703;&#x5728;&#x65B9;&#x6CD5;&#x540D;&#x4E4B;&#x524D;&#x9F63;&#x73FE;&#x3002;&#x9019;&#x548C;&#x65B9;&#x6CD5;&#x8072;&#x660E;&#x662F;&#x4E00;&#x6A23;&#x7684;&#xFF0C;&#x90FD;&#x662F;&#x63A5;&#x6536;&#x5668;&#x53C3;&#x6578;&#x5728;&#x65B9;&#x6CD5;&#x540D;&#x5B57;&#x4E4B;&#x524D;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p>&#x5728;&#x65B9;&#x6CD5;&#x8ABF;&#x7528;&#x904E;&#x7A0B;&#x4E2D;&#xFF0C;&#x63A5;&#x6536;&#x5668;&#x53C3;&#x6578;&#x4E00;&#x822C;&#x6703;&#x5728;&#x65B9;&#x6CD5;&#x540D;&#x4E4B;&#x524D;&#x51FA;&#x73FE;&#x3002;&#x9019;&#x548C;&#x65B9;&#x6CD5;&#x8072;&#x660E;&#x662F;&#x4E00;&#x6A23;&#x7684;&#xFF0C;&#x90FD;&#x662F;&#x63A5;&#x6536;&#x5668;&#x53C3;&#x6578;&#x5728;&#x65B9;&#x6CD5;&#x540D;&#x5B57;&#x4E4B;&#x524D;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4F8B;&#x5B50;&#xFF1A;</p>
 <pre><code class="lang-Go">p := Point{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
 q := Point{<span class="hljs-number">4</span>, <span class="hljs-number">6</span>}
 fmt.Println(Distance(p, q)) <span class="hljs-comment">// &quot;5&quot;, function call</span>
@@ -2115,7 +2119,7 @@ fmt.Println(perim.Distance())             <span class="hljs-comment">// &quot;12
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

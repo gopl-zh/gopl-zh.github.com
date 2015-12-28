@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="6.6" data-chapter-title="封裝" data-filepath="ch6/ch6-06.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="6.6" data-chapter-title="封裝" data-filepath="ch6/ch6-06.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2021,7 +2025,7 @@
                     
                         <h2 id="66-&#x5C01;&#x88DD;">6.6. &#x5C01;&#x88DD;</h2>
 <p>&#x4E00;&#x500B;&#x5C0D;&#x8C61;&#x7684;&#x8B8A;&#x91CF;&#x6216;&#x8005;&#x65B9;&#x6CD5;&#x5982;&#x679C;&#x5C0D;&#x8ABF;&#x7528;&#x65B9;&#x662F;&#x4E0D;&#x53EF;&#x898B;&#x7684;&#x8A71;&#xFF0C;&#x4E00;&#x822C;&#x5C31;&#x88AB;&#x5B9A;&#x7FA9;&#x7232;&#x201C;&#x5C01;&#x88DD;&#x201D;&#x3002;&#x5C01;&#x88DD;&#x6709;&#x6642;&#x5019;&#x4E5F;&#x88AB;&#x53EB;&#x505A;&#x4FE1;&#x606F;&#x96B1;&#x85CF;&#xFF0C;&#x540C;&#x6642;&#x4E5F;&#x662F;&#x9762;&#x5411;&#x5C0D;&#x8C61;&#x7DE8;&#x7A0B;&#x6700;&#x95DC;&#x9375;&#x7684;&#x4E00;&#x500B;&#x65B9;&#x9762;&#x3002;</p>
-<p>Go&#x8A9E;&#x8A00;&#x96BB;&#x6709;&#x4E00;&#x7A2E;&#x63A7;&#x88FD;&#x53EF;&#x898B;&#x6027;&#x7684;&#x624B;&#x6BB5;&#xFF1A;&#x5927;&#x5BEB;&#x9996;&#x5B57;&#x6BCD;&#x7684;&#x6A19;&#x8B58;&#x7B26;&#x6703;&#x5F9E;&#x5B9A;&#x7FA9;&#x5B83;&#x5011;&#x7684;&#x5305;&#x4E2D;&#x88AB;&#x5C0E;&#x9F63;&#xFF0C;&#x5C0F;&#x5BEB;&#x5B57;&#x6BCD;&#x7684;&#x5247;&#x4E0D;&#x6703;&#x3002;&#x9019;&#x7A2E;&#x9650;&#x88FD;&#x5305;&#x5167;&#x6210;&#x54E1;&#x7684;&#x65B9;&#x5F0F;&#x540C;&#x6A23;&#x9069;&#x7528;&#x65BC;struct&#x6216;&#x8005;&#x4E00;&#x500B;&#x985E;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x56E0;&#x800C;&#x5982;&#x679C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x5C01;&#x88DD;&#x4E00;&#x500B;&#x5C0D;&#x8C61;&#xFF0C;&#x6211;&#x5011;&#x5FC5;&#x9B1A;&#x5C07;&#x5176;&#x5B9A;&#x7FA9;&#x7232;&#x4E00;&#x500B;struct&#x3002;</p>
+<p>Go&#x8A9E;&#x8A00;&#x96BB;&#x6709;&#x4E00;&#x7A2E;&#x63A7;&#x88FD;&#x53EF;&#x898B;&#x6027;&#x7684;&#x624B;&#x6BB5;&#xFF1A;&#x5927;&#x5BEB;&#x9996;&#x5B57;&#x6BCD;&#x7684;&#x6A19;&#x8B58;&#x7B26;&#x6703;&#x5F9E;&#x5B9A;&#x7FA9;&#x5B83;&#x5011;&#x7684;&#x5305;&#x4E2D;&#x88AB;&#x5C0E;&#x51FA;&#xFF0C;&#x5C0F;&#x5BEB;&#x5B57;&#x6BCD;&#x7684;&#x5247;&#x4E0D;&#x6703;&#x3002;&#x9019;&#x7A2E;&#x9650;&#x88FD;&#x5305;&#x5167;&#x6210;&#x54E1;&#x7684;&#x65B9;&#x5F0F;&#x540C;&#x6A23;&#x9069;&#x7528;&#x65BC;struct&#x6216;&#x8005;&#x4E00;&#x500B;&#x985E;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x56E0;&#x800C;&#x5982;&#x679C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x5C01;&#x88DD;&#x4E00;&#x500B;&#x5C0D;&#x8C61;&#xFF0C;&#x6211;&#x5011;&#x5FC5;&#x9B1A;&#x5C07;&#x5176;&#x5B9A;&#x7FA9;&#x7232;&#x4E00;&#x500B;struct&#x3002;</p>
 <p>&#x9019;&#x4E5F;&#x5C31;&#x662F;&#x524D;&#x9762;&#x7684;&#x5C0F;&#x7BC0;&#x4E2D;IntSet&#x88AB;&#x5B9A;&#x7FA9;&#x7232;struct&#x985E;&#x578B;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x76E1;&#x7BA1;&#x5B83;&#x96BB;&#x6709;&#x4E00;&#x500B;&#x5B57;&#x6BB5;&#xFF1A;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">type</span> IntSet <span class="hljs-keyword">struct</span> {
     words []<span class="hljs-typename">uint64</span>
@@ -2030,7 +2034,7 @@
 <p>&#x7576;&#x7136;&#xFF0C;&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;IntSet&#x5B9A;&#x7FA9;&#x7232;&#x4E00;&#x500B;slice&#x985E;&#x578B;&#xFF0C;&#x76E1;&#x7BA1;&#x9019;&#x6A23;&#x6211;&#x5011;&#x5C31;&#x9700;&#x8981;&#x628A;&#x4EE3;&#x78BC;&#x4E2D;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x91CC;&#x7528;&#x5230;&#x7684;s.words&#x7528;*s&#x66FF;&#x63DB;&#x6389;&#x4E86;&#xFF1A;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">type</span> IntSet []<span class="hljs-typename">uint64</span>
 </code></pre>
-<p>&#x76E1;&#x7BA1;&#x9019;&#x500B;&#x7248;&#x672C;&#x7684;IntSet&#x5728;&#x672C;&#x8CEA;&#x4E0A;&#x662F;&#x4E00;&#x6A23;&#x7684;&#xFF0C;&#x4ED6;&#x4E5F;&#x53EF;&#x4EE5;&#x5141;&#x8A31;&#x5176;&#x5B83;&#x5305;&#x4E2D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8B80;&#x53D6;&#x4F75;&#x7DE8;&#x8F2F;&#x9019;&#x500B;slice&#x3002;&#x63DB;&#x53E5;&#x8A71;&#x8AAC;&#xFF0C;&#x76F8;&#x5C0D;*s&#x9019;&#x500B;&#x8868;&#x9054;&#x5F0F;&#x6703;&#x9F63;&#x73FE;&#x5728;&#x6240;&#x6709;&#x7684;&#x5305;&#x4E2D;&#xFF0C;s.words&#x96BB;&#x9700;&#x8981;&#x5728;&#x5B9A;&#x7FA9;IntSet&#x7684;&#x5305;&#x4E2D;&#x9F63;&#x73FE;(&#x8B6F;&#x8A3B;&#xFF1A;&#x6240;&#x4EE5;&#x9084;&#x662F;&#x63A8;&#x85A6;&#x5F8C;&#x8005;&#x5427;&#x7684;&#x610F;&#x601D;)&#x3002;</p>
+<p>&#x76E1;&#x7BA1;&#x9019;&#x500B;&#x7248;&#x672C;&#x7684;IntSet&#x5728;&#x672C;&#x8CEA;&#x4E0A;&#x662F;&#x4E00;&#x6A23;&#x7684;&#xFF0C;&#x4ED6;&#x4E5F;&#x53EF;&#x4EE5;&#x5141;&#x8A31;&#x5176;&#x5B83;&#x5305;&#x4E2D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8B80;&#x53D6;&#x4F75;&#x7DE8;&#x8F2F;&#x9019;&#x500B;slice&#x3002;&#x63DB;&#x53E5;&#x8A71;&#x8AAC;&#xFF0C;&#x76F8;&#x5C0D;*s&#x9019;&#x500B;&#x8868;&#x9054;&#x5F0F;&#x6703;&#x51FA;&#x73FE;&#x5728;&#x6240;&#x6709;&#x7684;&#x5305;&#x4E2D;&#xFF0C;s.words&#x96BB;&#x9700;&#x8981;&#x5728;&#x5B9A;&#x7FA9;IntSet&#x7684;&#x5305;&#x4E2D;&#x51FA;&#x73FE;(&#x8B6F;&#x8A3B;&#xFF1A;&#x6240;&#x4EE5;&#x9084;&#x662F;&#x63A8;&#x85A6;&#x5F8C;&#x8005;&#x5427;&#x7684;&#x610F;&#x601D;)&#x3002;</p>
 <p>&#x9019;&#x7A2E;&#x57FA;&#x65BC;&#x540D;&#x5B57;&#x7684;&#x624B;&#x6BB5;&#x4F7F;&#x5F97;&#x5728;&#x8A9E;&#x8A00;&#x4E2D;&#x6700;&#x5C0F;&#x7684;&#x5C01;&#x88DD;&#x55AE;&#x5143;&#x662F;package&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x50CF;&#x5176;&#x5B83;&#x8A9E;&#x8A00;&#x4E00;&#x6A23;&#x7684;&#x985E;&#x578B;&#x3002;&#x4E00;&#x500B;struct&#x985E;&#x578B;&#x7684;&#x5B57;&#x6BB5;&#x5C0D;&#x540C;&#x4E00;&#x500B;&#x5305;&#x7684;&#x6240;&#x6709;&#x4EE3;&#x78BC;&#x90FD;&#x6709;&#x53EF;&#x898B;&#x6027;&#xFF0C;&#x7121;&#x8AD6;&#x4F60;&#x7684;&#x4EE3;&#x78BC;&#x662F;&#x5BEB;&#x5728;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x9084;&#x662F;&#x4E00;&#x500B;&#x65B9;&#x6CD5;&#x91CC;&#x3002;</p>
 <p>&#x5C01;&#x88DD;&#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x65B9;&#x9762;&#x7684;&#x512A;&#x9EDE;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x56E0;&#x7232;&#x8ABF;&#x7528;&#x65B9;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x8129;&#x6539;&#x5C0D;&#x8C61;&#x7684;&#x8B8A;&#x91CF;&#x503C;&#xFF0C;&#x5176;&#x96BB;&#x9700;&#x8981;&#x95DC;&#x8A3B;&#x5C11;&#x91CF;&#x7684;&#x8A9E;&#x53E5;&#x4F75;&#x4E14;&#x96BB;&#x8981;&#x5F04;&#x61C2;&#x5C11;&#x91CF;&#x8B8A;&#x91CF;&#x7684;&#x53EF;&#x80FD;&#x7684;&#x503C;&#x537D;&#x53EF;&#x3002;</p>
 <p>&#x7B2C;&#x4E8C;&#xFF0C;&#x96B1;&#x85CF;&#x5BE6;&#x73FE;&#x7684;&#x7D30;&#x7BC0;&#xFF0C;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x8ABF;&#x7528;&#x65B9;&#x4F9D;&#x8CF4;&#x90A3;&#x4E9B;&#x53EF;&#x80FD;&#x8B8A;&#x5316;&#x7684;&#x5177;&#x9AD4;&#x5BE6;&#x73FE;&#xFF0C;&#x9019;&#x6A23;&#x4F7F;&#x8A2D;&#x8A08;&#x5305;&#x7684;&#x7A0B;&#x5E8F;&#x54E1;&#x5728;&#x4E0D;&#x7834;&#x58DE;&#x5C0D;&#x5916;&#x7684;api&#x60C5;&#x6CC1;&#x4E0B;&#x80FD;&#x5F97;&#x5230;&#x66F4;&#x5927;&#x7684;&#x81EA;&#x7531;&#x3002;</p>
@@ -2073,7 +2077,7 @@
 <span class="hljs-keyword">func</span> (l *Logger) Prefix() <span class="hljs-typename">string</span>
 <span class="hljs-keyword">func</span> (l *Logger) SetPrefix(prefix <span class="hljs-typename">string</span>)
 </code></pre>
-<p>Go&#x7684;&#x7DE8;&#x78BC;&#x98A8;&#x683C;&#x4E0D;&#x7981;&#x6B62;&#x76F4;&#x63A5;&#x5C0E;&#x9F63;&#x5B57;&#x6BB5;&#x3002;&#x7576;&#x7136;&#xFF0C;&#x4E00;&#x65E6;&#x9032;&#x884C;&#x4E86;&#x5C0E;&#x9F63;&#xFF0C;&#x5C31;&#x6C92;&#x6709;&#x8FA6;&#x6CD5;&#x5728;&#x4FDD;&#x8B49;API&#x517C;&#x5BB9;&#x7684;&#x60C5;&#x6CC1;&#x4E0B;&#x53BB;&#x9664;&#x5C0D;&#x5176;&#x7684;&#x5C0E;&#x9F63;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x4E00;&#x958B;&#x59CB;&#x7684;&#x9078;&#x64C7;&#x4E00;&#x5B9A;&#x8981;&#x7D93;&#x904E;&#x6DF1;&#x601D;&#x719F;&#x616E;&#x4F75;&#x4E14;&#x8981;&#x8003;&#x616E;&#x5230;&#x5305;&#x5167;&#x90E8;&#x7684;&#x4E00;&#x4E9B;&#x4E0D;&#x8B8A;&#x91CF;&#x7684;&#x4FDD;&#x8B49;&#xFF0C;&#x672A;&#x4F86;&#x53EF;&#x80FD;&#x7684;&#x8B8A;&#x5316;&#xFF0C;&#x4EE5;&#x53CA;&#x8ABF;&#x7528;&#x65B9;&#x7684;&#x4EE3;&#x78BC;&#x8CEA;&#x91CF;&#x662F;&#x5426;&#x6703;&#x56E0;&#x7232;&#x5305;&#x7684;&#x4E00;&#x9EDE;&#x8129;&#x6539;&#x800C;&#x8B8A;&#x5DEE;&#x3002;</p>
+<p>Go&#x7684;&#x7DE8;&#x78BC;&#x98A8;&#x683C;&#x4E0D;&#x7981;&#x6B62;&#x76F4;&#x63A5;&#x5C0E;&#x51FA;&#x5B57;&#x6BB5;&#x3002;&#x7576;&#x7136;&#xFF0C;&#x4E00;&#x65E6;&#x9032;&#x884C;&#x4E86;&#x5C0E;&#x51FA;&#xFF0C;&#x5C31;&#x6C92;&#x6709;&#x8FA6;&#x6CD5;&#x5728;&#x4FDD;&#x8B49;API&#x517C;&#x5BB9;&#x7684;&#x60C5;&#x6CC1;&#x4E0B;&#x53BB;&#x9664;&#x5C0D;&#x5176;&#x7684;&#x5C0E;&#x51FA;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x4E00;&#x958B;&#x59CB;&#x7684;&#x9078;&#x64C7;&#x4E00;&#x5B9A;&#x8981;&#x7D93;&#x904E;&#x6DF1;&#x601D;&#x719F;&#x616E;&#x4F75;&#x4E14;&#x8981;&#x8003;&#x616E;&#x5230;&#x5305;&#x5167;&#x90E8;&#x7684;&#x4E00;&#x4E9B;&#x4E0D;&#x8B8A;&#x91CF;&#x7684;&#x4FDD;&#x8B49;&#xFF0C;&#x672A;&#x4F86;&#x53EF;&#x80FD;&#x7684;&#x8B8A;&#x5316;&#xFF0C;&#x4EE5;&#x53CA;&#x8ABF;&#x7528;&#x65B9;&#x7684;&#x4EE3;&#x78BC;&#x8CEA;&#x91CF;&#x662F;&#x5426;&#x6703;&#x56E0;&#x7232;&#x5305;&#x7684;&#x4E00;&#x9EDE;&#x8129;&#x6539;&#x800C;&#x8B8A;&#x5DEE;&#x3002;</p>
 <p>&#x5C01;&#x88DD;&#x4F75;&#x4E0D;&#x7E3D;&#x662F;&#x7406;&#x60F3;&#x7684;&#x3002;
 &#x96D6;&#x7136;&#x5C01;&#x88DD;&#x5728;&#x6709;&#x4E9B;&#x60C5;&#x6CC1;&#x662F;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x4F46;&#x6709;&#x6642;&#x5019;&#x6211;&#x5011;&#x4E5F;&#x9700;&#x8981;&#x66B4;&#x9732;&#x4E00;&#x4E9B;&#x5167;&#x90E8;&#x5167;&#x5BB9;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;time.Duration&#x5C07;&#x5176;&#x8868;&#x73FE;&#x66B4;&#x9732;&#x7232;&#x4E00;&#x500B;int64&#x6578;&#x5B57;&#x7684;&#x7D0D;&#x79D2;&#xFF0C;&#x4F7F;&#x5F97;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x822C;&#x7684;&#x6578;&#x503C;&#x64CD;&#x4F5C;&#x4F86;&#x5C0D;&#x6642;&#x9593;&#x9032;&#x884C;&#x5C0D;&#x6BD4;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x5B9A;&#x7FA9;&#x9019;&#x7A2E;&#x985E;&#x578B;&#x7684;&#x5E38;&#x91CF;&#xFF1A;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">const</span> day = <span class="hljs-number">24</span> * time.Hour
@@ -2113,7 +2117,7 @@ fmt.Println(day.Seconds()) <span class="hljs-comment">// &quot;86400&quot;</span
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

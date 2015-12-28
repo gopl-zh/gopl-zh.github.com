@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="13.1" data-chapter-title="unsafe.Sizeof, Alignof 和 Offsetof" data-filepath="ch13/ch13-01.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="13.1" data-chapter-title="unsafe.Sizeof, Alignof 和 Offsetof" data-filepath="ch13/ch13-01.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2024,7 +2028,7 @@
 <pre><code class="lang-Go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;unsafe&quot;</span>
 fmt.Println(unsafe.Sizeof(<span class="hljs-typename">float64</span>(<span class="hljs-number">0</span>))) <span class="hljs-comment">// &quot;8&quot;</span>
 </code></pre>
-<p>Sizeof&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x7684;&#x5927;&#x5C0F;&#x96BB;&#x5305;&#x62EC;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x4E2D;&#x56FA;&#x5B9A;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x4F8B;&#x5982;&#x5B57;&#x7B26;&#x4E32;&#x5C0D;&#x61C9;&#x7D50;&#x69CB;&#x9AD4;&#x4E2D;&#x7684;&#x6307;&#x91DD;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x9577;&#x5EA6;&#x90E8;&#x5206;&#xFF0C;&#x4F46;&#x662F;&#x4F75;&#x4E0D;&#x5305;&#x542B;&#x6307;&#x91DD;&#x6307;&#x5411;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5167;&#x5BB9;&#x3002;Go&#x8A9E;&#x8A00;&#x4E2D;&#x975E;&#x805A;&#x5408;&#x985E;&#x578B;&#x901A;&#x5E38;&#x6709;&#x4E00;&#x500B;&#x56FA;&#x5B9A;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x76E1;&#x7BA1;&#x5728;&#x4E0D;&#x540C;&#x5DE5;&#x5177;&#x93C8;&#x4E0B;&#x751F;&#x6210;&#x7684;&#x5BE6;&#x969B;&#x5927;&#x5C0F;&#x53EF;&#x80FD;&#x6703;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;&#x8003;&#x616E;&#x5230;&#x53EF;&#x79FB;&#x690D;&#x6027;&#xFF0C;&#x5F15;&#x7528;&#x985E;&#x578B;&#x6216;&#x5305;&#x542B;&#x5F15;&#x7528;&#x985E;&#x578B;&#x7684;&#x5927;&#x5C0F;&#x5728;32&#x4F4D;&#x5E73;&#x98B1;&#x4E0A;&#x662F;4&#x500B;&#x5B57;&#x7BC0;&#xFF0C;&#x5728;64&#x4F4D;&#x5E73;&#x98B1;&#x4E0A;&#x662F;8&#x500B;&#x5B57;&#x7BC0;&#x3002;</p>
+<p>Sizeof&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x7684;&#x5927;&#x5C0F;&#x96BB;&#x5305;&#x62EC;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x4E2D;&#x56FA;&#x5B9A;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x4F8B;&#x5982;&#x5B57;&#x7B26;&#x4E32;&#x5C0D;&#x61C9;&#x7D50;&#x69CB;&#x9AD4;&#x4E2D;&#x7684;&#x6307;&#x91DD;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x9577;&#x5EA6;&#x90E8;&#x5206;&#xFF0C;&#x4F46;&#x662F;&#x4F75;&#x4E0D;&#x5305;&#x542B;&#x6307;&#x91DD;&#x6307;&#x5411;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5167;&#x5BB9;&#x3002;Go&#x8A9E;&#x8A00;&#x4E2D;&#x975E;&#x805A;&#x5408;&#x985E;&#x578B;&#x901A;&#x5E38;&#x6709;&#x4E00;&#x500B;&#x56FA;&#x5B9A;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x76E1;&#x7BA1;&#x5728;&#x4E0D;&#x540C;&#x5DE5;&#x5177;&#x93C8;&#x4E0B;&#x751F;&#x6210;&#x7684;&#x5BE6;&#x969B;&#x5927;&#x5C0F;&#x53EF;&#x80FD;&#x6703;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;&#x8003;&#x616E;&#x5230;&#x53EF;&#x79FB;&#x690D;&#x6027;&#xFF0C;&#x5F15;&#x7528;&#x985E;&#x578B;&#x6216;&#x5305;&#x542B;&#x5F15;&#x7528;&#x985E;&#x578B;&#x7684;&#x5927;&#x5C0F;&#x5728;32&#x4F4D;&#x5E73;&#x53F0;&#x4E0A;&#x662F;4&#x500B;&#x5B57;&#x7BC0;&#xFF0C;&#x5728;64&#x4F4D;&#x5E73;&#x53F0;&#x4E0A;&#x662F;8&#x500B;&#x5B57;&#x7BC0;&#x3002;</p>
 <p>&#x8A08;&#x7B97;&#x6A5F;&#x5728;&#x52A0;&#x8F09;&#x548C;&#x4FDD;&#x5B58;&#x6578;&#x64DA;&#x6642;&#xFF0C;&#x5982;&#x679C;&#x5167;&#x5B58;&#x5730;&#x5740;&#x5408;&#x7406;&#x5730;&#x5C0D;&#x9F4A;&#x7684;&#x5C07;&#x6703;&#x66F4;&#x6709;&#x6548;&#x7387;&#x3002;&#x4F8B;&#x5982;2&#x5B57;&#x7BC0;&#x5927;&#x5C0F;&#x7684;int16&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;&#x5730;&#x5740;&#x61C9;&#x8A72;&#x662F;&#x5076;&#x6578;&#xFF0C;&#x4E00;&#x500B;4&#x5B57;&#x7BC0;&#x5927;&#x5C0F;&#x7684;rune&#x985E;&#x578B;&#x8B8A;&#x91CF;&#x7684;&#x5730;&#x5740;&#x61C9;&#x8A72;&#x662F;4&#x7684;&#x500D;&#x6578;&#xFF0C;&#x4E00;&#x500B;8&#x5B57;&#x7BC0;&#x5927;&#x5C0F;&#x7684;float64&#x3001;uint64&#x6216;64-bit&#x6307;&#x91DD;&#x985E;&#x578B;&#x8B8A;&#x91CF;&#x7684;&#x5730;&#x5740;&#x61C9;&#x8A72;&#x662F;8&#x5B57;&#x7BC0;&#x5C0D;&#x9F4A;&#x7684;&#x3002;&#x4F46;&#x662F;&#x5C0D;&#x65BC;&#x518D;&#x5927;&#x7684;&#x5730;&#x5740;&#x5C0D;&#x9F4A;&#x500D;&#x6578;&#x5247;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x7684;&#xFF0C;&#x537D;&#x4F7F;&#x662F;complex128&#x7B49;&#x8F03;&#x5927;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;&#x6700;&#x591A;&#x4E5F;&#x96BB;&#x662F;8&#x5B57;&#x7BC0;&#x5C0D;&#x9F4A;&#x3002;</p>
 <p>&#x7531;&#x65BC;&#x5730;&#x5740;&#x5C0D;&#x9F4A;&#x9019;&#x500B;&#x56E0;&#x7D20;&#xFF0C;&#x4E00;&#x500B;&#x805A;&#x5408;&#x985E;&#x578B;&#xFF08;&#x7D50;&#x69CB;&#x9AD4;&#x6216;&#x6578;&#x7D44;&#xFF09;&#x7684;&#x5927;&#x5C0F;&#x81F3;&#x5C11;&#x662F;&#x6240;&#x6709;&#x5B57;&#x6BB5;&#x6216;&#x5143;&#x7D20;&#x5927;&#x5C0F;&#x7684;&#x7E3D;&#x548C;&#xFF0C;&#x6216;&#x8005;&#x66F4;&#x5927;&#x56E0;&#x7232;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x5167;&#x5B58;&#x7A7A;&#x6D1E;&#x3002;&#x5167;&#x5B58;&#x7A7A;&#x6D1E;&#x662F;&#x7DE8;&#x8B6F;&#x5668;&#x81EA;&#x52D5;&#x6DFB;&#x52A0;&#x7684;&#x6C92;&#x6709;&#x88AB;&#x4F7F;&#x7528;&#x7684;&#x5167;&#x5B58;&#x7A7A;&#x9593;&#xFF0C;&#x7528;&#x65BC;&#x4FDD;&#x8B49;&#x5F8C;&#x9762;&#x6BCF;&#x500B;&#x5B57;&#x6BB5;&#x6216;&#x5143;&#x7D20;&#x7684;&#x5730;&#x5740;&#x76F8;&#x5C0D;&#x65BC;&#x7D50;&#x69CB;&#x6216;&#x6578;&#x7D44;&#x7684;&#x958B;&#x59CB;&#x5730;&#x5740;&#x80FD;&#x5920;&#x5408;&#x7406;&#x5730;&#x5C0D;&#x9F4A;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x5167;&#x5B58;&#x7A7A;&#x6D1E;&#x53EF;&#x80FD;&#x6703;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x96A8;&#x6A5F;&#x6578;&#x64DA;&#xFF0C;&#x53EF;&#x80FD;&#x6703;&#x5C0D;&#x7528;unsafe&#x5305;&#x76F4;&#x63A5;&#x64CD;&#x4F5C;&#x5167;&#x5B58;&#x7684;&#x8655;&#x7406;&#x7523;&#x751F;&#x5F71;&#x97FF;&#xFF09;&#x3002;</p>
 <table>
@@ -2083,7 +2087,7 @@ fmt.Println(unsafe.Sizeof(<span class="hljs-typename">float64</span>(<span class
 <span class="hljs-keyword">struct</span>{ <span class="hljs-typename">float64</span>; <span class="hljs-typename">int16</span>; <span class="hljs-typename">bool</span> } <span class="hljs-comment">// 2 words 3words</span>
 <span class="hljs-keyword">struct</span>{ <span class="hljs-typename">bool</span>; <span class="hljs-typename">int16</span>; <span class="hljs-typename">float64</span> } <span class="hljs-comment">// 2 words 3words</span>
 </code></pre>
-<p>&#x95DC;&#x65BC;&#x5167;&#x5B58;&#x5730;&#x5740;&#x5C0D;&#x9F4A;&#x7B97;&#x6CD5;&#x7684;&#x7D30;&#x7BC0;&#x8D85;&#x9F63;&#x4E86;&#x672C;&#x66F8;&#x7684;&#x8303;&#x570D;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F;&#x6BCF;&#x4E00;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x90FD;&#x9700;&#x8981;&#x64D4;&#x5FC3;&#x9019;&#x500B;&#x554F;&#x984C;&#xFF0C;&#x4E0D;&#x904E;&#x6709;&#x6548;&#x7684;&#x5305;&#x88DD;&#x53EF;&#x4EE5;&#x4F7F;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x66F4;&#x52A0;&#x7DCA;&#x6E4A;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x672A;&#x4F86;&#x7684;Go&#x8A9E;&#x8A00;&#x7DE8;&#x8B6F;&#x5668;&#x61C9;&#x8A72;&#x6703;&#x9ED8;&#x8A8D;&#x512A;&#x5316;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x9806;&#x5E8F;&#xFF0C;&#x7576;&#x7136;&#x7528;&#x65BC;&#x61C9;&#x8A72;&#x4E5F;&#x80FD;&#x5920;&#x6307;&#x5B9A;&#x5177;&#x9AD4;&#x7684;&#x5167;&#x5B58;&#x5E03;&#x5C40;&#xFF0C;&#x76F8;&#x540C;&#x8A0E;&#x8AD6;&#x8ACB;&#x53C3;&#x8003; <a href="https://github.com/golang/go/issues/10014" target="_blank">Issue10014</a> &#xFF09;&#xFF0C;&#x5167;&#x5B58;&#x4F7F;&#x7528;&#x7387;&#x548C;&#x6027;&#x80FD;&#x90FD;&#x53EF;&#x80FD;&#x6703;&#x53D7;&#x76CA;&#x3002;</p>
+<p>&#x95DC;&#x65BC;&#x5167;&#x5B58;&#x5730;&#x5740;&#x5C0D;&#x9F4A;&#x7B97;&#x6CD5;&#x7684;&#x7D30;&#x7BC0;&#x8D85;&#x51FA;&#x4E86;&#x672C;&#x66F8;&#x7684;&#x8303;&#x570D;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F;&#x6BCF;&#x4E00;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x90FD;&#x9700;&#x8981;&#x64D4;&#x5FC3;&#x9019;&#x500B;&#x554F;&#x984C;&#xFF0C;&#x4E0D;&#x904E;&#x6709;&#x6548;&#x7684;&#x5305;&#x88DD;&#x53EF;&#x4EE5;&#x4F7F;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x66F4;&#x52A0;&#x7DCA;&#x6E4A;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x672A;&#x4F86;&#x7684;Go&#x8A9E;&#x8A00;&#x7DE8;&#x8B6F;&#x5668;&#x61C9;&#x8A72;&#x6703;&#x9ED8;&#x8A8D;&#x512A;&#x5316;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x9806;&#x5E8F;&#xFF0C;&#x7576;&#x7136;&#x7528;&#x65BC;&#x61C9;&#x8A72;&#x4E5F;&#x80FD;&#x5920;&#x6307;&#x5B9A;&#x5177;&#x9AD4;&#x7684;&#x5167;&#x5B58;&#x5E03;&#x5C40;&#xFF0C;&#x76F8;&#x540C;&#x8A0E;&#x8AD6;&#x8ACB;&#x53C3;&#x8003; <a href="https://github.com/golang/go/issues/10014" target="_blank">Issue10014</a> &#xFF09;&#xFF0C;&#x5167;&#x5B58;&#x4F7F;&#x7528;&#x7387;&#x548C;&#x6027;&#x80FD;&#x90FD;&#x53EF;&#x80FD;&#x6703;&#x53D7;&#x76CA;&#x3002;</p>
 <p><code>unsafe.Alignof</code> &#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x5C0D;&#x61C9;&#x53C3;&#x6578;&#x7684;&#x985E;&#x578B;&#x9700;&#x8981;&#x5C0D;&#x9F4A;&#x7684;&#x500D;&#x6578;. &#x548C; Sizeof &#x985E;&#x4F3C;, Alignof &#x4E5F;&#x662F;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;&#x5E38;&#x91CF;&#x8868;&#x9054;&#x5F0F;, &#x5C0D;&#x61C9;&#x4E00;&#x500B;&#x5E38;&#x91CF;. &#x901A;&#x5E38;&#x60C5;&#x6CC1;&#x4E0B;&#x5E03;&#x723E;&#x548C;&#x6578;&#x5B57;&#x985E;&#x578B;&#x9700;&#x8981;&#x5C0D;&#x9F4A;&#x5230;&#x5B83;&#x5011;&#x672C;&#x8EAB;&#x7684;&#x5927;&#x5C0F;(&#x6700;&#x591A;8&#x500B;&#x5B57;&#x7BC0;), &#x5176;&#x5B83;&#x7684;&#x985E;&#x578B;&#x5C0D;&#x9F4A;&#x5230;&#x6A5F;&#x5668;&#x5B57;&#x5927;&#x5C0F;.</p>
 <p><code>unsafe.Offsetof</code> &#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#x5FC5;&#x9B1A;&#x662F;&#x4E00;&#x500B;&#x5B57;&#x6BB5; <code>x.f</code>, &#x7136;&#x5F8C;&#x8FD4;&#x8FF4; <code>f</code> &#x5B57;&#x6BB5;&#x76F8;&#x5C0D;&#x65BC; <code>x</code> &#x8D77;&#x59CB;&#x5730;&#x5740;&#x7684;&#x504F;&#x79FB;&#x91CF;, &#x5305;&#x62EC;&#x53EF;&#x80FD;&#x7684;&#x7A7A;&#x6D1E;.</p>
 <p>&#x5716; 13.1 &#x986F;&#x793A;&#x4E86;&#x4E00;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x8B8A;&#x91CF; x &#x4EE5;&#x53CA;&#x5176;&#x5728;32&#x4F4D;&#x548C;64&#x4F4D;&#x6A5F;&#x5668;&#x4E0A;&#x7684;&#x5178;&#x578B;&#x7684;&#x5167;&#x5B58;. &#x7070;&#x8272;&#x5340;&#x57DF;&#x662F;&#x7A7A;&#x6D1E;.</p>
@@ -2137,7 +2141,7 @@ Sizeof(x.c) = 24  Alignof(x.c) = 8 Offsetof(x.c) = 8
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

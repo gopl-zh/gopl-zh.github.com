@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="13.2" data-chapter-title="unsafe.Pointer" data-filepath="ch13/ch13-02.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="13.2" data-chapter-title="unsafe.Pointer" data-filepath="ch13/ch13-02.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2020,7 +2024,7 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="132-unsafepointer">13.2. unsafe.Pointer</h2>
-<p>&#x5927;&#x591A;&#x6578;&#x6307;&#x91DD;&#x985E;&#x578B;&#x6703;&#x5BEB;&#x6210;<code>*T</code>&#xFF0C;&#x8868;&#x793A;&#x662F;&#x201C;&#x4E00;&#x500B;&#x6307;&#x5411;T&#x985E;&#x578B;&#x8B8A;&#x91CF;&#x7684;&#x6307;&#x91DD;&#x201D;&#x3002;unsafe.Pointer&#x662F;&#x7279;&#x522B;&#x5B9A;&#x7FA9;&#x7684;&#x4E00;&#x7A2E;&#x6307;&#x91DD;&#x985E;&#x578B;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x985E;&#x4F3C;C&#x8A9E;&#x8A00;&#x4E2D;&#x7684;<code>void*</code>&#x985E;&#x578B;&#x7684;&#x6307;&#x91DD;&#xFF09;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4EFB;&#x610F;&#x985E;&#x578B;&#x8B8A;&#x91CF;&#x7684;&#x5730;&#x5740;&#x3002;&#x7576;&#x7136;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x904E;<code>*p</code>&#x4F86;&#x7A6B;&#x53D6;unsafe.Pointer&#x6307;&#x91DD;&#x6307;&#x5411;&#x7684;&#x771E;&#x5BE6;&#x8B8A;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x56E0;&#x7232;&#x6211;&#x5011;&#x4F75;&#x4E0D;&#x77E5;&#x9053;&#x8B8A;&#x91CF;&#x7684;&#x5177;&#x9AD4;&#x985E;&#x578B;&#x3002;&#x548C;&#x666E;&#x901A;&#x6307;&#x91DD;&#x4E00;&#x6A23;&#xFF0C;unsafe.Pointer&#x6307;&#x91DD;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x6BD4;&#x8F03;&#x7684;&#xFF0C;&#x4F75;&#x4E14;&#x652F;&#x6301;&#x548C;nil&#x5E38;&#x91CF;&#x6BD4;&#x8F03;&#x5224;&#x65B7;&#x662F;&#x5426;&#x7232;&#x7A7A;&#x6307;&#x91DD;&#x3002;</p>
+<p>&#x5927;&#x591A;&#x6578;&#x6307;&#x91DD;&#x985E;&#x578B;&#x6703;&#x5BEB;&#x6210;<code>*T</code>&#xFF0C;&#x8868;&#x793A;&#x662F;&#x201C;&#x4E00;&#x500B;&#x6307;&#x5411;T&#x985E;&#x578B;&#x8B8A;&#x91CF;&#x7684;&#x6307;&#x91DD;&#x201D;&#x3002;unsafe.Pointer&#x662F;&#x7279;&#x522B;&#x5B9A;&#x7FA9;&#x7684;&#x4E00;&#x7A2E;&#x6307;&#x91DD;&#x985E;&#x578B;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x985E;&#x4F3C;C&#x8A9E;&#x8A00;&#x4E2D;&#x7684;<code>void*</code>&#x985E;&#x578B;&#x7684;&#x6307;&#x91DD;&#xFF09;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4EFB;&#x610F;&#x985E;&#x578B;&#x8B8A;&#x91CF;&#x7684;&#x5730;&#x5740;&#x3002;&#x7576;&#x7136;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x904E;<code>*p</code>&#x4F86;&#x7372;&#x53D6;unsafe.Pointer&#x6307;&#x91DD;&#x6307;&#x5411;&#x7684;&#x771E;&#x5BE6;&#x8B8A;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x56E0;&#x7232;&#x6211;&#x5011;&#x4F75;&#x4E0D;&#x77E5;&#x9053;&#x8B8A;&#x91CF;&#x7684;&#x5177;&#x9AD4;&#x985E;&#x578B;&#x3002;&#x548C;&#x666E;&#x901A;&#x6307;&#x91DD;&#x4E00;&#x6A23;&#xFF0C;unsafe.Pointer&#x6307;&#x91DD;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x6BD4;&#x8F03;&#x7684;&#xFF0C;&#x4F75;&#x4E14;&#x652F;&#x6301;&#x548C;nil&#x5E38;&#x91CF;&#x6BD4;&#x8F03;&#x5224;&#x65B7;&#x662F;&#x5426;&#x7232;&#x7A7A;&#x6307;&#x91DD;&#x3002;</p>
 <p>&#x4E00;&#x500B;&#x666E;&#x901A;&#x7684;<code>*T</code>&#x985E;&#x578B;&#x6307;&#x91DD;&#x53EF;&#x4EE5;&#x88AB;&#x8F49;&#x5316;&#x7232;unsafe.Pointer&#x985E;&#x578B;&#x6307;&#x91DD;&#xFF0C;&#x4F75;&#x4E14;&#x4E00;&#x500B;unsafe.Pointer&#x985E;&#x578B;&#x6307;&#x91DD;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x8F49;&#x8FF4;&#x666E;&#x901A;&#x7684;&#x6307;&#x91DD;&#xFF0C;&#x88AB;&#x8F49;&#x8FF4;&#x666E;&#x901A;&#x7684;&#x6307;&#x91DD;&#x985E;&#x578B;&#x4F75;&#x4E0D;&#x9700;&#x8981;&#x548C;&#x539F;&#x59CB;&#x7684;<code>*T</code>&#x985E;&#x578B;&#x76F8;&#x540C;&#x3002;&#x901A;&#x904E;&#x5C07;<code>*float64</code>&#x985E;&#x578B;&#x6307;&#x91DD;&#x8F49;&#x5316;&#x7232;<code>*uint64</code>&#x985E;&#x578B;&#x6307;&#x91DD;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x67FB;&#x770B;&#x4E00;&#x500B;&#x6D6E;&#x9EDE;&#x6578;&#x8B8A;&#x91CF;&#x7684;&#x4F4D;&#x6A21;&#x5F0F;&#x3002;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">package</span> math
 
@@ -2096,7 +2100,7 @@ pb := (*<span class="hljs-typename">int16</span>)(unsafe.Pointer(tmp))
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="2.4" data-chapter-title="賦值" data-filepath="ch2/ch2-04.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="2.4" data-chapter-title="賦值" data-filepath="ch2/ch2-04.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2020,28 +2024,28 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="24-&#x8CE6;&#x503C;">2.4. &#x8CE6;&#x503C;</h2>
-<p>&#x4F7F;&#x7528;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x53EF;&#x4EE5;&#x66F4;&#x65B0;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x7684;&#x503C;, &#x6700;&#x7C21;&#x55AE;&#x7684;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x662F;&#x5C07;&#x8981;&#x88AB;&#x8CE6;&#x503C;&#x7684;&#x8B8A;&#x91CF;&#x653E;&#x5728; <code>=</code> &#x7684;&#x5DE6;&#x908A;, &#x65B0;&#x503C;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x653E;&#x5728; <code>=</code> &#x53F3;&#x908A;.</p>
+<p>&#x4F7F;&#x7528;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x53EF;&#x4EE5;&#x66F4;&#x65B0;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x6700;&#x7C21;&#x55AE;&#x7684;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x662F;&#x5C07;&#x8981;&#x88AB;&#x8CE6;&#x503C;&#x7684;&#x8B8A;&#x91CF;&#x653E;&#x5728;=&#x7684;&#x5DE6;&#x908A;&#xFF0C;&#x65B0;&#x503C;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x653E;&#x5728;=&#x7684;&#x53F3;&#x908A;&#x3002;</p>
 <pre><code class="lang-Go">x = <span class="hljs-number">1</span>                       <span class="hljs-comment">// &#x547D;&#x4EE4;&#x8B8A;&#x91CF;&#x7684;&#x8CE6;&#x503C;</span>
 *p = <span class="hljs-constant">true</span>                   <span class="hljs-comment">// &#x901A;&#x904E;&#x6307;&#x91DD;&#x9593;&#x63A5;&#x8CE6;&#x503C;</span>
 person.name = <span class="hljs-string">&quot;bob&quot;</span>         <span class="hljs-comment">// &#x7D50;&#x69CB;&#x9AD4;&#x5B57;&#x6BB5;&#x8CE6;&#x503C;</span>
-count[x] = count[x] * scale <span class="hljs-comment">// &#x6578;&#x7D44;, &#x5207;&#x7247; &#x6216; &#x5B57;&#x5178;&#x7684; &#x5143;&#x7D20;&#x8CE6;&#x503C;</span>
+count[x] = count[x] * scale <span class="hljs-comment">// &#x6578;&#x7D44;&#x3001;slice&#x6216;map&#x7684;&#x5143;&#x7D20;&#x8CE6;&#x503C;</span>
 </code></pre>
-<p>&#x7279;&#x5B9A;&#x7684;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x548C;&#x4E8C;&#x5143;&#x7B97;&#x8853;&#x8907;&#x5408;&#x64CD;&#x4F5C;&#x6709;&#x4E00;&#x500B;&#x7C21;&#x6F54;&#x5F62;&#x5F0F;, &#x4F8B;&#x5982;&#x4E0A;&#x9762;&#x6700;&#x5F8C;&#x7684;&#x8A9E;&#x53E5;&#x53EF;&#x4EE5;&#x91CD;&#x5BEB;&#x7232;:</p>
+<p>&#x7279;&#x5B9A;&#x7684;&#x4E8C;&#x5143;&#x7B97;&#x8853;&#x904B;&#x7B97;&#x7B26;&#x548C;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x7684;&#x8907;&#x5408;&#x64CD;&#x4F5C;&#x6709;&#x4E00;&#x500B;&#x7C21;&#x6F54;&#x5F62;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;&#x4E0A;&#x9762;&#x6700;&#x5F8C;&#x7684;&#x8A9E;&#x53E5;&#x53EF;&#x4EE5;&#x91CD;&#x5BEB;&#x7232;&#xFF1A;</p>
 <pre><code class="lang-Go">count[x] *= scale
 </code></pre>
-<p>&#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x7701;&#x53BB;&#x5C0D;&#x8B8A;&#x91CF;&#x8868;&#x9054;&#x5F0F;&#x7684;&#x91CD;&#x8907;&#x8A08;&#x7B97;.</p>
-<p>&#x6578;&#x503C;&#x8B8A;&#x91CF;&#x4E5F;&#x53EF;&#x4EE5;&#x652F;&#x6301; <code>++</code> &#x905E;&#x589E;&#x548C; <code>--</code> &#x905E;&#x6E1B;&#x8A9E;&#x53E5;:</p>
+<p>&#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x7701;&#x53BB;&#x5C0D;&#x8B8A;&#x91CF;&#x8868;&#x9054;&#x5F0F;&#x7684;&#x91CD;&#x8907;&#x8A08;&#x7B97;&#x3002;</p>
+<p>&#x6578;&#x503C;&#x8B8A;&#x91CF;&#x4E5F;&#x53EF;&#x4EE5;&#x652F;&#x6301;<code>++</code>&#x905E;&#x589E;&#x548C;<code>--</code>&#x905E;&#x6E1B;&#x8A9E;&#x53E5;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x81EA;&#x589E;&#x548C;&#x81EA;&#x6E1B;&#x662F;&#x8A9E;&#x53E5;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8868;&#x9054;&#x5F0F;&#xFF0C;&#x56E0;&#x6B64;<code>x = i++</code>&#x4E4B;&#x985E;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x662F;&#x932F;&#x8AA4;&#x7684;&#xFF09;&#xFF1A;</p>
 <pre><code class="lang-Go">v := <span class="hljs-number">1</span> 
-v++    <span class="hljs-comment">// &#x7B49;&#x50F9;&#x65B9;&#x5F0F; v = v + 1; v &#x8B8A;&#x6210; 2 </span>
-v--    <span class="hljs-comment">// &#x7B49;&#x50F9;&#x65B9;&#x5F0F; v = v - 1; v &#x8B8A;&#x6210; 1</span>
+v++    <span class="hljs-comment">// &#x7B49;&#x50F9;&#x65B9;&#x5F0F; v = v + 1&#xFF1B;v &#x8B8A;&#x6210; 2 </span>
+v--    <span class="hljs-comment">// &#x7B49;&#x50F9;&#x65B9;&#x5F0F; v = v - 1&#xFF1B;v &#x8B8A;&#x6210; 1</span>
 </code></pre>
 <h3 id="241-&#x5143;&#x7D44;&#x8CE6;&#x503C;">2.4.1. &#x5143;&#x7D44;&#x8CE6;&#x503C;</h3>
-<p>&#x5143;&#x7D44;&#x8CE6;&#x503C;&#x662F;&#x53E6;&#x4E00;&#x7A2E;&#x5F62;&#x5F0F;&#x7684;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;, &#x5141;&#x8A31;&#x540C;&#x6642;&#x66F4;&#x65B0;&#x591A;&#x500B;&#x8B8A;&#x91CF;&#x7684;&#x503C;. &#x5728;&#x8CE6;&#x503C;&#x4E4B;&#x524D;, &#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x53F3;&#x908A;&#x7684;&#x6240;&#x6709;&#x8868;&#x9054;&#x5F0F;&#x5C07;&#x6703;&#x5148;&#x9032;&#x884C;&#x6C42;&#x503C;, &#x7136;&#x5F8C;&#x518D;&#x7D71;&#x4E00;&#x66F4;&#x65B0;&#x5DE6;&#x908A;&#x8B8A;&#x91CF;&#x7684;&#x503C;. &#x9019;&#x5C0D;&#x65BC;&#x8655;&#x7406;&#x6709;&#x4E9B;&#x540C;&#x6642;&#x9F63;&#x73FE;&#x5728;&#x5143;&#x7D44;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x5DE6;&#x53F3;&#x5169;&#x908A;&#x7684;&#x8B8A;&#x91CF;&#x5F88;&#x6709;&#x5E6B;&#x52A9;, &#x4F8B;&#x5982;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x9019;&#x6A23;&#x4EA4;&#x63DB;&#x5169;&#x500B;&#x8B8A;&#x91CF;&#x7684;&#x503C;:</p>
+<p>&#x5143;&#x7D44;&#x8CE6;&#x503C;&#x662F;&#x53E6;&#x4E00;&#x7A2E;&#x5F62;&#x5F0F;&#x7684;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#xFF0C;&#x5B83;&#x5141;&#x8A31;&#x540C;&#x6642;&#x66F4;&#x65B0;&#x591A;&#x500B;&#x8B8A;&#x91CF;&#x7684;&#x503C;&#x3002;&#x5728;&#x8CE6;&#x503C;&#x4E4B;&#x524D;&#xFF0C;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x53F3;&#x908A;&#x7684;&#x6240;&#x6709;&#x8868;&#x9054;&#x5F0F;&#x5C07;&#x6703;&#x5148;&#x9032;&#x884C;&#x6C42;&#x503C;&#xFF0C;&#x7136;&#x5F8C;&#x518D;&#x7D71;&#x4E00;&#x66F4;&#x65B0;&#x5DE6;&#x908A;&#x5C0D;&#x61C9;&#x8B8A;&#x91CF;&#x7684;&#x503C;&#x3002;&#x9019;&#x5C0D;&#x65BC;&#x8655;&#x7406;&#x6709;&#x4E9B;&#x540C;&#x6642;&#x51FA;&#x73FE;&#x5728;&#x5143;&#x7D44;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x5DE6;&#x53F3;&#x5169;&#x908A;&#x7684;&#x8B8A;&#x91CF;&#x5F88;&#x6709;&#x5E6B;&#x52A9;&#xFF0C;&#x4F8B;&#x5982;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x9019;&#x6A23;&#x4EA4;&#x63DB;&#x5169;&#x500B;&#x8B8A;&#x91CF;&#x7684;&#x503C;&#xFF1A;</p>
 <pre><code class="lang-Go">x, y = y, x
 
 a[i], a[j] = a[j], a[i]
 </code></pre>
-<p>&#x6216;&#x8005;&#x662F;&#x8A08;&#x7B97;&#x5169;&#x500B;&#x6574;&#x6578;&#x503C;&#x7684;&#x7684;&#x6700;&#x5927;&#x516C;&#x7D04;&#x6578;(GCD):</p>
+<p>&#x6216;&#x8005;&#x662F;&#x8A08;&#x7B97;&#x5169;&#x500B;&#x6574;&#x6578;&#x503C;&#x7684;&#x7684;&#x6700;&#x5927;&#x516C;&#x7D04;&#x6578;&#xFF08;GCD&#xFF09;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;GCD&#x4E0D;&#x662F;&#x90A3;&#x500B;&#x654F;&#x611F;&#x5B57;&#xFF0C;&#x800C;&#x662F;greatest common divisor&#x7684;&#x7E2E;&#x5BEB;&#xFF0C;&#x6B50;&#x5E7E;&#x91CC;&#x5FB7;&#x7684;GCD&#x662F;&#x6700;&#x65E9;&#x7684;&#x975E;&#x5E73;&#x51E1;&#x7B97;&#x6CD5;&#xFF09;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">func</span> gcd(x, y <span class="hljs-typename">int</span>) <span class="hljs-typename">int</span> {
     <span class="hljs-keyword">for</span> y != <span class="hljs-number">0</span> {
         x, y = y, x%y
@@ -2049,7 +2053,7 @@ a[i], a[j] = a[j], a[i]
     <span class="hljs-keyword">return</span> x
 }
 </code></pre>
-<p>&#x6216;&#x8005;&#x662F;&#x8A08;&#x7B97;&#x6590;&#x6CE2;&#x7D0D;&#x5951;&#x6578;&#x5217;(Fibonacci)&#x7684;&#x7B2C;N&#x500B;&#x6578;:</p>
+<p>&#x6216;&#x8005;&#x662F;&#x8A08;&#x7B97;&#x6590;&#x6CE2;&#x7D0D;&#x5951;&#x6578;&#x5217;&#xFF08;Fibonacci&#xFF09;&#x7684;&#x7B2C;N&#x500B;&#x6578;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">func</span> fib(n <span class="hljs-typename">int</span>) <span class="hljs-typename">int</span> {
     x, y := <span class="hljs-number">0</span>, <span class="hljs-number">1</span>
     <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; n; i++ {
@@ -2058,39 +2062,44 @@ a[i], a[j] = a[j], a[i]
     <span class="hljs-keyword">return</span> x
 }
 </code></pre>
-<p>&#x5143;&#x7D44;&#x8CE6;&#x503C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x4E00;&#x7E6B;&#x5217;&#x7463;&#x788E;&#x8CE6;&#x503C;&#x66F4;&#x7DCA;&#x6E4A;(&#x8B6F;&#x8A3B;: &#x7279;&#x522B;&#x662F;&#x5728;for&#x5FAA;&#x74B0;&#x7684;&#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;),</p>
+<p>&#x5143;&#x7D44;&#x8CE6;&#x503C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x4E00;&#x7E6B;&#x5217;&#x7463;&#x788E;&#x8CE6;&#x503C;&#x66F4;&#x52A0;&#x7DCA;&#x6E4A;&#xFF08;&#x8B6F;&#x8A3B;: &#x7279;&#x522B;&#x662F;&#x5728;for&#x5FAA;&#x74B0;&#x7684;&#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;&#xFF09;&#xFF0C;</p>
 <pre><code class="lang-Go">i, j, k = <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>
 </code></pre>
-<p>&#x4F46;&#x5982;&#x679C;&#x8868;&#x9054;&#x5F0F;&#x592A;&#x8907;&#x96DC;&#x7684;&#x8A71;, &#x61C9;&#x8A72;&#x76E1;&#x91CF;&#x907F;&#x514D;&#x5143;&#x7D44;&#x8CE6;&#x503C;; &#x56E0;&#x7232;&#x4E00;&#x500B;&#x500B;&#x55AE;&#x7368;&#x7684;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x7684;&#x53EF;&#x8B80;&#x6027;&#x6703;&#x66F4;&#x597D;.</p>
-<p>&#x67D0;&#x4E9B;&#x8868;&#x9054;&#x5F0F;&#x6703;&#x7523;&#x751F;&#x591A;&#x500B;&#x503C;, &#x6BD4;&#x5982;&#x8ABF;&#x7528;&#x4E00;&#x500B;&#x6709;&#x591A;&#x500B;&#x8FD4;&#x8FF4;&#x503C;&#x7684;&#x51FD;&#x6578;. 
-&#x7576;&#x9019;&#x6A23;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x9F63;&#x73FE;&#x5728;&#x5143;&#x7D44;&#x8CE6;&#x503C;&#x53F3;&#x908A;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x4E2D;&#x6642;(&#x8B6F;&#x8A3B;: &#x53F3;&#x908A;&#x4E0D;&#x80FD;&#x518D;&#x6709;&#x5176;&#x4ED6;&#x8868;&#x9054;&#x5F0F;), &#x5DE6;&#x908A;&#x8B8A;&#x91CF;&#x7684;&#x6578;&#x76EE;&#x5FC5;&#x9B1A;&#x548C;&#x53F3;&#x908A;&#x4E00;&#x81F4;.</p>
+<p>&#x4F46;&#x5982;&#x679C;&#x8868;&#x9054;&#x5F0F;&#x592A;&#x8907;&#x96DC;&#x7684;&#x8A71;&#xFF0C;&#x61C9;&#x8A72;&#x76E1;&#x91CF;&#x907F;&#x514D;&#x904E;&#x5EA6;&#x4F7F;&#x7528;&#x5143;&#x7D44;&#x8CE6;&#x503C;&#xFF1B;&#x56E0;&#x7232;&#x6BCF;&#x500B;&#x8B8A;&#x91CF;&#x55AE;&#x7368;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x7684;&#x5BEB;&#x6CD5;&#x53EF;&#x8B80;&#x6027;&#x6703;&#x66F4;&#x597D;&#x3002;</p>
+<p>&#x6709;&#x4E9B;&#x8868;&#x9054;&#x5F0F;&#x6703;&#x7523;&#x751F;&#x591A;&#x500B;&#x503C;&#xFF0C;&#x6BD4;&#x5982;&#x8ABF;&#x7528;&#x4E00;&#x500B;&#x6709;&#x591A;&#x500B;&#x8FD4;&#x8FF4;&#x503C;&#x7684;&#x51FD;&#x6578;&#x3002;&#x7576;&#x9019;&#x6A23;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x51FA;&#x73FE;&#x5728;&#x5143;&#x7D44;&#x8CE6;&#x503C;&#x53F3;&#x908A;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x4E2D;&#x6642;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x53F3;&#x908A;&#x4E0D;&#x80FD;&#x518D;&#x6709;&#x5176;&#x5B83;&#x8868;&#x9054;&#x5F0F;&#xFF09;&#xFF0C;&#x5DE6;&#x908A;&#x8B8A;&#x91CF;&#x7684;&#x6578;&#x76EE;&#x5FC5;&#x9B1A;&#x548C;&#x53F3;&#x908A;&#x4E00;&#x81F4;&#x3002;</p>
 <pre><code class="lang-Go">f, err = os.Open(<span class="hljs-string">&quot;foo.txt&quot;</span>) <span class="hljs-comment">// function call returns two values</span>
 </code></pre>
-<p>&#x901A;&#x5E38;, &#x9019;&#x985E;&#x51FD;&#x6578;&#x6703;&#x7528;&#x984D;&#x5916;&#x7684;&#x8FD4;&#x8FF4;&#x503C;&#x8868;&#x9054;&#x67D0;&#x7A2E;&#x932F;&#x8AA4;&#x985E;&#x578B;, &#x4F8B;&#x5982; os.Open &#x662F;&#x8FD4;&#x8FF4;&#x4E00;&#x500B; error &#x985E;&#x578B;&#x7684;&#x932F;&#x8AA4;, &#x9084;&#x6709;&#x4E00;&#x4E9B;&#x662F;&#x8FD4;&#x8FF4;&#x5E03;&#x723E;&#x503C;, &#x901A;&#x5E38;&#x88AB;&#x7A31;&#x7232;ok. &#x5728;&#x7A0D;&#x5F8C;&#x6211;&#x5011;&#x770B;&#x5230;&#x7684;&#x4E09;&#x500B;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x985E;&#x4F3C;&#x7684;&#x884C;&#x7232;.  &#x5982;&#x679C; &#x5B57;&#x5178;&#x67FB;&#x627E;(&#xA7;4.3), &#x985E;&#x578B;&#x65B7;&#x8A00;(&#xA7;7.10), &#x6216; &#x901A;&#x9053;&#x63A5;&#x6536;(&#xA7;8.4.2) &#x9F63;&#x73FE;&#x5728;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x7684;&#x53F3;&#x908A;, &#x5B83;&#x5011;&#x90FD;&#x5C07;&#x7523;&#x751F;&#x5169;&#x500B;&#x7D50;&#x679C;, &#x6709;&#x4E00;&#x500B;&#x984D;&#x5916;&#x7684;&#x5E03;&#x723E;&#x7D50;&#x679C;&#x8868;&#x793A;&#x64CD;&#x4F5C;&#x662F;&#x5426;&#x6210;&#x529F;:</p>
+<p>&#x901A;&#x5E38;&#xFF0C;&#x9019;&#x985E;&#x51FD;&#x6578;&#x6703;&#x7528;&#x984D;&#x5916;&#x7684;&#x8FD4;&#x8FF4;&#x503C;&#x4F86;&#x8868;&#x9054;&#x67D0;&#x7A2E;&#x932F;&#x8AA4;&#x985E;&#x578B;&#xFF0C;&#x4F8B;&#x5982;os.Open&#x662F;&#x7528;&#x984D;&#x5916;&#x7684;&#x8FD4;&#x8FF4;&#x503C;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;error&#x985E;&#x578B;&#x7684;&#x932F;&#x8AA4;&#xFF0C;&#x9084;&#x6709;&#x4E00;&#x4E9B;&#x662F;&#x7528;&#x4F86;&#x8FD4;&#x8FF4;&#x5E03;&#x723E;&#x503C;&#xFF0C;&#x901A;&#x5E38;&#x88AB;&#x7A31;&#x7232;ok&#x3002;&#x5728;&#x7A0D;&#x5F8C;&#x6211;&#x5011;&#x5C07;&#x770B;&#x5230;&#x7684;&#x4E09;&#x500B;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x985E;&#x4F3C;&#x7684;&#x7528;&#x6CD5;&#x3002;&#x5982;&#x679C;map&#x67FB;&#x627E;&#xFF08;&#xA7;4.3&#xFF09;&#x3001;&#x985E;&#x578B;&#x65B7;&#x8A00;&#xFF08;&#xA7;7.10&#xFF09;&#x6216;&#x901A;&#x9053;&#x63A5;&#x6536;&#xFF08;&#xA7;8.4.2&#xFF09;&#x51FA;&#x73FE;&#x5728;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x7684;&#x53F3;&#x908A;&#xFF0C;&#x5B83;&#x5011;&#x90FD;&#x53EF;&#x80FD;&#x6703;&#x7523;&#x751F;&#x5169;&#x500B;&#x7D50;&#x679C;&#xFF0C;&#x6709;&#x4E00;&#x500B;&#x984D;&#x5916;&#x7684;&#x5E03;&#x723E;&#x7D50;&#x679C;&#x8868;&#x793A;&#x64CD;&#x4F5C;&#x662F;&#x5426;&#x6210;&#x529F;&#xFF1A;</p>
 <pre><code class="lang-Go">v, ok = m[key]             <span class="hljs-comment">// map lookup</span>
 v, ok = x.(T)              <span class="hljs-comment">// type assertion</span>
 v, ok = &lt;-ch               <span class="hljs-comment">// channel receive</span>
 </code></pre>
-<p>&#x548C;&#x8B8A;&#x91CF;&#x7684;&#x8072;&#x660E;&#x4E00;&#x6A23;, &#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x5283;&#x7DDA;&#x7A7A;&#x767D;&#x6A19;&#x8B58;&#x7B26; <code>_</code> &#x4F86;&#x4E1F;&#x68C4;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x503C;.</p>
+<p>&#x8B6F;&#x8A3B;&#xFF1A;map&#x67FB;&#x627E;&#xFF08;&#xA7;4.3&#xFF09;&#x3001;&#x985E;&#x578B;&#x65B7;&#x8A00;&#xFF08;&#xA7;7.10&#xFF09;&#x6216;&#x901A;&#x9053;&#x63A5;&#x6536;&#xFF08;&#xA7;8.4.2&#xFF09;&#x51FA;&#x73FE;&#x5728;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x7684;&#x53F3;&#x908A;&#x6642;&#xFF0C;&#x4F75;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x7523;&#x751F;&#x5169;&#x500B;&#x7D50;&#x679C;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x96BB;&#x7523;&#x751F;&#x4E00;&#x500B;&#x7D50;&#x679C;&#x3002;&#x5C0D;&#x65BC;&#x503C;&#x7523;&#x751F;&#x4E00;&#x500B;&#x7D50;&#x679C;&#x7684;&#x60C5;&#x5F62;&#xFF0C;map&#x67FB;&#x627E;&#x5931;&#x6557;&#x6642;&#x6703;&#x8FD4;&#x8FF4;&#x96F6;&#x503C;&#xFF0C;&#x985E;&#x578B;&#x65B7;&#x8A00;&#x5931;&#x6557;&#x6642;&#x6703;&#x767C;&#x9001;&#x904B;&#x884C;&#x6642;panic&#x7570;&#x5E38;&#xFF0C;&#x901A;&#x9053;&#x63A5;&#x6536;&#x5931;&#x6557;&#x6642;&#x6703;&#x8FD4;&#x8FF4;&#x96F6;&#x503C;&#xFF08;&#x963B;&#x585E;&#x4E0D;&#x7B97;&#x662F;&#x5931;&#x6557;&#xFF09;&#x3002;&#x4F8B;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-Go">v = m[key]                <span class="hljs-comment">// map&#x67FB;&#x627E;&#xFF0C;&#x5931;&#x6557;&#x6642;&#x8FD4;&#x8FF4;&#x96F6;&#x503C;</span>
+v = x.(T)                 <span class="hljs-comment">// type&#x65B7;&#x8A00;&#xFF0C;&#x5931;&#x6557;&#x6642;panic&#x7570;&#x5E38;</span>
+v = &lt;-ch                  <span class="hljs-comment">// &#x7BA1;&#x9053;&#x63A5;&#x6536;&#xFF0C;&#x5931;&#x6557;&#x6642;&#x8FD4;&#x8FF4;&#x96F6;&#x503C;&#xFF08;&#x963B;&#x585E;&#x4E0D;&#x7B97;&#x662F;&#x5931;&#x6557;&#xFF09;</span>
+
+_, ok = m[key]            <span class="hljs-comment">// map&#x8FD4;&#x8FF4;2&#x500B;&#x503C;</span>
+_, ok = mm[<span class="hljs-string">&quot;&quot;</span>], <span class="hljs-constant">false</span>     <span class="hljs-comment">// map&#x8FD4;&#x8FF4;1&#x500B;&#x503C;</span>
+_ = mm[<span class="hljs-string">&quot;&quot;</span>]                <span class="hljs-comment">// map&#x8FD4;&#x8FF4;1&#x500B;&#x503C;</span>
+</code></pre>
+<p>&#x548C;&#x8B8A;&#x91CF;&#x8072;&#x660E;&#x4E00;&#x6A23;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x5283;&#x7DDA;&#x7A7A;&#x767D;&#x6A19;&#x8B58;&#x7B26;<code>_</code>&#x4F86;&#x4E1F;&#x68C4;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x503C;&#x3002;</p>
 <pre><code class="lang-Go">_, err = io.Copy(dst, src) <span class="hljs-comment">// &#x4E1F;&#x68C4;&#x5B57;&#x7BC0;&#x6578;</span>
-_, ok = x.(T)              <span class="hljs-comment">// &#x96BB;&#x6AA2;&#x6E2C;&#x985E;&#x578B;, &#x5FFD;&#x7565;&#x5177;&#x9AD4;&#x503C;</span>
+_, ok = x.(T)              <span class="hljs-comment">// &#x96BB;&#x6AA2;&#x6E2C;&#x985E;&#x578B;&#xFF0C;&#x5FFD;&#x7565;&#x5177;&#x9AD4;&#x503C;</span>
 </code></pre>
 <h3 id="242-&#x53EF;&#x8CE6;&#x503C;&#x6027;">2.4.2. &#x53EF;&#x8CE6;&#x503C;&#x6027;</h3>
-<p>&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x662F;&#x986F;&#x793A;&#x7684;&#x8CE6;&#x503C;&#x5F62;&#x5F0F;, &#x4F46;&#x662F;&#x7A0B;&#x5E8F;&#x4E2D;&#x9084;&#x6709;&#x5F88;&#x591A;&#x5730;&#x65B9;&#x6703;&#x767C;&#x9001;&#x96B1;&#x5F0F;&#x7684;&#x8CE6;&#x503C;&#x884C;&#x7232;: &#x51FD;&#x6578;&#x8ABF;&#x7528;&#x5C07;&#x96B1;&#x5F0F;&#x5730;&#x5C07;&#x8ABF;&#x7528;&#x53C3;&#x6578;&#x7684;&#x503C;&#x8CE6;&#x503C;&#x7D66;&#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#x8B8A;&#x91CF;, &#x4E00;&#x500B;&#x8FD4;&#x8FF4;&#x8A9E;&#x53E5;&#x5C07;&#x96B1;&#x5F0F;&#x5730;&#x5C07;&#x8FD4;&#x8FF4;&#x64CD;&#x4F5C;&#x7684;&#x503C;&#x8CE6;&#x503C;&#x7D66;&#x7D50;&#x679C;&#x8B8A;&#x91CF;, &#x4E00;&#x500B;&#x8907;&#x5408;&#x985E;&#x578B;&#x7684;&#x5B57;&#x9762;&#x91CF;(&#xA7;4.2)&#x4E5F;&#x6703;&#x7523;&#x751F;&#x8CE6;&#x503C;&#x884C;&#x7232;. &#x4F8B;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x8A9E;&#x53E5;:</p>
+<p>&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x662F;&#x986F;&#x5F0F;&#x7684;&#x8CE6;&#x503C;&#x5F62;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x7A0B;&#x5E8F;&#x4E2D;&#x9084;&#x6709;&#x5F88;&#x591A;&#x5730;&#x65B9;&#x6703;&#x767C;&#x751F;&#x96B1;&#x5F0F;&#x7684;&#x8CE6;&#x503C;&#x884C;&#x7232;&#xFF1A;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x6703;&#x96B1;&#x5F0F;&#x5730;&#x5C07;&#x8ABF;&#x7528;&#x53C3;&#x6578;&#x7684;&#x503C;&#x8CE6;&#x503C;&#x7D66;&#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#x8B8A;&#x91CF;&#xFF0C;&#x4E00;&#x500B;&#x8FD4;&#x8FF4;&#x8A9E;&#x53E5;&#x5C07;&#x96B1;&#x5F0F;&#x5730;&#x5C07;&#x8FD4;&#x8FF4;&#x64CD;&#x4F5C;&#x7684;&#x503C;&#x8CE6;&#x503C;&#x7D66;&#x7D50;&#x679C;&#x8B8A;&#x91CF;&#xFF0C;&#x4E00;&#x500B;&#x8907;&#x5408;&#x985E;&#x578B;&#x7684;&#x5B57;&#x9762;&#x91CF;&#xFF08;&#xA7;4.2&#xFF09;&#x4E5F;&#x6703;&#x7523;&#x751F;&#x8CE6;&#x503C;&#x884C;&#x7232;&#x3002;&#x4F8B;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x8A9E;&#x53E5;&#xFF1A;</p>
 <pre><code class="lang-Go">medals := []<span class="hljs-typename">string</span>{<span class="hljs-string">&quot;gold&quot;</span>, <span class="hljs-string">&quot;silver&quot;</span>, <span class="hljs-string">&quot;bronze&quot;</span>}
 </code></pre>
-<p>&#x96B1;&#x5F0F;&#x5730;&#x5C0D;&#x5207;&#x7247;&#x7684;&#x6BCF;&#x500B;&#x5143;&#x7D20;&#x9032;&#x884C;&#x8CE6;&#x503C;&#x64CD;&#x4F5C;, &#x985E;&#x4F3C;&#x9019;&#x6A23;&#x5BEB;&#x7684;&#x884C;&#x7232;:</p>
+<p>&#x96B1;&#x5F0F;&#x5730;&#x5C0D;slice&#x7684;&#x6BCF;&#x500B;&#x5143;&#x7D20;&#x9032;&#x884C;&#x8CE6;&#x503C;&#x64CD;&#x4F5C;&#xFF0C;&#x985E;&#x4F3C;&#x9019;&#x6A23;&#x5BEB;&#x7684;&#x884C;&#x7232;&#xFF1A;</p>
 <pre><code class="lang-Go">medals[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;gold&quot;</span> 
 medals[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;silver&quot;</span> 
 medals[<span class="hljs-number">2</span>] = <span class="hljs-string">&quot;bronze&quot;</span>
 </code></pre>
-<p>&#x5B57;&#x5178;&#x548C;&#x7BA1;&#x9053;&#x7684;&#x5143;&#x7D20;, &#x96D6;&#x7136;&#x4E0D;&#x662F;&#x666E;&#x901A;&#x7684;&#x8B8A;&#x91CF;, &#x4F46;&#x662F;&#x4E5F;&#x6709;&#x985E;&#x4F3C;&#x7684;&#x96B1;&#x5F0F;&#x8CE6;&#x503C;&#x884C;&#x7232;.</p>
-<p>&#x4E0D;&#x7BA1;&#x662F;&#x96B1;&#x5F0F;&#x9084;&#x662F;&#x986F;&#x793A;&#x5730;&#x8CE6;&#x503C;, &#x5728;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x5750;&#x6A19;&#x7684;&#x8B8A;&#x91CF;&#x548C;&#x53F3;&#x908A;&#x6700;&#x7D42;&#x7684;&#x6C42;&#x5230;&#x7684;&#x503C;&#x5FC5;&#x9B1A;&#x6709;&#x76F8;&#x540C;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;. &#x66F4;&#x76F4;&#x767D;&#x5730;&#x8AAC;, &#x96BB;&#x6709;&#x53F3;&#x908A;&#x7684;&#x503C;&#x5C0D;&#x65BC;&#x5DE6;&#x908A;&#x7684;&#x8B8A;&#x91CF;&#x662F;&#x53EF;&#x8CE6;&#x503C;&#x7684;, &#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x7E94;&#x662F;&#x5141;&#x8A31;&#x7684;.</p>
-<p>&#x53EF;&#x8CE6;&#x503C;&#x6027;&#x7684;&#x898F;&#x5247;&#x5C0D;&#x65BC;&#x4E0D;&#x540C;&#x985E;&#x578B;&#x6709;&#x4E0D;&#x540C;&#x8981;&#x6C42;, &#x5C0D;&#x6BCF;&#x500B;&#x65B0;&#x985E;&#x578B;&#x6709;&#x95DC;&#x7684;&#x5730;&#x65B9;&#x6211;&#x5011;&#x6703;&#x5C08;&#x9580;&#x89E3;&#x91CB;.
-&#x5C0D;&#x65BC;&#x76EE;&#x524D;&#x6211;&#x5011;&#x5DF2;&#x7D93;&#x8A0E;&#x8AD6;&#x904E;&#x7684;&#x985E;&#x578B;, &#x5B83;&#x7684;&#x898F;&#x5247;&#x662F;&#x7C21;&#x55AE;&#x7684;: &#x985E;&#x578B;&#x5FC5;&#x9B1A;&#x5B8C;&#x5168;&#x5339;&#x914D;, nil &#x53EF;&#x4EE5;&#x8CE6;&#x503C;&#x7D66;&#x4EFB;&#x4F55;&#x6307;&#x91DD;&#x6216;&#x5F15;&#x7528;&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;. &#x5E38;&#x91CF;(&#xA7;3.6)&#x6709;&#x66F4;&#x9748;&#x6D3B;&#x7684;&#x898F;&#x5247;, &#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x986F;&#x793A;&#x985E;&#x578B;&#x8F49;&#x63DB;.</p>
-<p>&#x5C0D;&#x65BC;&#x5169;&#x500B;&#x503C;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x7528; <code>==</code> &#x6216; <code>!=</code> &#x9032;&#x884C;&#x76F8;&#x7B49;&#x6BD4;&#x8F03;&#x7684;&#x80FD;&#x529B;&#x4E5F;&#x548C;&#x53EF;&#x8CE6;&#x503C;&#x80FD;&#x529B;&#x6709;&#x95DC;&#x7E6B;:
-&#x5C0D;&#x65BC;&#x4EFB;&#x4F55;&#x7684;&#x6BD4;&#x8F03;, &#x7B2C;&#x4E00;&#x500B;&#x64CD;&#x4F5C;&#x5FC5;&#x9B1A;&#x662F;&#x53EF;&#x7528;&#x65BC;&#x7B2C;&#x4E8C;&#x500B;&#x64CD;&#x4F5C;&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;&#x7684;&#x8CE6;&#x503C;&#x7684;, &#x53CD;&#x4E4B;&#x4F9D;&#x7136;.
-&#x548C;&#x524D;&#x9762;&#x4E00;&#x6A23;, &#x6211;&#x5011;&#x6703;&#x5C0D;&#x6BCF;&#x500B;&#x65B0;&#x985E;&#x578B;&#x6BD4;&#x8F03;&#x6709;&#x95DC;&#x7684;&#x5730;&#x65B9;&#x6703;&#x505A;&#x5C08;&#x9580;&#x89E3;&#x91CB;.</p>
+<p>map&#x548C;chan&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x96D6;&#x7136;&#x4E0D;&#x662F;&#x666E;&#x901A;&#x7684;&#x8B8A;&#x91CF;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x6709;&#x985E;&#x4F3C;&#x7684;&#x96B1;&#x5F0F;&#x8CE6;&#x503C;&#x884C;&#x7232;&#x3002;</p>
+<p>&#x4E0D;&#x7BA1;&#x662F;&#x96B1;&#x5F0F;&#x9084;&#x662F;&#x986F;&#x5F0F;&#x5730;&#x8CE6;&#x503C;&#xFF0C;&#x5728;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x5DE6;&#x908A;&#x7684;&#x8B8A;&#x91CF;&#x548C;&#x53F3;&#x908A;&#x6700;&#x7D42;&#x7684;&#x6C42;&#x5230;&#x7684;&#x503C;&#x5FC5;&#x9B1A;&#x6709;&#x76F8;&#x540C;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;&#x3002;&#x66F4;&#x76F4;&#x767D;&#x5730;&#x8AAC;&#xFF0C;&#x96BB;&#x6709;&#x53F3;&#x908A;&#x7684;&#x503C;&#x5C0D;&#x65BC;&#x5DE6;&#x908A;&#x7684;&#x8B8A;&#x91CF;&#x662F;&#x53EF;&#x8CE6;&#x503C;&#x7684;&#xFF0C;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x624D;&#x662F;&#x5141;&#x8A31;&#x7684;&#x3002;</p>
+<p>&#x53EF;&#x8CE6;&#x503C;&#x6027;&#x7684;&#x898F;&#x5247;&#x5C0D;&#x65BC;&#x4E0D;&#x540C;&#x985E;&#x578B;&#x6709;&#x7740;&#x4E0D;&#x540C;&#x8981;&#x6C42;&#xFF0C;&#x5C0D;&#x6BCF;&#x500B;&#x65B0;&#x985E;&#x578B;&#x7279;&#x6B8A;&#x7684;&#x5730;&#x65B9;&#x6211;&#x5011;&#x6703;&#x5C08;&#x9580;&#x89E3;&#x91CB;&#x3002;&#x5C0D;&#x65BC;&#x76EE;&#x524D;&#x6211;&#x5011;&#x5DF2;&#x7D93;&#x8A0E;&#x8AD6;&#x904E;&#x7684;&#x985E;&#x578B;&#xFF0C;&#x5B83;&#x7684;&#x898F;&#x5247;&#x662F;&#x7C21;&#x55AE;&#x7684;&#xFF1A;&#x985E;&#x578B;&#x5FC5;&#x9B1A;&#x5B8C;&#x5168;&#x5339;&#x914D;&#xFF0C;nil&#x53EF;&#x4EE5;&#x8CE6;&#x503C;&#x7D66;&#x4EFB;&#x4F55;&#x6307;&#x91DD;&#x6216;&#x5F15;&#x7528;&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;&#x3002;&#x5E38;&#x91CF;&#xFF08;&#xA7;3.6&#xFF09;&#x5247;&#x6709;&#x66F4;&#x9748;&#x6D3B;&#x7684;&#x8CE6;&#x503C;&#x898F;&#x5247;&#xFF0C;&#x56E0;&#x7232;&#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x986F;&#x5F0F;&#x7684;&#x985E;&#x578B;&#x8F49;&#x63DB;&#x3002;</p>
+<p>&#x5C0D;&#x65BC;&#x5169;&#x500B;&#x503C;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x7528;<code>==</code>&#x6216;<code>!=</code>&#x9032;&#x884C;&#x76F8;&#x7B49;&#x6BD4;&#x8F03;&#x7684;&#x80FD;&#x529B;&#x4E5F;&#x548C;&#x53EF;&#x8CE6;&#x503C;&#x80FD;&#x529B;&#x6709;&#x95DC;&#x7E6B;&#xFF1A;&#x5C0D;&#x65BC;&#x4EFB;&#x4F55;&#x985E;&#x578B;&#x7684;&#x503C;&#x7684;&#x76F8;&#x7B49;&#x6BD4;&#x8F03;&#xFF0C;&#x7B2C;&#x4E8C;&#x500B;&#x503C;&#x5FC5;&#x9B1A;&#x662F;&#x5C0D;&#x7B2C;&#x4E00;&#x500B;&#x503C;&#x985E;&#x578B;&#x5C0D;&#x61C9;&#x7684;&#x8B8A;&#x91CF;&#x662F;&#x53EF;&#x8CE6;&#x503C;&#x7684;&#xFF0C;&#x53CD;&#x4E4B;&#x4F9D;&#x7136;&#x3002;&#x548C;&#x524D;&#x9762;&#x4E00;&#x6A23;&#xFF0C;&#x6211;&#x5011;&#x6703;&#x5C0D;&#x6BCF;&#x500B;&#x65B0;&#x985E;&#x578B;&#x6BD4;&#x8F03;&#x7279;&#x6B8A;&#x7684;&#x5730;&#x65B9;&#x505A;&#x5C08;&#x9580;&#x7684;&#x89E3;&#x91CB;&#x3002;</p>
 
                     
                     </section>
@@ -2122,7 +2131,7 @@ medals[<span class="hljs-number">2</span>] = <span class="hljs-string">&quot;bro
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

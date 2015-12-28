@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="gitbook/style.css">
     
         
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -42,7 +46,7 @@
     <body>
         
         
-    <div class="book" data-level="0" data-chapter-title="前言" data-filepath="preface.md" data-basepath="." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="0" data-chapter-title="前言" data-filepath="preface.md" data-basepath="." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -236,7 +240,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -251,7 +255,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -800,7 +804,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1313,7 +1317,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1832,7 +1836,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2023,6 +2027,7 @@
 <li>&#x9805;&#x76EE;&#x4E3B;&#x9801;&#xFF1A;<a href="http://github.com/golang-china/gopl-zh" target="_blank">http://github.com/golang-china/gopl-zh</a></li>
 <li>&#x9805;&#x76EE;&#x9032;&#x5EA6;&#xFF1A;<a href="http://github.com/golang-china/gopl-zh/blob/master/progress.md" target="_blank">http://github.com/golang-china/gopl-zh/blob/master/progress.md</a></li>
 <li>&#x53C3;&#x8207;&#x4EBA;&#x54E1;&#xFF1A;<a href="http://github.com/golang-china/gopl-zh/blob/master/CONTRIBUTORS.md" target="_blank">http://github.com/golang-china/gopl-zh/blob/master/CONTRIBUTORS.md</a></li>
+<li>&#x96E2;&#x7DDA;&#x7248;&#x672C;&#xFF1A;<a href="http://github.com/golang-china/gopl-zh/archive/gh-pages.zip" target="_blank">http://github.com/golang-china/gopl-zh/archive/gh-pages.zip</a></li>
 <li>&#x5728;&#x7DDA;&#x9810;&#x89BD;&#xFF1A;<a href="http://golang-china.github.io/gopl-zh" target="_blank">http://golang-china.github.io/gopl-zh</a></li>
 <li>&#x539F;&#x7248;&#x5B98;&#x7DB2;&#xFF1A;<a href="http://gopl.io" target="_blank">http://gopl.io</a></li>
 </ul>
@@ -2034,7 +2039,7 @@
 <h1 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h1>
 <p><em>&#x201C;Go&#x662F;&#x4E00;&#x500B;&#x958B;&#x6E90;&#x7684;&#x7DE8;&#x7A0B;&#x8A9E;&#x8A00;&#xFF0C;&#x5B83;&#x5F88;&#x5BB9;&#x6613;&#x7528;&#x65BC;&#x69CB;&#x5EFA;&#x7C21;&#x55AE;&#x3001;&#x53EF;&#x9760;&#x548C;&#x9AD8;&#x6548;&#x7684;&#x8EDF;&#x4EF6;&#x3002;&#x201D;&#xFF08;&#x6458;&#x81EA;Go&#x8A9E;&#x8A00;&#x5B98;&#x65B9;&#x7DB2;&#x7AD9;&#xFF1A;<a href="http://golang.org" target="_blank">http://golang.org</a> &#xFF09;</em></p>
 <p>Go&#x8A9E;&#x8A00;&#x7531;&#x4F86;&#x81EA;Google&#x516C;&#x53F8;&#x7684;Robert Griesemer&#xFF0C;Rob Pike&#x548C;Ken Thompson&#x4E09;&#x4F4D;&#x5927;&#x725B;&#x65BC;2007&#x5E74;9&#x6708;&#x958B;&#x59CB;&#x8A2D;&#x8A08;&#x548C;&#x5BE6;&#x73FE;&#xFF0C;&#x7136;&#x5F8C;&#x65BC;2009&#x5E74;&#x7684;11&#x6708;&#x5C0D;&#x5916;&#x6B63;&#x5F0F;&#x767C;&#x5E03;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x95DC;&#x65BC;Go&#x8A9E;&#x8A00;&#x7684;&#x5275;&#x4E16;&#x7D00;&#x904E;&#x7A0B;&#x8ACB;&#x53C3;&#x8003; <a href="http://talks.golang.org/2015/how-go-was-made.slide" target="_blank">http://talks.golang.org/2015/how-go-was-made.slide</a> &#xFF09;&#x3002;&#x8A9E;&#x8A00;&#x53CA;&#x5176;&#x914D;&#x5957;&#x5DE5;&#x5177;&#x7684;&#x8A2D;&#x8A08;&#x76EE;&#x6A19;&#x662F;&#x5177;&#x6709;&#x8868;&#x9054;&#x529B;&#xFF0C;&#x9AD8;&#x6548;&#x7684;&#x7DE8;&#x8B6F;&#x548C;&#x57F7;&#x884C;&#x6548;&#x7387;&#xFF0C;&#x6709;&#x6548;&#x5730;&#x7DE8;&#x5BEB;&#x9AD8;&#x6548;&#x548C;&#x5065;&#x58EF;&#x7684;&#x7A0B;&#x5E8F;&#x3002;</p>
-<p>Go&#x8A9E;&#x8A00;&#x6709;&#x7740;&#x548C;C&#x8A9E;&#x8A00;&#x985E;&#x4F3C;&#x7684;&#x8A9E;&#x6CD5;&#x5916;&#x8868;&#xFF0C;&#x548C;C&#x8A9E;&#x8A00;&#x4E00;&#x6A23;&#x662F;&#x5C08;&#x696D;&#x7A0B;&#x5E8F;&#x54E1;&#x7684;&#x5FC5;&#x5099;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6700;&#x5C0F;&#x7684;&#x4EE3;&#x50F9;&#x7A6B;&#x5F97;&#x6700;&#x5927;&#x7684;&#x6230;&#x679C;&#x3002;
+<p>Go&#x8A9E;&#x8A00;&#x6709;&#x7740;&#x548C;C&#x8A9E;&#x8A00;&#x985E;&#x4F3C;&#x7684;&#x8A9E;&#x6CD5;&#x5916;&#x8868;&#xFF0C;&#x548C;C&#x8A9E;&#x8A00;&#x4E00;&#x6A23;&#x662F;&#x5C08;&#x696D;&#x7A0B;&#x5E8F;&#x54E1;&#x7684;&#x5FC5;&#x5099;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6700;&#x5C0F;&#x7684;&#x4EE3;&#x50F9;&#x7372;&#x5F97;&#x6700;&#x5927;&#x7684;&#x6230;&#x679C;&#x3002;
 &#x4F46;&#x662F;&#x5B83;&#x4E0D;&#x50C5;&#x50C5;&#x662F;&#x4E00;&#x500B;&#x66F4;&#x65B0;&#x7684;C&#x8A9E;&#x8A00;&#x3002;&#x5B83;&#x9084;&#x5F9E;&#x5176;&#x4ED6;&#x8A9E;&#x8A00;&#x501F;&#x9452;&#x4E86;&#x5F88;&#x591A;&#x597D;&#x7684;&#x60F3;&#x6CD5;&#xFF0C;&#x540C;&#x6642;&#x907F;&#x514D;&#x5F15;&#x5165;&#x904E;&#x5EA6;&#x7684;&#x8907;&#x96DC;&#x6027;&#x3002;
 Go&#x8A9E;&#x8A00;&#x4E2D;&#x548C;&#x4F75;&#x767C;&#x7DE8;&#x7A0B;&#x76F8;&#x95DC;&#x7684;&#x7279;&#x6027;&#x662F;&#x5168;&#x65B0;&#x7684;&#x4E5F;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;&#x540C;&#x6642;&#x5C0D;&#x6578;&#x64DA;&#x62BD;&#x8C61;&#x548C;&#x9762;&#x5411;&#x5C0D;&#x8C61;&#x7DE8;&#x7A0B;&#x7684;&#x652F;&#x6301;&#x4E5F;&#x5F88;&#x9748;&#x6D3B;&#x3002;
 Go&#x8A9E;&#x8A00;&#x540C;&#x6642;&#x9084;&#x96C6;&#x6210;&#x4E86;&#x81EA;&#x52D5;&#x5783;&#x573E;&#x6536;&#x96C6;&#x6280;&#x8853;&#x7528;&#x65BC;&#x66F4;&#x597D;&#x5730;&#x7BA1;&#x7406;&#x5167;&#x5B58;&#x3002;</p>
@@ -2042,7 +2047,7 @@ Go&#x8A9E;&#x8A00;&#x540C;&#x6642;&#x9084;&#x96C6;&#x6210;&#x4E86;&#x81EA;&#x52D
 &#x4F46;&#x662F;Go&#x8A9E;&#x8A00;&#x78BA;&#x5BE6;&#x662F;&#x4E00;&#x500B;&#x901A;&#x7528;&#x7684;&#x7DE8;&#x7A0B;&#x8A9E;&#x8A00;&#xFF0C;&#x5B83;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x5716;&#x5F62;&#x5716;&#x50CF;&#x9A45;&#x52D5;&#x7DE8;&#x7A0B;&#x3001;&#x79FB;&#x52D5;&#x61C9;&#x7528;&#x7A0B;&#x5E8F;&#x958B;&#x767C;
 &#x548C;&#x6A5F;&#x5668;&#x5B78;&#x7FD2;&#x7B49;&#x8AF8;&#x591A;&#x9818;&#x57DF;&#x3002;&#x76EE;&#x524D;Go&#x8A9E;&#x8A00;&#x5DF2;&#x7D93;&#x6210;&#x7232;&#x53D7;&#x6B61;&#x8FCE;&#x7684;&#x4F5C;&#x7232;&#x7121;&#x985E;&#x578B;&#x7684;&#x8173;&#x672C;&#x8A9E;&#x8A00;&#x7684;&#x66FF;&#x4EE3;&#x8005;&#xFF1A;
 &#x56E0;&#x7232;Go&#x7DE8;&#x5BEB;&#x7684;&#x7A0B;&#x5E8F;&#x901A;&#x5E38;&#x6BD4;&#x8173;&#x672C;&#x8A9E;&#x8A00;&#x904B;&#x884C;&#x7684;&#x66F4;&#x5FEB;&#x4E5F;&#x66F4;&#x5B89;&#x5168;&#xFF0C;&#x800C;&#x4E14;&#x5F88;&#x5C11;&#x6703;&#x767C;&#x751F;&#x610F;&#x5916;&#x7684;&#x985E;&#x578B;&#x932F;&#x8AA4;&#x3002;</p>
-<p>Go&#x8A9E;&#x8A00;&#x9084;&#x662F;&#x4E00;&#x500B;&#x958B;&#x6E90;&#x7684;&#x9805;&#x76EE;&#xFF0C;&#x53EF;&#x4EE5;&#x514D;&#x8CBB;&#x7A6B;&#x7DE8;&#x8B6F;&#x5668;&#x3001;&#x5EAB;&#x3001;&#x914D;&#x5957;&#x5DE5;&#x5177;&#x7684;&#x6E90;&#x4EE3;&#x78BC;&#x3002;
+<p>Go&#x8A9E;&#x8A00;&#x9084;&#x662F;&#x4E00;&#x500B;&#x958B;&#x6E90;&#x7684;&#x9805;&#x76EE;&#xFF0C;&#x53EF;&#x4EE5;&#x514D;&#x8CBB;&#x7372;&#x7DE8;&#x8B6F;&#x5668;&#x3001;&#x5EAB;&#x3001;&#x914D;&#x5957;&#x5DE5;&#x5177;&#x7684;&#x6E90;&#x4EE3;&#x78BC;&#x3002;
 Go&#x8A9E;&#x8A00;&#x7684;&#x8CA2;&#x737B;&#x8005;&#x4F86;&#x81EA;&#x4E00;&#x500B;&#x6D3B;&#x8E8D;&#x7684;&#x5168;&#x7403;&#x793E;&#x5340;&#x3002;Go&#x8A9E;&#x8A00;&#x53EF;&#x4EE5;&#x904B;&#x884C;&#x5728;&#x985E;UNIX&#x7E6B;&#x7D71;&#x2014;&#x2014;
 &#x6BD4;&#x5982;Linux&#x3001;FreeBSD&#x3001;OpenBSD&#x3001;Mac OSX&#x2014;&#x2014;&#x548C;Plan9&#x7E6B;&#x7D71;&#x548C;Microsoft Windows&#x64CD;&#x4F5C;&#x7E6B;&#x7D71;&#x4E4B;&#x4E0A;&#x3002;
 Go&#x8A9E;&#x8A00;&#x7DE8;&#x5BEB;&#x7684;&#x7A0B;&#x5E8F;&#x7121;&#x9700;&#x8129;&#x6539;&#x5C31;&#x53EF;&#x4EE5;&#x904B;&#x884C;&#x5728;&#x4E0A;&#x9762;&#x9019;&#x4E9B;&#x74B0;&#x5883;&#x3002;</p>
@@ -2076,7 +2081,7 @@ Go&#x8A9E;&#x8A00;&#x7DE8;&#x5BEB;&#x7684;&#x7A0B;&#x5E8F;&#x7121;&#x9700;&#x812
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

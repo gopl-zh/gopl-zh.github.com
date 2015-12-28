@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="1.7" data-chapter-title="Web服務" data-filepath="ch1/ch1-07.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="1.7" data-chapter-title="Web服務" data-filepath="ch1/ch1-07.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2041,8 +2045,8 @@
     fmt.Fprintf(w, <span class="hljs-string">&quot;URL.Path = %q\n&quot;</span>, r.URL.Path)
 }
 </code></pre>
-<p>&#x6211;&#x5011;&#x96BB;&#x7528;&#x4E86;&#x516B;&#x4E5D;&#x884C;&#x4EE3;&#x78BC;&#x5C31;&#x5BE6;&#x73FE;&#x4E86;&#x4E00;&#x500B;&#x500B;Web&#x670D;&#x52D9;&#x7A0B;&#x5E8F;&#xFF0C;&#x9019;&#x90FD;&#x662F;&#x591A;&#x8667;&#x4E86;&#x6A19;&#x6E96;&#x5EAB;&#x91CC;&#x7684;&#x65B9;&#x6CD5;&#x5DF2;&#x7D93;&#x5E6B;&#x6211;&#x5011;&#x8655;&#x7406;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x5DE5;&#x4F5C;&#x3002;main&#x51FD;&#x6578;&#x6703;&#x5C07;&#x6240;&#x6709;&#x767C;&#x9001;&#x5230;/&#x8DEF;&#x5F91;&#x4E0B;&#x7684;&#x8ACB;&#x6C42;&#x548C;handler&#x51FD;&#x6578;&#x95DC;&#x806F;&#x8D77;&#x4F86;&#xFF0C;/&#x958B;&#x982D;&#x7684;&#x8ACB;&#x6C42;&#x5176;&#x5BE6;&#x5C31;&#x662F;&#x6240;&#x6709;&#x767C;&#x9001;&#x5230;&#x7576;&#x524D;&#x7AD9;&#x9EDE;&#x4E0A;&#x7684;&#x8ACB;&#x6C42;&#xFF0C;&#x6211;&#x5011;&#x7684;&#x670D;&#x52D9;&#x8DD1;&#x5728;&#x4E86;8000&#x7AEF;&#x53E3;&#x4E0A;&#x3002;&#x767C;&#x9001;&#x5230;&#x9019;&#x500B;&#x670D;&#x52D9;&#x7684;&#x201C;&#x8ACB;&#x6C42;&#x201D;&#x662F;&#x4E00;&#x500B;http.Request&#x985E;&#x578B;&#x7684;&#x5C0D;&#x8C61;&#xFF0C;&#x9019;&#x500B;&#x5C0D;&#x8C61;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x8ACB;&#x6C42;&#x4E2D;&#x7684;&#x4E00;&#x7E6B;&#x5217;&#x76F8;&#x95DC;&#x5B57;&#x6BB5;&#xFF0C;&#x5176;&#x4E2D;&#x5C31;&#x5305;&#x62EC;&#x6211;&#x5011;&#x9700;&#x8981;&#x7684;URL&#x3002;&#x7576;&#x8ACB;&#x6C42;&#x5230;&#x9054;&#x670D;&#x52D9;&#x5668;&#x6642;&#xFF0C;&#x9019;&#x500B;&#x8ACB;&#x6C42;&#x6703;&#x88AB;&#x50B3;&#x7D66;handler&#x51FD;&#x6578;&#x4F86;&#x8655;&#x7406;&#xFF0C;&#x9019;&#x500B;&#x51FD;&#x6578;&#x6703;&#x5C07;/hello&#x9019;&#x500B;&#x8DEF;&#x5F91;&#x5F9E;&#x8ACB;&#x6C42;&#x7684;URL&#x4E2D;&#x89E3;&#x6790;&#x9F63;&#x4F86;&#xFF0C;&#x7136;&#x5F8C;&#x628A;&#x5176;&#x767C;&#x9001;&#x5230;&#x97FF;&#x61C9;&#x4E2D;&#xFF0C;&#x9019;&#x91CC;&#x6211;&#x5011;&#x7528;&#x7684;&#x662F;&#x6A19;&#x6E96;&#x8F38;&#x9F63;&#x6D41;&#x7684;fmt.Fprintf&#x3002;Web&#x670D;&#x52D9;&#x6703;&#x5728;&#x7B2C;7.7&#x7BC0;&#x4E2D;&#x8A73;&#x7D30;&#x95E1;&#x8FF0;&#x3002;</p>
-<p>&#x8B93;&#x6211;&#x5011;&#x5728;&#x5F8C;&#x98B1;&#x904B;&#x884C;&#x9019;&#x500B;&#x670D;&#x52D9;&#x7A0B;&#x5E8F;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x64CD;&#x4F5C;&#x7E6B;&#x7D71;&#x662F;Mac OS X&#x6216;&#x8005;Linux&#xFF0C;&#x90A3;&#x9EBD;&#x5728;&#x904B;&#x884C;&#x547D;&#x4EE4;&#x7684;&#x672B;&#x5C3E;&#x52A0;&#x4E0A;&#x4E00;&#x500B;&amp;&#x7B26;&#x865F;&#xFF0C;&#x537D;&#x53EF;&#x8B93;&#x7A0B;&#x5E8F;&#x7C21;&#x55AE;&#x5730;&#x8DD1;&#x5728;&#x5F8C;&#x98B1;&#xFF0C;&#x800C;&#x5728;windows&#x4E0B;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5728;&#x53E6;&#x5916;&#x4E00;&#x500B;&#x547D;&#x4EE4;&#x884C;&#x7A97;&#x53E3;&#x53BB;&#x904B;&#x884C;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x4E86;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x96BB;&#x7528;&#x4E86;&#x516B;&#x4E5D;&#x884C;&#x4EE3;&#x78BC;&#x5C31;&#x5BE6;&#x73FE;&#x4E86;&#x4E00;&#x500B;&#x500B;Web&#x670D;&#x52D9;&#x7A0B;&#x5E8F;&#xFF0C;&#x9019;&#x90FD;&#x662F;&#x591A;&#x8667;&#x4E86;&#x6A19;&#x6E96;&#x5EAB;&#x91CC;&#x7684;&#x65B9;&#x6CD5;&#x5DF2;&#x7D93;&#x5E6B;&#x6211;&#x5011;&#x8655;&#x7406;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x5DE5;&#x4F5C;&#x3002;main&#x51FD;&#x6578;&#x6703;&#x5C07;&#x6240;&#x6709;&#x767C;&#x9001;&#x5230;/&#x8DEF;&#x5F91;&#x4E0B;&#x7684;&#x8ACB;&#x6C42;&#x548C;handler&#x51FD;&#x6578;&#x95DC;&#x806F;&#x8D77;&#x4F86;&#xFF0C;/&#x958B;&#x982D;&#x7684;&#x8ACB;&#x6C42;&#x5176;&#x5BE6;&#x5C31;&#x662F;&#x6240;&#x6709;&#x767C;&#x9001;&#x5230;&#x7576;&#x524D;&#x7AD9;&#x9EDE;&#x4E0A;&#x7684;&#x8ACB;&#x6C42;&#xFF0C;&#x6211;&#x5011;&#x7684;&#x670D;&#x52D9;&#x8DD1;&#x5728;&#x4E86;8000&#x7AEF;&#x53E3;&#x4E0A;&#x3002;&#x767C;&#x9001;&#x5230;&#x9019;&#x500B;&#x670D;&#x52D9;&#x7684;&#x201C;&#x8ACB;&#x6C42;&#x201D;&#x662F;&#x4E00;&#x500B;http.Request&#x985E;&#x578B;&#x7684;&#x5C0D;&#x8C61;&#xFF0C;&#x9019;&#x500B;&#x5C0D;&#x8C61;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x8ACB;&#x6C42;&#x4E2D;&#x7684;&#x4E00;&#x7E6B;&#x5217;&#x76F8;&#x95DC;&#x5B57;&#x6BB5;&#xFF0C;&#x5176;&#x4E2D;&#x5C31;&#x5305;&#x62EC;&#x6211;&#x5011;&#x9700;&#x8981;&#x7684;URL&#x3002;&#x7576;&#x8ACB;&#x6C42;&#x5230;&#x9054;&#x670D;&#x52D9;&#x5668;&#x6642;&#xFF0C;&#x9019;&#x500B;&#x8ACB;&#x6C42;&#x6703;&#x88AB;&#x50B3;&#x7D66;handler&#x51FD;&#x6578;&#x4F86;&#x8655;&#x7406;&#xFF0C;&#x9019;&#x500B;&#x51FD;&#x6578;&#x6703;&#x5C07;/hello&#x9019;&#x500B;&#x8DEF;&#x5F91;&#x5F9E;&#x8ACB;&#x6C42;&#x7684;URL&#x4E2D;&#x89E3;&#x6790;&#x51FA;&#x4F86;&#xFF0C;&#x7136;&#x5F8C;&#x628A;&#x5176;&#x767C;&#x9001;&#x5230;&#x97FF;&#x61C9;&#x4E2D;&#xFF0C;&#x9019;&#x91CC;&#x6211;&#x5011;&#x7528;&#x7684;&#x662F;&#x6A19;&#x6E96;&#x8F38;&#x51FA;&#x6D41;&#x7684;fmt.Fprintf&#x3002;Web&#x670D;&#x52D9;&#x6703;&#x5728;&#x7B2C;7.7&#x7BC0;&#x4E2D;&#x8A73;&#x7D30;&#x95E1;&#x8FF0;&#x3002;</p>
+<p>&#x8B93;&#x6211;&#x5011;&#x5728;&#x5F8C;&#x53F0;&#x904B;&#x884C;&#x9019;&#x500B;&#x670D;&#x52D9;&#x7A0B;&#x5E8F;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x64CD;&#x4F5C;&#x7E6B;&#x7D71;&#x662F;Mac OS X&#x6216;&#x8005;Linux&#xFF0C;&#x90A3;&#x9EBD;&#x5728;&#x904B;&#x884C;&#x547D;&#x4EE4;&#x7684;&#x672B;&#x5C3E;&#x52A0;&#x4E0A;&#x4E00;&#x500B;&amp;&#x7B26;&#x865F;&#xFF0C;&#x537D;&#x53EF;&#x8B93;&#x7A0B;&#x5E8F;&#x7C21;&#x55AE;&#x5730;&#x8DD1;&#x5728;&#x5F8C;&#x53F0;&#xFF0C;&#x800C;&#x5728;windows&#x4E0B;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5728;&#x53E6;&#x5916;&#x4E00;&#x500B;&#x547D;&#x4EE4;&#x884C;&#x7A97;&#x53E3;&#x53BB;&#x904B;&#x884C;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x4E86;&#x3002;</p>
 <pre><code>$ go run src/gopl.io/ch1/server1/main.go &amp;
 </code></pre><p>&#x73FE;&#x5728;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x547D;&#x4EE4;&#x884C;&#x4F86;&#x767C;&#x9001;&#x5BA2;&#x6236;&#x7AEF;&#x8ACB;&#x6C42;&#x4E86;&#xFF1A;</p>
 <pre><code>$ go build gopl.io/ch1/fetch
@@ -2052,7 +2056,7 @@ $ ./fetch http://localhost:8000/help
 URL.Path = &quot;/help&quot;
 </code></pre><p>&#x53E6;&#x5916;&#x6211;&#x5011;&#x9084;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x700F;&#x89BD;&#x5668;&#x91CC;&#x8A2A;&#x554F;&#x9019;&#x500B;URL&#xFF0C;&#x7136;&#x5F8C;&#x5F97;&#x5230;&#x8FD4;&#x8FF4;&#x7D50;&#x679C;&#xFF0C;&#x5982;&#x5716;1.2&#xFF1A;</p>
 <p><img src="../images/ch1-02.png" alt=""></p>
-<p>&#x5728;&#x9019;&#x500B;&#x670D;&#x52D9;&#x7684;&#x57FA;&#x790E;&#x4E0A;&#x758A;&#x52A0;&#x7279;&#x6027;&#x662F;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x3002;&#x4E00;&#x7A2E;&#x6BD4;&#x8F03;&#x5BE6;&#x7528;&#x7684;&#x8129;&#x6539;&#x662F;&#x7232;&#x8A2A;&#x554F;&#x7684;url&#x6DFB;&#x52A0;&#x67D0;&#x7A2E;&#x72C0;&#x614B;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x4E0B;&#x9762;&#x9019;&#x500B;&#x7248;&#x672C;&#x8F38;&#x9F63;&#x4E86;&#x540C;&#x6A23;&#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x4F46;&#x662F;&#x6703;&#x5C0D;&#x8ACB;&#x6C42;&#x7684;&#x6B21;&#x6578;&#x9032;&#x884C;&#x8A08;&#x7B97;&#xFF1B;&#x5C0D;URL&#x7684;&#x8ACB;&#x6C42;&#x7D50;&#x679C;&#x6703;&#x5305;&#x542B;&#x5404;&#x7A2E;URL&#x88AB;&#x8A2A;&#x554F;&#x7684;&#x7E3D;&#x6B21;&#x6578;&#xFF0C;&#x76F4;&#x63A5;&#x5C0D;/count&#x9019;&#x500B;URL&#x7684;&#x8A2A;&#x554F;&#x8981;&#x9664;&#x5916;&#x3002;</p>
+<p>&#x5728;&#x9019;&#x500B;&#x670D;&#x52D9;&#x7684;&#x57FA;&#x790E;&#x4E0A;&#x758A;&#x52A0;&#x7279;&#x6027;&#x662F;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x3002;&#x4E00;&#x7A2E;&#x6BD4;&#x8F03;&#x5BE6;&#x7528;&#x7684;&#x8129;&#x6539;&#x662F;&#x7232;&#x8A2A;&#x554F;&#x7684;url&#x6DFB;&#x52A0;&#x67D0;&#x7A2E;&#x72C0;&#x614B;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x4E0B;&#x9762;&#x9019;&#x500B;&#x7248;&#x672C;&#x8F38;&#x51FA;&#x4E86;&#x540C;&#x6A23;&#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x4F46;&#x662F;&#x6703;&#x5C0D;&#x8ACB;&#x6C42;&#x7684;&#x6B21;&#x6578;&#x9032;&#x884C;&#x8A08;&#x7B97;&#xFF1B;&#x5C0D;URL&#x7684;&#x8ACB;&#x6C42;&#x7D50;&#x679C;&#x6703;&#x5305;&#x542B;&#x5404;&#x7A2E;URL&#x88AB;&#x8A2A;&#x554F;&#x7684;&#x7E3D;&#x6B21;&#x6578;&#xFF0C;&#x76F4;&#x63A5;&#x5C0D;/count&#x9019;&#x500B;URL&#x7684;&#x8A2A;&#x554F;&#x8981;&#x9664;&#x5916;&#x3002;</p>
 <pre><code class="lang-go">gopl.io/ch1/server2
 <span class="hljs-comment">// Server2 is a minimal &quot;echo&quot; and counter server.</span>
 <span class="hljs-keyword">package</span> main
@@ -2089,7 +2093,7 @@ URL.Path = &quot;/help&quot;
 }
 </code></pre>
 <p>&#x9019;&#x500B;&#x670D;&#x52D9;&#x5668;&#x6709;&#x5169;&#x500B;&#x8ACB;&#x6C42;&#x8655;&#x7406;&#x51FD;&#x6578;&#xFF0C;&#x8ACB;&#x6C42;&#x7684;url&#x6703;&#x6C7A;&#x5B9A;&#x5177;&#x9AD4;&#x8ABF;&#x7528;&#x54EA;&#x4E00;&#x500B;&#xFF1A;&#x5C0D;/count&#x9019;&#x500B;url&#x7684;&#x8ACB;&#x6C42;&#x6703;&#x8ABF;&#x7528;&#x5230;count&#x9019;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x5176;&#x5B83;&#x6240;&#x6709;&#x7684;url&#x90FD;&#x6703;&#x8ABF;&#x7528;&#x9ED8;&#x8A8D;&#x7684;&#x8655;&#x7406;&#x51FD;&#x6578;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x8ACB;&#x6C42;pattern&#x662F;&#x4EE5;/&#x7D50;&#x5C3E;&#xFF0C;&#x90A3;&#x9EBD;&#x6240;&#x6709;&#x4EE5;&#x8A72;url&#x7232;&#x524D;&#x7DB4;&#x7684;url&#x90FD;&#x6703;&#x88AB;&#x9019;&#x689D;&#x898F;&#x5247;&#x5339;&#x914D;&#x3002;&#x5728;&#x9019;&#x4E9B;&#x4EE3;&#x78BC;&#x7684;&#x80CC;&#x5F8C;&#xFF0C;&#x670D;&#x52D9;&#x5668;&#x6BCF;&#x4E00;&#x6B21;&#x63A5;&#x6536;&#x8ACB;&#x6C42;&#x8655;&#x7406;&#x6642;&#x90FD;&#x6703;&#x53E6;&#x8D77;&#x4E00;&#x500B;goroutine&#xFF0C;&#x9019;&#x6A23;&#x670D;&#x52D9;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x540C;&#x4E00;&#x6642;&#x9593;&#x8655;&#x7406;&#x591A;&#x6578;&#x8ACB;&#x6C42;&#x3002;&#x7136;&#x800C;&#x5728;&#x4F75;&#x767C;&#x60C5;&#x6CC1;&#x4E0B;&#xFF0C;&#x5047;&#x5982;&#x771E;&#x7684;&#x6709;&#x5169;&#x500B;&#x8ACB;&#x6C42;&#x540C;&#x4E00;&#x6642;&#x523B;&#x53BB;&#x66F4;&#x65B0;count&#xFF0C;&#x90A3;&#x9EBD;&#x9019;&#x500B;&#x503C;&#x53EF;&#x80FD;&#x4F75;&#x4E0D;&#x6703;&#x88AB;&#x6B63;&#x78BA;&#x5730;&#x589E;&#x52A0;&#xFF1B;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x6703;&#x88AB;&#x5F15;&#x767C;&#x4E00;&#x500B;&#x56B4;&#x91CD;&#x7684;bug&#xFF1A;&#x7AF6;&#x614B;&#x689D;&#x4EF6;&#xFF08;&#x53C3;&#x898B;9.1&#xFF09;&#x3002;&#x7232;&#x4E86;&#x907F;&#x514D;&#x9019;&#x500B;&#x554F;&#x984C;&#xFF0C;&#x6211;&#x5011;&#x5FC5;&#x9B1A;&#x4FDD;&#x8B49;&#x6BCF;&#x6B21;&#x8129;&#x6539;&#x8B8A;&#x91CF;&#x7684;&#x6700;&#x591A;&#x96BB;&#x80FD;&#x6709;&#x4E00;&#x500B;goroutine&#xFF0C;&#x9019;&#x4E5F;&#x5C31;&#x662F;&#x4EE3;&#x78BC;&#x91CC;&#x7684;mu.Lock()&#x548C;mu.Unlock()&#x8ABF;&#x7528;&#x5C07;&#x8129;&#x6539;count&#x7684;&#x6240;&#x6709;&#x884C;&#x7232;&#x5305;&#x5728;&#x4E2D;&#x9593;&#x7684;&#x76EE;&#x7684;&#x3002;&#x7B2C;&#x4E5D;&#x7AE0;&#x4E2D;&#x6211;&#x5011;&#x6703;&#x9032;&#x4E00;&#x6B65;&#x8B1B;&#x89E3;&#x5171;&#x4EAB;&#x8B8A;&#x91CF;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x500B;&#x66F4;&#x7232;&#x8C50;&#x5BCC;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;handler&#x51FD;&#x6578;&#x6703;&#x628A;&#x8ACB;&#x6C42;&#x7684;http&#x982D;&#x548C;&#x8ACB;&#x6C42;&#x7684;form&#x6578;&#x64DA;&#x90FD;&#x6253;&#x5370;&#x9F63;&#x4F86;&#xFF0C;&#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x8B93;&#x6AA2;&#x67FB;&#x548C;&#x8ABF;&#x8A66;&#x9019;&#x500B;&#x670D;&#x52D9;&#x66F4;&#x7232;&#x65B9;&#x4FBF;&#xFF1A;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x500B;&#x66F4;&#x7232;&#x8C50;&#x5BCC;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;handler&#x51FD;&#x6578;&#x6703;&#x628A;&#x8ACB;&#x6C42;&#x7684;http&#x982D;&#x548C;&#x8ACB;&#x6C42;&#x7684;form&#x6578;&#x64DA;&#x90FD;&#x6253;&#x5370;&#x51FA;&#x4F86;&#xFF0C;&#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x8B93;&#x6AA2;&#x67FB;&#x548C;&#x8ABF;&#x8A66;&#x9019;&#x500B;&#x670D;&#x52D9;&#x66F4;&#x7232;&#x65B9;&#x4FBF;&#xFF1A;</p>
 <pre><code class="lang-go">gopl.io/ch1/server3
 <span class="hljs-comment">// handler echoes the HTTP request.</span>
 <span class="hljs-keyword">func</span> handler(w http.ResponseWriter, r *http.Request) {
@@ -2107,23 +2111,23 @@ URL.Path = &quot;/help&quot;
     }
 }
 </code></pre>
-<p>&#x6211;&#x5011;&#x7528;http.Request&#x9019;&#x500B;struct&#x91CC;&#x7684;&#x5B57;&#x6BB5;&#x4F86;&#x8F38;&#x9F63;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#x7684;&#x5167;&#x5BB9;&#xFF1A;</p>
+<p>&#x6211;&#x5011;&#x7528;http.Request&#x9019;&#x500B;struct&#x91CC;&#x7684;&#x5B57;&#x6BB5;&#x4F86;&#x8F38;&#x51FA;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#x7684;&#x5167;&#x5BB9;&#xFF1A;</p>
 <pre><code>GET /?q=query HTTP/1.1
 Header[&quot;Accept-Encoding&quot;] = [&quot;gzip, deflate, sdch&quot;] Header[&quot;Accept-Language&quot;] = [&quot;en-US,en;q=0.8&quot;]
 Header[&quot;Connection&quot;] = [&quot;keep-alive&quot;]
 Header[&quot;Accept&quot;] = [&quot;text/html,application/xhtml+xml,application/xml;...&quot;] Header[&quot;User-Agent&quot;] = [&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5)...&quot;] Host = &quot;localhost:8000&quot;
 RemoteAddr = &quot;127.0.0.1:59911&quot;
 Form[&quot;q&quot;] = [&quot;query&quot;]
-</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9019;&#x91CC;&#x7684;ParseForm&#x88AB;&#x5D4C;&#x5957;&#x5728;&#x4E86;if&#x8A9E;&#x53E5;&#x4E2D;&#x3002;Go&#x8A9E;&#x8A00;&#x5141;&#x8A31;&#x9019;&#x6A23;&#x7684;&#x4E00;&#x500B;&#x7C21;&#x55AE;&#x7684;&#x8A9E;&#x53E5;&#x7D50;&#x679C;&#x4F5C;&#x7232;&#x5FAA;&#x74B0;&#x7684;&#x8B8A;&#x91CF;&#x8072;&#x660E;&#x9F63;&#x73FE;&#x5728;if&#x8A9E;&#x53E5;&#x7684;&#x6700;&#x524D;&#x9762;&#xFF0C;&#x9019;&#x4E00;&#x9EDE;&#x5C0D;&#x932F;&#x8AA4;&#x8655;&#x7406;&#x5F88;&#x6709;&#x7528;&#x8655;&#x3002;&#x6211;&#x5011;&#x9084;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#x5BEB;&#xFF08;&#x7576;&#x7136;&#x770B;&#x8D77;&#x4F86;&#x5C31;&#x9577;&#x4E86;&#x4E00;&#x4E9B;&#xFF09;&#xFF1A;</p>
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9019;&#x91CC;&#x7684;ParseForm&#x88AB;&#x5D4C;&#x5957;&#x5728;&#x4E86;if&#x8A9E;&#x53E5;&#x4E2D;&#x3002;Go&#x8A9E;&#x8A00;&#x5141;&#x8A31;&#x9019;&#x6A23;&#x7684;&#x4E00;&#x500B;&#x7C21;&#x55AE;&#x7684;&#x8A9E;&#x53E5;&#x7D50;&#x679C;&#x4F5C;&#x7232;&#x5FAA;&#x74B0;&#x7684;&#x8B8A;&#x91CF;&#x8072;&#x660E;&#x51FA;&#x73FE;&#x5728;if&#x8A9E;&#x53E5;&#x7684;&#x6700;&#x524D;&#x9762;&#xFF0C;&#x9019;&#x4E00;&#x9EDE;&#x5C0D;&#x932F;&#x8AA4;&#x8655;&#x7406;&#x5F88;&#x6709;&#x7528;&#x8655;&#x3002;&#x6211;&#x5011;&#x9084;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#x5BEB;&#xFF08;&#x7576;&#x7136;&#x770B;&#x8D77;&#x4F86;&#x5C31;&#x9577;&#x4E86;&#x4E00;&#x4E9B;&#xFF09;&#xFF1A;</p>
 <pre><code class="lang-go">err := r.ParseForm()
 <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
     log.Print(err)
 }
 </code></pre>
 <p>&#x7528;if&#x548C;ParseForm&#x7D50;&#x5408;&#x53EF;&#x4EE5;&#x8B93;&#x4EE3;&#x78BC;&#x66F4;&#x52A0;&#x7C21;&#x55AE;&#xFF0C;&#x4F75;&#x4E14;&#x53EF;&#x4EE5;&#x9650;&#x88FD;err&#x9019;&#x500B;&#x8B8A;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x9019;&#x9EBD;&#x505A;&#x662F;&#x5F88;&#x4E0D;&#x932F;&#x7684;&#x3002;&#x6211;&#x5011;&#x6703;&#x5728;2.7&#x7BC0;&#x4E2D;&#x8B1B;&#x89E3;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p>
-<p>&#x5728;&#x9019;&#x4E9B;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x770B;&#x5230;&#x4E86;&#x5F88;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x985E;&#x578B;&#x88AB;&#x8F38;&#x9F63;&#x5230;&#x6A19;&#x6E96;&#x8F38;&#x9F63;&#x6D41;&#x4E2D;&#x3002;&#x6BD4;&#x5982;&#x524D;&#x9762;&#x7684;fetch&#x7A0B;&#x5E8F;&#xFF0C;&#x5C31;&#x628A;HTTP&#x7684;&#x97FF;&#x61C9;&#x6578;&#x64DA;&#x62F7;&#x8C9D;&#x5230;&#x4E86;os.Stdout&#xFF0C;&#x6216;&#x8005;&#x5728;lissajous&#x7A0B;&#x5E8F;&#x91CC;&#x6211;&#x5011;&#x8F38;&#x9F63;&#x7684;&#x662F;&#x4E00;&#x500B;&#x6587;&#x4EF6;&#x3002;fetchall&#x7A0B;&#x5E8F;&#x5247;&#x5B8C;&#x5168;&#x5FFD;&#x7565;&#x5230;&#x4E86;HTTP&#x7684;&#x97FF;&#x61C9;&#x9AD4;&#xFF0C;&#x96BB;&#x662F;&#x8A08;&#x7B97;&#x4E86;&#x4E00;&#x4E0B;&#x97FF;&#x61C9;&#x9AD4;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x4E2D;&#x628A;&#x97FF;&#x61C9;&#x9AD4;&#x62F7;&#x8C9D;&#x5230;&#x4E86;ioutil.Discard&#x3002;&#x5728;&#x672C;&#x7BC0;&#x7684;web&#x670D;&#x52D9;&#x5668;&#x7A0B;&#x5E8F;&#x4E2D;&#x5247;&#x662F;&#x7528;fmt.Fprintf&#x76F4;&#x63A5;&#x5BEB;&#x5230;&#x4E86;http.ResponseWriter&#x4E2D;&#x3002;</p>
-<p>&#x76E1;&#x7BA1;&#x9019;&#x4E09;&#x7A2E;&#x5177;&#x9AD4;&#x7684;&#x5BE6;&#x73FE;&#x6D41;&#x7A0B;&#x4F75;&#x4E0D;&#x592A;&#x4E00;&#x6A23;&#xFF0C;&#x4ED6;&#x5011;&#x90FD;&#x5BE6;&#x73FE;&#x4E00;&#x500B;&#x5171;&#x540C;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x537D;&#x7576;&#x5B83;&#x5011;&#x88AB;&#x8ABF;&#x7528;&#x9700;&#x8981;&#x4E00;&#x500B;&#x6A19;&#x6E96;&#x6D41;&#x8F38;&#x9F63;&#x6642;&#x90FD;&#x53EF;&#x4EE5;&#x6EFF;&#x8DB3;&#x3002;&#x9019;&#x500B;&#x63A5;&#x53E3;&#x53EB;&#x4F5C;io.Writer&#xFF0C;&#x5728;7.1&#x7BC0;&#x4E2D;&#x6703;&#x8A73;&#x7D30;&#x8A0E;&#x8AD6;&#x3002;</p>
-<p>Go&#x8A9E;&#x8A00;&#x7684;&#x63A5;&#x53E3;&#x6A5F;&#x88FD;&#x6703;&#x5728;&#x7B2C;7&#x7AE0;&#x4E2D;&#x8B1B;&#x89E3;&#xFF0C;&#x7232;&#x4E86;&#x5728;&#x9019;&#x91CC;&#x7C21;&#x55AE;&#x8AAC;&#x660E;&#x63A5;&#x53E3;&#x80FD;&#x505A;&#x4EC0;&#x9EBD;&#xFF0C;&#x8B93;&#x6211;&#x5011;&#x7C21;&#x55AE;&#x5730;&#x5C07;&#x9019;&#x91CC;&#x7684;web&#x670D;&#x52D9;&#x5668;&#x548C;&#x4E4B;&#x524D;&#x5BEB;&#x7684;lissajous&#x51FD;&#x6578;&#x7D50;&#x5408;&#x8D77;&#x4F86;&#xFF0C;&#x9019;&#x6A23;GIF&#x52D5;&#x7575;&#x53EF;&#x4EE5;&#x88AB;&#x5BEB;&#x5230;HTTP&#x7684;&#x5BA2;&#x6236;&#x7AEF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E4B;&#x524D;&#x7684;&#x6A19;&#x6E96;&#x8F38;&#x9F63;&#x6D41;&#x3002;&#x96BB;&#x8981;&#x5728;web&#x670D;&#x52D9;&#x5668;&#x7684;&#x4EE3;&#x78BC;&#x91CC;&#x52A0;&#x5165;&#x4E0B;&#x9762;&#x9019;&#x5E7E;&#x884C;&#x3002;</p>
+<p>&#x5728;&#x9019;&#x4E9B;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x770B;&#x5230;&#x4E86;&#x5F88;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x985E;&#x578B;&#x88AB;&#x8F38;&#x51FA;&#x5230;&#x6A19;&#x6E96;&#x8F38;&#x51FA;&#x6D41;&#x4E2D;&#x3002;&#x6BD4;&#x5982;&#x524D;&#x9762;&#x7684;fetch&#x7A0B;&#x5E8F;&#xFF0C;&#x5C31;&#x628A;HTTP&#x7684;&#x97FF;&#x61C9;&#x6578;&#x64DA;&#x62F7;&#x8C9D;&#x5230;&#x4E86;os.Stdout&#xFF0C;&#x6216;&#x8005;&#x5728;lissajous&#x7A0B;&#x5E8F;&#x91CC;&#x6211;&#x5011;&#x8F38;&#x51FA;&#x7684;&#x662F;&#x4E00;&#x500B;&#x6587;&#x4EF6;&#x3002;fetchall&#x7A0B;&#x5E8F;&#x5247;&#x5B8C;&#x5168;&#x5FFD;&#x7565;&#x5230;&#x4E86;HTTP&#x7684;&#x97FF;&#x61C9;&#x9AD4;&#xFF0C;&#x96BB;&#x662F;&#x8A08;&#x7B97;&#x4E86;&#x4E00;&#x4E0B;&#x97FF;&#x61C9;&#x9AD4;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x4E2D;&#x628A;&#x97FF;&#x61C9;&#x9AD4;&#x62F7;&#x8C9D;&#x5230;&#x4E86;ioutil.Discard&#x3002;&#x5728;&#x672C;&#x7BC0;&#x7684;web&#x670D;&#x52D9;&#x5668;&#x7A0B;&#x5E8F;&#x4E2D;&#x5247;&#x662F;&#x7528;fmt.Fprintf&#x76F4;&#x63A5;&#x5BEB;&#x5230;&#x4E86;http.ResponseWriter&#x4E2D;&#x3002;</p>
+<p>&#x76E1;&#x7BA1;&#x9019;&#x4E09;&#x7A2E;&#x5177;&#x9AD4;&#x7684;&#x5BE6;&#x73FE;&#x6D41;&#x7A0B;&#x4F75;&#x4E0D;&#x592A;&#x4E00;&#x6A23;&#xFF0C;&#x4ED6;&#x5011;&#x90FD;&#x5BE6;&#x73FE;&#x4E00;&#x500B;&#x5171;&#x540C;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x537D;&#x7576;&#x5B83;&#x5011;&#x88AB;&#x8ABF;&#x7528;&#x9700;&#x8981;&#x4E00;&#x500B;&#x6A19;&#x6E96;&#x6D41;&#x8F38;&#x51FA;&#x6642;&#x90FD;&#x53EF;&#x4EE5;&#x6EFF;&#x8DB3;&#x3002;&#x9019;&#x500B;&#x63A5;&#x53E3;&#x53EB;&#x4F5C;io.Writer&#xFF0C;&#x5728;7.1&#x7BC0;&#x4E2D;&#x6703;&#x8A73;&#x7D30;&#x8A0E;&#x8AD6;&#x3002;</p>
+<p>Go&#x8A9E;&#x8A00;&#x7684;&#x63A5;&#x53E3;&#x6A5F;&#x88FD;&#x6703;&#x5728;&#x7B2C;7&#x7AE0;&#x4E2D;&#x8B1B;&#x89E3;&#xFF0C;&#x7232;&#x4E86;&#x5728;&#x9019;&#x91CC;&#x7C21;&#x55AE;&#x8AAC;&#x660E;&#x63A5;&#x53E3;&#x80FD;&#x505A;&#x4EC0;&#x9EBD;&#xFF0C;&#x8B93;&#x6211;&#x5011;&#x7C21;&#x55AE;&#x5730;&#x5C07;&#x9019;&#x91CC;&#x7684;web&#x670D;&#x52D9;&#x5668;&#x548C;&#x4E4B;&#x524D;&#x5BEB;&#x7684;lissajous&#x51FD;&#x6578;&#x7D50;&#x5408;&#x8D77;&#x4F86;&#xFF0C;&#x9019;&#x6A23;GIF&#x52D5;&#x7575;&#x53EF;&#x4EE5;&#x88AB;&#x5BEB;&#x5230;HTTP&#x7684;&#x5BA2;&#x6236;&#x7AEF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E4B;&#x524D;&#x7684;&#x6A19;&#x6E96;&#x8F38;&#x51FA;&#x6D41;&#x3002;&#x96BB;&#x8981;&#x5728;web&#x670D;&#x52D9;&#x5668;&#x7684;&#x4EE3;&#x78BC;&#x91CC;&#x52A0;&#x5165;&#x4E0B;&#x9762;&#x9019;&#x5E7E;&#x884C;&#x3002;</p>
 <pre><code class="lang-Go">handler := <span class="hljs-keyword">func</span>(w http.ResponseWriter, r *http.Request) {
     lissajous(w)
 }
@@ -2148,7 +2152,7 @@ http.HandleFunc(<span class="hljs-string">&quot;/&quot;</span>, handler)
         </div>
 
         
-        <a href="../ch1/ch1-06.html" class="navigation navigation-prev " aria-label="Previous page: 併發穫取多個URL"><i class="fa fa-angle-left"></i></a>
+        <a href="../ch1/ch1-06.html" class="navigation navigation-prev " aria-label="Previous page: 併發獲取多個URL"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../ch1/ch1-08.html" class="navigation navigation-next " aria-label="Next page: 本章要點"><i class="fa fa-angle-right"></i></a>
@@ -2169,7 +2173,7 @@ http.HandleFunc(<span class="hljs-string">&quot;/&quot;</span>, handler)
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

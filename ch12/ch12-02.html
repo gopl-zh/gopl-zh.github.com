@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="12.2" data-chapter-title="reflect.Type和reflect.Value" data-filepath="ch12/ch12-02.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="12.2" data-chapter-title="reflect.Type和reflect.Value" data-filepath="ch12/ch12-02.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2031,7 +2035,7 @@ fmt.Println(t)          <span class="hljs-comment">// &quot;int&quot;</span>
 <pre><code class="lang-Go"><span class="hljs-keyword">var</span> w io.Writer = os.Stdout
 fmt.Println(reflect.TypeOf(w)) <span class="hljs-comment">// &quot;*os.File&quot;</span>
 </code></pre>
-<p>&#x8981;&#x8A3B;&#x610F;&#x7684;&#x662F; reflect.Type &#x63A5;&#x53E3;&#x662F;&#x6EFF;&#x8DB3; fmt.Stringer &#x63A5;&#x53E3;&#x7684;. &#x56E0;&#x7232;&#x6253;&#x5370;&#x52D5;&#x614B;&#x985E;&#x578B;&#x503C;&#x5C0D;&#x65BC;&#x8ABF;&#x8A66;&#x548C;&#x65E5;&#x8A8C;&#x662F;&#x6709;&#x5E6B;&#x52A9;&#x7684;, fmt.Printf &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x500B;&#x7C21;&#x77ED;&#x7684; %T &#x6A19;&#x8A8C;&#x53C3;&#x6578;, &#x5167;&#x90E8;&#x4F7F;&#x7528; reflect.TypeOf &#x7684;&#x7D50;&#x679C;&#x8F38;&#x9F63;:</p>
+<p>&#x8981;&#x8A3B;&#x610F;&#x7684;&#x662F; reflect.Type &#x63A5;&#x53E3;&#x662F;&#x6EFF;&#x8DB3; fmt.Stringer &#x63A5;&#x53E3;&#x7684;. &#x56E0;&#x7232;&#x6253;&#x5370;&#x52D5;&#x614B;&#x985E;&#x578B;&#x503C;&#x5C0D;&#x65BC;&#x8ABF;&#x8A66;&#x548C;&#x65E5;&#x8A8C;&#x662F;&#x6709;&#x5E6B;&#x52A9;&#x7684;, fmt.Printf &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x500B;&#x7C21;&#x77ED;&#x7684; %T &#x6A19;&#x8A8C;&#x53C3;&#x6578;, &#x5167;&#x90E8;&#x4F7F;&#x7528; reflect.TypeOf &#x7684;&#x7D50;&#x679C;&#x8F38;&#x51FA;:</p>
 <pre><code class="lang-Go">fmt.Printf(<span class="hljs-string">&quot;%T\n&quot;</span>, <span class="hljs-number">3</span>) <span class="hljs-comment">// &quot;int&quot;</span>
 </code></pre>
 <p>reflect &#x5305;&#x4E2D;&#x53E6;&#x4E00;&#x500B;&#x91CD;&#x8981;&#x7684;&#x985E;&#x578B;&#x662F; Value. &#x4E00;&#x500B; reflect.Value &#x53EF;&#x4EE5;&#x6301;&#x6709;&#x4E00;&#x500B;&#x4EFB;&#x610F;&#x985E;&#x578B;&#x7684;&#x503C;. &#x51FD;&#x6578; reflect.ValueOf &#x63A5;&#x53D7;&#x4EFB;&#x610F;&#x7684; interface{} &#x985E;&#x578B;, &#x4F75;&#x8FD4;&#x8FF4;&#x5C0D;&#x61C9;&#x52D5;&#x614B;&#x985E;&#x578B;&#x7684;reflect.Value. &#x548C; reflect.TypeOf &#x985E;&#x4F3C;, reflect.ValueOf &#x8FD4;&#x8FF4;&#x7684;&#x7D50;&#x679C;&#x4E5F;&#x662F;&#x5C0D;&#x65BC;&#x5177;&#x9AD4;&#x7684;&#x985E;&#x578B;, &#x4F46;&#x662F; reflect.Value &#x4E5F;&#x53EF;&#x4EE5;&#x6301;&#x6709;&#x4E00;&#x500B;&#x63A5;&#x53E3;&#x503C;.</p>
@@ -2051,7 +2055,7 @@ x := v.Interface()      <span class="hljs-comment">// an interface{}</span>
 i := x.(<span class="hljs-typename">int</span>)            <span class="hljs-comment">// an int</span>
 fmt.Printf(<span class="hljs-string">&quot;%d\n&quot;</span>, i)   <span class="hljs-comment">// &quot;3&quot;</span>
 </code></pre>
-<p>&#x4E00;&#x500B; reflect.Value &#x548C; interface{} &#x90FD;&#x80FD;&#x4FDD;&#x5B58;&#x4EFB;&#x610F;&#x7684;&#x503C;. &#x6240;&#x4E0D;&#x540C;&#x7684;&#x662F;, &#x4E00;&#x500B;&#x7A7A;&#x7684;&#x63A5;&#x53E3;&#x96B1;&#x85CF;&#x4E86;&#x503C;&#x5C0D;&#x61C9;&#x7684;&#x8868;&#x793A;&#x65B9;&#x5F0F;&#x548C;&#x6240;&#x6709;&#x7684;&#x516C;&#x958B;&#x7684;&#x65B9;&#x6CD5;, &#x56E0;&#x6B64;&#x96BB;&#x6709;&#x6211;&#x5011;&#x77E5;&#x9053;&#x5177;&#x9AD4;&#x7684;&#x52D5;&#x614B;&#x985E;&#x578B;&#x7E94;&#x80FD;&#x4F7F;&#x7528;&#x985E;&#x578B;&#x65B7;&#x8A00;&#x4F86;&#x8A2A;&#x554F;&#x5167;&#x90E8;&#x7684;&#x503C;(&#x5C31;&#x50CF;&#x4E0A;&#x9762;&#x90A3;&#x6A23;), &#x5C0D;&#x65BC;&#x5167;&#x90E8;&#x503C;&#x4F75;&#x6C92;&#x6709;&#x7279;&#x522B;&#x53EF;&#x505A;&#x7684;&#x4E8B;&#x60C5;. &#x76F8;&#x6BD4;&#x4E4B;&#x4E0B;, &#x4E00;&#x500B; Value &#x5247;&#x6709;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#x4F86;&#x6AA2;&#x67FB;&#x5176;&#x5167;&#x5BB9;, &#x7121;&#x8AD6;&#x5B83;&#x7684;&#x5177;&#x9AD4;&#x985E;&#x578B;&#x662F;&#x4EC0;&#x9EBD;. &#x8B93;&#x6211;&#x5011;&#x518D;&#x6B21;&#x5690;&#x8A66;&#x5BE6;&#x73FE;&#x6211;&#x5011;&#x7684;&#x683C;&#x5F0F;&#x5316;&#x51FD;&#x6578; format.Any.</p>
+<p>&#x4E00;&#x500B; reflect.Value &#x548C; interface{} &#x90FD;&#x80FD;&#x4FDD;&#x5B58;&#x4EFB;&#x610F;&#x7684;&#x503C;. &#x6240;&#x4E0D;&#x540C;&#x7684;&#x662F;, &#x4E00;&#x500B;&#x7A7A;&#x7684;&#x63A5;&#x53E3;&#x96B1;&#x85CF;&#x4E86;&#x503C;&#x5C0D;&#x61C9;&#x7684;&#x8868;&#x793A;&#x65B9;&#x5F0F;&#x548C;&#x6240;&#x6709;&#x7684;&#x516C;&#x958B;&#x7684;&#x65B9;&#x6CD5;, &#x56E0;&#x6B64;&#x96BB;&#x6709;&#x6211;&#x5011;&#x77E5;&#x9053;&#x5177;&#x9AD4;&#x7684;&#x52D5;&#x614B;&#x985E;&#x578B;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x985E;&#x578B;&#x65B7;&#x8A00;&#x4F86;&#x8A2A;&#x554F;&#x5167;&#x90E8;&#x7684;&#x503C;(&#x5C31;&#x50CF;&#x4E0A;&#x9762;&#x90A3;&#x6A23;), &#x5C0D;&#x65BC;&#x5167;&#x90E8;&#x503C;&#x4F75;&#x6C92;&#x6709;&#x7279;&#x522B;&#x53EF;&#x505A;&#x7684;&#x4E8B;&#x60C5;. &#x76F8;&#x6BD4;&#x4E4B;&#x4E0B;, &#x4E00;&#x500B; Value &#x5247;&#x6709;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#x4F86;&#x6AA2;&#x67FB;&#x5176;&#x5167;&#x5BB9;, &#x7121;&#x8AD6;&#x5B83;&#x7684;&#x5177;&#x9AD4;&#x985E;&#x578B;&#x662F;&#x4EC0;&#x9EBD;. &#x8B93;&#x6211;&#x5011;&#x518D;&#x6B21;&#x5690;&#x8A66;&#x5BE6;&#x73FE;&#x6211;&#x5011;&#x7684;&#x683C;&#x5F0F;&#x5316;&#x51FD;&#x6578; format.Any.</p>
 <p>&#x6211;&#x5011;&#x4F7F;&#x7528; reflect.Value &#x7684; Kind &#x65B9;&#x6CD5;&#x4F86;&#x66FF;&#x4EE3;&#x4E4B;&#x524D;&#x7684;&#x985E;&#x578B; switch. &#x96D6;&#x7136;&#x9084;&#x662F;&#x6709;&#x7121;&#x7AAE;&#x591A;&#x7684;&#x985E;&#x578B;, &#x4F46;&#x662F;&#x5B83;&#x5011;&#x7684;kinds&#x985E;&#x578B;&#x537B;&#x662F;&#x6709;&#x9650;&#x7684;: Bool, String &#x548C; &#x6240;&#x6709;&#x6578;&#x5B57;&#x985E;&#x578B;&#x7684;&#x57FA;&#x790E;&#x985E;&#x578B;; Array &#x548C; Struct &#x5C0D;&#x61C9;&#x7684;&#x805A;&#x5408;&#x985E;&#x578B;; Chan, Func, Ptr, Slice, &#x548C; Map &#x5C0D;&#x61C9;&#x7684;&#x5F15;&#x7528;&#x985E;&#x4F3C;; &#x63A5;&#x53E3;&#x985E;&#x578B;; &#x9084;&#x6709;&#x8868;&#x793A;&#x7A7A;&#x503C;&#x7684;&#x7121;&#x6548;&#x985E;&#x578B;. (&#x7A7A;&#x7684; reflect.Value &#x5C0D;&#x61C9; Invalid &#x7121;&#x6548;&#x985E;&#x578B;.)</p>
 <pre><code class="lang-Go">gopl.io/ch12/format
 <span class="hljs-keyword">package</span> format
@@ -2129,7 +2133,7 @@ fmt.Println(format.Any([]time.Duration{d})) <span class="hljs-comment">// &quot;
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

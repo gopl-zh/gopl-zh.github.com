@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="6.5" data-chapter-title="示例: Bit數組" data-filepath="ch6/ch6-05.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="6.5" data-chapter-title="示例: Bit數組" data-filepath="ch6/ch6-05.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2021,7 +2025,7 @@
                     
                         <h2 id="65-&#x793A;&#x4F8B;-bit&#x6578;&#x7D44;">6.5. &#x793A;&#x4F8B;: Bit&#x6578;&#x7D44;</h2>
 <p>Go&#x8A9E;&#x8A00;&#x91CC;&#x7684;&#x96C6;&#x5408;&#x4E00;&#x822C;&#x6703;&#x7528;map[T]bool&#x9019;&#x7A2E;&#x5F62;&#x5F0F;&#x4F86;&#x8868;&#x793A;&#xFF0C;T&#x4EE3;&#x8868;&#x5143;&#x7D20;&#x985E;&#x578B;&#x3002;&#x96C6;&#x5408;&#x7528;map&#x985E;&#x578B;&#x4F86;&#x8868;&#x793A;&#x96D6;&#x7136;&#x975E;&#x5E38;&#x9748;&#x6D3B;&#xFF0C;&#x4F46;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4EE5;&#x4E00;&#x7A2E;&#x66F4;&#x597D;&#x7684;&#x5F62;&#x5F0F;&#x4F86;&#x8868;&#x793A;&#x5B83;&#x3002;&#x4F8B;&#x5982;&#x5728;&#x6578;&#x64DA;&#x6D41;&#x5206;&#x6790;&#x9818;&#x57DF;&#xFF0C;&#x96C6;&#x5408;&#x5143;&#x7D20;&#x901A;&#x5E38;&#x662F;&#x4E00;&#x500B;&#x975E;&#x8CA0;&#x6574;&#x6578;&#xFF0C;&#x96C6;&#x5408;&#x6703;&#x5305;&#x542B;&#x5F88;&#x591A;&#x5143;&#x7D20;&#xFF0C;&#x4F75;&#x4E14;&#x96C6;&#x5408;&#x6703;&#x7D93;&#x5E38;&#x9032;&#x884C;&#x4F75;&#x96C6;&#x3001;&#x4EA4;&#x96C6;&#x64CD;&#x4F5C;&#xFF0C;&#x9019;&#x7A2E;&#x60C5;&#x6CC1;&#x4E0B;&#xFF0C;bit&#x6578;&#x7D44;&#x6703;&#x6BD4;map&#x8868;&#x73FE;&#x66F4;&#x52A0;&#x7406;&#x60F3;&#x3002;(&#x8B6F;&#x8A3B;&#xFF1A;&#x9019;&#x91CC;&#x518D;&#x88DC;&#x5145;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x5011;&#x57F7;&#x884C;&#x4E00;&#x500B;http&#x4E0B;&#x8F09;&#x4EFB;&#x52D9;&#xFF0C;&#x628A;&#x6587;&#x4EF6;&#x6309;&#x7167;16kb&#x4E00;&#x584A;&#x5283;&#x5206;&#x7232;&#x5F88;&#x591A;&#x584A;&#xFF0C;&#x9700;&#x8981;&#x6709;&#x4E00;&#x500B;&#x5168;&#x5C40;&#x8B8A;&#x91CF;&#x4F86;&#x6A19;&#x8B58;&#x54EA;&#x4E9B;&#x584A;&#x4E0B;&#x8F09;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x9019;&#x7A2E;&#x6642;&#x5019;&#x4E5F;&#x9700;&#x8981;&#x7528;&#x5230;bit&#x6578;&#x7D44;)</p>
-<p>&#x4E00;&#x500B;bit&#x6578;&#x7D44;&#x901A;&#x5E38;&#x6703;&#x7528;&#x4E00;&#x500B;&#x7121;&#x7B26;&#x865F;&#x6578;&#x6216;&#x8005;&#x7A31;&#x4E4B;&#x7232;&#x201C;&#x5B57;&#x201D;&#x7684;slice&#x6216;&#x8005;&#x4F86;&#x8868;&#x793A;&#xFF0C;&#x6BCF;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x7684;&#x6BCF;&#x4E00;&#x4F4D;&#x90FD;&#x8868;&#x793A;&#x96C6;&#x5408;&#x91CC;&#x7684;&#x4E00;&#x500B;&#x503C;&#x3002;&#x7576;&#x96C6;&#x5408;&#x7684;&#x7B2C;i&#x4F4D;&#x88AB;&#x8A2D;&#x7F6E;&#x6642;&#xFF0C;&#x6211;&#x5011;&#x7E94;&#x8AAC;&#x9019;&#x500B;&#x96C6;&#x5408;&#x5305;&#x542B;&#x5143;&#x7D20;i&#x3002;&#x4E0B;&#x9762;&#x7684;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x5C55;&#x793A;&#x4E86;&#x4E00;&#x500B;&#x7C21;&#x55AE;&#x7684;bit&#x6578;&#x7D44;&#x985E;&#x578B;&#xFF0C;&#x4F75;&#x4E14;&#x5BE6;&#x73FE;&#x4E86;&#x4E09;&#x500B;&#x51FD;&#x6578;&#x4F86;&#x5C0D;&#x9019;&#x500B;bit&#x6578;&#x7D44;&#x4F86;&#x9032;&#x884C;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<p>&#x4E00;&#x500B;bit&#x6578;&#x7D44;&#x901A;&#x5E38;&#x6703;&#x7528;&#x4E00;&#x500B;&#x7121;&#x7B26;&#x865F;&#x6578;&#x6216;&#x8005;&#x7A31;&#x4E4B;&#x7232;&#x201C;&#x5B57;&#x201D;&#x7684;slice&#x6216;&#x8005;&#x4F86;&#x8868;&#x793A;&#xFF0C;&#x6BCF;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x7684;&#x6BCF;&#x4E00;&#x4F4D;&#x90FD;&#x8868;&#x793A;&#x96C6;&#x5408;&#x91CC;&#x7684;&#x4E00;&#x500B;&#x503C;&#x3002;&#x7576;&#x96C6;&#x5408;&#x7684;&#x7B2C;i&#x4F4D;&#x88AB;&#x8A2D;&#x7F6E;&#x6642;&#xFF0C;&#x6211;&#x5011;&#x624D;&#x8AAC;&#x9019;&#x500B;&#x96C6;&#x5408;&#x5305;&#x542B;&#x5143;&#x7D20;i&#x3002;&#x4E0B;&#x9762;&#x7684;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x5C55;&#x793A;&#x4E86;&#x4E00;&#x500B;&#x7C21;&#x55AE;&#x7684;bit&#x6578;&#x7D44;&#x985E;&#x578B;&#xFF0C;&#x4F75;&#x4E14;&#x5BE6;&#x73FE;&#x4E86;&#x4E09;&#x500B;&#x51FD;&#x6578;&#x4F86;&#x5C0D;&#x9019;&#x500B;bit&#x6578;&#x7D44;&#x4F86;&#x9032;&#x884C;&#x64CD;&#x4F5C;&#xFF1A;</p>
 <pre><code class="lang-go">gopl.io/ch6/intset
 <span class="hljs-comment">// An IntSet is a set of small non-negative integers.</span>
 <span class="hljs-comment">// Its zero value represents the empty set.</span>
@@ -2107,9 +2111,9 @@ fmt.Println(x)          <span class="hljs-comment">// &quot;{[4398046511618 0 65
 <span class="hljs-keyword">func</span> (*IntSet) Copy() *IntSet <span class="hljs-comment">// return a copy of the set</span>
 </code></pre>
 <p>&#x7DF4;&#x7FD2;6.2: &#x5B9A;&#x7FA9;&#x4E00;&#x500B;&#x8B8A;&#x53C3;&#x65B9;&#x6CD5;(*IntSet).AddAll(...int)&#xFF0C;&#x9019;&#x500B;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7232;&#x4E00;&#x7D44;IntSet&#x503C;&#x6C42;&#x548C;&#xFF0C;&#x6BD4;&#x5982;s.AddAll(1,2,3)&#x3002;</p>
-<p>&#x7DF4;&#x7FD2;6.3: (*IntSet).UnionWith&#x6703;&#x7528;|&#x64CD;&#x4F5C;&#x7B26;&#x8A08;&#x7B97;&#x5169;&#x500B;&#x96C6;&#x5408;&#x7684;&#x4EA4;&#x96C6;&#xFF0C;&#x6211;&#x5011;&#x518D;&#x7232;IntSet&#x5BE6;&#x73FE;&#x53E6;&#x5916;&#x7684;&#x5E7E;&#x500B;&#x51FD;&#x6578;IntersectWith(&#x4EA4;&#x96C6;&#xFF1A;&#x5143;&#x7D20;&#x5728;A&#x96C6;&#x5408;B&#x96C6;&#x5408;&#x5747;&#x9F63;&#x73FE;),DifferenceWith(&#x5DEE;&#x96C6;&#xFF1A;&#x5143;&#x7D20;&#x9F63;&#x73FE;&#x5728;A&#x96C6;&#x5408;&#xFF0C;&#x672A;&#x9F63;&#x73FE;&#x5728;B&#x96C6;&#x5408;),SymmetricDifference(&#x4F75;&#x5DEE;&#x96C6;&#xFF1A;&#x5143;&#x7D20;&#x9F63;&#x73FE;&#x5728;A&#x4F46;&#x6C92;&#x6709;&#x9F63;&#x73FE;&#x5728;B&#xFF0C;&#x6216;&#x8005;&#x9F63;&#x73FE;&#x5728;B&#x6C92;&#x6709;&#x9F63;&#x73FE;&#x5728;A)&#x3002;
+<p>&#x7DF4;&#x7FD2;6.3: (*IntSet).UnionWith&#x6703;&#x7528;|&#x64CD;&#x4F5C;&#x7B26;&#x8A08;&#x7B97;&#x5169;&#x500B;&#x96C6;&#x5408;&#x7684;&#x4EA4;&#x96C6;&#xFF0C;&#x6211;&#x5011;&#x518D;&#x7232;IntSet&#x5BE6;&#x73FE;&#x53E6;&#x5916;&#x7684;&#x5E7E;&#x500B;&#x51FD;&#x6578;IntersectWith(&#x4EA4;&#x96C6;&#xFF1A;&#x5143;&#x7D20;&#x5728;A&#x96C6;&#x5408;B&#x96C6;&#x5408;&#x5747;&#x51FA;&#x73FE;),DifferenceWith(&#x5DEE;&#x96C6;&#xFF1A;&#x5143;&#x7D20;&#x51FA;&#x73FE;&#x5728;A&#x96C6;&#x5408;&#xFF0C;&#x672A;&#x51FA;&#x73FE;&#x5728;B&#x96C6;&#x5408;),SymmetricDifference(&#x4F75;&#x5DEE;&#x96C6;&#xFF1A;&#x5143;&#x7D20;&#x51FA;&#x73FE;&#x5728;A&#x4F46;&#x6C92;&#x6709;&#x51FA;&#x73FE;&#x5728;B&#xFF0C;&#x6216;&#x8005;&#x51FA;&#x73FE;&#x5728;B&#x6C92;&#x6709;&#x51FA;&#x73FE;&#x5728;A)&#x3002;
 &#x7DF4;&#x7FD2;6.4: &#x5BE6;&#x73FE;&#x4E00;&#x500B;Elems&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x8FF4;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x7528;&#x65BC;&#x505A;&#x4E00;&#x4E9B;range&#x4E4B;&#x985E;&#x7684;&#x904D;&#x6B77;&#x64CD;&#x4F5C;&#x3002;</p>
-<p>&#x7DF4;&#x7FD2;6.5: &#x6211;&#x5011;&#x9019;&#x7AE0;&#x5B9A;&#x7FA9;&#x7684;IntSet&#x91CC;&#x7684;&#x6BCF;&#x500B;&#x5B57;&#x90FD;&#x662F;&#x7528;&#x7684;uint64&#x985E;&#x578B;&#xFF0C;&#x4F46;&#x662F;64&#x4F4D;&#x7684;&#x6578;&#x503C;&#x53EF;&#x80FD;&#x5728;32&#x4F4D;&#x7684;&#x5E73;&#x98B1;&#x4E0A;&#x4E0D;&#x9AD8;&#x6548;&#x3002;&#x8129;&#x6539;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F7F;&#x5176;&#x4F7F;&#x7528;uint&#x985E;&#x578B;&#xFF0C;&#x9019;&#x7A2E;&#x985E;&#x578B;&#x5C0D;&#x65BC;32&#x4F4D;&#x5E73;&#x98B1;&#x4F86;&#x8AAC;&#x66F4;&#x5408;&#x9069;&#x3002;&#x7576;&#x7136;&#x4E86;&#xFF0C;&#x9019;&#x91CC;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x7C21;&#x55AE;&#x7C97;&#x66B4;&#x5730;&#x9664;64&#xFF0C;&#x53EF;&#x4EE5;&#x5B9A;&#x7FA9;&#x4E00;&#x500B;&#x5E38;&#x91CF;&#x4F86;&#x6C7A;&#x5B9A;&#x662F;&#x7528;32&#x9084;&#x662F;64&#xFF0C;&#x9019;&#x91CC;&#x4F60;&#x53EF;&#x80FD;&#x6703;&#x7528;&#x5230;&#x5E73;&#x98B1;&#x7684;&#x81EA;&#x52D5;&#x5224;&#x65B7;&#x7684;&#x4E00;&#x500B;&#x667A;&#x80FD;&#x8868;&#x9054;&#x5F0F;&#xFF1A;32 &lt;&lt; (^uint(0) &gt;&gt; 63)</p>
+<p>&#x7DF4;&#x7FD2;6.5: &#x6211;&#x5011;&#x9019;&#x7AE0;&#x5B9A;&#x7FA9;&#x7684;IntSet&#x91CC;&#x7684;&#x6BCF;&#x500B;&#x5B57;&#x90FD;&#x662F;&#x7528;&#x7684;uint64&#x985E;&#x578B;&#xFF0C;&#x4F46;&#x662F;64&#x4F4D;&#x7684;&#x6578;&#x503C;&#x53EF;&#x80FD;&#x5728;32&#x4F4D;&#x7684;&#x5E73;&#x53F0;&#x4E0A;&#x4E0D;&#x9AD8;&#x6548;&#x3002;&#x8129;&#x6539;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F7F;&#x5176;&#x4F7F;&#x7528;uint&#x985E;&#x578B;&#xFF0C;&#x9019;&#x7A2E;&#x985E;&#x578B;&#x5C0D;&#x65BC;32&#x4F4D;&#x5E73;&#x53F0;&#x4F86;&#x8AAC;&#x66F4;&#x5408;&#x9069;&#x3002;&#x7576;&#x7136;&#x4E86;&#xFF0C;&#x9019;&#x91CC;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x7C21;&#x55AE;&#x7C97;&#x66B4;&#x5730;&#x9664;64&#xFF0C;&#x53EF;&#x4EE5;&#x5B9A;&#x7FA9;&#x4E00;&#x500B;&#x5E38;&#x91CF;&#x4F86;&#x6C7A;&#x5B9A;&#x662F;&#x7528;32&#x9084;&#x662F;64&#xFF0C;&#x9019;&#x91CC;&#x4F60;&#x53EF;&#x80FD;&#x6703;&#x7528;&#x5230;&#x5E73;&#x53F0;&#x7684;&#x81EA;&#x52D5;&#x5224;&#x65B7;&#x7684;&#x4E00;&#x500B;&#x667A;&#x80FD;&#x8868;&#x9054;&#x5F0F;&#xFF1A;32 &lt;&lt; (^uint(0) &gt;&gt; 63)</p>
 
                     
                     </section>
@@ -2141,7 +2145,7 @@ fmt.Println(x)          <span class="hljs-comment">// &quot;{[4398046511618 0 65
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

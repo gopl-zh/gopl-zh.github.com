@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="2.1" data-chapter-title="命名" data-filepath="ch2/ch2-01.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="2.1" data-chapter-title="命名" data-filepath="ch2/ch2-01.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2020,28 +2024,28 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="21-&#x547D;&#x540D;">2.1. &#x547D;&#x540D;</h2>
-<p>Go&#x8A9E;&#x8A00;&#x4E2D;&#x7684;&#x7684;&#x51FD;&#x6578;&#x540D;, &#x8B8A;&#x91CF;&#x540D;, &#x5E38;&#x91CF;&#x540D;, &#x985E;&#x578B;&#x540D;, &#x8A9E;&#x53E5;&#x6BB5;&#x6A19;&#x7C64;&#x540D;, &#x548C; &#x5305;&#x540D; &#x7B49;&#x6240;&#x6709;&#x7684;&#x547D;&#x540D;, &#x90FD;&#x9075;&#x5FAA;&#x4E00;&#x500B;&#x547D;&#x540D;&#x898F;&#x5247;: &#x4E00;&#x500B;&#x540D;&#x5B57;&#x5FC5;&#x9B1A;&#x4EE5;&#x4E00;&#x500B;&#x5B57;&#x6BCD;(Unicode&#x5B57;&#x6BCD;)&#x6216;&#x4E0B;&#x5283;&#x7DDA;&#x958B;&#x982D;, &#x5F8C;&#x9762;&#x53EF;&#x4EE5;&#x8DDF;&#x4EFB;&#x610F;&#x6578;&#x91CF;&#x7684;&#x5B57;&#x6BCD;,&#x6578;&#x5B57;&#x6216;&#x4E0B;&#x5283;&#x7DDA;. &#x4E0D;&#x540C;&#x5927;&#x5C0F;&#x5BEB;&#x5B57;&#x6BCD;&#x662F;&#x4E0D;&#x540C;&#x7684;: <code>heapSort</code> &#x548C; <code>Heapsort</code> &#x662F;&#x5169;&#x500B;&#x4E0D;&#x540C;&#x7684;&#x540D;&#x5B57;.</p>
-<p>Go&#x8A9E;&#x8A00;&#x985E;&#x4F3C; <code>if</code> &#x548C; <code>switch</code> &#x7684;&#x95DC;&#x9375;&#x5B57;&#x6709;25&#x500B;; &#x95DC;&#x9375;&#x5B57;&#x4E0D;&#x80FD;&#x7528;&#x65BC;&#x81EA;&#x5B9A;&#x7FA9;&#x540D;&#x5B57;, &#x96BB;&#x80FD;&#x5728;&#x7279;&#x5B9A;&#x8A9E;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528;.</p>
+<p>Go&#x8A9E;&#x8A00;&#x4E2D;&#x7684;&#x51FD;&#x6578;&#x540D;&#x3001;&#x8B8A;&#x91CF;&#x540D;&#x3001;&#x5E38;&#x91CF;&#x540D;&#x3001;&#x985E;&#x578B;&#x540D;&#x3001;&#x8A9E;&#x53E5;&#x6A19;&#x865F;&#x548C;&#x5305;&#x540D;&#x7B49;&#x6240;&#x6709;&#x7684;&#x547D;&#x540D;&#xFF0C;&#x90FD;&#x9075;&#x5FAA;&#x4E00;&#x500B;&#x7C21;&#x55AE;&#x7684;&#x547D;&#x540D;&#x898F;&#x5247;&#xFF1A;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x5FC5;&#x9B1A;&#x4EE5;&#x4E00;&#x500B;&#x5B57;&#x6BCD;&#xFF08;Unicode&#x5B57;&#x6BCD;&#xFF09;&#x6216;&#x4E0B;&#x5283;&#x7DDA;&#x958B;&#x982D;&#xFF0C;&#x5F8C;&#x9762;&#x53EF;&#x4EE5;&#x8DDF;&#x4EFB;&#x610F;&#x6578;&#x91CF;&#x7684;&#x5B57;&#x6BCD;&#x3001;&#x6578;&#x5B57;&#x6216;&#x4E0B;&#x5283;&#x7DDA;&#x3002;&#x5927;&#x5BEB;&#x5B57;&#x6BCD;&#x548C;&#x5C0F;&#x5BEB;&#x5B57;&#x6BCD;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF1A;heapSort&#x548C;Heapsort&#x662F;&#x5169;&#x500B;&#x4E0D;&#x540C;&#x7684;&#x540D;&#x5B57;&#x3002;</p>
+<p>Go&#x8A9E;&#x8A00;&#x4E2D;&#x985E;&#x4F3C;if&#x548C;switch&#x7684;&#x95DC;&#x9375;&#x5B57;&#x6709;25&#x500B;&#xFF1B;&#x95DC;&#x9375;&#x5B57;&#x4E0D;&#x80FD;&#x7528;&#x65BC;&#x81EA;&#x5B9A;&#x7FA9;&#x540D;&#x5B57;&#xFF0C;&#x96BB;&#x80FD;&#x5728;&#x7279;&#x5B9A;&#x8A9E;&#x6CD5;&#x7D50;&#x69CB;&#x4E2D;&#x4F7F;&#x7528;&#x3002;</p>
 <pre><code>break      default       func     interface   select
 case       defer         go       map         struct
 chan       else          goto     package     switch
 const      fallthrough   if       range       type
 continue   for           import   return      var
-</code></pre><p>&#x6B64;&#x5916;, &#x9084;&#x6709;&#x5927;&#x7D04;30&#x591A;&#x500B;&#x9810;&#x5148;&#x5B9A;&#x7FA9;&#x7684;&#x540D;&#x5B57;, &#x6BD4;&#x5982;  <code>int</code> &#x548C; <code>true</code> &#x7B49;, &#x4E3B;&#x8981;&#x7528;&#x65BC;&#x5167;&#x5EFA;&#x7684;&#x5E38;&#x91CF;, &#x985E;&#x578B;, &#x548C; &#x51FD;&#x6578;.</p>
-<pre><code>Constants:  true false iota nil
+</code></pre><p>&#x6B64;&#x5916;&#xFF0C;&#x9084;&#x6709;&#x5927;&#x7D04;30&#x591A;&#x500B;&#x9810;&#x5B9A;&#x7FA9;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x6BD4;&#x5982;int&#x548C;true&#x7B49;&#xFF0C;&#x4E3B;&#x8981;&#x5C0D;&#x61C9;&#x5167;&#x5EFA;&#x7684;&#x5E38;&#x91CF;&#x3001;&#x985E;&#x578B;&#x548C;&#x51FD;&#x6578;&#x3002;</p>
+<pre><code>&#x5167;&#x5EFA;&#x5E38;&#x91CF;: true false iota nil
 
-Types:      int int8 int16 int32 int64
-            uint uint8 uint16 uint32 uint64 uintptr
-            float32 float64 complex128 complex64
-            bool byte rune string error
+&#x5167;&#x5EFA;&#x985E;&#x578B;: int int8 int16 int32 int64
+          uint uint8 uint16 uint32 uint64 uintptr
+          float32 float64 complex128 complex64
+          bool byte rune string error
 
-Functions:  make len cap new append copy close delete
-            complex real imag
-            panic recover
-</code></pre><p>&#x9019;&#x4E9B;&#x5167;&#x90E8;&#x9810;&#x5148;&#x5B9A;&#x7FA9;&#x7684;&#x540D;&#x5B57;&#x4E0D;&#x662F;&#x95DC;&#x9375;&#x5B57;, &#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x5B9A;&#x7FA9;&#x4E2D;&#x91CD;&#x73FE;&#x4F7F;&#x7528;&#x5B83;&#x5011;. &#x5728;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x5834;&#x666F;&#x91CD;&#x65B0;&#x5B9A;&#x7FA9;&#x662F;&#x6709;&#x610F;&#x7FA9;&#x7684;, &#x4F46;&#x662F;&#x4E5F;&#x8981;&#x8A3B;&#x610F;&#x907F;&#x514D;&#x5F15;&#x8D77;&#x6DF7;&#x4E82;.</p>
-<p>&#x5982;&#x679C;&#x4E00;&#x500B;&#x5BE6;&#x9AD4;&#x662F;&#x5728;&#x51FD;&#x6578;&#x5167;&#x90E8;&#x5B9A;&#x7FA9;, &#x90A3;&#x9EBD;&#x5B83;&#x7684;&#x5C31;&#x96BB;&#x5728;&#x51FD;&#x6578;&#x5167;&#x90E8;&#x6709;&#x6548;. &#x5982;&#x679C;&#x662F;&#x5728;&#x51FD;&#x6578;&#x5916;&#x90E8;&#x5B9A;&#x7FA9;, &#x90A3;&#x9EBD;&#x5C07;&#x5728;&#x7576;&#x524D;&#x5305;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x4E2D;&#x90FD;&#x53EF;&#x4EE5;&#x8A2A;&#x554F;. &#x540D;&#x5B57;&#x7684;&#x958B;&#x982D;&#x5B57;&#x6BCD;&#x7684;&#x5927;&#x5C0F;&#x5BEB;&#x6C7A;&#x5B9A;&#x4E86;&#x540D;&#x5B57;&#x5728;&#x5305;&#x5916;&#x7684;&#x53EF;&#x898B;&#x6027;. &#x5982;&#x679C;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x662F;&#x5927;&#x5BEB;&#x5B57;&#x6BCD;&#x958B;&#x982D;&#x7684;, &#x90A3;&#x9EBD;&#x5B83;&#x5C07;&#x662F;&#x5C0E;&#x9F63;&#x7684;, &#x4E5F;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x88AB;&#x5916;&#x90E8;&#x7684;&#x5305;&#x8A2A;&#x554F;, &#x4F8B;&#x5982; <code>fmt</code> &#x5305;&#x7684; <code>Printf</code> &#x51FD;&#x6578;&#x5C31;&#x662F;&#x5C0E;&#x9F63;&#x7684;, &#x53EF;&#x4EE5;&#x5728; <code>fmt</code> &#x5305;&#x5916;&#x90E8;&#x8A2A;&#x554F;. &#x5305;&#x672C;&#x8EAB;&#x7684;&#x540D;&#x5B57;&#x4E00;&#x822C;&#x7E3D;&#x662F;&#x7528;&#x5C0F;&#x5BEB;&#x5B57;&#x6BCD;.</p>
-<p>&#x540D;&#x5B57;&#x7684;&#x9577;&#x5EA6;&#x6C92;&#x6709;&#x9650;&#x88FD;, &#x4F46;&#x662F;Go&#x7684;&#x98A8;&#x683C;&#x662F;&#x76E1;&#x91CF;&#x4F7F;&#x7528;&#x77ED;&#x5C0F;&#x7684;&#x540D;&#x5B57;, &#x5C0D;&#x65BC;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;&#x5C24;&#x5176;&#x662F;&#x9019;&#x6A23;; &#x4F60;&#x6703;&#x7D93;&#x5E38;&#x770B;&#x5230; <code>i</code> &#x4E4B;&#x985E;&#x7684;&#x540D;&#x5B57;, &#x800C;&#x662F;&#x5197;&#x9577;&#x7684; <code>theLoopIndex</code>. &#x901A;&#x5E38;&#x4F86;&#x8AAC;, &#x5982;&#x679C;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x6BD4;&#x8F03;&#x5927;, &#x751F;&#x547D;&#x9031;&#x671F;&#x8F03;&#x9577;, &#x90A3;&#x9EBD;&#x7528;&#x9577;&#x7684;&#x540D;&#x5B57;&#x5C07;&#x66F4;&#x6709;&#x610F;&#x7FA9;.</p>
-<p>&#x5728;&#x7FD2;&#x6163;&#x4E0A;, Go&#x7A0B;&#x5E8F;&#x54E1;&#x63A8;&#x85A6;&#x4F7F;&#x7528;<code>&#x99DD;&#x5CEF;&#x5F0F;</code>&#x547D;&#x540D;, &#x7576;&#x540D;&#x5B57;&#x6709;&#x5E7E;&#x500B;&#x55AE;&#x8A5E;&#x7684;&#x6642;&#x512A;&#x5148;&#x4F7F;&#x7528;&#x5927;&#x5C0F;&#x5BEB;&#x5206;&#x9694;, &#x800C;&#x4E0D;&#x662F;&#x512A;&#x5148;&#x7528;&#x4E0B;&#x5283;&#x7DDA;&#x5206;&#x9694;. &#x56E0;&#x6B64;, &#x6A19;&#x6E96;&#x5EAB;&#x6709; <code>QuoteRuneToASCII</code> &#x548C; <code>parseRequestLine</code> &#x9019;&#x6A23;&#x7684;&#x51FD;&#x6578;&#x547D;&#x540D;, &#x4F46;&#x662F;&#x4E0D;&#x6703;&#x7528; <code>quote_rune_to_ASCII</code> &#x548C; <code>parse_request_line</code> &#x9019;&#x6A23;&#x7684;&#x547D;&#x540D;. &#x50CF; <code>ASCII</code> &#x548C; <code>HTML</code> &#x9019;&#x6A23;&#x7684;&#x7E2E;&#x7565;&#x8A5E;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x5927;&#x5C0F;&#x5BEB;&#x6DF7;&#x5408;, &#x5B83;&#x5011;&#x53EF;&#x80FD;&#x88AB;&#x7A31;&#x7232; <code>htmlEscape</code>, <code>HTMLEscape</code> &#x6216; <code>escapeHTML</code>, &#x4F46;&#x4E0D;&#x6703;&#x662F; <code>escapeHtml</code>.</p>
+&#x5167;&#x5EFA;&#x51FD;&#x6578;: make len cap new append copy close delete
+          complex real imag
+          panic recover
+</code></pre><p>&#x9019;&#x4E9B;&#x5167;&#x90E8;&#x9810;&#x5148;&#x5B9A;&#x7FA9;&#x7684;&#x540D;&#x5B57;&#x4F75;&#x4E0D;&#x662F;&#x95DC;&#x9375;&#x5B57;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x518D;&#x5B9A;&#x7FA9;&#x4E2D;&#x91CD;&#x65B0;&#x4F7F;&#x7528;&#x5B83;&#x5011;&#x3002;&#x5728;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x5834;&#x666F;&#x4E2D;&#x91CD;&#x65B0;&#x5B9A;&#x7FA9;&#x5B83;&#x5011;&#x4E5F;&#x662F;&#x6709;&#x610F;&#x7FA9;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x8981;&#x8A3B;&#x610F;&#x907F;&#x514D;&#x904E;&#x5EA6;&#x800C;&#x5F15;&#x8D77;&#x8A9E;&#x7FA9;&#x6DF7;&#x4E82;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x662F;&#x5728;&#x51FD;&#x6578;&#x5167;&#x90E8;&#x5B9A;&#x7FA9;&#xFF0C;&#x90A3;&#x9EBD;&#x5B83;&#x7684;&#x5C31;&#x96BB;&#x5728;&#x51FD;&#x6578;&#x5167;&#x90E8;&#x6709;&#x6548;&#x3002;&#x5982;&#x679C;&#x662F;&#x5728;&#x51FD;&#x6578;&#x5916;&#x90E8;&#x5B9A;&#x7FA9;&#xFF0C;&#x90A3;&#x9EBD;&#x5C07;&#x5728;&#x7576;&#x524D;&#x5305;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x4E2D;&#x90FD;&#x53EF;&#x4EE5;&#x8A2A;&#x554F;&#x3002;&#x540D;&#x5B57;&#x7684;&#x958B;&#x982D;&#x5B57;&#x6BCD;&#x7684;&#x5927;&#x5C0F;&#x5BEB;&#x6C7A;&#x5B9A;&#x4E86;&#x540D;&#x5B57;&#x5728;&#x5305;&#x5916;&#x7684;&#x53EF;&#x898B;&#x6027;&#x3002;&#x5982;&#x679C;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x662F;&#x5927;&#x5BEB;&#x5B57;&#x6BCD;&#x958B;&#x982D;&#x7684;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x5FC5;&#x9B1A;&#x662F;&#x5728;&#x51FD;&#x6578;&#x5916;&#x90E8;&#x5B9A;&#x7FA9;&#x7684;&#x5305;&#x7D1A;&#x540D;&#x5B57;&#xFF1B;&#x5305;&#x7D1A;&#x51FD;&#x6578;&#x540D;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x5305;&#x7D1A;&#x540D;&#x5B57;&#xFF09;&#xFF0C;&#x90A3;&#x9EBD;&#x5B83;&#x5C07;&#x662F;&#x5C0E;&#x51FA;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8AAC;&#x53EF;&#x4EE5;&#x88AB;&#x5916;&#x90E8;&#x7684;&#x5305;&#x8A2A;&#x554F;&#xFF0C;&#x4F8B;&#x5982;fmt&#x5305;&#x7684;Printf&#x51FD;&#x6578;&#x5C31;&#x662F;&#x5C0E;&#x51FA;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;fmt&#x5305;&#x5916;&#x90E8;&#x8A2A;&#x554F;&#x3002;&#x5305;&#x672C;&#x8EAB;&#x7684;&#x540D;&#x5B57;&#x4E00;&#x822C;&#x7E3D;&#x662F;&#x7528;&#x5C0F;&#x5BEB;&#x5B57;&#x6BCD;&#x3002;</p>
+<p>&#x540D;&#x5B57;&#x7684;&#x9577;&#x5EA6;&#x6C92;&#x6709;&#x908F;&#x8F2F;&#x9650;&#x88FD;&#xFF0C;&#x4F46;&#x662F;Go&#x8A9E;&#x8A00;&#x7684;&#x98A8;&#x683C;&#x662F;&#x76E1;&#x91CF;&#x4F7F;&#x7528;&#x77ED;&#x5C0F;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x5C0D;&#x65BC;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;&#x5C24;&#x5176;&#x662F;&#x9019;&#x6A23;&#xFF1B;&#x4F60;&#x6703;&#x7D93;&#x5E38;&#x770B;&#x5230;i&#x4E4B;&#x985E;&#x7684;&#x77ED;&#x540D;&#x5B57;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5197;&#x9577;&#x7684;theLoopIndex&#x547D;&#x540D;&#x3002;&#x901A;&#x5E38;&#x4F86;&#x8AAC;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x6BD4;&#x8F03;&#x5927;&#xFF0C;&#x751F;&#x547D;&#x9031;&#x671F;&#x4E5F;&#x6BD4;&#x8F03;&#x9577;&#xFF0C;&#x90A3;&#x9EBD;&#x7528;&#x9577;&#x7684;&#x540D;&#x5B57;&#x5C07;&#x6703;&#x66F4;&#x6709;&#x610F;&#x7FA9;&#x3002;</p>
+<p>&#x5728;&#x7FD2;&#x6163;&#x4E0A;&#xFF0C;Go&#x8A9E;&#x8A00;&#x7A0B;&#x5E8F;&#x54E1;&#x63A8;&#x85A6;&#x4F7F;&#x7528; <strong>&#x99DD;&#x5CEF;&#x5F0F;</strong> &#x547D;&#x540D;&#xFF0C;&#x7576;&#x540D;&#x5B57;&#x6709;&#x5E7E;&#x500B;&#x55AE;&#x8A5E;&#x7D44;&#x6210;&#x7684;&#x6642;&#x512A;&#x5148;&#x4F7F;&#x7528;&#x5927;&#x5C0F;&#x5BEB;&#x5206;&#x9694;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x512A;&#x5148;&#x7528;&#x4E0B;&#x5283;&#x7DDA;&#x5206;&#x9694;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x6A19;&#x6E96;&#x5EAB;&#x6709;QuoteRuneToASCII&#x548C;parseRequestLine&#x9019;&#x6A23;&#x7684;&#x51FD;&#x6578;&#x547D;&#x540D;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x822C;&#x4E0D;&#x6703;&#x7528;quote_rune_to_ASCII&#x548C;parse_request_line&#x9019;&#x6A23;&#x7684;&#x547D;&#x540D;&#x3002;&#x800C;&#x50CF;ASCII&#x548C;HTML&#x9019;&#x6A23;&#x7684;&#x7E2E;&#x7565;&#x8A5E;&#x5247;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x5927;&#x5C0F;&#x5BEB;&#x6DF7;&#x5408;&#x7684;&#x5BEB;&#x6CD5;&#xFF0C;&#x5B83;&#x5011;&#x53EF;&#x80FD;&#x88AB;&#x7A31;&#x7232;htmlEscape&#x3001;HTMLEscape&#x6216;escapeHTML&#xFF0C;&#x4F46;&#x4E0D;&#x6703;&#x662F;escapeHtml&#x3002;</p>
 
                     
                     </section>
@@ -2073,7 +2077,7 @@ Functions:  make len cap new append copy close delete
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

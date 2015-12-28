@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="6.3" data-chapter-title="通過嵌入結構體來擴展類型" data-filepath="ch6/ch6-03.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="6.3" data-chapter-title="通過嵌入結構體來擴展類型" data-filepath="ch6/ch6-03.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2029,7 +2033,7 @@
     Color color.RGBA
 }
 </code></pre>
-<p>&#x6211;&#x5011;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5C07;ColoredPoint&#x5B9A;&#x7FA9;&#x7232;&#x4E00;&#x500B;&#x6709;&#x4E09;&#x500B;&#x5B57;&#x6BB5;&#x7684;struct&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x5011;&#x537B;&#x5C07;Point&#x9019;&#x500B;&#x985E;&#x578B;&#x5D4C;&#x5165;&#x5230;ColoredPoint&#x4F86;&#x63D0;&#x4F9B;X&#x548C;Y&#x9019;&#x5169;&#x500B;&#x5B57;&#x6BB5;&#x3002;&#x50CF;&#x6211;&#x5011;&#x5728;4.4&#x7BC0;&#x4E2D;&#x770B;&#x5230;&#x7684;&#x90A3;&#x6A23;&#xFF0C;&#x5167;&#x5D4C;&#x53EF;&#x4EE5;&#x4F7F;&#x6211;&#x5011;&#x5728;&#x5B9A;&#x7FA9;ColoredPoint&#x6642;&#x5F97;&#x5230;&#x4E00;&#x7A2E;&#x53E5;&#x6CD5;&#x4E0A;&#x7684;&#x7C21;&#x5BEB;&#x5F62;&#x5F0F;&#xFF0C;&#x4F75;&#x4F7F;&#x5176;&#x5305;&#x542B;Point&#x985E;&#x578B;&#x6240;&#x5177;&#x6709;&#x7684;&#x4E00;&#x5207;&#x5B57;&#x6BB5;&#xFF0C;&#x7136;&#x5F8C;&#x518D;&#x5B9A;&#x7FA9;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1;&#x7684;&#x3002;&#x5982;&#x679C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x7684;&#x8A71;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8A8D;&#x7232;&#x901A;&#x904E;&#x5D4C;&#x5165;&#x7684;&#x5B57;&#x6BB5;&#x5C31;&#x662F;ColoredPoint&#x81EA;&#x8EAB;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x800C;&#x5B8C;&#x5168;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x8ABF;&#x7528;&#x6642;&#x6307;&#x9F63;Point&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5C07;ColoredPoint&#x5B9A;&#x7FA9;&#x7232;&#x4E00;&#x500B;&#x6709;&#x4E09;&#x500B;&#x5B57;&#x6BB5;&#x7684;struct&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x5011;&#x537B;&#x5C07;Point&#x9019;&#x500B;&#x985E;&#x578B;&#x5D4C;&#x5165;&#x5230;ColoredPoint&#x4F86;&#x63D0;&#x4F9B;X&#x548C;Y&#x9019;&#x5169;&#x500B;&#x5B57;&#x6BB5;&#x3002;&#x50CF;&#x6211;&#x5011;&#x5728;4.4&#x7BC0;&#x4E2D;&#x770B;&#x5230;&#x7684;&#x90A3;&#x6A23;&#xFF0C;&#x5167;&#x5D4C;&#x53EF;&#x4EE5;&#x4F7F;&#x6211;&#x5011;&#x5728;&#x5B9A;&#x7FA9;ColoredPoint&#x6642;&#x5F97;&#x5230;&#x4E00;&#x7A2E;&#x53E5;&#x6CD5;&#x4E0A;&#x7684;&#x7C21;&#x5BEB;&#x5F62;&#x5F0F;&#xFF0C;&#x4F75;&#x4F7F;&#x5176;&#x5305;&#x542B;Point&#x985E;&#x578B;&#x6240;&#x5177;&#x6709;&#x7684;&#x4E00;&#x5207;&#x5B57;&#x6BB5;&#xFF0C;&#x7136;&#x5F8C;&#x518D;&#x5B9A;&#x7FA9;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1;&#x7684;&#x3002;&#x5982;&#x679C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x7684;&#x8A71;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8A8D;&#x7232;&#x901A;&#x904E;&#x5D4C;&#x5165;&#x7684;&#x5B57;&#x6BB5;&#x5C31;&#x662F;ColoredPoint&#x81EA;&#x8EAB;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x800C;&#x5B8C;&#x5168;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x8ABF;&#x7528;&#x6642;&#x6307;&#x51FA;Point&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">var</span> cp ColoredPoint
 cp.X = <span class="hljs-number">1</span>
 fmt.Println(cp.Point.X) <span class="hljs-comment">// &quot;1&quot;</span>
@@ -2142,7 +2146,7 @@ fmt.Println(*p.Point, *q.Point) <span class="hljs-comment">// &quot;{2 2} {2 2}&
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

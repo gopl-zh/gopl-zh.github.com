@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="13.4" data-chapter-title="通過cgo調用C代碼" data-filepath="ch13/ch13-04.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="13.4" data-chapter-title="通過cgo調用C代碼" data-filepath="ch13/ch13-04.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2022,14 +2026,14 @@
                         <h2 id="134-&#x901A;&#x904E;cgo&#x8ABF;&#x7528;c&#x4EE3;&#x78BC;">13.4. &#x901A;&#x904E;cgo&#x8ABF;&#x7528;C&#x4EE3;&#x78BC;</h2>
 <p>Go&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x6703;&#x9047;&#x5230;&#x8981;&#x8A2A;&#x554F;C&#x8A9E;&#x8A00;&#x7684;&#x67D0;&#x4E9B;&#x786C;&#x4EF6;&#x9A45;&#x52D5;&#x51FD;&#x6578;&#x7684;&#x5834;&#x666F;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x5F9E;&#x4E00;&#x500B;C++&#x8A9E;&#x8A00;&#x5BE6;&#x73FE;&#x7684;&#x5D4C;&#x5165;&#x5F0F;&#x6578;&#x64DA;&#x5EAB;&#x67FB;&#x8A62;&#x8A18;&#x9332;&#x7684;&#x5834;&#x666F;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x4F7F;&#x7528;Fortran&#x8A9E;&#x8A00;&#x5BE6;&#x73FE;&#x7684;&#x4E00;&#x4E9B;&#x7DDA;&#x6027;&#x4EE3;&#x6578;&#x5EAB;&#x7684;&#x5834;&#x666F;&#x3002;C&#x8A9E;&#x8A00;&#x4F5C;&#x7232;&#x4E00;&#x500B;&#x901A;&#x7528;&#x8A9E;&#x8A00;&#xFF0C;&#x5F88;&#x591A;&#x5EAB;&#x6703;&#x9078;&#x64C7;&#x63D0;&#x4F9B;&#x4E00;&#x500B;C&#x517C;&#x5BB9;&#x7684;API&#xFF0C;&#x7136;&#x5F8C;&#x7528;&#x5176;&#x4ED6;&#x4E0D;&#x540C;&#x7684;&#x7DE8;&#x7A0B;&#x8A9E;&#x8A00;&#x5BE6;&#x73FE;&#xFF08;&#x8B6F;&#x8005;&#xFF1A;Go&#x8A9E;&#x8A00;&#x9700;&#x8981;&#x4E5F;&#x61C9;&#x8A72;&#x64C1;&#x62B1;&#x9019;&#x4E9B;&#x9245;&#x5927;&#x7684;&#x4EE3;&#x78BC;&#x907A;&#x7523;&#xFF09;&#x3002;</p>
 <p>&#x5728;&#x672C;&#x7BC0;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x69CB;&#x5EFA;&#x4E00;&#x500B;&#x7C21;&#x6613;&#x7684;&#x6578;&#x64DA;&#x58D3;&#x7E2E;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x500B;Go&#x8A9E;&#x8A00;&#x81EA;&#x5E36;&#x7684;&#x53EB;cgo&#x7684;&#x7528;&#x65BC;&#x652F;&#x63F4;C&#x8A9E;&#x8A00;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x9019;&#x985E;&#x5DE5;&#x5177;&#x4E00;&#x822C;&#x88AB;&#x7A31;&#x7232; <em>foreign-function interfaces</em> &#xFF08;&#x7C21;&#x7A31;ffi&#xFF09;, &#x4F75;&#x4E14;&#x5728;&#x985E;&#x4F3C;&#x5DE5;&#x5177;&#x4E2D;cgo&#x4E5F;&#x4E0D;&#x662F;&#x552F;&#x4E00;&#x7684;&#x3002;SWIG&#xFF08; <a href="http://swig.org" target="_blank">http://swig.org</a> &#xFF09;&#x662F;&#x53E6;&#x4E00;&#x500B;&#x985E;&#x4F3C;&#x7684;&#x4E14;&#x88AB;&#x5EE3;&#x6CDB;&#x4F7F;&#x7528;&#x7684;&#x5DE5;&#x5177;&#xFF0C;SWIG&#x63D0;&#x4F9B;&#x4E86;&#x5F88;&#x591A;&#x8907;&#x96DC;&#x7279;&#x6027;&#x4EE5;&#x652F;&#x63F4;C++&#x7684;&#x7279;&#x6027;&#xFF0C;&#x4F46;SWIG&#x4F75;&#x4E0D;&#x662F;&#x6211;&#x5011;&#x8981;&#x8A0E;&#x8AD6;&#x7684;&#x4E3B;&#x984C;&#x3002;</p>
-<p>&#x5728;&#x6A19;&#x6E96;&#x5EAB;&#x7684;<code>compress/...</code>&#x5B50;&#x5305;&#x6709;&#x5F88;&#x591A;&#x6D41;&#x884C;&#x7684;&#x58D3;&#x7E2E;&#x7B97;&#x6CD5;&#x7684;&#x7DE8;&#x78BC;&#x548C;&#x89E3;&#x78BC;&#x5BE6;&#x73FE;&#xFF0C;&#x5305;&#x62EC;&#x6D41;&#x884C;&#x7684;LZW&#x58D3;&#x7E2E;&#x7B97;&#x6CD5;&#xFF08;Unix&#x7684;compress&#x547D;&#x4EE4;&#x7528;&#x7684;&#x7B97;&#x6CD5;&#xFF09;&#x548C;DEFLATE&#x58D3;&#x7E2E;&#x7B97;&#x6CD5;&#xFF08;GNU gzip&#x547D;&#x4EE4;&#x7528;&#x7684;&#x7B97;&#x6CD5;&#xFF09;&#x3002;&#x9019;&#x4E9B;&#x5305;&#x7684;API&#x7684;&#x7D30;&#x7BC0;&#x96D6;&#x7136;&#x6709;&#x4E9B;&#x5DEE;&#x7570;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x5011;&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x91DD;&#x5C0D; io.Writer&#x985E;&#x578B;&#x8F38;&#x9F63;&#x7684;&#x58D3;&#x7E2E;&#x63A5;&#x53E3;&#x548C;&#x63D0;&#x4F9B;&#x4E86;&#x91DD;&#x5C0D;io.Reader&#x985E;&#x578B;&#x8F38;&#x5165;&#x7684;&#x89E3;&#x58D3;&#x7E2E;&#x63A5;&#x53E3;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<p>&#x5728;&#x6A19;&#x6E96;&#x5EAB;&#x7684;<code>compress/...</code>&#x5B50;&#x5305;&#x6709;&#x5F88;&#x591A;&#x6D41;&#x884C;&#x7684;&#x58D3;&#x7E2E;&#x7B97;&#x6CD5;&#x7684;&#x7DE8;&#x78BC;&#x548C;&#x89E3;&#x78BC;&#x5BE6;&#x73FE;&#xFF0C;&#x5305;&#x62EC;&#x6D41;&#x884C;&#x7684;LZW&#x58D3;&#x7E2E;&#x7B97;&#x6CD5;&#xFF08;Unix&#x7684;compress&#x547D;&#x4EE4;&#x7528;&#x7684;&#x7B97;&#x6CD5;&#xFF09;&#x548C;DEFLATE&#x58D3;&#x7E2E;&#x7B97;&#x6CD5;&#xFF08;GNU gzip&#x547D;&#x4EE4;&#x7528;&#x7684;&#x7B97;&#x6CD5;&#xFF09;&#x3002;&#x9019;&#x4E9B;&#x5305;&#x7684;API&#x7684;&#x7D30;&#x7BC0;&#x96D6;&#x7136;&#x6709;&#x4E9B;&#x5DEE;&#x7570;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x5011;&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x91DD;&#x5C0D; io.Writer&#x985E;&#x578B;&#x8F38;&#x51FA;&#x7684;&#x58D3;&#x7E2E;&#x63A5;&#x53E3;&#x548C;&#x63D0;&#x4F9B;&#x4E86;&#x91DD;&#x5C0D;io.Reader&#x985E;&#x578B;&#x8F38;&#x5165;&#x7684;&#x89E3;&#x58D3;&#x7E2E;&#x63A5;&#x53E3;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">package</span> gzip <span class="hljs-comment">// compress/gzip</span>
 <span class="hljs-keyword">func</span> NewWriter(w io.Writer) io.WriteCloser
 <span class="hljs-keyword">func</span> NewReader(r io.Reader) (io.ReadCloser, error)
 </code></pre>
 <p>bzip2&#x58D3;&#x7E2E;&#x7B97;&#x6CD5;&#xFF0C;&#x662F;&#x57FA;&#x65BC;&#x512A;&#x96C5;&#x7684;Burrows-Wheeler&#x8B8A;&#x63DB;&#x7B97;&#x6CD5;&#xFF0C;&#x904B;&#x884C;&#x901F;&#x5EA6;&#x6BD4;gzip&#x8981;&#x6162;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x66F4;&#x9AD8;&#x7684;&#x58D3;&#x7E2E;&#x6BD4;&#x3002;&#x6A19;&#x6E96;&#x5EAB;&#x7684;compress/bzip2&#x5305;&#x76EE;&#x524D;&#x9084;&#x6C92;&#x6709;&#x63D0;&#x4F9B;bzip2&#x58D3;&#x7E2E;&#x7B97;&#x6CD5;&#x7684;&#x5BE6;&#x73FE;&#x3002;&#x5B8C;&#x5168;&#x5F9E;&#x982D;&#x958B;&#x59CB;&#x5BE6;&#x73FE;&#x662F;&#x4E00;&#x500B;&#x58D3;&#x7E2E;&#x7B97;&#x6CD5;&#x662F;&#x4E00;&#x4EF6;&#x7E41;&#x7463;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x800C;&#x4E14; <a href="http://bzip.org" target="_blank">http://bzip.org</a> &#x5DF2;&#x7D93;&#x6709;&#x73FE;&#x6210;&#x7684;libbzip2&#x7684;&#x958B;&#x6E90;&#x5BE6;&#x73FE;&#xFF0C;&#x4E0D;&#x50C5;&#x6587;&#x6A94;&#x9F4A;&#x5168;&#x800C;&#x4E14;&#x6027;&#x80FD;&#x53C8;&#x597D;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x662F;&#x6BD4;&#x8F03;&#x5C0F;&#x7684;C&#x8A9E;&#x8A00;&#x5EAB;&#xFF0C;&#x6211;&#x5011;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x7528;&#x7D14;Go&#x8A9E;&#x8A00;&#x91CD;&#x65B0;&#x5BE6;&#x73FE;&#x4E00;&#x904D;&#x3002;&#x5982;&#x679C;&#x6211;&#x5011;&#x5C0D;&#x6027;&#x80FD;&#x4E5F;&#x6C92;&#x6709;&#x7279;&#x6B8A;&#x8981;&#x6C42;&#x7684;&#x8A71;&#xFF0C;&#x6211;&#x5011;&#x9084;&#x53EF;&#x4EE5;&#x7528;os/exec&#x5305;&#x7684;&#x65B9;&#x6CD5;&#x5C07;C&#x7DE8;&#x5BEB;&#x7684;&#x61C9;&#x7528;&#x7A0B;&#x5E8F;&#x4F5C;&#x7232;&#x4E00;&#x500B;&#x5B50;&#x9032;&#x7A0B;&#x904B;&#x884C;&#x3002;&#x96BB;&#x6709;&#x7576;&#x4F60;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x8907;&#x96DC;&#x800C;&#x4E14;&#x6027;&#x80FD;&#x66F4;&#x9AD8;&#x7684;&#x5E95;&#x5C64;C&#x63A5;&#x53E3;&#x6642;&#xFF0C;&#x5C31;&#x662F;&#x4F7F;&#x7528;cgo&#x7684;&#x5834;&#x666F;&#x4E86;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x7528;os/exec&#x5305;&#x8ABF;&#x7528;&#x5B50;&#x9032;&#x7A0B;&#x7684;&#x65B9;&#x6CD5;&#x6703;&#x5C0E;&#x81F4;&#x7A0B;&#x5E8F;&#x904B;&#x884C;&#x6642;&#x4F9D;&#x8CF4;&#x90A3;&#x500B;&#x61C9;&#x7528;&#x7A0B;&#x5E8F;&#xFF09;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x5011;&#x5C07;&#x901A;&#x904E;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#x8B1B;&#x8FF0;cgo&#x7684;&#x5177;&#x9AD4;&#x7528;&#x6CD5;&#x3002;</p>
-<p>&#x8B6F;&#x8A3B;&#xFF1A;&#x672C;&#x7AE0;&#x91C7;&#x7528;&#x7684;&#x4EE3;&#x78BC;&#x90FD;&#x662F;&#x6700;&#x65B0;&#x7684;&#x3002;&#x56E0;&#x7232;&#x4E4B;&#x524D;&#x5DF2;&#x7D93;&#x9F63;&#x7248;&#x7684;&#x66F8;&#x4E2D;&#x5305;&#x542B;&#x7684;&#x4EE3;&#x78BC;&#x96BB;&#x80FD;&#x5728;Go1.5&#x4E4B;&#x524D;&#x4F7F;&#x7528;&#x3002;&#x5F9E;Go1.6&#x958B;&#x59CB;&#xFF0C;Go&#x8A9E;&#x8A00;&#x5DF2;&#x7D93;&#x660E;&#x78BA;&#x898F;&#x5B9A;&#x4E86;&#x54EA;&#x4E9B;Go&#x8A9E;&#x8A00;&#x6307;&#x91DD;&#x53EF;&#x4EE5;&#x4E4B;&#x9593;&#x50B3;&#x5165;C&#x8A9E;&#x8A00;&#x51FD;&#x6578;&#x3002;&#x65B0;&#x4EE3;&#x78BC;&#x91CD;&#x9EDE;&#x662F;&#x589E;&#x52A0;&#x4E86;bz2alloc&#x548C;bz2free&#x7684;&#x5169;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x7528;&#x65BC;bz_stream&#x5C0D;&#x8C61;&#x7A7A;&#x9593;&#x7684;&#x7533;&#x8ACB;&#x548C;&#x91CB;&#x653E;&#x64CD;&#x4F5C;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x65B0;&#x4EE3;&#x78BC;&#x4E2D;&#x589E;&#x52A0;&#x7684;&#x8A3B;&#x91CB;&#xFF0C;&#x8AAC;&#x660E;&#x9019;&#x500B;&#x554F;&#x984C;&#xFF1A;</p>
+<p>&#x8B6F;&#x8A3B;&#xFF1A;&#x672C;&#x7AE0;&#x91C7;&#x7528;&#x7684;&#x4EE3;&#x78BC;&#x90FD;&#x662F;&#x6700;&#x65B0;&#x7684;&#x3002;&#x56E0;&#x7232;&#x4E4B;&#x524D;&#x5DF2;&#x7D93;&#x51FA;&#x7248;&#x7684;&#x66F8;&#x4E2D;&#x5305;&#x542B;&#x7684;&#x4EE3;&#x78BC;&#x96BB;&#x80FD;&#x5728;Go1.5&#x4E4B;&#x524D;&#x4F7F;&#x7528;&#x3002;&#x5F9E;Go1.6&#x958B;&#x59CB;&#xFF0C;Go&#x8A9E;&#x8A00;&#x5DF2;&#x7D93;&#x660E;&#x78BA;&#x898F;&#x5B9A;&#x4E86;&#x54EA;&#x4E9B;Go&#x8A9E;&#x8A00;&#x6307;&#x91DD;&#x53EF;&#x4EE5;&#x4E4B;&#x9593;&#x50B3;&#x5165;C&#x8A9E;&#x8A00;&#x51FD;&#x6578;&#x3002;&#x65B0;&#x4EE3;&#x78BC;&#x91CD;&#x9EDE;&#x662F;&#x589E;&#x52A0;&#x4E86;bz2alloc&#x548C;bz2free&#x7684;&#x5169;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x7528;&#x65BC;bz_stream&#x5C0D;&#x8C61;&#x7A7A;&#x9593;&#x7684;&#x7533;&#x8ACB;&#x548C;&#x91CB;&#x653E;&#x64CD;&#x4F5C;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x65B0;&#x4EE3;&#x78BC;&#x4E2D;&#x589E;&#x52A0;&#x7684;&#x8A3B;&#x91CB;&#xFF0C;&#x8AAC;&#x660E;&#x9019;&#x500B;&#x554F;&#x984C;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-comment">// The version of this program that appeared in the first and second</span>
 <span class="hljs-comment">// printings did not comply with the proposed rules for passing</span>
 <span class="hljs-comment">// pointers between Go and C, described here:</span>
@@ -2047,7 +2051,7 @@
 <span class="hljs-comment">// it returns, it clears the fields of the bz_stream that contain</span>
 <span class="hljs-comment">// pointers to Go variables.</span>
 </code></pre>
-<p>&#x8981;&#x4F7F;&#x7528;libbzip2&#xFF0C;&#x6211;&#x5011;&#x9700;&#x8981;&#x5148;&#x69CB;&#x5EFA;&#x4E00;&#x500B;bz_stream&#x7D50;&#x69CB;&#x9AD4;&#xFF0C;&#x7528;&#x65BC;&#x4FDD;&#x6301;&#x8F38;&#x5165;&#x548C;&#x8F38;&#x9F63;&#x7DE9;&#x5B58;&#x3002;&#x7136;&#x5F8C;&#x6709;&#x4E09;&#x500B;&#x51FD;&#x6578;&#xFF1A;BZ2_bzCompressInit&#x7528;&#x65BC;&#x521D;&#x59CB;&#x5316;&#x7DE9;&#x5B58;&#xFF0C;BZ2_bzCompress&#x7528;&#x65BC;&#x5C07;&#x8F38;&#x5165;&#x7DE9;&#x5B58;&#x7684;&#x6578;&#x64DA;&#x58D3;&#x7E2E;&#x5230;&#x8F38;&#x9F63;&#x7DE9;&#x5B58;&#xFF0C;BZ2_bzCompressEnd&#x7528;&#x65BC;&#x91CB;&#x653E;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x7DE9;&#x5B58;&#x3002;&#xFF08;&#x76EE;&#x524D;&#x4E0D;&#x8981;&#x64D4;&#x5FC3;&#x5305;&#x7684;&#x5177;&#x9AD4;&#x7D50;&#x69CB;, &#x9019;&#x500B;&#x4F8B;&#x5B50;&#x7684;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x6F14;&#x793A;&#x5404;&#x500B;&#x90E8;&#x5206;&#x5982;&#x4F55;&#x7D44;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x3002;&#xFF09;</p>
+<p>&#x8981;&#x4F7F;&#x7528;libbzip2&#xFF0C;&#x6211;&#x5011;&#x9700;&#x8981;&#x5148;&#x69CB;&#x5EFA;&#x4E00;&#x500B;bz_stream&#x7D50;&#x69CB;&#x9AD4;&#xFF0C;&#x7528;&#x65BC;&#x4FDD;&#x6301;&#x8F38;&#x5165;&#x548C;&#x8F38;&#x51FA;&#x7DE9;&#x5B58;&#x3002;&#x7136;&#x5F8C;&#x6709;&#x4E09;&#x500B;&#x51FD;&#x6578;&#xFF1A;BZ2_bzCompressInit&#x7528;&#x65BC;&#x521D;&#x59CB;&#x5316;&#x7DE9;&#x5B58;&#xFF0C;BZ2_bzCompress&#x7528;&#x65BC;&#x5C07;&#x8F38;&#x5165;&#x7DE9;&#x5B58;&#x7684;&#x6578;&#x64DA;&#x58D3;&#x7E2E;&#x5230;&#x8F38;&#x51FA;&#x7DE9;&#x5B58;&#xFF0C;BZ2_bzCompressEnd&#x7528;&#x65BC;&#x91CB;&#x653E;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x7DE9;&#x5B58;&#x3002;&#xFF08;&#x76EE;&#x524D;&#x4E0D;&#x8981;&#x64D4;&#x5FC3;&#x5305;&#x7684;&#x5177;&#x9AD4;&#x7D50;&#x69CB;, &#x9019;&#x500B;&#x4F8B;&#x5B50;&#x7684;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x6F14;&#x793A;&#x5404;&#x500B;&#x90E8;&#x5206;&#x5982;&#x4F55;&#x7D44;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x3002;&#xFF09;</p>
 <p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5728;Go&#x4EE3;&#x78BC;&#x4E2D;&#x76F4;&#x63A5;&#x8ABF;&#x7528;BZ2_bzCompressInit&#x548C;BZ2_bzCompressEnd&#xFF0C;&#x4F46;&#x662F;&#x5C0D;&#x65BC;BZ2_bzCompress&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x5B9A;&#x7FA9;&#x4E00;&#x500B;C&#x8A9E;&#x8A00;&#x7684;&#x5305;&#x88DD;&#x51FD;&#x6578;&#xFF0C;&#x7528;&#x5B83;&#x5B8C;&#x6210;&#x771E;&#x6B63;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x4E0B;&#x9762;&#x662F;C&#x4EE3;&#x78BC;&#xFF0C;&#x5C0D;&#x61C9;&#x4E00;&#x500B;&#x7368;&#x7ACB;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
 <pre><code class="lang-C">gopl.io/ch13/bzip
 
@@ -2107,7 +2111,7 @@ void bz2free(bz_stream* s) { free(s); }
 </code></pre>
 <p>&#x5728;&#x9810;&#x8655;&#x7406;&#x904E;&#x7A0B;&#x4E2D;&#xFF0C;cgo&#x5DE5;&#x5177;&#x7232;&#x751F;&#x6210;&#x4E00;&#x500B;&#x81E8;&#x6642;&#x5305;&#x7528;&#x65BC;&#x5305;&#x542B;&#x6240;&#x6709;&#x5728;Go&#x8A9E;&#x8A00;&#x4E2D;&#x8A2A;&#x554F;&#x7684;C&#x8A9E;&#x8A00;&#x7684;&#x51FD;&#x6578;&#x6216;&#x985E;&#x578B;&#x3002;&#x4F8B;&#x5982;C.bz_stream&#x548C;C.BZ2_bzCompressInit&#x3002;cgo&#x5DE5;&#x5177;&#x901A;&#x904E;&#x4EE5;&#x67D0;&#x7A2E;&#x7279;&#x6B8A;&#x7684;&#x65B9;&#x5F0F;&#x8ABF;&#x7528;&#x672C;&#x5730;&#x7684;C&#x7DE8;&#x8B6F;&#x5668;&#x4F86;&#x767C;&#x73FE;&#x5728;Go&#x6E90;&#x6587;&#x4EF6;&#x5C0E;&#x5165;&#x8072;&#x660E;&#x524D;&#x7684;&#x8A3B;&#x91CB;&#x4E2D;&#x5305;&#x542B;&#x7684;C&#x982D;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5167;&#x5BB9;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;<code>import &quot;C&quot;&#x8A9E;&#x53E5;&#x524D;&#x50C5;&#x6371;&#x7740;&#x7684;&#x8A3B;&#x91CB;&#x662F;&#x5C0D;&#x61C9;cgo&#x7684;&#x7279;&#x6B8A;&#x8A9E;&#x6CD5;&#xFF0C;&#x5C0D;&#x61C9;&#x5FC5;&#x8981;&#x7684;&#x69CB;&#x5EFA;&#x53C3;&#x6578;&#x9078;&#x9805;&#x548C;C&#x8A9E;&#x8A00;&#x4EE3;&#x78BC;</code>&#xFF09;&#x3002;</p>
 <p>&#x5728;cgo&#x8A3B;&#x91CB;&#x4E2D;&#x9084;&#x53EF;&#x4EE5;&#x5305;&#x542B;#cgo&#x6307;&#x4EE4;&#xFF0C;&#x7528;&#x65BC;&#x7D66;C&#x8A9E;&#x8A00;&#x5DE5;&#x5177;&#x93C8;&#x6307;&#x5B9A;&#x7279;&#x6B8A;&#x7684;&#x53C3;&#x6578;&#x3002;&#x4F8B;&#x5982;CFLAGS&#x548C;LDFLAGS&#x5206;&#x522B;&#x5C0D;&#x61C9;&#x50B3;&#x7D66;C&#x8A9E;&#x8A00;&#x7DE8;&#x8B6F;&#x5668;&#x7684;&#x7DE8;&#x8B6F;&#x53C3;&#x6578;&#x548C;&#x93C8;&#x63A5;&#x5668;&#x53C3;&#x6578;&#xFF0C;&#x4F7F;&#x5B83;&#x5011;&#x53EF;&#x4EE5;&#x7279;&#x5B9A;&#x76EE;&#x9332;&#x627E;&#x5230;bzlib.h&#x982D;&#x6587;&#x4EF6;&#x548C;libbz2.a&#x5EAB;&#x6587;&#x4EF6;&#x3002;&#x9019;&#x500B;&#x4F8B;&#x5B50;&#x5047;&#x8A2D;&#x4F60;&#x5DF2;&#x7D93;&#x5728;/usr&#x76EE;&#x9332;&#x6210;&#x529F;&#x5B89;&#x88DD;&#x4E86;bzip2&#x5EAB;&#x3002;&#x5982;&#x679C;bzip2&#x5EAB;&#x662F;&#x5B89;&#x88DD;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x9019;&#x4E9B;&#x53C3;&#x6578;&#x3002;</p>
-<p>NewWriter&#x51FD;&#x6578;&#x901A;&#x904E;&#x8ABF;&#x7528;C&#x8A9E;&#x8A00;&#x7684;BZ2_bzCompressInit&#x51FD;&#x6578;&#x4F86;&#x521D;&#x59CB;&#x5316;stream&#x4E2D;&#x7684;&#x7DE9;&#x5B58;&#x3002;&#x5728;writer&#x7D50;&#x69CB;&#x4E2D;&#x9084;&#x5305;&#x62EC;&#x4E86;&#x53E6;&#x4E00;&#x500B;buffer&#xFF0C;&#x7528;&#x65BC;&#x8F38;&#x9F63;&#x7DE9;&#x5B58;&#x3002;</p>
+<p>NewWriter&#x51FD;&#x6578;&#x901A;&#x904E;&#x8ABF;&#x7528;C&#x8A9E;&#x8A00;&#x7684;BZ2_bzCompressInit&#x51FD;&#x6578;&#x4F86;&#x521D;&#x59CB;&#x5316;stream&#x4E2D;&#x7684;&#x7DE9;&#x5B58;&#x3002;&#x5728;writer&#x7D50;&#x69CB;&#x4E2D;&#x9084;&#x5305;&#x62EC;&#x4E86;&#x53E6;&#x4E00;&#x500B;buffer&#xFF0C;&#x7528;&#x65BC;&#x8F38;&#x51FA;&#x7DE9;&#x5B58;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x662F;Write&#x65B9;&#x6CD5;&#x7684;&#x5BE6;&#x73FE;&#xFF0C;&#x8FD4;&#x8FF4;&#x6210;&#x529F;&#x58D3;&#x7E2E;&#x6578;&#x64DA;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4E3B;&#x9AD4;&#x662F;&#x4E00;&#x500B;&#x5FAA;&#x74B0;&#x4E2D;&#x8ABF;&#x7528;C&#x8A9E;&#x8A00;&#x7684;bz2compress&#x51FD;&#x6578;&#x5BE6;&#x73FE;&#x7684;&#x3002;&#x5F9E;&#x4EE3;&#x78BC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;Go&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x8A2A;&#x554F;C&#x8A9E;&#x8A00;&#x7684;bz_stream&#x3001;char&#x548C;uint&#x985E;&#x578B;&#xFF0C;&#x9084;&#x53EF;&#x4EE5;&#x8A2A;&#x554F;bz2compress&#x7B49;&#x51FD;&#x6578;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x8A2A;&#x554F;C&#x8A9E;&#x8A00;&#x4E2D;&#x50CF;BZ_RUN&#x90A3;&#x6A23;&#x7684;&#x5B8F;&#x5B9A;&#x7FA9;&#xFF0C;&#x5168;&#x90E8;&#x90FD;&#x662F;&#x4EE5;C.x&#x8A9E;&#x6CD5;&#x8A2A;&#x554F;&#x3002;&#x5176;&#x4E2D;C.uint&#x985E;&#x578B;&#x548C;Go&#x8A9E;&#x8A00;&#x7684;uint&#x985E;&#x578B;&#x4F75;&#x4E0D;&#x76F8;&#x540C;&#xFF0C;&#x537D;&#x4F7F;&#x5B83;&#x5011;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5927;&#x5C0F;&#x4E5F;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x985E;&#x578B;&#x3002;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">func</span> (w *writer) Write(data []<span class="hljs-typename">byte</span>) (<span class="hljs-typename">int</span>, error) {
     <span class="hljs-keyword">if</span> w.stream == <span class="hljs-constant">nil</span> {
@@ -2129,8 +2133,8 @@ void bz2free(bz_stream* s) { free(s); }
     <span class="hljs-keyword">return</span> total, <span class="hljs-constant">nil</span>
 }
 </code></pre>
-<p>&#x5728;&#x5FAA;&#x74B0;&#x7684;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x4E2D;&#xFF0C;&#x5411;bz2compress&#x50B3;&#x5165;&#x6578;&#x64DA;&#x7684;&#x5730;&#x5740;&#x548C;&#x5269;&#x9918;&#x90E8;&#x5206;&#x7684;&#x9577;&#x5EA6;&#xFF0C;&#x9084;&#x6709;&#x8F38;&#x9F63;&#x7DE9;&#x5B58;w.outbuf&#x7684;&#x5730;&#x5740;&#x548C;&#x5BB9;&#x91CF;&#x3002;&#x9019;&#x5169;&#x500B;&#x9577;&#x5EA6;&#x4FE1;&#x606F;&#x901A;&#x904E;&#x5B83;&#x5011;&#x7684;&#x5730;&#x5740;&#x50B3;&#x5165;&#x800C;&#x4E0D;&#x662F;&#x503C;&#x50B3;&#x5165;&#xFF0C;&#x56E0;&#x7232;bz2compress&#x51FD;&#x6578;&#x53EF;&#x80FD;&#x6703;&#x6839;&#x64DA;&#x5DF2;&#x7D93;&#x58D3;&#x7E2E;&#x7684;&#x6578;&#x64DA;&#x548C;&#x58D3;&#x7E2E;&#x5F8C;&#x6578;&#x64DA;&#x7684;&#x5927;&#x5C0F;&#x4F86;&#x66F4;&#x65B0;&#x9019;&#x5169;&#x500B;&#x503C;&#x3002;&#x6BCF;&#x500B;&#x584A;&#x58D3;&#x7E2E;&#x5F8C;&#x7684;&#x6578;&#x64DA;&#x88AB;&#x5BEB;&#x5165;&#x5230;&#x5E95;&#x5C64;&#x7684;io.Writer&#x3002;</p>
-<p>Close&#x65B9;&#x6CD5;&#x548C;Write&#x65B9;&#x6CD5;&#x6709;&#x7740;&#x985E;&#x4F3C;&#x7684;&#x7D50;&#x69CB;&#xFF0C;&#x901A;&#x904E;&#x4E00;&#x500B;&#x5FAA;&#x74B0;&#x5C07;&#x5269;&#x9918;&#x7684;&#x58D3;&#x7E2E;&#x6578;&#x64DA;&#x5237;&#x65B0;&#x5230;&#x8F38;&#x9F63;&#x7DE9;&#x5B58;&#x3002;</p>
+<p>&#x5728;&#x5FAA;&#x74B0;&#x7684;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x4E2D;&#xFF0C;&#x5411;bz2compress&#x50B3;&#x5165;&#x6578;&#x64DA;&#x7684;&#x5730;&#x5740;&#x548C;&#x5269;&#x9918;&#x90E8;&#x5206;&#x7684;&#x9577;&#x5EA6;&#xFF0C;&#x9084;&#x6709;&#x8F38;&#x51FA;&#x7DE9;&#x5B58;w.outbuf&#x7684;&#x5730;&#x5740;&#x548C;&#x5BB9;&#x91CF;&#x3002;&#x9019;&#x5169;&#x500B;&#x9577;&#x5EA6;&#x4FE1;&#x606F;&#x901A;&#x904E;&#x5B83;&#x5011;&#x7684;&#x5730;&#x5740;&#x50B3;&#x5165;&#x800C;&#x4E0D;&#x662F;&#x503C;&#x50B3;&#x5165;&#xFF0C;&#x56E0;&#x7232;bz2compress&#x51FD;&#x6578;&#x53EF;&#x80FD;&#x6703;&#x6839;&#x64DA;&#x5DF2;&#x7D93;&#x58D3;&#x7E2E;&#x7684;&#x6578;&#x64DA;&#x548C;&#x58D3;&#x7E2E;&#x5F8C;&#x6578;&#x64DA;&#x7684;&#x5927;&#x5C0F;&#x4F86;&#x66F4;&#x65B0;&#x9019;&#x5169;&#x500B;&#x503C;&#x3002;&#x6BCF;&#x500B;&#x584A;&#x58D3;&#x7E2E;&#x5F8C;&#x7684;&#x6578;&#x64DA;&#x88AB;&#x5BEB;&#x5165;&#x5230;&#x5E95;&#x5C64;&#x7684;io.Writer&#x3002;</p>
+<p>Close&#x65B9;&#x6CD5;&#x548C;Write&#x65B9;&#x6CD5;&#x6709;&#x7740;&#x985E;&#x4F3C;&#x7684;&#x7D50;&#x69CB;&#xFF0C;&#x901A;&#x904E;&#x4E00;&#x500B;&#x5FAA;&#x74B0;&#x5C07;&#x5269;&#x9918;&#x7684;&#x58D3;&#x7E2E;&#x6578;&#x64DA;&#x5237;&#x65B0;&#x5230;&#x8F38;&#x51FA;&#x7DE9;&#x5B58;&#x3002;</p>
 <pre><code class="lang-Go"><span class="hljs-comment">// Close flushes the compressed data and closes the stream.</span>
 <span class="hljs-comment">// It does not close the underlying io.Writer.</span>
 <span class="hljs-keyword">func</span> (w *writer) Close() error {
@@ -2155,7 +2159,7 @@ void bz2free(bz_stream* s) { free(s); }
     }
 }
 </code></pre>
-<p>&#x58D3;&#x7E2E;&#x5B8C;&#x6210;&#x5F8C;&#xFF0C;Close&#x65B9;&#x6CD5;&#x7528;&#x4E86;defer&#x51FD;&#x6578;&#x78BA;&#x4FDD;&#x51FD;&#x6578;&#x9000;&#x9F63;&#x524D;&#x8ABF;&#x7528;C.BZ2_bzCompressEnd&#x548C;C.bz2free&#x91CB;&#x653E;&#x76F8;&#x95DC;&#x7684;C&#x8BED;&#x8A00;&#x8FD0;&#x884C;&#x65F6;&#x8CC7;&#x6E90;&#x3002;&#x6B64;&#x523B;w.stream&#x6307;&#x91DD;&#x5C07;&#x4E0D;&#x518D;&#x6709;&#x6548;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x5B83;&#x8A2D;&#x7F6E;&#x7232;nil&#x4EE5;&#x4FDD;&#x8B49;&#x5B89;&#x5168;&#xFF0C;&#x7136;&#x5F8C;&#x5728;&#x6BCF;&#x500B;&#x65B9;&#x6CD5;&#x4E2D;&#x589E;&#x52A0;&#x4E86;nil&#x6AA2;&#x6E2C;&#xFF0C;&#x4EE5;&#x9632;&#x6B62;&#x7528;&#x6236;&#x5728;&#x95DC;&#x9589;&#x5F8C;&#x4F9D;&#x7136;&#x932F;&#x8AA4;&#x4F7F;&#x7528;&#x76F8;&#x95DC;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x58D3;&#x7E2E;&#x5B8C;&#x6210;&#x5F8C;&#xFF0C;Close&#x65B9;&#x6CD5;&#x7528;&#x4E86;defer&#x51FD;&#x6578;&#x78BA;&#x4FDD;&#x51FD;&#x6578;&#x9000;&#x51FA;&#x524D;&#x8ABF;&#x7528;C.BZ2_bzCompressEnd&#x548C;C.bz2free&#x91CB;&#x653E;&#x76F8;&#x95DC;&#x7684;C&#x8A9E;&#x8A00;&#x904B;&#x884C;&#x6642;&#x8CC7;&#x6E90;&#x3002;&#x6B64;&#x523B;w.stream&#x6307;&#x91DD;&#x5C07;&#x4E0D;&#x518D;&#x6709;&#x6548;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x5B83;&#x8A2D;&#x7F6E;&#x7232;nil&#x4EE5;&#x4FDD;&#x8B49;&#x5B89;&#x5168;&#xFF0C;&#x7136;&#x5F8C;&#x5728;&#x6BCF;&#x500B;&#x65B9;&#x6CD5;&#x4E2D;&#x589E;&#x52A0;&#x4E86;nil&#x6AA2;&#x6E2C;&#xFF0C;&#x4EE5;&#x9632;&#x6B62;&#x7528;&#x6236;&#x5728;&#x95DC;&#x9589;&#x5F8C;&#x4F9D;&#x7136;&#x932F;&#x8AA4;&#x4F7F;&#x7528;&#x76F8;&#x95DC;&#x65B9;&#x6CD5;&#x3002;</p>
 <p>&#x4E0A;&#x9762;&#x7684;&#x5BE6;&#x73FE;&#x4E2D;&#xFF0C;&#x4E0D;&#x50C5;&#x50C5;&#x5BEB;&#x662F;&#x975E;&#x4F75;&#x767C;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x751A;&#x81F3;&#x4F75;&#x767C;&#x8ABF;&#x7528;Close&#x548C;Write&#x65B9;&#x6CD5;&#x4E5F;&#x53EF;&#x80FD;&#x5C0E;&#x81F4;&#x7A0B;&#x5E8F;&#x7684;&#x7684;&#x5D29;&#x6F70;&#x3002;&#x8129;&#x8907;&#x9019;&#x500B;&#x554F;&#x984C;&#x662F;&#x7DF4;&#x7FD2;13.3&#x7684;&#x5167;&#x5BB9;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x7684;bzipper&#x7A0B;&#x5E8F;&#xFF0C;&#x4F7F;&#x7528;&#x6211;&#x5011;&#x81EA;&#x5DF1;&#x5305;&#x5BE6;&#x73FE;&#x7684;bzip2&#x58D3;&#x7E2E;&#x547D;&#x4EE4;&#x3002;&#x5B83;&#x7684;&#x884C;&#x7232;&#x548C;&#x8A31;&#x591A;Unix&#x7E6B;&#x7D71;&#x7684;bzip2&#x547D;&#x4EE4;&#x985E;&#x4F3C;&#x3002;</p>
 <pre><code class="lang-Go">gopl.io/ch13/bzipper
@@ -2224,7 +2228,7 @@ $ ./bzipper &lt; /usr/share/dict/words | bunzip2 | sha256sum
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

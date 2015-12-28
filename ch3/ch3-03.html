@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3" data-chapter-title="複數" data-filepath="ch3/ch3-03.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="3.3" data-chapter-title="複數" data-filepath="ch3/ch3-03.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2020,25 +2024,25 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="33-&#x8907;&#x6578;">3.3. &#x8907;&#x6578;</h2>
-<p>Go&#x63D0;&#x4F9B;&#x4E86;&#x5169;&#x7A2E;&#x7CBE;&#x5EA6;&#x7684;&#x8907;&#x6578;&#x985E;&#x4F3C;, complex64 &#x548C; complex128, &#x5206;&#x522B;&#x5C0D;&#x61C9; float32 &#x548C; float64&#x7CBE;&#x5EA6;. &#x5167;&#x7F6E;&#x7684; complex &#x51FD;&#x6578;&#x7528;&#x65BC;&#x69CB;&#x5EFA;&#x8907;&#x6578;, &#x5167;&#x5EFA;&#x7684; real &#x548C; imag &#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x8907;&#x6578;&#x7684;&#x5BE6;&#x90E8;&#x548C;&#x865B;&#x90E8;:</p>
+<p>Go&#x8A9E;&#x8A00;&#x63D0;&#x4F9B;&#x4E86;&#x5169;&#x7A2E;&#x7CBE;&#x5EA6;&#x7684;&#x8907;&#x6578;&#x985E;&#x578B;&#xFF1A;complex64&#x548C;complex128&#xFF0C;&#x5206;&#x522B;&#x5C0D;&#x61C9;float32&#x548C;float64&#x5169;&#x7A2E;&#x6D6E;&#x9EDE;&#x6578;&#x7CBE;&#x5EA6;&#x3002;&#x5167;&#x7F6E;&#x7684;complex&#x51FD;&#x6578;&#x7528;&#x65BC;&#x69CB;&#x5EFA;&#x8907;&#x6578;&#xFF0C;&#x5167;&#x5EFA;&#x7684;real&#x548C;imag&#x51FD;&#x6578;&#x5206;&#x522B;&#x8FD4;&#x8FF4;&#x8907;&#x6578;&#x7684;&#x5BE6;&#x90E8;&#x548C;&#x865B;&#x90E8;&#xFF1A;</p>
 <pre><code class="lang-Go"><span class="hljs-keyword">var</span> x <span class="hljs-typename">complex128</span> = <span class="hljs-built_in">complex</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">// 1+2i</span>
 <span class="hljs-keyword">var</span> y <span class="hljs-typename">complex128</span> = <span class="hljs-built_in">complex</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>) <span class="hljs-comment">// 3+4i</span>
 fmt.Println(x*y)                 <span class="hljs-comment">// &quot;(-5+10i)&quot;</span>
 fmt.Println(<span class="hljs-built_in">real</span>(x*y))           <span class="hljs-comment">// &quot;-5&quot;</span>
 fmt.Println(<span class="hljs-built_in">imag</span>(x*y))           <span class="hljs-comment">// &quot;10&quot;</span>
 </code></pre>
-<p>&#x5982;&#x679C;&#x4E00;&#x500B;&#x6D6E;&#x9EDE;&#x6578;&#x9762;&#x503C;&#x6216;&#x4E00;&#x500B;&#x5341;&#x9032;&#x88FD;&#x6574;&#x6578;&#x9762;&#x503C;&#x5F8C;&#x9762;&#x8DDF;&#x7740;&#x4E00;&#x500B;i, &#x4F8B;&#x5982; 3.141592i &#x6216; 2i, &#x5B83;&#x5C07;&#x69CB;&#x6210;&#x4E00;&#x500B;&#x8907;&#x6578;&#x7684;&#x865B;&#x90E8;, &#x8907;&#x6578;&#x7684;&#x5BE6;&#x90E8;&#x662F;0:</p>
+<p>&#x5982;&#x679C;&#x4E00;&#x500B;&#x6D6E;&#x9EDE;&#x6578;&#x9762;&#x503C;&#x6216;&#x4E00;&#x500B;&#x5341;&#x9032;&#x88FD;&#x6574;&#x6578;&#x9762;&#x503C;&#x5F8C;&#x9762;&#x8DDF;&#x7740;&#x4E00;&#x500B;i&#xFF0C;&#x4F8B;&#x5982;3.141592i&#x6216;2i&#xFF0C;&#x5B83;&#x5C07;&#x69CB;&#x6210;&#x4E00;&#x500B;&#x8907;&#x6578;&#x7684;&#x865B;&#x90E8;&#xFF0C;&#x8907;&#x6578;&#x7684;&#x5BE6;&#x90E8;&#x662F;0&#xFF1A;</p>
 <pre><code class="lang-Go">fmt.Println(<span class="hljs-number">1i</span> * <span class="hljs-number">1i</span>) <span class="hljs-comment">// &quot;(-1+0i)&quot;, i^2 = -1</span>
 </code></pre>
-<p>&#x5728;&#x5E38;&#x91CF;&#x7B97;&#x8853;&#x898F;&#x5247;&#x4E0B;, &#x4E00;&#x500B;&#x8907;&#x6578;&#x5E38;&#x91CF;&#x53EF;&#x4EE5;&#x52A0;&#x5230;&#x53E6;&#x4E00;&#x500B;&#x5E38;&#x91CF;(&#x6574;&#x6578;&#x6216;&#x6D6E;&#x9EDE;&#x6578;, &#x5BE6;&#x90E8;&#x6216;&#x865B;&#x90E8;), &#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7528;&#x81EA;&#x7136;&#x7684;&#x65B9;&#x5F0F;&#x5BEB;&#x8907;&#x6578;, &#x5C31;&#x50CF; 1+2i, &#x6216;&#x8207;&#x4E4B;&#x7B49;&#x50F9;&#x7684;&#x5BEB;&#x6CD5; 2i+1. &#x4E0A;&#x9762;x&#x548C;y&#x7684;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x9084;&#x53EF;&#x4EE5;&#x7C21;&#x5316;:</p>
+<p>&#x5728;&#x5E38;&#x91CF;&#x7B97;&#x8853;&#x898F;&#x5247;&#x4E0B;&#xFF0C;&#x4E00;&#x500B;&#x8907;&#x6578;&#x5E38;&#x91CF;&#x53EF;&#x4EE5;&#x52A0;&#x5230;&#x53E6;&#x4E00;&#x500B;&#x666E;&#x901A;&#x6578;&#x503C;&#x5E38;&#x91CF;&#xFF08;&#x6574;&#x6578;&#x6216;&#x6D6E;&#x9EDE;&#x6578;&#x3001;&#x5BE6;&#x90E8;&#x6216;&#x865B;&#x90E8;&#xFF09;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7528;&#x81EA;&#x7136;&#x7684;&#x65B9;&#x5F0F;&#x66F8;&#x5BEB;&#x8907;&#x6578;&#xFF0C;&#x5C31;&#x50CF;1+2i&#x6216;&#x8207;&#x4E4B;&#x7B49;&#x50F9;&#x7684;&#x5BEB;&#x6CD5;2i+1&#x3002;&#x4E0A;&#x9762;x&#x548C;y&#x7684;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x9084;&#x53EF;&#x4EE5;&#x7C21;&#x5316;&#xFF1A;</p>
 <pre><code class="lang-Go">x := <span class="hljs-number">1</span> + <span class="hljs-number">2i</span>
 y := <span class="hljs-number">3</span> + <span class="hljs-number">4i</span>
 </code></pre>
-<p>&#x8907;&#x6578;&#x4E5F;&#x53EF;&#x4EE5;&#x7528; == &#x548C; != &#x9032;&#x884C;&#x76F8;&#x7B49;&#x6BD4;&#x8F03;. &#x96BB;&#x6709;&#x5169;&#x500B;&#x8907;&#x6578;&#x7684;&#x5BE6;&#x90E8;&#x548C;&#x865B;&#x90E8;&#x90FD;&#x76F8;&#x7B49;&#x7684;&#x6642;&#x5019;&#x5B83;&#x5011;&#x7E94;&#x662F;&#x76F8;&#x7B49;&#x7684;.</p>
-<p>math/cmplx &#x5305;&#x63D0;&#x4F9B;&#x4E86;&#x8907;&#x6578;&#x8655;&#x7406;&#x7684;&#x8A31;&#x591A;&#x51FD;&#x6578;, &#x4F8B;&#x5982;&#x6C42;&#x8907;&#x6578;&#x7684;&#x5E73;&#x65B9;&#x6839;&#x51FD;&#x6578;&#x548C;&#x6C42;&#x51AA;&#x51FD;&#x6578;.</p>
+<p>&#x8907;&#x6578;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;==&#x548C;!=&#x9032;&#x884C;&#x76F8;&#x7B49;&#x6BD4;&#x8F03;&#x3002;&#x96BB;&#x6709;&#x5169;&#x500B;&#x8907;&#x6578;&#x7684;&#x5BE6;&#x90E8;&#x548C;&#x865B;&#x90E8;&#x90FD;&#x76F8;&#x7B49;&#x7684;&#x6642;&#x5019;&#x5B83;&#x5011;&#x624D;&#x662F;&#x76F8;&#x7B49;&#x7684;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x6D6E;&#x9EDE;&#x6578;&#x7684;&#x76F8;&#x7B49;&#x6BD4;&#x8F03;&#x662F;&#x5371;&#x96AA;&#x7684;&#xFF0C;&#x9700;&#x8981;&#x7279;&#x522B;&#x5C0F;&#x5FC3;&#x8655;&#x7406;&#x7CBE;&#x5EA6;&#x554F;&#x984C;&#xFF09;&#x3002;</p>
+<p>math/cmplx&#x5305;&#x63D0;&#x4F9B;&#x4E86;&#x8907;&#x6578;&#x8655;&#x7406;&#x7684;&#x8A31;&#x591A;&#x51FD;&#x6578;&#xFF0C;&#x4F8B;&#x5982;&#x6C42;&#x8907;&#x6578;&#x7684;&#x5E73;&#x65B9;&#x6839;&#x51FD;&#x6578;&#x548C;&#x6C42;&#x51AA;&#x51FD;&#x6578;&#x3002;</p>
 <pre><code class="lang-Go">fmt.Println(cmplx.Sqrt(-<span class="hljs-number">1</span>)) <span class="hljs-comment">// &quot;(0+1i)&quot;</span>
 </code></pre>
-<p>&#x4E0B;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528;complex128&#x8907;&#x6578;&#x7B97;&#x6CD5;&#x4F86;&#x751F;&#x6210;&#x4E00;&#x500B;Mandelbrot&#x5716;&#x50CF;.</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528;complex128&#x8907;&#x6578;&#x7B97;&#x6CD5;&#x4F86;&#x751F;&#x6210;&#x4E00;&#x500B;Mandelbrot&#x5716;&#x50CF;&#x3002;</p>
 <pre><code class="lang-Go">gopl.io/ch3/mandelbrot
 
 <span class="hljs-comment">// Mandelbrot emits a PNG image of the Mandelbrot fractal.</span>
@@ -2086,13 +2090,13 @@ y := <span class="hljs-number">3</span> + <span class="hljs-number">4i</span>
     <span class="hljs-keyword">return</span> color.Black
 }
 </code></pre>
-<p>&#x904D;&#x6B77;1024x1024&#x5716;&#x50CF;&#x6BCF;&#x500B;&#x9EDE;&#x7684;&#x5169;&#x500B;&#x5D4C;&#x5957;&#x7684;&#x5FAA;&#x74B0;&#x5C0D;&#x61C9; -2 &#x5230; +2 &#x5340;&#x9593;&#x7684;&#x8907;&#x6578;&#x5E73;&#x9762;. &#x7A0B;&#x5E8F;&#x53CD;&#x8907;&#x6E2C;&#x8A66;&#x6BCF;&#x500B;&#x9EDE;&#x5C0D;&#x61C9;&#x8907;&#x6578;&#x503C;&#x5E73;&#x65B9;&#x503C;&#x52A0;&#x4E00;&#x500B;&#x589E;&#x91CF;&#x503C;&#x5C0D;&#x61C9;&#x7684;&#x9EDE;&#x662F;&#x5426;&#x8D85;&#x9F63;&#x534A;&#x5F91;&#x7232;2&#x7684;&#x5713;. &#x5982;&#x679C;&#x8D85;&#x904E;&#x4E86;, &#x901A;&#x904E;&#x6839;&#x64DA;&#x9003;&#x9038;&#x7684;&#x8FED;&#x4EE3;&#x6B21;&#x6578;&#x5C0D;&#x61C9;&#x7684;&#x7070;&#x5EA6;&#x9854;&#x8272;&#x4F86;&#x4EE3;&#x66FF;. &#x5982;&#x679C;&#x4E0D;&#x662F;, &#x8A72;&#x9EDE;&#x5C6C;&#x65BC;Mandelbrot&#x96C6;&#x5408;, &#x4F7F;&#x7528;&#x9ED1;&#x8272;&#x9854;&#x8272;&#x6A19;&#x8A18;. &#x6700;&#x7D42;&#x7A0B;&#x5E8F;&#x5C07;&#x751F;&#x6210;&#x7684;PNG&#x683C;&#x5F0F;&#x5206;&#x5F62;&#x5716;&#x50CF;&#x5716;&#x50CF;&#x8F38;&#x9F63;&#x5230;&#x6A19;&#x6E96;&#x8F38;&#x9F63;, &#x5982;&#x5716;3.3&#x6240;&#x793A;.</p>
-<p><strong>&#x7DF4;&#x7FD2;3.5:</strong> &#x5BE6;&#x73FE;&#x4E00;&#x500B;&#x7DB5;&#x8272;&#x7684;Mandelbrot&#x5716;&#x50CF;, &#x4F7F;&#x7528; image.NewRGBA &#x5275;&#x5EFA;&#x5716;&#x50CF;, &#x4F7F;&#x7528; color.RGBA &#x6216; color.YCbCr &#x751F;&#x6210;&#x9854;&#x8272;.</p>
-<p><strong>&#x7DF4;&#x7FD2;3.6:</strong> &#x8D85;&#x91C7;&#x6A23;&#x6280;&#x8853;&#x53EF;&#x4EE5;&#x964D;&#x4F4E;&#x6BCF;&#x500B;&#x50CF;&#x7D20;&#x5C0D;&#x8A08;&#x7B97;&#x9854;&#x8272;&#x503C;&#x548C;&#x5E73;&#x5747;&#x503C;&#x7684;&#x5F71;&#x97FF;. &#x7C21;&#x55AE;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5C07;&#x6BCF;&#x500B;&#x50CF;&#x7D20;&#x5206;&#x5C64;&#x56DB;&#x500B;&#x5B50;&#x50CF;&#x7D20;, &#x5BE6;&#x73FE;&#x5B83;.</p>
-<p><strong>&#x7DF4;&#x7FD2;3.7:</strong> &#x53E6;&#x4E00;&#x500B;&#x751F;&#x6210;&#x5206;&#x5F62;&#x5716;&#x50CF;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x4F7F;&#x7528;&#x725B;&#x9813;&#x6CD5;&#x4F86;&#x6C42;&#x89E3;&#x4E00;&#x500B;&#x8907;&#x6578;&#x65B9;&#x7A0B;, &#x4F8B;&#x5982; z^4 &#x2212; 1 = 0. &#x6BCF;&#x500B;&#x8D77;&#x9EDE;&#x5230;&#x56DB;&#x500B;&#x6839;&#x7684;&#x8FED;&#x4EE3;&#x6B21;&#x6578;&#x5C0D;&#x61C9;&#x9670;&#x5F71;&#x7684;&#x7070;&#x5EA6;. &#x65B9;&#x7A0B;&#x6839;&#x5C0D;&#x61C9;&#x7684;&#x9EDE;&#x7528;&#x9854;&#x8272;&#x8868;&#x793A;.</p>
+<p>&#x7528;&#x65BC;&#x904D;&#x6B77;1024x1024&#x5716;&#x50CF;&#x6BCF;&#x500B;&#x9EDE;&#x7684;&#x5169;&#x500B;&#x5D4C;&#x5957;&#x7684;&#x5FAA;&#x74B0;&#x5C0D;&#x61C9;-2&#x5230;+2&#x5340;&#x9593;&#x7684;&#x8907;&#x6578;&#x5E73;&#x9762;&#x3002;&#x7A0B;&#x5E8F;&#x53CD;&#x8907;&#x6E2C;&#x8A66;&#x6BCF;&#x500B;&#x9EDE;&#x5C0D;&#x61C9;&#x8907;&#x6578;&#x503C;&#x5E73;&#x65B9;&#x503C;&#x52A0;&#x4E00;&#x500B;&#x589E;&#x91CF;&#x503C;&#x5C0D;&#x61C9;&#x7684;&#x9EDE;&#x662F;&#x5426;&#x8D85;&#x51FA;&#x534A;&#x5F91;&#x7232;2&#x7684;&#x5713;&#x3002;&#x5982;&#x679C;&#x8D85;&#x904E;&#x4E86;&#xFF0C;&#x901A;&#x904E;&#x6839;&#x64DA;&#x9810;&#x8A2D;&#x7F6E;&#x7684;&#x9003;&#x9038;&#x8FED;&#x4EE3;&#x6B21;&#x6578;&#x5C0D;&#x61C9;&#x7684;&#x7070;&#x5EA6;&#x9854;&#x8272;&#x4F86;&#x4EE3;&#x66FF;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x662F;&#xFF0C;&#x90A3;&#x9EBD;&#x8A72;&#x9EDE;&#x5C6C;&#x65BC;Mandelbrot&#x96C6;&#x5408;&#xFF0C;&#x4F7F;&#x7528;&#x9ED1;&#x8272;&#x9854;&#x8272;&#x6A19;&#x8A18;&#x3002;&#x6700;&#x7D42;&#x7A0B;&#x5E8F;&#x5C07;&#x751F;&#x6210;&#x7684;PNG&#x683C;&#x5F0F;&#x5206;&#x5F62;&#x5716;&#x50CF;&#x5716;&#x50CF;&#x8F38;&#x51FA;&#x5230;&#x6A19;&#x6E96;&#x8F38;&#x51FA;&#xFF0C;&#x5982;&#x5716;3.3&#x6240;&#x793A;&#x3002;</p>
 <p><img src="../images/ch3-03.png" alt=""></p>
-<p><strong>&#x7DF4;&#x7FD2;3.8:</strong> &#x901A;&#x904E;&#x63D0;&#x9AD8;&#x7CBE;&#x5EA6;&#x4F86;&#x751F;&#x6210;&#x66F4;&#x591A;&#x7D1A;&#x522B;&#x7684;&#x5206;&#x5F62;. &#x4F7F;&#x7528;&#x56DB;&#x7A2E;&#x4E0D;&#x540C;&#x7CBE;&#x5EA6;&#x985E;&#x578B;&#x7684;&#x6578;&#x5B57;&#x5BE6;&#x73FE;&#x76F8;&#x540C;&#x7684;&#x5206;&#x5F62;: complex64, complex128, big.Float, and big.Rat. (&#x5F8C;&#x9762;&#x5169;&#x7A2E;&#x985E;&#x578B;&#x5728; math/big &#x5305;&#x8072;&#x660E;. Float&#x662F;&#x6709;&#x6307;&#x5B9A;&#x9650;&#x7CBE;&#x5EA6;&#x7684;&#x6D6E;&#x9EDE;&#x6578;; Rat&#x662F;&#x7121;&#x6548;&#x7CBE;&#x5EA6;&#x7684;&#x6709;&#x7406;&#x6578;.) &#x5B83;&#x5011;&#x9593;&#x7684;&#x6027;&#x80FD;&#x548C;&#x5167;&#x5B58;&#x4F7F;&#x7528;&#x5C0D;&#x6BD4;&#x5982;&#x4F55;? &#x7576;&#x6E32;&#x67D3;&#x5716;&#x53EF;&#x898B;&#x6642;&#x7E2E;&#x653E;&#x7684;&#x7D1A;&#x522B;&#x662F;&#x591A;&#x5C11;?</p>
-<p><strong>&#x7DF4;&#x7FD2;3.9:</strong>  &#x7DE8;&#x5BEB;&#x4E00;&#x500B;web&#x670D;&#x52D9;&#x5668;, &#x7528;&#x65BC;&#x7D66;&#x5BA2;&#x6236;&#x7AEF;&#x751F;&#x6210;&#x5206;&#x5F62;&#x7684;&#x5716;&#x50CF;. &#x904B;&#x884C;&#x5BA2;&#x6236;&#x7AEF;&#x7528;&#x904E;HTTP&#x53C3;&#x6578;&#x53C3;&#x6578;&#x6307;&#x5B9A;x,y&#x548C;zoom&#x53C3;&#x6578;.</p>
+<p><strong>&#x7DF4;&#x7FD2; 3.5&#xFF1A;</strong> &#x5BE6;&#x73FE;&#x4E00;&#x500B;&#x7DB5;&#x8272;&#x7684;Mandelbrot&#x5716;&#x50CF;&#xFF0C;&#x4F7F;&#x7528;image.NewRGBA&#x5275;&#x5EFA;&#x5716;&#x50CF;&#xFF0C;&#x4F7F;&#x7528;color.RGBA&#x6216;color.YCbCr&#x751F;&#x6210;&#x9854;&#x8272;&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 3.6&#xFF1A;</strong> &#x965E;&#x91C7;&#x6A23;&#x6280;&#x8853;&#x53EF;&#x4EE5;&#x964D;&#x4F4E;&#x6BCF;&#x500B;&#x50CF;&#x7D20;&#x5C0D;&#x8A08;&#x7B97;&#x9854;&#x8272;&#x503C;&#x548C;&#x5E73;&#x5747;&#x503C;&#x7684;&#x5F71;&#x97FF;&#x3002;&#x7C21;&#x55AE;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5C07;&#x6BCF;&#x500B;&#x50CF;&#x7D20;&#x5206;&#x5C64;&#x56DB;&#x500B;&#x5B50;&#x50CF;&#x7D20;&#xFF0C;&#x5BE6;&#x73FE;&#x5B83;&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 3.7&#xFF1A;</strong> &#x53E6;&#x4E00;&#x500B;&#x751F;&#x6210;&#x5206;&#x5F62;&#x5716;&#x50CF;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x4F7F;&#x7528;&#x725B;&#x9813;&#x6CD5;&#x4F86;&#x6C42;&#x89E3;&#x4E00;&#x500B;&#x8907;&#x6578;&#x65B9;&#x7A0B;&#xFF0C;&#x4F8B;&#x5982;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>z</mi><mn>4</mn></msup><mo>&#x2212;</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">z^4-1=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mbin">&#x2212;</span><span class="mord mathrm">1</span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>&#x3002;&#x6BCF;&#x500B;&#x8D77;&#x9EDE;&#x5230;&#x56DB;&#x500B;&#x6839;&#x7684;&#x8FED;&#x4EE3;&#x6B21;&#x6578;&#x5C0D;&#x61C9;&#x9670;&#x5F71;&#x7684;&#x7070;&#x5EA6;&#x3002;&#x65B9;&#x7A0B;&#x6839;&#x5C0D;&#x61C9;&#x7684;&#x9EDE;&#x7528;&#x9854;&#x8272;&#x8868;&#x793A;&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 3.8&#xFF1A;</strong> &#x901A;&#x904E;&#x63D0;&#x9AD8;&#x7CBE;&#x5EA6;&#x4F86;&#x751F;&#x6210;&#x66F4;&#x591A;&#x7D1A;&#x522B;&#x7684;&#x5206;&#x5F62;&#x3002;&#x4F7F;&#x7528;&#x56DB;&#x7A2E;&#x4E0D;&#x540C;&#x7CBE;&#x5EA6;&#x985E;&#x578B;&#x7684;&#x6578;&#x5B57;&#x5BE6;&#x73FE;&#x76F8;&#x540C;&#x7684;&#x5206;&#x5F62;&#xFF1A;complex64&#x3001;complex128&#x3001;big.Float&#x548C;big.Rat&#x3002;&#xFF08;&#x5F8C;&#x9762;&#x5169;&#x7A2E;&#x985E;&#x578B;&#x5728;math/big&#x5305;&#x8072;&#x660E;&#x3002;Float&#x662F;&#x6709;&#x6307;&#x5B9A;&#x9650;&#x7CBE;&#x5EA6;&#x7684;&#x6D6E;&#x9EDE;&#x6578;&#xFF1B;Rat&#x662F;&#x7121;&#x6548;&#x7CBE;&#x5EA6;&#x7684;&#x6709;&#x7406;&#x6578;&#x3002;&#xFF09;&#x5B83;&#x5011;&#x9593;&#x7684;&#x6027;&#x80FD;&#x548C;&#x5167;&#x5B58;&#x4F7F;&#x7528;&#x5C0D;&#x6BD4;&#x5982;&#x4F55;&#xFF1F;&#x7576;&#x6E32;&#x67D3;&#x5716;&#x53EF;&#x898B;&#x6642;&#x7E2E;&#x653E;&#x7684;&#x7D1A;&#x522B;&#x662F;&#x591A;&#x5C11;&#xFF1F;</p>
+<p><strong>&#x7DF4;&#x7FD2; 3.9&#xFF1A;</strong> &#x7DE8;&#x5BEB;&#x4E00;&#x500B;web&#x670D;&#x52D9;&#x5668;&#xFF0C;&#x7528;&#x65BC;&#x7D66;&#x5BA2;&#x6236;&#x7AEF;&#x751F;&#x6210;&#x5206;&#x5F62;&#x7684;&#x5716;&#x50CF;&#x3002;&#x904B;&#x884C;&#x5BA2;&#x6236;&#x7AEF;&#x7528;&#x904E;HTTP&#x53C3;&#x6578;&#x53C3;&#x6578;&#x6307;&#x5B9A;x,y&#x548C;zoom&#x53C3;&#x6578;&#x3002;</p>
 
                     
                     </section>
@@ -2124,7 +2128,7 @@ y := <span class="hljs-number">3</span> + <span class="hljs-number">4i</span>
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

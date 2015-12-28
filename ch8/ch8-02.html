@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="8.2" data-chapter-title="示例: 併發的Clock服務" data-filepath="ch8/ch8-02.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="8.2" data-chapter-title="示例: 併發的Clock服務" data-filepath="ch8/ch8-02.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2062,7 +2066,7 @@
 </code></pre>
 <p>Listen&#x51FD;&#x6578;&#x5275;&#x5EFA;&#x4E86;&#x4E00;&#x500B;net.Listener&#x7684;&#x5C0D;&#x8C61;&#xFF0C;&#x9019;&#x500B;&#x5C0D;&#x8C61;&#x6703;&#x76E3;&#x807D;&#x4E00;&#x500B;&#x7DB2;&#x7D61;&#x7AEF;&#x53E3;&#x4E0A;&#x5230;&#x4F86;&#x7684;&#x9023;&#x63A5;&#xFF0C;&#x5728;&#x9019;&#x500B;&#x4F8B;&#x5B50;&#x91CC;&#x6211;&#x5011;&#x7528;&#x7684;&#x662F;TCP&#x7684;localhost:8000&#x7AEF;&#x53E3;&#x3002;listener&#x5C0D;&#x8C61;&#x7684;Accept&#x65B9;&#x6CD5;&#x6703;&#x76F4;&#x63A5;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x4E00;&#x500B;&#x65B0;&#x7684;&#x9023;&#x63A5;&#x88AB;&#x5275;&#x5EFA;&#xFF0C;&#x7136;&#x5F8C;&#x6703;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;net.Conn&#x5C0D;&#x8C61;&#x4F86;&#x8868;&#x793A;&#x9019;&#x500B;&#x9023;&#x63A5;&#x3002;</p>
 <p>handleConn&#x51FD;&#x6578;&#x6703;&#x8655;&#x7406;&#x4E00;&#x500B;&#x5B8C;&#x6574;&#x7684;&#x5BA2;&#x6236;&#x7AEF;&#x9023;&#x63A5;&#x3002;&#x5728;&#x4E00;&#x500B;for&#x6B7B;&#x5FAA;&#x74B0;&#x4E2D;&#xFF0C;&#x5C07;&#x7576;&#x524D;&#x7684;&#x6642;&#x5019;&#x7528;time.Now()&#x51FD;&#x6578;&#x5F97;&#x5230;&#xFF0C;&#x7136;&#x5F8C;&#x5BEB;&#x5230;&#x5BA2;&#x6236;&#x7AEF;&#x3002;&#x7531;&#x65BC;net.Conn&#x5BE6;&#x73FE;&#x4E86;io.Writer&#x63A5;&#x53E3;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5411;&#x5176;&#x5BEB;&#x5165;&#x5167;&#x5BB9;&#x3002;&#x9019;&#x500B;&#x6B7B;&#x5FAA;&#x74B0;&#x6703;&#x4E00;&#x76F4;&#x57F7;&#x884C;&#xFF0C;&#x76F4;&#x5230;&#x5BEB;&#x5165;&#x5931;&#x6557;&#x3002;&#x6700;&#x53EF;&#x80FD;&#x7684;&#x539F;&#x56E0;&#x662F;&#x5BA2;&#x6236;&#x7AEF;&#x4E3B;&#x52D5;&#x65B7;&#x958B;&#x9023;&#x63A5;&#x3002;&#x9019;&#x7A2E;&#x60C5;&#x6CC1;&#x4E0B;handleConn&#x51FD;&#x6578;&#x6703;&#x7528;defer&#x8ABF;&#x7528;&#x95DC;&#x9589;&#x670D;&#x52D9;&#x5668;&#x5074;&#x7684;&#x9023;&#x63A5;&#xFF0C;&#x7136;&#x5F8C;&#x8FD4;&#x8FF4;&#x5230;&#x4E3B;&#x51FD;&#x6578;&#xFF0C;&#x7E7C;&#x7E8C;&#x7B49;&#x5F85;&#x4E0B;&#x4E00;&#x500B;&#x9023;&#x63A5;&#x8ACB;&#x6C42;&#x3002;</p>
-<p>time.Time.Format&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7A2E;&#x683C;&#x5F0F;&#x5316;&#x65E5;&#x671F;&#x548C;&#x6642;&#x9593;&#x4FE1;&#x606F;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x5B83;&#x7684;&#x53C3;&#x6578;&#x662F;&#x4E00;&#x500B;&#x683C;&#x5F0F;&#x5316;&#x6A21;&#x95C6;&#x6A19;&#x8B58;&#x5982;&#x4F55;&#x4F86;&#x683C;&#x5F0F;&#x5316;&#x6642;&#x9593;&#xFF0C;&#x800C;&#x9019;&#x500B;&#x683C;&#x5F0F;&#x5316;&#x6A21;&#x95C6;&#x9650;&#x5B9A;&#x7232;Mon Jan 2 03:04:05PM 2006 UTC-0700&#x3002;&#x6709;8&#x500B;&#x90E8;&#x5206;(&#x9031;&#x5E7E;&#xFF0C;&#x6708;&#x4EFD;&#xFF0C;&#x4E00;&#x500B;&#x6708;&#x7684;&#x7B2C;&#x5E7E;&#x5929;&#xFF0C;&#x7B49;&#x7B49;)&#x3002;&#x53EF;&#x4EE5;&#x4EE5;&#x4EFB;&#x610F;&#x7684;&#x5F62;&#x5F0F;&#x4F86;&#x7D44;&#x5408;&#x524D;&#x9762;&#x9019;&#x500B;&#x6A21;&#x95C6;&#xFF1B;&#x9F63;&#x73FE;&#x5728;&#x6A21;&#x95C6;&#x4E2D;&#x7684;&#x90E8;&#x5206;&#x6703;&#x4F5C;&#x7232;&#x53C3;&#x8003;&#x4F86;&#x5C0D;&#x6642;&#x9593;&#x683C;&#x5F0F;&#x9032;&#x884C;&#x8F38;&#x9F63;&#x3002;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x6211;&#x5011;&#x96BB;&#x7528;&#x5230;&#x4E86;&#x5C0F;&#x6642;&#x3001;&#x5206;&#x9418;&#x548C;&#x79D2;&#x3002;time&#x5305;&#x91CC;&#x5B9A;&#x7FA9;&#x4E86;&#x5F88;&#x591A;&#x6A19;&#x6E96;&#x6642;&#x9593;&#x683C;&#x5F0F;&#xFF0C;&#x6BD4;&#x5982;time.RFC1123&#x3002;&#x5728;&#x9032;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x9006;&#x5411;&#x64CD;&#x4F5C;time.Parse&#x6642;&#xFF0C;&#x4E5F;&#x6703;&#x7528;&#x5230;&#x540C;&#x6A23;&#x7684;&#x7B56;&#x7565;&#x3002;(&#x8B6F;&#x8A3B;&#xFF1A;&#x9019;&#x662F;go&#x8A9E;&#x8A00;&#x548C;&#x5176;&#x5B83;&#x8A9E;&#x8A00;&#x76F8;&#x6BD4;&#x6BD4;&#x8F03;&#x5947;&#x8469;&#x7684;&#x4E00;&#x500B;&#x5730;&#x65B9;&#x3002;&#x3002;&#x4F60;&#x9700;&#x8981;&#x8A18;&#x4F4F;&#x683C;&#x5F0F;&#x5316;&#x5B57;&#x7B26;&#x4E32;&#x662F;1&#x6708;2&#x65E5;&#x4E0B;&#x5348;3&#x9EDE;4&#x5206;5&#x79D2;&#x96F6;&#x516D;&#x5E74;UTC-0700&#xFF0C;&#x800C;&#x4E0D;&#x50CF;&#x5176;&#x5B83;&#x8A9E;&#x8A00;&#x90A3;&#x6A23;Y-m-d H:i:s&#x4E00;&#x6A23;&#xFF0C;&#x7576;&#x7136;&#x4E86;&#x9019;&#x91CC;&#x53EF;&#x4EE5;&#x7528;1234567&#x7684;&#x65B9;&#x5F0F;&#x4F86;&#x8A18;&#x61B6;&#xFF0C;&#x5012;&#x662F;&#x4E5F;&#x4E0D;&#x9EBB;&#x7169;)</p>
+<p>time.Time.Format&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7A2E;&#x683C;&#x5F0F;&#x5316;&#x65E5;&#x671F;&#x548C;&#x6642;&#x9593;&#x4FE1;&#x606F;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x5B83;&#x7684;&#x53C3;&#x6578;&#x662F;&#x4E00;&#x500B;&#x683C;&#x5F0F;&#x5316;&#x6A21;&#x95C6;&#x6A19;&#x8B58;&#x5982;&#x4F55;&#x4F86;&#x683C;&#x5F0F;&#x5316;&#x6642;&#x9593;&#xFF0C;&#x800C;&#x9019;&#x500B;&#x683C;&#x5F0F;&#x5316;&#x6A21;&#x95C6;&#x9650;&#x5B9A;&#x7232;Mon Jan 2 03:04:05PM 2006 UTC-0700&#x3002;&#x6709;8&#x500B;&#x90E8;&#x5206;(&#x9031;&#x5E7E;&#xFF0C;&#x6708;&#x4EFD;&#xFF0C;&#x4E00;&#x500B;&#x6708;&#x7684;&#x7B2C;&#x5E7E;&#x5929;&#xFF0C;&#x7B49;&#x7B49;)&#x3002;&#x53EF;&#x4EE5;&#x4EE5;&#x4EFB;&#x610F;&#x7684;&#x5F62;&#x5F0F;&#x4F86;&#x7D44;&#x5408;&#x524D;&#x9762;&#x9019;&#x500B;&#x6A21;&#x95C6;&#xFF1B;&#x51FA;&#x73FE;&#x5728;&#x6A21;&#x95C6;&#x4E2D;&#x7684;&#x90E8;&#x5206;&#x6703;&#x4F5C;&#x7232;&#x53C3;&#x8003;&#x4F86;&#x5C0D;&#x6642;&#x9593;&#x683C;&#x5F0F;&#x9032;&#x884C;&#x8F38;&#x51FA;&#x3002;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x6211;&#x5011;&#x96BB;&#x7528;&#x5230;&#x4E86;&#x5C0F;&#x6642;&#x3001;&#x5206;&#x9418;&#x548C;&#x79D2;&#x3002;time&#x5305;&#x91CC;&#x5B9A;&#x7FA9;&#x4E86;&#x5F88;&#x591A;&#x6A19;&#x6E96;&#x6642;&#x9593;&#x683C;&#x5F0F;&#xFF0C;&#x6BD4;&#x5982;time.RFC1123&#x3002;&#x5728;&#x9032;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x9006;&#x5411;&#x64CD;&#x4F5C;time.Parse&#x6642;&#xFF0C;&#x4E5F;&#x6703;&#x7528;&#x5230;&#x540C;&#x6A23;&#x7684;&#x7B56;&#x7565;&#x3002;(&#x8B6F;&#x8A3B;&#xFF1A;&#x9019;&#x662F;go&#x8A9E;&#x8A00;&#x548C;&#x5176;&#x5B83;&#x8A9E;&#x8A00;&#x76F8;&#x6BD4;&#x6BD4;&#x8F03;&#x5947;&#x8469;&#x7684;&#x4E00;&#x500B;&#x5730;&#x65B9;&#x3002;&#x3002;&#x4F60;&#x9700;&#x8981;&#x8A18;&#x4F4F;&#x683C;&#x5F0F;&#x5316;&#x5B57;&#x7B26;&#x4E32;&#x662F;1&#x6708;2&#x65E5;&#x4E0B;&#x5348;3&#x9EDE;4&#x5206;5&#x79D2;&#x96F6;&#x516D;&#x5E74;UTC-0700&#xFF0C;&#x800C;&#x4E0D;&#x50CF;&#x5176;&#x5B83;&#x8A9E;&#x8A00;&#x90A3;&#x6A23;Y-m-d H:i:s&#x4E00;&#x6A23;&#xFF0C;&#x7576;&#x7136;&#x4E86;&#x9019;&#x91CC;&#x53EF;&#x4EE5;&#x7528;1234567&#x7684;&#x65B9;&#x5F0F;&#x4F86;&#x8A18;&#x61B6;&#xFF0C;&#x5012;&#x662F;&#x4E5F;&#x4E0D;&#x9EBB;&#x7169;)</p>
 <p>&#x7232;&#x4E86;&#x9023;&#x63A5;&#x4F8B;&#x5B50;&#x91CC;&#x7684;&#x670D;&#x52D9;&#x5668;&#xFF0C;&#x6211;&#x5011;&#x9700;&#x8981;&#x4E00;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BD4;&#x5982;netcat&#x9019;&#x500B;&#x5DE5;&#x5177;(nc&#x547D;&#x4EE4;)&#xFF0C;&#x9019;&#x500B;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x7528;&#x4F86;&#x57F7;&#x884C;&#x7DB2;&#x7D61;&#x9023;&#x63A5;&#x64CD;&#x4F5C;&#x3002;</p>
 <pre><code>$ go build gopl.io/ch8/clock1
 $ ./clock1 &amp;
@@ -2072,7 +2076,7 @@ $ nc localhost 8000
 13:58:56
 13:58:57
 ^C
-</code></pre><p>&#x5BA2;&#x6236;&#x7AEF;&#x5C07;&#x670D;&#x52D9;&#x5668;&#x767C;&#x4F86;&#x7684;&#x6642;&#x9593;&#x986F;&#x793A;&#x4E86;&#x9F63;&#x4F86;&#xFF0C;&#x6211;&#x5011;&#x7528;Control+C&#x4F86;&#x4E2D;&#x65B7;&#x5BA2;&#x6236;&#x7AEF;&#x7684;&#x57F7;&#x884C;&#xFF0C;&#x5728;Unix&#x7E6B;&#x7D71;&#x4E0A;&#xFF0C;&#x4F60;&#x6703;&#x770B;&#x5230;^C&#x9019;&#x6A23;&#x7684;&#x97FF;&#x61C9;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x7E6B;&#x7D71;&#x6C92;&#x6709;&#x88DD;nc&#x9019;&#x500B;&#x5DE5;&#x5177;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7528;telnet&#x4F86;&#x5BE6;&#x73FE;&#x540C;&#x6A23;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x6216;&#x8005;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6211;&#x5011;&#x4E0B;&#x9762;&#x7684;&#x9019;&#x500B;&#x7528;go&#x5BEB;&#x7684;&#x7C21;&#x55AE;&#x7684;telnet&#x7A0B;&#x5E8F;&#xFF0C;&#x7528;net.Dial&#x5C31;&#x53EF;&#x4EE5;&#x7C21;&#x55AE;&#x5730;&#x5275;&#x5EFA;&#x4E00;&#x500B;TCP&#x9023;&#x63A5;&#xFF1A;</p>
+</code></pre><p>&#x5BA2;&#x6236;&#x7AEF;&#x5C07;&#x670D;&#x52D9;&#x5668;&#x767C;&#x4F86;&#x7684;&#x6642;&#x9593;&#x986F;&#x793A;&#x4E86;&#x51FA;&#x4F86;&#xFF0C;&#x6211;&#x5011;&#x7528;Control+C&#x4F86;&#x4E2D;&#x65B7;&#x5BA2;&#x6236;&#x7AEF;&#x7684;&#x57F7;&#x884C;&#xFF0C;&#x5728;Unix&#x7E6B;&#x7D71;&#x4E0A;&#xFF0C;&#x4F60;&#x6703;&#x770B;&#x5230;^C&#x9019;&#x6A23;&#x7684;&#x97FF;&#x61C9;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x7E6B;&#x7D71;&#x6C92;&#x6709;&#x88DD;nc&#x9019;&#x500B;&#x5DE5;&#x5177;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7528;telnet&#x4F86;&#x5BE6;&#x73FE;&#x540C;&#x6A23;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x6216;&#x8005;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6211;&#x5011;&#x4E0B;&#x9762;&#x7684;&#x9019;&#x500B;&#x7528;go&#x5BEB;&#x7684;&#x7C21;&#x55AE;&#x7684;telnet&#x7A0B;&#x5E8F;&#xFF0C;&#x7528;net.Dial&#x5C31;&#x53EF;&#x4EE5;&#x7C21;&#x55AE;&#x5730;&#x5275;&#x5EFA;&#x4E00;&#x500B;TCP&#x9023;&#x63A5;&#xFF1A;</p>
 <pre><code class="lang-go">gopl.io/ch8/netcat1
 <span class="hljs-comment">// Netcat1 is a read-only TCP client.</span>
 <span class="hljs-keyword">package</span> main
@@ -2099,7 +2103,7 @@ $ nc localhost 8000
     }
 }
 </code></pre>
-<p>&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x6703;&#x5F9E;&#x9023;&#x63A5;&#x4E2D;&#x8B80;&#x53D6;&#x6578;&#x64DA;&#xFF0C;&#x4F75;&#x5C07;&#x8B80;&#x5230;&#x7684;&#x5167;&#x5BB9;&#x5BEB;&#x5230;&#x6A19;&#x6E96;&#x8F38;&#x9F63;&#x4E2D;&#xFF0C;&#x76F4;&#x5230;&#x9047;&#x5230;end of file&#x7684;&#x689D;&#x4EF6;&#x6216;&#x8005;&#x767C;&#x751F;&#x932F;&#x8AA4;&#x3002;mustCopy&#x9019;&#x500B;&#x51FD;&#x6578;&#x6211;&#x5011;&#x5728;&#x672C;&#x7BC0;&#x7684;&#x5E7E;&#x500B;&#x4F8B;&#x5B50;&#x4E2D;&#x90FD;&#x6703;&#x7528;&#x5230;&#x3002;&#x8B93;&#x6211;&#x5011;&#x540C;&#x6642;&#x904B;&#x884C;&#x5169;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x4F86;&#x9032;&#x884C;&#x4E00;&#x500B;&#x6E2C;&#x8A66;&#xFF0C;&#x9019;&#x91CC;&#x53EF;&#x4EE5;&#x958B;&#x5169;&#x500B;&#x7D42;&#x7AEF;&#x7A97;&#x53E3;&#xFF0C;&#x4E0B;&#x9762;&#x5DE6;&#x908A;&#x7684;&#x662F;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x500B;&#x7684;&#x8F38;&#x9F63;&#xFF0C;&#x53F3;&#x908A;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x500B;&#x7684;&#x8F38;&#x9F63;&#xFF1A;</p>
+<p>&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x6703;&#x5F9E;&#x9023;&#x63A5;&#x4E2D;&#x8B80;&#x53D6;&#x6578;&#x64DA;&#xFF0C;&#x4F75;&#x5C07;&#x8B80;&#x5230;&#x7684;&#x5167;&#x5BB9;&#x5BEB;&#x5230;&#x6A19;&#x6E96;&#x8F38;&#x51FA;&#x4E2D;&#xFF0C;&#x76F4;&#x5230;&#x9047;&#x5230;end of file&#x7684;&#x689D;&#x4EF6;&#x6216;&#x8005;&#x767C;&#x751F;&#x932F;&#x8AA4;&#x3002;mustCopy&#x9019;&#x500B;&#x51FD;&#x6578;&#x6211;&#x5011;&#x5728;&#x672C;&#x7BC0;&#x7684;&#x5E7E;&#x500B;&#x4F8B;&#x5B50;&#x4E2D;&#x90FD;&#x6703;&#x7528;&#x5230;&#x3002;&#x8B93;&#x6211;&#x5011;&#x540C;&#x6642;&#x904B;&#x884C;&#x5169;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x4F86;&#x9032;&#x884C;&#x4E00;&#x500B;&#x6E2C;&#x8A66;&#xFF0C;&#x9019;&#x91CC;&#x53EF;&#x4EE5;&#x958B;&#x5169;&#x500B;&#x7D42;&#x7AEF;&#x7A97;&#x53E3;&#xFF0C;&#x4E0B;&#x9762;&#x5DE6;&#x908A;&#x7684;&#x662F;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x500B;&#x7684;&#x8F38;&#x51FA;&#xFF0C;&#x53F3;&#x908A;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x500B;&#x7684;&#x8F38;&#x51FA;&#xFF1A;</p>
 <pre><code>$ go build gopl.io/ch8/netcat1
 $ ./netcat1
 13:58:54                               $ ./netcat1
@@ -2112,7 +2116,7 @@ $ ./netcat1
                                        ^C
 $ killall clock1
 </code></pre><p>killall&#x547D;&#x4EE4;&#x662F;&#x4E00;&#x500B;Unix&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x7D66;&#x5B9A;&#x7684;&#x9032;&#x7A0B;&#x540D;&#x4F86;&#x6BBA;&#x6389;&#x6240;&#x6709;&#x540D;&#x5B57;&#x5339;&#x914D;&#x7684;&#x9032;&#x7A0B;&#x3002;</p>
-<p>&#x7B2C;&#x4E8C;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x5FC5;&#x9B1A;&#x7B49;&#x5F85;&#x7B2C;&#x4E00;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x5B8C;&#x6210;&#x5DE5;&#x4F5C;&#xFF0C;&#x9019;&#x6A23;&#x670D;&#x52D9;&#x7AEF;&#x7E94;&#x80FD;&#x7E7C;&#x7E8C;&#x5411;&#x5F8C;&#x57F7;&#x884C;&#xFF1B;&#x56E0;&#x7232;&#x6211;&#x5011;&#x9019;&#x91CC;&#x7684;&#x670D;&#x52D9;&#x5668;&#x7A0B;&#x5E8F;&#x540C;&#x4E00;&#x6642;&#x9593;&#x96BB;&#x80FD;&#x8655;&#x7406;&#x4E00;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x9023;&#x63A5;&#x3002;&#x6211;&#x5011;&#x9019;&#x91CC;&#x5C0D;&#x670D;&#x52D9;&#x7AEF;&#x7A0B;&#x5E8F;&#x505A;&#x4E00;&#x9EDE;&#x5C0F;&#x6539;&#x52D5;&#xFF0C;&#x4F7F;&#x5176;&#x652F;&#x6301;&#x4F75;&#x767C;&#xFF1A;&#x5728;handleConn&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x7684;&#x5730;&#x65B9;&#x589E;&#x52A0;go&#x95DC;&#x9375;&#x5B57;&#xFF0C;&#x8B93;&#x6BCF;&#x4E00;&#x6B21;handleConn&#x7684;&#x8ABF;&#x7528;&#x90FD;&#x9032;&#x5165;&#x4E00;&#x500B;&#x7368;&#x7ACB;&#x7684;goroutine&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x5FC5;&#x9B1A;&#x7B49;&#x5F85;&#x7B2C;&#x4E00;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x5B8C;&#x6210;&#x5DE5;&#x4F5C;&#xFF0C;&#x9019;&#x6A23;&#x670D;&#x52D9;&#x7AEF;&#x624D;&#x80FD;&#x7E7C;&#x7E8C;&#x5411;&#x5F8C;&#x57F7;&#x884C;&#xFF1B;&#x56E0;&#x7232;&#x6211;&#x5011;&#x9019;&#x91CC;&#x7684;&#x670D;&#x52D9;&#x5668;&#x7A0B;&#x5E8F;&#x540C;&#x4E00;&#x6642;&#x9593;&#x96BB;&#x80FD;&#x8655;&#x7406;&#x4E00;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x9023;&#x63A5;&#x3002;&#x6211;&#x5011;&#x9019;&#x91CC;&#x5C0D;&#x670D;&#x52D9;&#x7AEF;&#x7A0B;&#x5E8F;&#x505A;&#x4E00;&#x9EDE;&#x5C0F;&#x6539;&#x52D5;&#xFF0C;&#x4F7F;&#x5176;&#x652F;&#x6301;&#x4F75;&#x767C;&#xFF1A;&#x5728;handleConn&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x7684;&#x5730;&#x65B9;&#x589E;&#x52A0;go&#x95DC;&#x9375;&#x5B57;&#xFF0C;&#x8B93;&#x6BCF;&#x4E00;&#x6B21;handleConn&#x7684;&#x8ABF;&#x7528;&#x90FD;&#x9032;&#x5165;&#x4E00;&#x500B;&#x7368;&#x7ACB;&#x7684;goroutine&#x3002;</p>
 <pre><code class="lang-go">gopl.io/ch8/clock2
 <span class="hljs-keyword">for</span> {
     conn, err := listener.Accept()
@@ -2139,12 +2143,12 @@ $ ./netcat1
 ^C                                     14:03:02
                                        ^C
 $ killall clock2
-</code></pre><p>&#x7DF4;&#x7FD2;8.1: &#x8129;&#x6539;clock2&#x4F86;&#x652F;&#x6301;&#x50B3;&#x5165;&#x53C3;&#x6578;&#x4F5C;&#x7232;&#x7AEF;&#x53E3;&#x865F;&#xFF0C;&#x7136;&#x5F8C;&#x5BEB;&#x4E00;&#x500B;clockwall&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x540C;&#x6642;&#x8207;&#x591A;&#x500B;clock&#x670D;&#x52D9;&#x5668;&#x901A;&#x4FE1;&#xFF0C;&#x5F9E;&#x591A;&#x670D;&#x52D9;&#x5668;&#x4E2D;&#x8B80;&#x53D6;&#x6642;&#x9593;&#xFF0C;&#x4F75;&#x4E14;&#x5728;&#x4E00;&#x500B;&#x8868;&#x683C;&#x4E2D;&#x4E00;&#x6B21;&#x986F;&#x793A;&#x6240;&#x6709;&#x670D;&#x52D9;&#x50B3;&#x8FF4;&#x7684;&#x7D50;&#x679C;&#xFF0C;&#x985E;&#x4F3C;&#x65BC;&#x4F60;&#x5728;&#x67D0;&#x4E9B;&#x8FA6;&#x516C;&#x5BA4;&#x91CC;&#x770B;&#x5230;&#x7684;&#x6642;&#x9418;&#x7246;&#x3002;&#x5982;&#x679C;&#x4F60;&#x6709;&#x5730;&#x7406;&#x5B78;&#x4E0A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x670D;&#x52D9;&#x5668;&#x53EF;&#x4EE5;&#x7528;&#x7684;&#x8A71;&#xFF0C;&#x8B93;&#x9019;&#x4E9B;&#x670D;&#x52D9;&#x5668;&#x8DD1;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6A5F;&#x5668;&#x4E0A;&#x9762;&#xFF1B;&#x6216;&#x8005;&#x5728;&#x540C;&#x4E00;&#x98B1;&#x6A5F;&#x5668;&#x4E0A;&#x8DD1;&#x591A;&#x500B;&#x4E0D;&#x540C;&#x7684;&#x5BE6;&#x4F8B;&#xFF0C;&#x9019;&#x4E9B;&#x5BE6;&#x4F8B;&#x76E3;&#x807D;&#x4E0D;&#x540C;&#x7684;&#x7AEF;&#x53E3;&#xFF0C;&#x5047;&#x88DD;&#x81EA;&#x5DF1;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6642;&#x5340;&#x3002;&#x50CF;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#xFF1A;</p>
+</code></pre><p>&#x7DF4;&#x7FD2;8.1: &#x8129;&#x6539;clock2&#x4F86;&#x652F;&#x6301;&#x50B3;&#x5165;&#x53C3;&#x6578;&#x4F5C;&#x7232;&#x7AEF;&#x53E3;&#x865F;&#xFF0C;&#x7136;&#x5F8C;&#x5BEB;&#x4E00;&#x500B;clockwall&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x540C;&#x6642;&#x8207;&#x591A;&#x500B;clock&#x670D;&#x52D9;&#x5668;&#x901A;&#x4FE1;&#xFF0C;&#x5F9E;&#x591A;&#x670D;&#x52D9;&#x5668;&#x4E2D;&#x8B80;&#x53D6;&#x6642;&#x9593;&#xFF0C;&#x4F75;&#x4E14;&#x5728;&#x4E00;&#x500B;&#x8868;&#x683C;&#x4E2D;&#x4E00;&#x6B21;&#x986F;&#x793A;&#x6240;&#x6709;&#x670D;&#x52D9;&#x50B3;&#x8FF4;&#x7684;&#x7D50;&#x679C;&#xFF0C;&#x985E;&#x4F3C;&#x65BC;&#x4F60;&#x5728;&#x67D0;&#x4E9B;&#x8FA6;&#x516C;&#x5BA4;&#x91CC;&#x770B;&#x5230;&#x7684;&#x6642;&#x9418;&#x7246;&#x3002;&#x5982;&#x679C;&#x4F60;&#x6709;&#x5730;&#x7406;&#x5B78;&#x4E0A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x670D;&#x52D9;&#x5668;&#x53EF;&#x4EE5;&#x7528;&#x7684;&#x8A71;&#xFF0C;&#x8B93;&#x9019;&#x4E9B;&#x670D;&#x52D9;&#x5668;&#x8DD1;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6A5F;&#x5668;&#x4E0A;&#x9762;&#xFF1B;&#x6216;&#x8005;&#x5728;&#x540C;&#x4E00;&#x53F0;&#x6A5F;&#x5668;&#x4E0A;&#x8DD1;&#x591A;&#x500B;&#x4E0D;&#x540C;&#x7684;&#x5BE6;&#x4F8B;&#xFF0C;&#x9019;&#x4E9B;&#x5BE6;&#x4F8B;&#x76E3;&#x807D;&#x4E0D;&#x540C;&#x7684;&#x7AEF;&#x53E3;&#xFF0C;&#x5047;&#x88DD;&#x81EA;&#x5DF1;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6642;&#x5340;&#x3002;&#x50CF;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#xFF1A;</p>
 <pre><code>$ TZ=US/Eastern    ./clock2 -port 8010 &amp;
 $ TZ=Asia/Tokyo    ./clock2 -port 8020 &amp;
 $ TZ=Europe/London ./clock2 -port 8030 &amp;
 $ clockwall NewYork=localhost:8010 London=localhost:8020 Tokyo=localhost:8030
-</code></pre><p>&#x7DF4;&#x7FD2;8.2: &#x5BE6;&#x73FE;&#x4E00;&#x500B;&#x4F75;&#x767C;FTP&#x670D;&#x52D9;&#x5668;&#x3002;&#x670D;&#x52D9;&#x5668;&#x61C9;&#x8A72;&#x89E3;&#x6790;&#x5BA2;&#x6236;&#x7AEF;&#x4F86;&#x7684;&#x4E00;&#x4E9B;&#x547D;&#x4EE4;&#xFF0C;&#x6BD4;&#x5982;cd&#x547D;&#x4EE4;&#x4F86;&#x5207;&#x63DB;&#x76EE;&#x9332;&#xFF0C;ls&#x4F86;&#x5217;&#x9F63;&#x76EE;&#x9332;&#x5167;&#x6587;&#x4EF6;&#xFF0C;get&#x548C;send&#x4F86;&#x50B3;&#x8F38;&#x6587;&#x4EF6;&#xFF0C;close&#x4F86;&#x95DC;&#x9589;&#x9023;&#x63A5;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x6A19;&#x6E96;&#x7684;ftp&#x547D;&#x4EE4;&#x4F86;&#x4F5C;&#x7232;&#x5BA2;&#x6236;&#x7AEF;&#xFF0C;&#x6216;&#x8005;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5BE6;&#x73FE;&#x4E00;&#x500B;&#x3002;</p>
+</code></pre><p>&#x7DF4;&#x7FD2;8.2: &#x5BE6;&#x73FE;&#x4E00;&#x500B;&#x4F75;&#x767C;FTP&#x670D;&#x52D9;&#x5668;&#x3002;&#x670D;&#x52D9;&#x5668;&#x61C9;&#x8A72;&#x89E3;&#x6790;&#x5BA2;&#x6236;&#x7AEF;&#x4F86;&#x7684;&#x4E00;&#x4E9B;&#x547D;&#x4EE4;&#xFF0C;&#x6BD4;&#x5982;cd&#x547D;&#x4EE4;&#x4F86;&#x5207;&#x63DB;&#x76EE;&#x9332;&#xFF0C;ls&#x4F86;&#x5217;&#x51FA;&#x76EE;&#x9332;&#x5167;&#x6587;&#x4EF6;&#xFF0C;get&#x548C;send&#x4F86;&#x50B3;&#x8F38;&#x6587;&#x4EF6;&#xFF0C;close&#x4F86;&#x95DC;&#x9589;&#x9023;&#x63A5;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x6A19;&#x6E96;&#x7684;ftp&#x547D;&#x4EE4;&#x4F86;&#x4F5C;&#x7232;&#x5BA2;&#x6236;&#x7AEF;&#xFF0C;&#x6216;&#x8005;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5BE6;&#x73FE;&#x4E00;&#x500B;&#x3002;</p>
 
                     
                     </section>
@@ -2176,7 +2180,7 @@ $ clockwall NewYork=localhost:8010 London=localhost:8020 Tokyo=localhost:8030
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

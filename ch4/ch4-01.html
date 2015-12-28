@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="4.1" data-chapter-title="數組" data-filepath="ch4/ch4-01.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="4.1" data-chapter-title="數組" data-filepath="ch4/ch4-01.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2020,7 +2024,94 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="41-&#x6578;&#x7D44;">4.1. &#x6578;&#x7D44;</h2>
-<p>TODO</p>
+<p>&#x6578;&#x7D44;&#x662F;&#x4E00;&#x500B;&#x56FA;&#x5B9A;&#x9577;&#x5EA6;&#x7684;&#x7279;&#x5B9A;&#x985E;&#x578B;&#x5143;&#x7D20;&#x7D44;&#x6210;&#x7684;&#x5E8F;&#x5217;&#xFF0C;&#x6709;&#x96F6;&#x500B;&#x6216;&#x591A;&#x500B;&#x5143;&#x7D20;&#x3002;&#x56E0;&#x7232;&#x6578;&#x7D44;&#x7684;&#x9577;&#x5EA6;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5728;Go&#x8A9E;&#x8A00;&#x4E2D;&#x5F88;&#x5C11;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x6578;&#x7D44;&#x3002;Slice&#xFF08;&#x5207;&#x7247;&#xFF09;&#xFF0C;&#x662F;&#x53EF;&#x4EE5;&#x589E;&#x9577;&#x548C;&#x6536;&#x7E2E;&#x52D5;&#x614B;&#x5E8F;&#x5217;&#xFF0C;slice&#x529F;&#x80FD;&#x4E5F;&#x66F4;&#x9748;&#x6D3B;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x7406;&#x89E3;slice&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x7684;&#x8A71;&#x9700;&#x8981;&#x5148;&#x7406;&#x89E3;&#x6578;&#x7D44;&#x3002;</p>
+<p>&#x6578;&#x7D44;&#x7684;&#x6BCF;&#x500B;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x4E0B;&#x6A19;&#x4F86;&#x8A2A;&#x554F;&#xFF0C;&#x4E0B;&#x6A19;&#x7684;&#x8303;&#x570D;&#x662F;&#x5F9E;0&#x958B;&#x59CB;&#x5230;&#x6578;&#x7D44;&#x9577;&#x5EA6;&#x6E1B;1&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x5167;&#x7F6E;&#x7684;len&#x51FD;&#x6578;&#x5C07;&#x8FD4;&#x8FF4;&#x6578;&#x7D44;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x500B;&#x6578;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> a [<span class="hljs-number">3</span>]<span class="hljs-typename">int</span>             <span class="hljs-comment">// array of 3 integers</span>
+fmt.Println(a[<span class="hljs-number">0</span>])        <span class="hljs-comment">// print the first element</span>
+fmt.Println(a[<span class="hljs-built_in">len</span>(a)-<span class="hljs-number">1</span>]) <span class="hljs-comment">// print the last element, a[2]</span>
+
+<span class="hljs-comment">// Print the indices and elements.</span>
+<span class="hljs-keyword">for</span> i, v := <span class="hljs-keyword">range</span> a {
+    fmt.Printf(<span class="hljs-string">&quot;%d %d\n&quot;</span>, i, v)
+}
+
+<span class="hljs-comment">// Print the elements only.</span>
+<span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> a {
+    fmt.Printf(<span class="hljs-string">&quot;%d\n&quot;</span>, v)
+}
+</code></pre>
+<p>&#x9ED8;&#x8A8D;&#x60C5;&#x6CC1;&#x4E0B;&#xFF0C;&#x6578;&#x7D44;&#x7684;&#x6BCF;&#x500B;&#x5143;&#x7D20;&#x90FD;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x7232;&#x5143;&#x7D20;&#x985E;&#x578B;&#x5C0D;&#x61C9;&#x7684;&#x96F6;&#x503C;&#xFF0C;&#x5C0D;&#x65BC;&#x6578;&#x5B57;&#x985E;&#x578B;&#x4F86;&#x8AAC;&#x5C31;&#x662F;0&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6578;&#x7D44;&#x5B57;&#x9762;&#x503C;&#x8A9E;&#x6CD5;&#x7528;&#x4E00;&#x7D44;&#x503C;&#x4F86;&#x521D;&#x59CB;&#x5316;&#x6578;&#x7D44;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> q [<span class="hljs-number">3</span>]<span class="hljs-typename">int</span> = [<span class="hljs-number">3</span>]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+<span class="hljs-keyword">var</span> r [<span class="hljs-number">3</span>]<span class="hljs-typename">int</span> = [<span class="hljs-number">3</span>]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+fmt.Println(r[<span class="hljs-number">2</span>]) <span class="hljs-comment">// &quot;0&quot;</span>
+</code></pre>
+<p>&#x5728;&#x6578;&#x7D44;&#x5B57;&#x9762;&#x503C;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6578;&#x7D44;&#x7684;&#x9577;&#x5EA6;&#x4F4D;&#x7F6E;&#x51FA;&#x73FE;&#x7684;&#x662F;&#x201C;...&#x201D;&#x7701;&#x7565;&#x865F;&#xFF0C;&#x5247;&#x8868;&#x793A;&#x6578;&#x7D44;&#x7684;&#x9577;&#x5EA6;&#x662F;&#x6839;&#x64DA;&#x521D;&#x59CB;&#x5316;&#x503C;&#x7684;&#x500B;&#x6578;&#x4F86;&#x8A08;&#x7B97;&#x7684;&#x3002;&#x4E0A;&#x9762;q&#x6578;&#x7D44;&#x7684;&#x5B9A;&#x7FA9;&#x53EF;&#x4EE5;&#x7C21;&#x5316;&#x7232;</p>
+<pre><code class="lang-Go">q := [...]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+fmt.Printf(<span class="hljs-string">&quot;%T\n&quot;</span>, q) <span class="hljs-comment">// &quot;[3]int&quot;</span>
+</code></pre>
+<p>&#x6578;&#x7D44;&#x7684;&#x9577;&#x5EA6;&#x662F;&#x6578;&#x7D44;&#x985E;&#x578B;&#x7684;&#x4E00;&#x500B;&#x7D44;&#x6210;&#x90E8;&#x5206;&#xFF0C;&#x56E0;&#x6B64;[3]int&#x548C;[4]int&#x662F;&#x5169;&#x7A2E;&#x4E0D;&#x540C;&#x7684;&#x6578;&#x7D44;&#x985E;&#x578B;&#x3002;&#x6578;&#x7D44;&#x7684;&#x9577;&#x5EA6;&#x5FC5;&#x9B1A;&#x662F;&#x5E38;&#x91CF;&#x8868;&#x9054;&#x5F0F;&#xFF0C;&#x56E0;&#x7232;&#x6578;&#x7D44;&#x7684;&#x9577;&#x5EA6;&#x9700;&#x8981;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x7DE8;&#x8B6F;&#x968E;&#x6BB5;&#x78BA;&#x5B9A;&#x3002;</p>
+<pre><code class="lang-Go">q := [<span class="hljs-number">3</span>]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+q = [<span class="hljs-number">4</span>]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>} <span class="hljs-comment">// compile error: cannot assign [4]int to [3]int</span>
+</code></pre>
+<p>&#x6211;&#x5011;&#x5C07;&#x6703;&#x767C;&#x73FE;&#xFF0C;&#x6578;&#x7D44;&#x3001;slice&#x3001;map&#x548C;&#x7D50;&#x69CB;&#x9AD4;&#x5B57;&#x9762;&#x503C;&#x7684;&#x5BEB;&#x6CD5;&#x90FD;&#x5F88;&#x76F8;&#x4F3C;&#x3002;&#x4E0A;&#x9762;&#x7684;&#x5F62;&#x5F0F;&#x662F;&#x76F4;&#x63A5;&#x63D0;&#x9806;&#x5E8F;&#x4F9B;&#x521D;&#x59CB;&#x5316;&#x503C;&#x5E8F;&#x5217;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x500B;&#x7D22;&#x5F15;&#x548C;&#x5C0D;&#x61C9;&#x503C;&#x7684;&#x5217;&#x8868;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x50CF;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> Currency <span class="hljs-typename">int</span>
+
+<span class="hljs-keyword">const</span> (
+    USD Currency = <span class="hljs-constant">iota</span> <span class="hljs-comment">// &#x7F8E;&#x5143;</span>
+    EUR                 <span class="hljs-comment">// &#x6B50;&#x5143;</span>
+    GBP                 <span class="hljs-comment">// &#x82F1;&#x938A;</span>
+    RMB                 <span class="hljs-comment">// &#x4EBA;&#x6C11;&#x5E63;</span>
+)
+
+symbol := [...]<span class="hljs-typename">string</span>{USD: <span class="hljs-string">&quot;$&quot;</span>, EUR: <span class="hljs-string">&quot;&#x20AC;&quot;</span>, GBP: <span class="hljs-string">&quot;&#xFFE1;&quot;</span>, RMB: <span class="hljs-string">&quot;&#xFFE5;&quot;</span>}
+
+fmt.Println(RMB, symbol[RMB]) <span class="hljs-comment">// &quot;3 &quot;&quot;</span>
+</code></pre>
+<p>&#x9019;&#x7A2E;&#x5F62;&#x5F0F;&#x7684;&#x6578;&#x7D44;&#x5B57;&#x9762;&#x503C;&#x5F62;&#x5F0F;&#x4E2D;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x7D22;&#x5F15;&#x7684;&#x9806;&#x5E8F;&#x662F;&#x7121;&#x95DC;&#x7DCA;&#x8981;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x4E00;&#x4E9B;&#x7D22;&#x5F15;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#xFF0C;&#x548C;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;&#x898F;&#x5247;&#x4E00;&#x6A23;&#xFF0C;&#x672A;&#x77E5;&#x9053;&#x521D;&#x59CB;&#x503C;&#x7684;&#x5143;&#x7D20;&#x5C07;&#x7528;&#x96F6;&#x503C;&#x521D;&#x59CB;&#x5316;&#x3002;&#x4F8B;&#x5982;&#xFF0C;</p>
+<pre><code class="lang-Go">r := [...]<span class="hljs-typename">int</span>{<span class="hljs-number">99</span>: -<span class="hljs-number">1</span>}
+</code></pre>
+<p>&#x5B9A;&#x7FA9;&#x4E86;&#x4E00;&#x500B;&#x542B;&#x6709;100&#x500B;&#x539F;&#x59CB;&#x7684;&#x6578;&#x7D44;r&#xFF0C;&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x521D;&#x59CB;&#x5316;&#x7232;-1&#xFF0C;&#x5176;&#x5B83;&#x5143;&#x7D20;&#x90FD;&#x662F;&#x7528;0&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E00;&#x500B;&#x6578;&#x7D44;&#x7684;&#x5143;&#x7D20;&#x985E;&#x578B;&#x662F;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x6BD4;&#x8F03;&#x7684;&#xFF0C;&#x90A3;&#x9EBD;&#x6578;&#x7D44;&#x985E;&#x578B;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x6BD4;&#x8F03;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x904E;==&#x6BD4;&#x8F03;&#x904B;&#x7B97;&#x7B26;&#x4F86;&#x6BD4;&#x8F03;&#x5169;&#x500B;&#x6578;&#x7D44;&#xFF0C;&#x96BB;&#x6709;&#x7576;&#x5169;&#x500B;&#x6578;&#x7D44;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x90FD;&#x662F;&#x76F8;&#x7B49;&#x7684;&#x6642;&#x5019;&#x6578;&#x7D44;&#x624D;&#x662F;&#x76F8;&#x7B49;&#x7684;&#x3002;&#x76F8;&#x5C0D;&#x7684;&#x662F;&#x4E0D;&#x76F8;&#x7B49;&#x6BD4;&#x8F03;&#x904B;&#x7B97;&#x7B26;!=&#x3002;</p>
+<pre><code class="lang-Go">a := [<span class="hljs-number">2</span>]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+b := [...]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+c := [<span class="hljs-number">2</span>]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">3</span>}
+fmt.Println(a == b, a == c, b == c) <span class="hljs-comment">// &quot;true false false&quot;</span>
+d := [<span class="hljs-number">3</span>]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+fmt.Println(a == d) <span class="hljs-comment">// compile error: cannot compare [2]int == [3]int</span>
+</code></pre>
+<p>&#x4F5C;&#x7232;&#x4E00;&#x500B;&#x66F4;&#x53EF;&#x4FE1;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;crypto/sha256&#x5305;&#x7684;Sum256&#x51FD;&#x6578;&#x7528;&#x65BC;&#x751F;&#x6210;&#x4E00;&#x500B;&#x91DD;&#x5C0D;&#x4EFB;&#x610F;&#x7684;&#x5B57;&#x7BC0;&#x985E;&#x578B;&#x7684;slice&#x6D88;&#x606F;&#x7684;&#x6458;&#x8981;&#x3002;&#x6D88;&#x606F;&#x6458;&#x8981;&#x6709;256bit&#x5927;&#x5C0F;&#xFF0C;&#x56E0;&#x6B64;&#x5C0D;&#x61C9;[32]byte&#x6578;&#x7D44;&#x985E;&#x578B;&#x3002;&#x5982;&#x679C;&#x5169;&#x500B;&#x6D88;&#x606F;&#x6458;&#x8981;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x90A3;&#x9EBD;&#x53EF;&#x4EE5;&#x8A8D;&#x7232;&#x5169;&#x500B;&#x6D88;&#x606F;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x76F8;&#x540C;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x7406;&#x8AD6;&#x4E0A;&#x6709;HASH&#x78BC;&#x78B0;&#x649E;&#x7684;&#x6E05;&#x7A7A;&#xFF0C;&#x4F46;&#x662F;&#x5BE6;&#x969B;&#x61C9;&#x7528;&#x53EF;&#x4EE5;&#x57FA;&#x672C;&#x5FFD;&#x7565;&#xFF09;&#xFF1B;&#x5982;&#x679C;&#x6D88;&#x606F;&#x6458;&#x8981;&#x4E0D;&#x540C;&#xFF0C;&#x90A3;&#x9EBD;&#x6D88;&#x606F;&#x672C;&#x8EAB;&#x6BD4;&#x5982;&#x4E5F;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x7528;SHA256&#x7B97;&#x6CD5;&#x5206;&#x522B;&#x751F;&#x6210;&#x201C;x&#x201D;&#x548C;&#x201C;X&#x201D;&#x5169;&#x500B;&#x4FE1;&#x606F;&#x7684;&#x6458;&#x8981;&#xFF1A;</p>
+<pre><code class="lang-Go">gopl.io/ch4/sha256
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;crypto/sha256&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    c1 := sha256.Sum256([]<span class="hljs-typename">byte</span>(<span class="hljs-string">&quot;x&quot;</span>))
+    c2 := sha256.Sum256([]<span class="hljs-typename">byte</span>(<span class="hljs-string">&quot;X&quot;</span>))
+    fmt.Printf(<span class="hljs-string">&quot;%x\n%x\n%t\n%T\n&quot;</span>, c1, c2, c1 == c2, c1)
+    <span class="hljs-comment">// Output:</span>
+    <span class="hljs-comment">// 2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881</span>
+    <span class="hljs-comment">// 4b68ab3847feda7d6c62c1fbcbeebfa35eab7351ed5e78f4ddadea5df64b8015</span>
+    <span class="hljs-comment">// false</span>
+    <span class="hljs-comment">// [32]uint8</span>
+}
+</code></pre>
+<p>&#x5169;&#x500B;&#x6D88;&#x606F;&#x96D6;&#x7136;&#x96BB;&#x6709;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x7684;&#x5DEE;&#x7570;&#xFF0C;&#x4F46;&#x662F;&#x751F;&#x6210;&#x7684;&#x6D88;&#x606F;&#x6458;&#x8981;&#x5247;&#x5E7E;&#x4E4E;&#x6709;&#x4E00;&#x534A;&#x7684;bit&#x4F4D;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x9700;&#x8981;&#x8A3B;&#x610F;Printf&#x51FD;&#x6578;&#x7684;%x&#x53C3;&#x6578;&#xFF0C;&#x5B83;&#x7528;&#x65BC;&#x6307;&#x5B9A;&#x4EE5;&#x5341;&#x516D;&#x9032;&#x88FD;&#x7684;&#x683C;&#x5F0F;&#x6253;&#x5370;&#x5168;&#x90E8;&#x7684;&#x6578;&#x7D44;&#x6216;slice&#x7684;&#x7684;&#x5143;&#x7D20;&#xFF0C;%t&#x53C3;&#x6578;&#x662F;&#x7528;&#x65BC;&#x6253;&#x5370;&#x5E03;&#x723E;&#x578B;&#x6578;&#x64DA;&#xFF0C;%T&#x53C3;&#x6578;&#x662F;&#x7528;&#x65BC;&#x986F;&#x793A;&#x4E00;&#x500B;&#x503C;&#x5C0D;&#x61C9;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;&#x3002;</p>
+<p>&#x7576;&#x8ABF;&#x7528;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x51FD;&#x6578;&#x7684;&#x6BCF;&#x500B;&#x8ABF;&#x7528;&#x53C3;&#x6578;&#x5C07;&#x6703;&#x88AB;&#x8CE6;&#x503C;&#x7D66;&#x51FD;&#x6578;&#x672C;&#x8EAB;&#x7684;&#x53C3;&#x6578;&#x8B8A;&#x91CF;&#xFF0C;&#x6240;&#x4EE5;&#x51FD;&#x6578;&#x53C3;&#x6578;&#x8B8A;&#x91CF;&#x63A5;&#x6536;&#x7684;&#x662F;&#x4E00;&#x500B;&#x8907;&#x88FD;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x4F75;&#x4E0D;&#x662F;&#x539F;&#x59CB;&#x8ABF;&#x7528;&#x7684;&#x53C3;&#x6578;&#x3002;&#x56E0;&#x7232;&#x51FD;&#x6578;&#x53C3;&#x6578;&#x50B3;&#x905E;&#x7684;&#x6A5F;&#x88FD;&#x5C0E;&#x81F4;&#x50B3;&#x905E;&#x5927;&#x7684;&#x6578;&#x7D44;&#x985E;&#x578B;&#x5C07;&#x662F;&#x4F4E;&#x6548;&#x7684;&#xFF0C;&#x4F75;&#x4E14;&#x5C0D;&#x6578;&#x7D44;&#x53C3;&#x6578;&#x7684;&#x4EFB;&#x4F55;&#x7684;&#x8129;&#x6539;&#x90FD;&#x662F;&#x767C;&#x751F;&#x5728;&#x8907;&#x88FD;&#x7684;&#x6578;&#x7D44;&#x4E0A;&#xFF0C;&#x4F75;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x8129;&#x6539;&#x8ABF;&#x7528;&#x6642;&#x539F;&#x59CB;&#x7684;&#x6578;&#x7D44;&#x8B8A;&#x91CF;&#x3002;&#x5728;&#x9019;&#x500B;&#x65B9;&#x9762;&#xFF0C;Go&#x8A9E;&#x8A00;&#x5C0D;&#x5F85;&#x6578;&#x7D44;&#x7684;&#x65B9;&#x5F0F;&#x548C;&#x5176;&#x5B83;&#x5F88;&#x591A;&#x7DE8;&#x7A0B;&#x8A9E;&#x8A00;&#x4E0D;&#x540C;&#xFF0C;&#x5176;&#x5B83;&#x7DE8;&#x7A0B;&#x8A9E;&#x8A00;&#x53EF;&#x80FD;&#x6703;&#x96B1;&#x5F0F;&#x5730;&#x5C07;&#x6578;&#x7D44;&#x4F5C;&#x7232;&#x5F15;&#x7528;&#x6216;&#x6307;&#x91DD;&#x5C0D;&#x8C61;&#x50B3;&#x5165;&#x88AB;&#x8ABF;&#x7528;&#x7684;&#x51FD;&#x6578;&#x3002;</p>
+<p>&#x7576;&#x7136;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x986F;&#x5F0F;&#x5730;&#x50B3;&#x5165;&#x4E00;&#x500B;&#x6578;&#x7D44;&#x6307;&#x91DD;&#xFF0C;&#x90A3;&#x6A23;&#x7684;&#x8A71;&#x51FD;&#x6578;&#x5C0D;&#x6578;&#x7D44;&#x7684;&#x4EFB;&#x4F55;&#x8129;&#x6539;&#x90FD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x53CD;&#x994B;&#x5230;&#x8ABF;&#x7528;&#x8005;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6578;&#x7528;&#x65BC;&#x7D66;[32]byte&#x985E;&#x578B;&#x7684;&#x6578;&#x7D44;&#x6E05;&#x96F6;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> zero(ptr *[<span class="hljs-number">32</span>]<span class="hljs-typename">byte</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> ptr {
+        ptr[i] = <span class="hljs-number">0</span>
+    }
+}
+</code></pre>
+<p>&#x5176;&#x5BE6;&#x6578;&#x7D44;&#x5B57;&#x9762;&#x503C;[32]byte{}&#x5C31;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x4E00;&#x500B;32&#x5B57;&#x7BC0;&#x7684;&#x6578;&#x7D44;&#x3002;&#x800C;&#x4E14;&#x6BCF;&#x500B;&#x6578;&#x7D44;&#x7684;&#x5143;&#x7D20;&#x90FD;&#x662F;&#x96F6;&#x503C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;0&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5C07;&#x4E0A;&#x9762;&#x7684;zero&#x51FD;&#x6578;&#x5BEB;&#x7684;&#x66F4;&#x7C21;&#x6F54;&#x4E00;&#x9EDE;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> zero(ptr *[<span class="hljs-number">32</span>]<span class="hljs-typename">byte</span>) {
+    *ptr = [<span class="hljs-number">32</span>]<span class="hljs-typename">byte</span>{}
+}
+</code></pre>
+<p>&#x96D6;&#x7136;&#x901A;&#x904E;&#x6307;&#x91DD;&#x4F86;&#x50B3;&#x905E;&#x6578;&#x7D44;&#x53C3;&#x6578;&#x662F;&#x9AD8;&#x6548;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x4E5F;&#x5141;&#x8A31;&#x5728;&#x51FD;&#x6578;&#x5167;&#x90E8;&#x8129;&#x6539;&#x6578;&#x7D44;&#x7684;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x7232;&#x6578;&#x7D44;&#x4F9D;&#x7136;&#x662F;&#x6BAD;&#x5316;&#x7684;&#x985E;&#x578B;&#xFF0C;&#x56E0;&#x7232;&#x6578;&#x7D44;&#x7684;&#x985E;&#x578B;&#x5305;&#x542B;&#x9577;&#x5EA6;&#x4FE1;&#x606F;&#x3002;zero&#x51FD;&#x6578;&#x4F75;&#x4E0D;&#x80FD;&#x63A5;&#x6536;&#x6307;&#x5411;[16]byte&#x985E;&#x578B;&#x6578;&#x7D44;&#x7684;&#x6307;&#x91DD;&#xFF0C;&#x800C;&#x4E14;&#x4E5F;&#x6C92;&#x6709;&#x4EFB;&#x4F55;&#x6DFB;&#x52A0;&#x6216;&#x522A;&#x9664;&#x6578;&#x7D44;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x7531;&#x65BC;&#x9019;&#x4E9B;&#x539F;&#x56E0;&#xFF0C;&#x9664;&#x4E86;&#x50CF;SHA256&#x9019;&#x985E;&#x9700;&#x8981;&#x8655;&#x7406;&#x7279;&#x5B9A;&#x5927;&#x5C0F;&#x6578;&#x7D44;&#x7684;&#x51FD;&#x6578;&#x5916;&#xFF0C;&#x6578;&#x7D44;&#x4F9D;&#x7136;&#x5F88;&#x5C11;&#x7528;&#x4F5C;&#x51FD;&#x6578;&#x53C3;&#x6578;&#xFF1B;&#x76F8;&#x53CD;&#xFF0C;&#x6211;&#x5011;&#x4E00;&#x822C;&#x4F7F;&#x7528;slice&#x4F86;&#x66FF;&#x4EE3;&#x6578;&#x7D44;&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 4.1&#xFF1A;</strong> &#x7DE8;&#x5BEB;&#x4E00;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x8A08;&#x7B97;&#x5169;&#x500B;SHA256&#x78BC;&#x4E2D;&#x4E0D;&#x540C;bit&#x7684;&#x6578;&#x76EE;&#x3002;&#xFF08;&#x53C3;&#x8003;2.6.2&#x7BC0;&#x7684;PopCount&#x51FD;&#x6578;&#x3002;)</p>
+<p><strong>&#x7DF4;&#x7FD2; 4.2&#xFF1A;</strong> &#x7DE8;&#x5BEB;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#xFF0C;&#x9ED8;&#x8A8D;&#x6253;&#x5370;&#x6A19;&#x6E96;&#x8F38;&#x5165;&#x7684;&#x4EE5;SHA256&#x54C8;&#x5E0C;&#x78BC;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x547D;&#x4EE4;&#x884C;&#x6A19;&#x6E96;&#x53C3;&#x6578;&#x9078;&#x64C7;SHA384&#x6216;SHA512&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;&#x3002;</p>
 
                     
                     </section>
@@ -2052,7 +2143,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

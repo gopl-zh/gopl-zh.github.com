@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="8.1" data-chapter-title="Goroutines" data-filepath="ch8/ch8-01.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="8.1" data-chapter-title="Goroutines" data-filepath="ch8/ch8-01.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2020,8 +2024,8 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="81-goroutines">8.1. Goroutines</h2>
-<p>&#x5728;Go&#x8A9E;&#x8A00;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E00;&#x500B;&#x4F75;&#x767C;&#x7684;&#x57F7;&#x884C;&#x55AE;&#x5143;&#x53EB;&#x4F5C;&#x4E00;&#x500B;goroutine&#x3002;&#x8A2D;&#x60F3;&#x9019;&#x91CC;&#x6709;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#x6709;&#x5169;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x505A;&#x4E00;&#x4E9B;&#x8A08;&#x7B97;&#xFF0C;&#x53E6;&#x4E00;&#x500B;&#x8F38;&#x9F63;&#x4E00;&#x4E9B;&#x7D50;&#x679C;&#xFF0C;&#x5047;&#x8A2D;&#x5169;&#x500B;&#x51FD;&#x6578;&#x6C92;&#x6709;&#x76F8;&#x4E92;&#x4E4B;&#x9593;&#x7684;&#x8ABF;&#x7528;&#x95DC;&#x7E6B;&#x3002;&#x4E00;&#x500B;&#x7DDA;&#x6027;&#x7684;&#x7A0B;&#x5E8F;&#x6703;&#x5148;&#x8ABF;&#x7528;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x7136;&#x5F8C;&#x518D;&#x8ABF;&#x7528;&#x4F86;&#x4E00;&#x500B;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x662F;&#x5728;&#x6709;&#x5169;&#x500B;&#x751A;&#x81F3;&#x66F4;&#x591A;&#x500B;goroutine&#x7684;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x5C0D;&#x5169;&#x500B;&#x51FD;&#x6578;&#x7684;&#x8ABF;&#x7528;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x540C;&#x4E00;&#x6642;&#x9593;&#x3002;&#x6211;&#x5011;&#x99AC;&#x4E0A;&#x5C31;&#x6703;&#x770B;&#x5230;&#x9019;&#x6A23;&#x7684;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#x3002;</p>
-<p>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x904E;&#x64CD;&#x4F5C;&#x7E6B;&#x7D71;&#x6216;&#x8005;&#x5176;&#x5B83;&#x8A9E;&#x8A00;&#x63D0;&#x4F9B;&#x7684;&#x7DDA;&#x7A0B;&#xFF0C;&#x90A3;&#x9EBD;&#x4F60;&#x53EF;&#x4EE5;&#x7C21;&#x55AE;&#x5730;&#x628A;goroutine&#x985E;&#x6BD4;&#x4F5C;&#x4E00;&#x500B;&#x7DDA;&#x7A0B;&#xFF0C;&#x9019;&#x6A23;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x5BEB;&#x9F63;&#x4E00;&#x4E9B;&#x6B63;&#x78BA;&#x7684;&#x7A0B;&#x5E8F;&#x4E86;&#x3002;goroutine&#x548C;&#x7DDA;&#x7A0B;&#x7684;&#x672C;&#x8CEA;&#x5340;&#x522B;&#x6703;&#x5728;9.8&#x7BC0;&#x4E2D;&#x8B1B;&#x3002;</p>
+<p>&#x5728;Go&#x8A9E;&#x8A00;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E00;&#x500B;&#x4F75;&#x767C;&#x7684;&#x57F7;&#x884C;&#x55AE;&#x5143;&#x53EB;&#x4F5C;&#x4E00;&#x500B;goroutine&#x3002;&#x8A2D;&#x60F3;&#x9019;&#x91CC;&#x6709;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#x6709;&#x5169;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x505A;&#x4E00;&#x4E9B;&#x8A08;&#x7B97;&#xFF0C;&#x53E6;&#x4E00;&#x500B;&#x8F38;&#x51FA;&#x4E00;&#x4E9B;&#x7D50;&#x679C;&#xFF0C;&#x5047;&#x8A2D;&#x5169;&#x500B;&#x51FD;&#x6578;&#x6C92;&#x6709;&#x76F8;&#x4E92;&#x4E4B;&#x9593;&#x7684;&#x8ABF;&#x7528;&#x95DC;&#x7E6B;&#x3002;&#x4E00;&#x500B;&#x7DDA;&#x6027;&#x7684;&#x7A0B;&#x5E8F;&#x6703;&#x5148;&#x8ABF;&#x7528;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x7136;&#x5F8C;&#x518D;&#x8ABF;&#x7528;&#x4F86;&#x4E00;&#x500B;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x662F;&#x5728;&#x6709;&#x5169;&#x500B;&#x751A;&#x81F3;&#x66F4;&#x591A;&#x500B;goroutine&#x7684;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x5C0D;&#x5169;&#x500B;&#x51FD;&#x6578;&#x7684;&#x8ABF;&#x7528;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x540C;&#x4E00;&#x6642;&#x9593;&#x3002;&#x6211;&#x5011;&#x99AC;&#x4E0A;&#x5C31;&#x6703;&#x770B;&#x5230;&#x9019;&#x6A23;&#x7684;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x904E;&#x64CD;&#x4F5C;&#x7E6B;&#x7D71;&#x6216;&#x8005;&#x5176;&#x5B83;&#x8A9E;&#x8A00;&#x63D0;&#x4F9B;&#x7684;&#x7DDA;&#x7A0B;&#xFF0C;&#x90A3;&#x9EBD;&#x4F60;&#x53EF;&#x4EE5;&#x7C21;&#x55AE;&#x5730;&#x628A;goroutine&#x985E;&#x6BD4;&#x4F5C;&#x4E00;&#x500B;&#x7DDA;&#x7A0B;&#xFF0C;&#x9019;&#x6A23;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x5BEB;&#x51FA;&#x4E00;&#x4E9B;&#x6B63;&#x78BA;&#x7684;&#x7A0B;&#x5E8F;&#x4E86;&#x3002;goroutine&#x548C;&#x7DDA;&#x7A0B;&#x7684;&#x672C;&#x8CEA;&#x5340;&#x522B;&#x6703;&#x5728;9.8&#x7BC0;&#x4E2D;&#x8B1B;&#x3002;</p>
 <p>&#x7576;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#x555F;&#x52D5;&#x6642;&#xFF0C;&#x5176;&#x4E3B;&#x51FD;&#x6578;&#x537D;&#x5728;&#x4E00;&#x500B;&#x55AE;&#x7368;&#x7684;goroutine&#x4E2D;&#x904B;&#x884C;&#xFF0C;&#x6211;&#x5011;&#x53EB;&#x5B83;main goroutine&#x3002;&#x65B0;&#x7684;goroutine&#x6703;&#x7528;go&#x8A9E;&#x53E5;&#x4F86;&#x5275;&#x5EFA;&#x3002;&#x5728;&#x8A9E;&#x6CD5;&#x4E0A;&#xFF0C;go&#x8A9E;&#x53E5;&#x662F;&#x4E00;&#x500B;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6578;&#x6216;&#x65B9;&#x6CD5;&#x8ABF;&#x7528;&#x524D;&#x52A0;&#x4E0A;&#x95DC;&#x9375;&#x5B57;go&#x3002;go&#x8A9E;&#x53E5;&#x6703;&#x4F7F;&#x5176;&#x8A9E;&#x53E5;&#x4E2D;&#x7684;&#x51FD;&#x6578;&#x5728;&#x4E00;&#x500B;&#x65B0;&#x5275;&#x5EFA;&#x7684;goroutine&#x4E2D;&#x904B;&#x884C;&#x3002;&#x800C;go&#x8A9E;&#x53E5;&#x672C;&#x8EAB;&#x6703;&#x8FC5;&#x901F;&#x5730;&#x5B8C;&#x6210;&#x3002;</p>
 <pre><code class="lang-go">f()    <span class="hljs-comment">// call f(); wait for it to return</span>
 <span class="hljs-keyword">go</span> f() <span class="hljs-comment">// create a new goroutine that calls f(); don&apos;t wait</span>
@@ -2053,7 +2057,7 @@
 </code></pre>
 <p>&#x52D5;&#x7575;&#x986F;&#x793A;&#x4E86;&#x5E7E;&#x79D2;&#x4E4B;&#x5F8C;&#xFF0C;fib(45)&#x7684;&#x8ABF;&#x7528;&#x6210;&#x529F;&#x5730;&#x8FD4;&#x8FF4;&#xFF0C;&#x4F75;&#x4E14;&#x6253;&#x5370;&#x7D50;&#x679C;&#xFF1A;
 Fibonacci(45) = 1134903170</p>
-<p>&#x7136;&#x5F8C;&#x4E3B;&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x3002;&#x7576;&#x4E3B;&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x6642;&#xFF0C;&#x6240;&#x6709;&#x7684;goroutine&#x90FD;&#x6703;&#x76F4;&#x63A5;&#x6253;&#x65B7;&#xFF0C;&#x7A0B;&#x5E8F;&#x9000;&#x9F63;&#x3002;&#x9664;&#x4E86;&#x5F9E;&#x4E3B;&#x51FD;&#x6578;&#x9000;&#x9F63;&#x6216;&#x8005;&#x76F4;&#x63A5;&#x9000;&#x9F63;&#x7A0B;&#x5E8F;&#x4E4B;&#x5916;&#xFF0C;&#x6C92;&#x6709;&#x5176;&#x5B83;&#x7684;&#x7DE8;&#x7A0B;&#x65B9;&#x6CD5;&#x80FD;&#x5920;&#x8B93;&#x4E00;&#x500B;goroutine&#x4F86;&#x6253;&#x65B7;&#x53E6;&#x4E00;&#x500B;&#x7684;&#x57F7;&#x884C;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x5011;&#x4E4B;&#x5F8C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x904E;goroutine&#x4E4B;&#x9593;&#x7684;&#x901A;&#x4FE1;&#x4F86;&#x8B93;&#x4E00;&#x500B;goroutine&#x8ACB;&#x6C42;&#x8ACB;&#x6C42;&#x5176;&#x5B83;&#x7684;goroutine&#xFF0C;&#x4F75;&#x8B93;&#x5176;&#x81EA;&#x5DF1;&#x7D50;&#x675F;&#x57F7;&#x884C;&#x3002;</p>
+<p>&#x7136;&#x5F8C;&#x4E3B;&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x3002;&#x7576;&#x4E3B;&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x6642;&#xFF0C;&#x6240;&#x6709;&#x7684;goroutine&#x90FD;&#x6703;&#x76F4;&#x63A5;&#x6253;&#x65B7;&#xFF0C;&#x7A0B;&#x5E8F;&#x9000;&#x51FA;&#x3002;&#x9664;&#x4E86;&#x5F9E;&#x4E3B;&#x51FD;&#x6578;&#x9000;&#x51FA;&#x6216;&#x8005;&#x76F4;&#x63A5;&#x9000;&#x51FA;&#x7A0B;&#x5E8F;&#x4E4B;&#x5916;&#xFF0C;&#x6C92;&#x6709;&#x5176;&#x5B83;&#x7684;&#x7DE8;&#x7A0B;&#x65B9;&#x6CD5;&#x80FD;&#x5920;&#x8B93;&#x4E00;&#x500B;goroutine&#x4F86;&#x6253;&#x65B7;&#x53E6;&#x4E00;&#x500B;&#x7684;&#x57F7;&#x884C;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x5011;&#x4E4B;&#x5F8C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x904E;goroutine&#x4E4B;&#x9593;&#x7684;&#x901A;&#x4FE1;&#x4F86;&#x8B93;&#x4E00;&#x500B;goroutine&#x8ACB;&#x6C42;&#x8ACB;&#x6C42;&#x5176;&#x5B83;&#x7684;goroutine&#xFF0C;&#x4F75;&#x8B93;&#x5176;&#x81EA;&#x5DF1;&#x7D50;&#x675F;&#x57F7;&#x884C;&#x3002;</p>
 <p>&#x8A3B;&#x610F;&#x9019;&#x91CC;&#x7684;&#x5169;&#x500B;&#x7368;&#x7ACB;&#x7684;&#x55AE;&#x5143;&#x662F;&#x5982;&#x4F55;&#x9032;&#x884C;&#x7D44;&#x5408;&#x7684;&#xFF0C;spinning&#x548C;&#x83F2;&#x6CE2;&#x90A3;&#x5951;&#x7684;&#x8A08;&#x7B97;&#x3002;&#x6BCF;&#x4E00;&#x500B;&#x90FD;&#x662F;&#x5BEB;&#x5728;&#x7368;&#x7ACB;&#x7684;&#x51FD;&#x6578;&#x4E2D;&#xFF0C;&#x4F46;&#x662F;&#x6BCF;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x90FD;&#x6703;&#x4F75;&#x767C;&#x5730;&#x57F7;&#x884C;&#x3002;</p>
 
                     
@@ -2086,7 +2090,7 @@ Fibonacci(45) = 1134903170</p>
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

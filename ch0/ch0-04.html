@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="0.4" data-chapter-title="更多的信息" data-filepath="ch0/ch0-04.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="0.4" data-chapter-title="更多的信息" data-filepath="ch0/ch0-04.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2025,7 +2029,7 @@
 <p>Playground&#x53EF;&#x4EE5;&#x7C21;&#x55AE;&#x7684;&#x901A;&#x904E;&#x57F7;&#x884C;&#x4E00;&#x500B;&#x5C0F;&#x7A0B;&#x5E8F;&#x4F86;&#x6E2C;&#x8A66;&#x5C0D;&#x8A9E;&#x6CD5;&#x3001;&#x8A9E;&#x7FA9;&#x548C;&#x5C0D;&#x7A0B;&#x5E8F;&#x5EAB;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x985E;&#x4F3C;&#x5176;&#x4ED6;&#x5F88;&#x591A;&#x8A9E;&#x8A00;&#x63D0;&#x4F9B;&#x7684;REPL&#x537D;&#x6642;&#x904B;&#x884C;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x540C;&#x6642;&#x5B83;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x5C0D;&#x61C9;&#x7684;url&#xFF0C;&#x975E;&#x5E38;&#x9069;&#x5408;&#x5171;&#x4EAB;Go&#x8A9E;&#x8A00;&#x4EE3;&#x78BC;&#x7247;&#x6BB5;&#xFF0C;&#x6ED9;&#x5831;bug&#x6216;&#x63D0;&#x4F9B;&#x53CD;&#x994B;&#x610F;&#x898B;&#x7B49;&#x3002;</p>
 <p>&#x57FA;&#x65BC; Playground &#x69CB;&#x5EFA;&#x7684; Go Tour&#xFF0C;<a href="https://tour.golang.org" target="_blank">https://tour.golang.org</a> &#xFF0C;&#x662F;&#x4E00;&#x500B;&#x7E6B;&#x5217;&#x7684;Go&#x8A9E;&#x8A00;&#x5165;&#x9580;&#x654E;&#x7A0B;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x4E86;&#x8AF8;&#x591A;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x548C;&#x7D50;&#x69CB;&#x76F8;&#x95DC;&#x7684;&#x4F75;&#x53EF;&#x5728;&#x7DDA;&#x904B;&#x884C;&#x7684;&#x4E92;&#x52D5;&#x5C0F;&#x7A0B;&#x5E8F;&#x3002;</p>
 <p>&#x7576;&#x7136;&#xFF0C;Playground &#x548C; Tour &#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x9650;&#x88FD;&#xFF0C;&#x5B83;&#x5011;&#x96BB;&#x80FD;&#x5C0E;&#x5165;&#x6A19;&#x6E96;&#x5EAB;&#xFF0C;&#x800C;&#x4E14;&#x56E0;&#x7232;&#x5B89;&#x5168;&#x7684;&#x539F;&#x56E0;&#x5C0D;&#x4E00;&#x4E9B;&#x7DB2;&#x7D61;&#x5EAB;&#x505A;&#x4E86;&#x9650;&#x88FD;&#x3002;&#x5982;&#x679C;&#x8981;&#x5728;&#x7DE8;&#x8B6F;&#x548C;&#x904B;&#x884C;&#x6642;&#x9700;&#x8981;&#x8A2A;&#x554F;&#x4E92;&#x806F;&#x7DB2;&#xFF0C;&#x5C0D;&#x65BC;&#x4E00;&#x4E9B;&#x66F4;&#x8907;&#x88FD;&#x7684;&#x5BE6;&#x9A57;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x96FB;&#x8166;&#x4E0A;&#x69CB;&#x5EFA;&#x4F75;&#x904B;&#x884C;&#x7A0B;&#x5E8F;&#x3002;&#x5E78;&#x904B;&#x7684;&#x662F;&#x4E0B;&#x8F09;Go&#x8A9E;&#x8A00;&#x7684;&#x904E;&#x7A0B;&#x5F88;&#x7C21;&#x55AE;&#xFF0C;&#x5F9E; <a href="https://golang.org" target="_blank">https://golang.org</a> &#x4E0B;&#x8F09;&#x5B89;&#x88DD;&#x5305;&#x61C9;&#x8A72;&#x4E0D;&#x8D85;&#x904E;&#x5E7E;&#x5206;&#x9418;&#xFF08;&#x8B6F;&#x8A3B;&#xFF1A;&#x611F;&#x8B1D;&#x5049;&#x5927;&#x7684;&#x9577;&#x57CE;&#xFF0C;&#x8B93;&#x5927;&#x9678;&#x7684;Gopher&#x5011;&#x90FD;&#x5B78;&#x6703;&#x4E86;&#x81EA;&#x5DF1;&#x6253;&#x6D1E;&#x7684;&#x57FA;&#x672C;&#x751F;&#x6D3B;&#x6280;&#x80FD;&#xFF0C;&#x4E0B;&#x8F09;&#x6642;&#x9593;&#x53EF;&#x80FD;&#x6703;&#x56E0;&#x7232;&#x6D1E;&#x7684;&#x5927;&#x5C0F;&#x7B49;&#x56E0;&#x7D20;&#x5F9E;&#x5E7E;&#x5206;&#x9418;&#x5230;&#x5E7E;&#x5929;&#x6216;&#x66F4;&#x4E45;&#xFF09;&#xFF0C;&#x7136;&#x5F8C;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x81EA;&#x5DF1;&#x96FB;&#x8166;&#x4E0A;&#x7DE8;&#x5BEB;&#x548C;&#x904B;&#x884C;Go&#x7A0B;&#x5E8F;&#x4E86;&#x3002;</p>
-<p>Go&#x8A9E;&#x8A00;&#x662F;&#x4E00;&#x500B;&#x958B;&#x6E90;&#x9805;&#x76EE;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728; <a href="https://golang.org/pkg" target="_blank">https://golang.org/pkg</a> &#x95B2;&#x8B80;&#x6A19;&#x6E96;&#x5EAB;&#x4E2D;&#x4EFB;&#x610F;&#x51FD;&#x6578;&#x548C;&#x985E;&#x578B;&#x7684;&#x5BE6;&#x73FE;&#x4EE3;&#x78BC;&#xFF0C;&#x548C;&#x4E0B;&#x8F09;&#x5B89;&#x88DD;&#x5305;&#x7684;&#x4EE3;&#x78BC;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#x3002;&#x9019;&#x6A23;&#x4F60;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x5F88;&#x591A;&#x51FD;&#x6578;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C; &#x901A;&#x904E;&#x6316;&#x6398;&#x627E;&#x9F63;&#x4E00;&#x4E9B;&#x7B54;&#x6848;&#x7684;&#x7D30;&#x7BC0;&#xFF0C;&#x6216;&#x8005;&#x50C5;&#x50C5;&#x662F;&#x9F63;&#x65BC;&#x6B23;&#x8CDE;&#x5C08;&#x696D;&#x7D1A;Go&#x4EE3;&#x78BC;&#x3002;</p>
+<p>Go&#x8A9E;&#x8A00;&#x662F;&#x4E00;&#x500B;&#x958B;&#x6E90;&#x9805;&#x76EE;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728; <a href="https://golang.org/pkg" target="_blank">https://golang.org/pkg</a> &#x95B2;&#x8B80;&#x6A19;&#x6E96;&#x5EAB;&#x4E2D;&#x4EFB;&#x610F;&#x51FD;&#x6578;&#x548C;&#x985E;&#x578B;&#x7684;&#x5BE6;&#x73FE;&#x4EE3;&#x78BC;&#xFF0C;&#x548C;&#x4E0B;&#x8F09;&#x5B89;&#x88DD;&#x5305;&#x7684;&#x4EE3;&#x78BC;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#x3002;&#x9019;&#x6A23;&#x4F60;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x5F88;&#x591A;&#x51FD;&#x6578;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C; &#x901A;&#x904E;&#x6316;&#x6398;&#x627E;&#x51FA;&#x4E00;&#x4E9B;&#x7B54;&#x6848;&#x7684;&#x7D30;&#x7BC0;&#xFF0C;&#x6216;&#x8005;&#x50C5;&#x50C5;&#x662F;&#x51FA;&#x65BC;&#x6B23;&#x8CDE;&#x5C08;&#x696D;&#x7D1A;Go&#x4EE3;&#x78BC;&#x3002;</p>
 
                     
                     </section>
@@ -2057,7 +2061,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

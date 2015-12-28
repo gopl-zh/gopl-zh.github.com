@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-chapter-title="複合數據類型" data-filepath="ch4/ch4.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="4" data-chapter-title="複合數據類型" data-filepath="ch4/ch4.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2020,7 +2024,8 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="&#x7B2C;&#x56DB;&#x7AE0;-&#x8907;&#x5408;&#x6578;&#x64DA;&#x985E;&#x578B;">&#x7B2C;&#x56DB;&#x7AE0; &#x8907;&#x5408;&#x6578;&#x64DA;&#x985E;&#x578B;</h1>
-<p>TODO</p>
+<p>&#x5728;&#x7B2C;&#x4E09;&#x7AE0;&#x6211;&#x5011;&#x8A0E;&#x8AD6;&#x4E86;&#x57FA;&#x672C;&#x6578;&#x64DA;&#x985E;&#x578B;&#xFF0C;&#x5B83;&#x5011;&#x662F;&#x7528;&#x65BC;&#x69CB;&#x5EFA;&#x7A0B;&#x5E8F;&#x4E2D;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#xFF0C;&#x662F;Go&#x8A9E;&#x8A00;&#x7684;&#x4E16;&#x754C;&#x7684;&#x539F;&#x5B50;&#x3002;&#x5728;&#x672C;&#x7AE0;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x8A0E;&#x8AD6;&#x8907;&#x5408;&#x6578;&#x64DA;&#x985E;&#x578B;&#xFF0C;&#x4EE5;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x7D44;&#x5408;&#x57FA;&#x672C;&#x985E;&#x578B;&#x53EF;&#x4EE5;&#x69CB;&#x9020;&#x51FA;&#x8907;&#x5408;&#x6578;&#x64DA;&#x985E;&#x578B;&#x3002;&#x6211;&#x5011;&#x4E3B;&#x8981;&#x8A0E;&#x8AD6;&#x56DB;&#x7A2E;&#x985E;&#x578B;&#x2014;&#x2014;&#x6578;&#x7D44;&#x3001;slice&#x3001;map&#x548C;&#x7D50;&#x69CB;&#x9AD4;&#x2014;&#x2014;&#x540C;&#x6642;&#x5728;&#x672C;&#x7AE0;&#x7684;&#x6700;&#x5F8C;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x7D50;&#x69CB;&#x9AD4;&#x4F86;&#x89E3;&#x78BC;&#x548C;&#x7DE8;&#x78BC;&#x5230;&#x5C0D;&#x61C9;&#x7684;JSON&#x683C;&#x5F0F;&#x7684;&#x6578;&#x64DA;&#xFF0C;&#x4F75;&#x4E14;&#x901A;&#x904E;&#x7D50;&#x5408;&#x4F7F;&#x7528;&#x6A21;&#x95C6;&#x4F86;&#x751F;&#x6210;HTML&#x9801;&#x9762;&#x3002;</p>
+<p>&#x6578;&#x7D44;&#x548C;&#x7D50;&#x69CB;&#x9AD4;&#x662F;&#x805A;&#x5408;&#x985E;&#x578B;&#xFF1B;&#x5B83;&#x5011;&#x7684;&#x503C;&#x7531;&#x8A31;&#x591A;&#x5143;&#x7D20;&#x6216;&#x6210;&#x54E1;&#x7684;&#x503C;&#x7D44;&#x6210;&#x3002;&#x6578;&#x7D44;&#x662F;&#x7531;&#x540C;&#x69CB;&#x7684;&#x5143;&#x7D20;&#x7D44;&#x6210;&#x2014;&#x2014;&#x6BCF;&#x500B;&#x6578;&#x7D44;&#x5143;&#x7D20;&#x90FD;&#x6709;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x985E;&#x578B;&#x2014;&#x2014;&#x7D50;&#x69CB;&#x9AD4;&#x5247;&#x662F;&#x7531;&#x7570;&#x69CB;&#x7684;&#x5143;&#x7D20;&#x7D44;&#x6210;&#x7684;&#x3002;&#x6578;&#x7D44;&#x548C;&#x7D50;&#x69CB;&#x9AD4;&#x90FD;&#x662F;&#x56FA;&#x5B9A;&#x5167;&#x5B58;&#x5927;&#x5C0F;&#x7684;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x3002;&#x76F8;&#x6BD4;&#x4E4B;&#x4E0B;&#xFF0C;slice&#x548C;map&#x5247;&#x662F;&#x52D5;&#x614B;&#x7684;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#xFF0C;&#x5B83;&#x5011;&#x5C07;&#x6839;&#x64DA;&#x9700;&#x8981;&#x52D5;&#x614B;&#x589E;&#x9577;&#x3002;</p>
 
                     
                     </section>
@@ -2052,7 +2057,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

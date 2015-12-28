@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -44,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="11.3" data-chapter-title="測試覆蓋率" data-filepath="ch11/ch11-03.md" data-basepath=".." data-revision="Fri Dec 25 2015 12:32:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="11.3" data-chapter-title="測試覆蓋率" data-filepath="ch11/ch11-03.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -238,7 +242,7 @@
                         
                             <b>1.5.</b>
                         
-                        穫取URL
+                        獲取URL
                     </a>
             
             
@@ -253,7 +257,7 @@
                         
                             <b>1.6.</b>
                         
-                        併發穫取多個URL
+                        併發獲取多個URL
                     </a>
             
             
@@ -802,7 +806,7 @@
                         
                             <b>5.10.</b>
                         
-                        Recover捕穫異常
+                        Recover捕獲異常
                     </a>
             
             
@@ -1315,7 +1319,7 @@
                         
                             <b>8.9.</b>
                         
-                        併發的退齣
+                        併發的退出
                     </a>
             
             
@@ -1834,7 +1838,7 @@
                         
                             <b>12.7.</b>
                         
-                        穫取結構體字段標識
+                        獲取結構體字段標識
                     </a>
             
             
@@ -2080,7 +2084,7 @@ Open a web browser displaying annotated source code:
 <p>&#x73FE;&#x5728;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7528; <code>-coverprofile</code> &#x6A19;&#x8A8C;&#x53C3;&#x6578;&#x91CD;&#x65B0;&#x904B;&#x884C;:</p>
 <pre><code>$ go test -run=Coverage -coverprofile=c.out gopl.io/ch7/eval
 ok      gopl.io/ch7/eval         0.032s      coverage: 68.5% of statements
-</code></pre><p>&#x9019;&#x500B;&#x6A19;&#x8A8C;&#x53C3;&#x6578;&#x901A;&#x904E;&#x63D2;&#x5165;&#x751F;&#x6210;&#x9264;&#x5B50;&#x4EE3;&#x78BC;&#x4F86;&#x7D71;&#x8A08;&#x8986;&#x84CB;&#x7387;&#x6578;&#x64DA;. &#x4E5F;&#x5C31;&#x662F;&#x8AAC;, &#x5728;&#x904B;&#x884C;&#x6BCF;&#x500B;&#x6E2C;&#x8A66;&#x524D;, &#x5B83;&#x6703;&#x8129;&#x6539;&#x8981;&#x6E2C;&#x8A66;&#x4EE3;&#x78BC;&#x7684;&#x526F;&#x672C;, &#x5728;&#x6BCF;&#x500B;&#x584A;&#x90FD;&#x6703;&#x8A2D;&#x7F6E;&#x4E00;&#x500B;&#x5E03;&#x723E;&#x6A19;&#x8A8C;&#x8B8A;&#x91CF;. &#x7576;&#x88AB;&#x8129;&#x6539;&#x5F8C;&#x7684;&#x88AB;&#x6E2C;&#x8A66;&#x4EE3;&#x78BC;&#x904B;&#x884C;&#x9000;&#x9F63;&#x6642;, &#x5C07;&#x7D71;&#x8A08;&#x65E5;&#x8A8C;&#x6578;&#x64DA;&#x5BEB;&#x5165; c.out &#x6587;&#x4EF6;, &#x4F75;&#x6253;&#x5370;&#x4E00;&#x90E8;&#x5206;&#x57F7;&#x884C;&#x7684;&#x8A9E;&#x53E5;&#x7684;&#x4E00;&#x500B;&#x7E3D;&#x7D50;. (&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x7684;&#x662F;&#x6458;&#x8981;,&#x4F7F;&#x7528; <code>go test -cover</code>.)</p>
+</code></pre><p>&#x9019;&#x500B;&#x6A19;&#x8A8C;&#x53C3;&#x6578;&#x901A;&#x904E;&#x63D2;&#x5165;&#x751F;&#x6210;&#x9264;&#x5B50;&#x4EE3;&#x78BC;&#x4F86;&#x7D71;&#x8A08;&#x8986;&#x84CB;&#x7387;&#x6578;&#x64DA;. &#x4E5F;&#x5C31;&#x662F;&#x8AAC;, &#x5728;&#x904B;&#x884C;&#x6BCF;&#x500B;&#x6E2C;&#x8A66;&#x524D;, &#x5B83;&#x6703;&#x8129;&#x6539;&#x8981;&#x6E2C;&#x8A66;&#x4EE3;&#x78BC;&#x7684;&#x526F;&#x672C;, &#x5728;&#x6BCF;&#x500B;&#x584A;&#x90FD;&#x6703;&#x8A2D;&#x7F6E;&#x4E00;&#x500B;&#x5E03;&#x723E;&#x6A19;&#x8A8C;&#x8B8A;&#x91CF;. &#x7576;&#x88AB;&#x8129;&#x6539;&#x5F8C;&#x7684;&#x88AB;&#x6E2C;&#x8A66;&#x4EE3;&#x78BC;&#x904B;&#x884C;&#x9000;&#x51FA;&#x6642;, &#x5C07;&#x7D71;&#x8A08;&#x65E5;&#x8A8C;&#x6578;&#x64DA;&#x5BEB;&#x5165; c.out &#x6587;&#x4EF6;, &#x4F75;&#x6253;&#x5370;&#x4E00;&#x90E8;&#x5206;&#x57F7;&#x884C;&#x7684;&#x8A9E;&#x53E5;&#x7684;&#x4E00;&#x500B;&#x7E3D;&#x7D50;. (&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x7684;&#x662F;&#x6458;&#x8981;,&#x4F7F;&#x7528; <code>go test -cover</code>.)</p>
 <p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E86; <code>-covermode=count</code> &#x6A19;&#x8A8C;&#x53C3;&#x6578;, &#x90A3;&#x9EBD;&#x5C07;&#x5728;&#x6BCF;&#x500B;&#x4EE3;&#x78BC;&#x584A;&#x63D2;&#x5165;&#x4E00;&#x500B;&#x8A08;&#x6578;&#x5668;&#x800C;&#x4E0D;&#x662F;&#x5E03;&#x723E;&#x6A19;&#x8A8C;&#x91CF;. &#x5728;&#x7D71;&#x8A08;&#x7D50;&#x679C;&#x4E2D;&#x8A18;&#x9332;&#x4E86;&#x6BCF;&#x500B;&#x584A;&#x7684;&#x57F7;&#x884C;&#x6B21;&#x6578;, &#x9019;&#x53EF;&#x4EE5;&#x7528;&#x65BC;&#x8861;&#x91CF;&#x54EA;&#x4E9B;&#x662F;&#x88AB;&#x983B;&#x7E41;&#x57F7;&#x884C;&#x7684;&#x71B1;&#x9EDE;&#x4EE3;&#x78BC;.</p>
 <p>&#x7232;&#x4E86;&#x6536;&#x96C6;&#x6578;&#x64DA;, &#x6211;&#x5011;&#x904B;&#x884C;&#x4E86;&#x6E2C;&#x8A66;&#x8986;&#x84CB;&#x7387;&#x5DE5;&#x5177;, &#x6253;&#x5370;&#x4E86;&#x6E2C;&#x8A66;&#x65E5;&#x8A8C;, &#x751F;&#x6210;&#x4E00;&#x500B;HTML&#x5831;&#x544A;, &#x7136;&#x5F8C;&#x5728;&#x700F;&#x89BD;&#x5668;&#x4E2D;&#x6253;&#x958B;(&#x5716;11.3).</p>
 <pre><code>$ go tool cover -html=c.out
@@ -2120,7 +2124,7 @@ ok      gopl.io/ch7/eval         0.032s      coverage: 68.5% of statements
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
