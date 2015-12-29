@@ -17,7 +17,7 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 先安裝NodeJS和GitBook命令行工具(`npm install gitbook-cli -g`命令)。
 
 1. 下載 https://github.com/golang-china/gopl-zh/archive/master.zip ，獲取源文件。
-2. 切片到 `gopl-zh` 目録，運行 `gitbook install`，安裝GitBook插件。
+2. 切換到 `gopl-zh` 目録，運行 `gitbook install`，安裝GitBook插件。
 3. 運行`gitbook build`，生成`_book`目録。
 4. 打開`_book/index.html`文件。
 
