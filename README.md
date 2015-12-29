@@ -14,9 +14,9 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 ### 從源文件構建
 
-先安裝Go語言環境，Git工具和GitBook命令行工具(`npm install gitbook-cli -g`命令)。
+先安裝NodeJS和GitBook命令行工具(`npm install gitbook-cli -g`命令)。
 
-1. 運行`go get github.com/golang-china/gopl-zh`，獲取源文件。
+1. 下載 https://github.com/golang-china/gopl-zh/archive/master.zip ，獲取源文件。
 2. 切片到 `gopl-zh` 目録，運行 `gitbook install`，安裝GitBook插件。
 3. 運行`gitbook build`，生成`_book`目録。
 4. 打開`_book/index.html`文件。
@@ -25,8 +25,8 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 切片到 `gopl-zh` 目録：
 
-- `make zh2tw` 或者 `go run zh2tw.go . "\.md$" zh2tw`，轉繁體。
-- `make tw2zh` 或者 `go run zh2tw.go . "\.md$" tw2zh`，轉簡體。
+- `make zh2tw` 或 `go run zh2tw.go . "\.md$" zh2tw`，轉繁體。
+- `make tw2zh` 或 `go run zh2tw.go . "\.md$" tw2zh`，轉簡體。
 
 如果是使用簡體中文的用戶，可在執行上述命令前運行`make tw2zh`命令，將繁體中文轉換爲簡體中文。
 
