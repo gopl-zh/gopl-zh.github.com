@@ -27,7 +27,7 @@
  - [x] 3.6 Constants
 - [x] Chapter 4: Composite Types
  - [x] 4.1 Arrays
- - [ ] 4.2 Slices
+ - [x] 4.2 Slices
  - [ ] 4.3 Maps
  - [ ] 4.4 Structs
  - [ ] 4.5 JSON
