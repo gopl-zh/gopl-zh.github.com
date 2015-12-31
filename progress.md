@@ -29,7 +29,7 @@
  - [x] 4.1 Arrays
  - [x] 4.2 Slices
  - [x] 4.3 Maps
- - [ ] 4.4 Structs
+ - [x] 4.4 Structs
  - [ ] 4.5 JSON
  - [ ] 4.6 Text and HTML Templates
 - [ ] Chapter 5: Functions
