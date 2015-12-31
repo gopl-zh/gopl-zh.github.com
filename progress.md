@@ -77,7 +77,7 @@
  - [x] 8.8 Example: Concurrent Directory Traversal
  - [x] 8.9 Cancellation
  - [x] 8.10 Example: Chat Server
-- [ ] Chapter 9: Concurrency with Shared Variables
+- [x] Chapter 9: Concurrency with Shared Variables
  - [ ] 9.1 Race Conditions
  - [ ] 9.2 Mutual Exclusion: sync.Mutex
  - [ ] 9.3 Read/Write Mutexes: sync.RWMutex
@@ -104,7 +104,7 @@
 - [x] Chapter 12: Reflection
  - [x] 12.1 Why Reflection?
  - [x] 12.2 reflect.Type and reflect.Value
- - [ ] 12.3 Display, a Recursive Value Printer
+ - [x] 12.3 Display, a Recursive Value Printer
  - [ ] 12.4 Example: Encoding S-Expressions
  - [ ] 12.5 Setting Variables with reflect.Value
  - [ ] 12.6 Example: Decoding S-Expressions
