@@ -109,7 +109,7 @@
  - [ ] 12.5 Setting Variables with reflect.Value
  - [ ] 12.6 Example: Decoding S-Expressions
  - [ ] 12.7 Accessing Struct Field Tags
- - [ ] 12.8 Displaying the Methods of a Type
+ - [x] 12.8 Displaying the Methods of a Type
  - [ ] 12.9 A Word of Caution
 - [x] Chapter 13: Low-Level Programming
  - [x] 13.1 unsafe.Sizeof, Alignof, and Offsetof
