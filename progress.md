@@ -52,7 +52,7 @@
  - [x] 6.6 Encapsulation
 - [x] Chapter 7: Interfaces
  - [x] 7.1 Interfaces as Contracts
- - [ ] 7.2 Interface Types
+ - [x] 7.2 Interface Types
  - [ ] 7.3 Interface Satisfaction
  - [ ] 7.4 Parsing Flags with flag.Value
  - [ ] 7.5 Interface Values
