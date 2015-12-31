@@ -73,7 +73,7 @@
  - [ ] 8.4 Channels
  - [ ] 8.5 Looping in Parallel
  - [x] 8.6 Example: Concurrent Web Crawler
- - [ ] 8.7 Multiplexing with select
+ - [x] 8.7 Multiplexing with select
  - [x] 8.8 Example: Concurrent Directory Traversal
  - [x] 8.9 Cancellation
  - [x] 8.10 Example: Chat Server
