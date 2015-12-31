@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>字典 | Go编程语言</title>
+        <title>Map | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="4.3" data-chapter-title="字典" data-filepath="ch4/ch4-03.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="4.3" data-chapter-title="Map" data-filepath="ch4/ch4-03.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -575,7 +575,7 @@
                         
                             <b>4.2.</b>
                         
-                        切片
+                        Slice
                     </a>
             
             
@@ -590,7 +590,7 @@
                         
                             <b>4.3.</b>
                         
-                        字典
+                        Map
                     </a>
             
             
@@ -2013,7 +2013,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Go编程语言</a>
+        <a href="../" >Go语言圣经</a>
     </h1>
 </div>
 
@@ -2023,8 +2023,213 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="43-&#x5B57;&#x5178;">4.3. &#x5B57;&#x5178;</h2>
-<p>TODO</p>
+                        <h2 id="43-map">4.3. Map</h2>
+<p>&#x54C8;&#x5E0C;&#x8868;&#x662F;&#x4E00;&#x7A2E;&#x5DE7;&#x5999;&#x4F75;&#x4E14;&#x5BE6;&#x7528;&#x7684;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x3002;&#x5B83;&#x662F;&#x4E00;&#x500B;&#x7121;&#x5E8F;&#x7684;key/value&#x5C0D;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5176;&#x4E2D;&#x6240;&#x6709;&#x7684;key&#x90FD;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x7136;&#x5F8C;&#x901A;&#x904E;&#x7D66;&#x5B9A;&#x7684;key&#x53EF;&#x4EE5;&#x5728;&#x5E38;&#x6578;&#x6642;&#x9593;&#x8907;&#x96DC;&#x5EA6;&#x5167;&#x6AA2;&#x7D22;&#x3001;&#x66F4;&#x65B0;&#x6216;&#x522A;&#x9664;&#x5C0D;&#x61C9;&#x7684;value&#x3002;</p>
+<p>&#x5728;Go&#x8A9E;&#x8A00;&#x4E2D;&#xFF0C;&#x4E00;&#x500B;map&#x5C31;&#x662F;&#x4E00;&#x500B;&#x54C8;&#x5E0C;&#x8868;&#x7684;&#x5F15;&#x7528;&#xFF0C;map&#x985E;&#x578B;&#x53EF;&#x4EE5;&#x5BEB;&#x7232;map[K]V&#xFF0C;&#x5176;&#x4E2D;K&#x548C;V&#x5206;&#x522B;&#x5C0D;&#x61C9;key&#x548C;value&#x3002;map&#x4E2D;&#x6240;&#x6709;&#x7684;key&#x90FD;&#x6709;&#x76F8;&#x540C;&#x7684;&#x985E;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x7684;value&#x4E5F;&#x6709;&#x7740;&#x76F8;&#x540C;&#x7684;&#x985E;&#x578B;&#xFF0C;&#x4F46;&#x662F;key&#x548C;value&#x4E4B;&#x9593;&#x53EF;&#x4EE5;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;&#x3002;&#x5176;&#x4E2D;K&#x5C0D;&#x61C9;&#x7684;key&#x5FC5;&#x9B1A;&#x662F;&#x652F;&#x6301;==&#x6BD4;&#x8F03;&#x904B;&#x7B97;&#x7B26;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;&#xFF0C;&#x6240;&#x4EE5;map&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x6E2C;&#x8A66;key&#x662F;&#x5426;&#x76F8;&#x7B49;&#x4F86;&#x5224;&#x65B7;&#x662F;&#x5426;&#x5DF2;&#x7D93;&#x5B58;&#x5728;&#x3002;&#x96D6;&#x7136;&#x6D6E;&#x9EDE;&#x6578;&#x985E;&#x578B;&#x4E5F;&#x662F;&#x652F;&#x6301;&#x76F8;&#x7B49;&#x904B;&#x7B97;&#x7B26;&#x6BD4;&#x8F03;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5C07;&#x6D6E;&#x9EDE;&#x6578;&#x7528;&#x505A;key&#x985E;&#x578B;&#x5247;&#x662F;&#x4E00;&#x500B;&#x58DE;&#x7684;&#x60F3;&#x6CD5;&#xFF0C;&#x6B63;&#x5982;&#x7B2C;&#x4E09;&#x7AE0;&#x63D0;&#x5230;&#x7684;&#xFF0C;&#x6700;&#x58DE;&#x7684;&#x60C5;&#x6CC1;&#x662F;&#x53EF;&#x80FD;&#x51FA;&#x73FE;&#x7684;NaN&#x548C;&#x4EFB;&#x4F55;&#x6D6E;&#x9EDE;&#x6578;&#x90FD;&#x4E0D;&#x76F8;&#x7B49;&#x3002;&#x5C0D;&#x65BC;V&#x5C0D;&#x61C9;&#x7684;value&#x6578;&#x64DA;&#x985E;&#x578B;&#x5247;&#x6C92;&#x6709;&#x4EFB;&#x4F55;&#x7684;&#x9650;&#x88FD;&#x3002;</p>
+<p>&#x5167;&#x7F6E;&#x7684;make&#x51FD;&#x6578;&#x53EF;&#x4EE5;&#x5275;&#x5EFA;&#x4E00;&#x500B;map&#xFF1A;</p>
+<pre><code class="lang-Go">ages := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">int</span>) <span class="hljs-comment">// mapping from strings to ints</span>
+</code></pre>
+<p>&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;map&#x5B57;&#x9762;&#x503C;&#x7684;&#x8A9E;&#x6CD5;&#x5275;&#x5EFA;map&#xFF0C;&#x540C;&#x6642;&#x9084;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E9B;&#x6700;&#x521D;&#x7684;key/value&#xFF1A;</p>
+<pre><code class="lang-Go">ages := <span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">int</span>{
+    <span class="hljs-string">&quot;alice&quot;</span>:   <span class="hljs-number">31</span>,
+    <span class="hljs-string">&quot;charlie&quot;</span>: <span class="hljs-number">34</span>,
+}
+</code></pre>
+<p>&#x9019;&#x76F8;&#x7576;&#x65BC;</p>
+<pre><code class="lang-Go">ages := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">int</span>)
+ages[<span class="hljs-string">&quot;alice&quot;</span>] = <span class="hljs-number">31</span>
+ages[<span class="hljs-string">&quot;charlie&quot;</span>] = <span class="hljs-number">34</span>
+</code></pre>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x53E6;&#x4E00;&#x7A2E;&#x5275;&#x5EFA;&#x7A7A;&#x7684;map&#x7684;&#x8868;&#x9054;&#x5F0F;&#x662F;map[string]int{}&#x3002;</p>
+<p>Map&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x901A;&#x904E;key&#x5C0D;&#x61C9;&#x7684;&#x4E0B;&#x6A19;&#x8A9E;&#x6CD5;&#x8A2A;&#x554F;&#xFF1A;</p>
+<pre><code class="lang-Go">ages[<span class="hljs-string">&quot;alice&quot;</span>] = <span class="hljs-number">32</span>
+fmt.Println(ages[<span class="hljs-string">&quot;alice&quot;</span>]) <span class="hljs-comment">// &quot;32&quot;</span>
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x5167;&#x7F6E;&#x7684;delete&#x51FD;&#x6578;&#x53EF;&#x4EE5;&#x522A;&#x9664;&#x5143;&#x7D20;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-built_in">delete</span>(ages, <span class="hljs-string">&quot;alice&quot;</span>) <span class="hljs-comment">// remove element ages[&quot;alice&quot;]</span>
+</code></pre>
+<p>&#x6240;&#x6709;&#x9019;&#x4E9B;&#x64CD;&#x4F5C;&#x662F;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x537D;&#x4F7F;&#x9019;&#x4E9B;&#x5143;&#x7D20;&#x4E0D;&#x5728;map&#x4E2D;&#x4E5F;&#x6C92;&#x6709;&#x95DC;&#x7E6B;&#xFF1B;&#x5982;&#x679C;&#x4E00;&#x500B;&#x67FB;&#x627E;&#x5931;&#x6557;&#x5C07;&#x8FD4;&#x8FF4;value&#x985E;&#x578B;&#x5C0D;&#x61C9;&#x7684;&#x96F6;&#x503C;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x537D;&#x4F7F;map&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x201C;bob&#x201D;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x4E5F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x56E0;&#x7232;ages[&quot;bob&quot;]&#x5931;&#x6557;&#x6642;&#x5C07;&#x8FD4;&#x8FF4;0&#x3002;</p>
+<pre><code class="lang-Go">ages[<span class="hljs-string">&quot;bob&quot;</span>] = ages[<span class="hljs-string">&quot;bob&quot;</span>] + <span class="hljs-number">1</span> <span class="hljs-comment">// happy birthday!</span>
+</code></pre>
+<p>&#x800C;&#x4E14;x += y&#x548C;x++&#x7B49;&#x7C21;&#x77ED;&#x8CE6;&#x503C;&#x8A9E;&#x6CD5;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x5728;map&#x4E0A;&#xFF0C;&#x6240;&#x4EE5;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x53EF;&#x4EE5;&#x6539;&#x5BEB;&#x6210;</p>
+<pre><code class="lang-Go">ages[<span class="hljs-string">&quot;bob&quot;</span>] += <span class="hljs-number">1</span>
+</code></pre>
+<p>&#x66F4;&#x7C21;&#x55AE;&#x7684;&#x5BEB;&#x6CD5;</p>
+<pre><code class="lang-Go">ages[<span class="hljs-string">&quot;bob&quot;</span>]++
+</code></pre>
+<p>&#x4F46;&#x662F;map&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4F75;&#x4E0D;&#x662F;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x5011;&#x4E0D;&#x80FD;&#x5C0D;map&#x7684;&#x5143;&#x7D20;&#x9032;&#x884C;&#x53D6;&#x5740;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-Go">_ = &amp;ages[<span class="hljs-string">&quot;bob&quot;</span>] <span class="hljs-comment">// compile error: cannot take address of map element</span>
+</code></pre>
+<p>&#x7981;&#x6B62;&#x5C0D;map&#x5143;&#x7D20;&#x53D6;&#x5740;&#x7684;&#x539F;&#x56E0;&#x662F;map&#x53EF;&#x80FD;&#x96A8;&#x7740;&#x5143;&#x7D20;&#x6578;&#x91CF;&#x7684;&#x589E;&#x9577;&#x800C;&#x91CD;&#x65B0;&#x5206;&#x914D;&#x66F4;&#x5927;&#x7684;&#x5167;&#x5B58;&#x7A7A;&#x9593;&#xFF0C;&#x5F9E;&#x800C;&#x53EF;&#x80FD;&#x5C0E;&#x81F4;&#x4E4B;&#x524D;&#x7684;&#x5730;&#x5740;&#x7121;&#x6548;&#x3002;</p>
+<p>&#x8981;&#x60F3;&#x904D;&#x6B77;map&#x4E2D;&#x5168;&#x90E8;&#x7684;key/value&#x5C0D;&#x7684;&#x8A71;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;range&#x98A8;&#x683C;&#x7684;for&#x5FAA;&#x74B0;&#x5BE6;&#x73FE;&#xFF0C;&#x548C;&#x4E4B;&#x524D;&#x7684;slice&#x904D;&#x6B77;&#x8A9E;&#x6CD5;&#x985E;&#x4F3C;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x8FED;&#x4EE3;&#x8A9E;&#x53E5;&#x5C07;&#x5728;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x6642;&#x8A2D;&#x7F6E;name&#x548C;age&#x8B8A;&#x91CF;&#xFF0C;&#x5B83;&#x5011;&#x5C0D;&#x61C9;&#x4E0B;&#x4E00;&#x500B;&#x9375;/&#x503C;&#x5C0D;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">for</span> name, age := <span class="hljs-keyword">range</span> ages {
+    fmt.Printf(<span class="hljs-string">&quot;%s\t%d\n&quot;</span>, name, age)
+}
+</code></pre>
+<p>Map&#x7684;&#x8FED;&#x4EE3;&#x9806;&#x5E8F;&#x662F;&#x4E0D;&#x78BA;&#x5B9A;&#x7684;&#xFF0C;&#x4F75;&#x4E14;&#x4E0D;&#x540C;&#x7684;&#x54C8;&#x5E0C;&#x51FD;&#x6578;&#x5BE6;&#x73FE;&#x53EF;&#x80FD;&#x5C0E;&#x81F4;&#x4E0D;&#x540C;&#x7684;&#x904D;&#x6B77;&#x9806;&#x5E8F;&#x3002;&#x5728;&#x5BE6;&#x8E10;&#x4E2D;&#xFF0C;&#x904D;&#x6B77;&#x7684;&#x9806;&#x5E8F;&#x662F;&#x96A8;&#x6A5F;&#x7684;&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x904D;&#x6B77;&#x7684;&#x9806;&#x5E8F;&#x90FD;&#x4E0D;&#x76F8;&#x540C;&#x3002;&#x9019;&#x662F;&#x6545;&#x610F;&#x7684;&#xFF0C;&#x6BCF;&#x6B21;&#x90FD;&#x4F7F;&#x7528;&#x96A8;&#x6A5F;&#x7684;&#x904D;&#x6B77;&#x9806;&#x5E8F;&#x53EF;&#x4EE5;&#x5F37;&#x88FD;&#x8981;&#x6C42;&#x7A0B;&#x5E8F;&#x4E0D;&#x6703;&#x4F9D;&#x8CF4;&#x5177;&#x9AD4;&#x7684;&#x54C8;&#x5E0C;&#x51FD;&#x6578;&#x5BE6;&#x73FE;&#x3002;&#x5982;&#x679C;&#x8981;&#x6309;&#x9806;&#x5E8F;&#x904D;&#x6B77;key/value&#x5C0D;&#xFF0C;&#x6211;&#x5011;&#x5FC5;&#x9B1A;&#x986F;&#x5F0F;&#x5730;&#x5C0D;key&#x9032;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sort&#x5305;&#x7684;Strings&#x51FD;&#x6578;&#x5C0D;&#x5B57;&#x7B26;&#x4E32;slice&#x9032;&#x884C;&#x6392;&#x5E8F;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x5E38;&#x898B;&#x7684;&#x8655;&#x7406;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;sort&quot;</span>
+
+<span class="hljs-keyword">var</span> names []<span class="hljs-typename">string</span>
+<span class="hljs-keyword">for</span> name := <span class="hljs-keyword">range</span> ages {
+    names = <span class="hljs-built_in">append</span>(names, name)
+}
+sort.Strings(names)
+<span class="hljs-keyword">for</span> _, name := <span class="hljs-keyword">range</span> names {
+    fmt.Printf(<span class="hljs-string">&quot;%s\t%d\n&quot;</span>, name, ages[name])
+}
+</code></pre>
+<p>&#x56E0;&#x7232;&#x6211;&#x5011;&#x4E00;&#x958B;&#x59CB;&#x5C31;&#x77E5;&#x9053;names&#x7684;&#x6700;&#x7D42;&#x5927;&#x5C0F;&#xFF0C;&#x56E0;&#x6B64;&#x7D66;slice&#x5206;&#x914D;&#x4E00;&#x500B;&#x5408;&#x9069;&#x7684;&#x5927;&#x5C0F;&#x5C07;&#x6703;&#x66F4;&#x6709;&#x6548;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x5275;&#x5EFA;&#x4E86;&#x4E00;&#x500B;&#x7A7A;&#x7684;slice&#xFF0C;&#x4F46;&#x662F;slice&#x7684;&#x5BB9;&#x91CF;&#x525B;&#x597D;&#x53EF;&#x4EE5;&#x653E;&#x4E0B;map&#x4E2D;&#x5168;&#x90E8;&#x7684;key&#xFF1A;</p>
+<pre><code class="lang-Go">names := <span class="hljs-built_in">make</span>([]<span class="hljs-typename">string</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(ages))
+</code></pre>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x7B2C;&#x4E00;&#x500B;range&#x5FAA;&#x74B0;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x96BB;&#x95DC;&#x5FC3;map&#x4E2D;&#x7684;key&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x5FFD;&#x7565;&#x4E86;&#x7B2C;&#x4E8C;&#x500B;&#x5FAA;&#x74B0;&#x8B8A;&#x91CF;&#x3002;&#x5728;&#x7B2C;&#x4E8C;&#x500B;&#x5FAA;&#x74B0;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x96BB;&#x95DC;&#x7E6B;names&#x4E2D;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x4F7F;&#x7528;&#x201C;_&#x201D;&#x7A7A;&#x767D;&#x6A19;&#x8B58;&#x7B26;&#x4F86;&#x5FFD;&#x7565;&#x7B2C;&#x4E00;&#x500B;&#x5FAA;&#x74B0;&#x8B8A;&#x91CF;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8FED;&#x4EE3;slice&#x6642;&#x7684;&#x7D22;&#x5F15;&#x3002;</p>
+<p>map&#x985E;&#x578B;&#x7684;&#x96F6;&#x503C;&#x662F;nil&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6C92;&#x6709;&#x5F15;&#x7528;&#x4EFB;&#x4F55;&#x54C8;&#x5E0C;&#x8868;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> ages <span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">int</span>
+fmt.Println(ages == <span class="hljs-constant">nil</span>)    <span class="hljs-comment">// &quot;true&quot;</span>
+fmt.Println(<span class="hljs-built_in">len</span>(ages) == <span class="hljs-number">0</span>) <span class="hljs-comment">// &quot;true&quot;</span>
+</code></pre>
+<p>map&#x4E0A;&#x7684;&#x5927;&#x90E8;&#x5206;&#x64CD;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x67FB;&#x627E;&#x3001;&#x522A;&#x9664;&#x3001;len&#x548C;range&#x5FAA;&#x74B0;&#x90FD;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x5DE5;&#x4F5C;&#x5728;nil&#x503C;&#x7684;map&#x4E0A;&#xFF0C;&#x5B83;&#x5011;&#x7684;&#x884C;&#x7232;&#x548C;&#x4E00;&#x500B;&#x7A7A;&#x7684;map&#x985E;&#x4F3C;&#x3002;&#x4F46;&#x662F;&#x5411;&#x4E00;&#x500B;nil&#x503C;&#x7684;map&#x5B58;&#x5165;&#x5143;&#x7D20;&#x5C07;&#x5C0E;&#x81F4;&#x4E00;&#x500B;panic&#x7570;&#x5E38;&#xFF1A;</p>
+<pre><code class="lang-Go">ages[<span class="hljs-string">&quot;carol&quot;</span>] = <span class="hljs-number">21</span> <span class="hljs-comment">// panic: assignment to entry in nil map</span>
+</code></pre>
+<p>&#x5728;&#x5411;map&#x5B58;&#x6578;&#x64DA;&#x524D;&#x5FC5;&#x9B1A;&#x5148;&#x5275;&#x5EFA;map&#x3002;</p>
+<p>&#x901A;&#x904E;key&#x4F5C;&#x7232;&#x7D22;&#x5F15;&#x4E0B;&#x6A19;&#x4F86;&#x8A2A;&#x554F;map&#x5C07;&#x7523;&#x751F;&#x4E00;&#x500B;value&#x3002;&#x5982;&#x679C;key&#x5728;map&#x4E2D;&#x662F;&#x5B58;&#x5728;&#x7684;&#xFF0C;&#x90A3;&#x9EBD;&#x5C07;&#x5F97;&#x5230;&#x8207;key&#x5C0D;&#x61C9;&#x7684;value&#xFF1B;&#x5982;&#x679C;key&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x90A3;&#x9EBD;&#x5C07;&#x5F97;&#x5230;value&#x5C0D;&#x61C9;&#x985E;&#x578B;&#x7684;&#x96F6;&#x503C;&#xFF0C;&#x6B63;&#x5982;&#x6211;&#x5011;&#x524D;&#x9762;&#x770B;&#x5230;&#x7684;ages[&quot;bob&quot;]&#x90A3;&#x6A23;&#x3002;&#x9019;&#x500B;&#x898F;&#x5247;&#x5F88;&#x5BE6;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x6642;&#x5019;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x77E5;&#x9053;&#x5C0D;&#x61C9;&#x7684;&#x5143;&#x7D20;&#x662F;&#x5426;&#x771E;&#x7684;&#x662F;&#x5728;map&#x4E4B;&#x4E2D;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x5143;&#x7D20;&#x985E;&#x578B;&#x662F;&#x4E00;&#x500B;&#x6578;&#x5B57;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9700;&#x8981;&#x5340;&#x5206;&#x4E00;&#x500B;&#x5DF2;&#x7D93;&#x5B58;&#x5728;&#x7684;0&#xFF0C;&#x548C;&#x4E0D;&#x5B58;&#x5728;&#x800C;&#x8FD4;&#x8FF4;&#x96F6;&#x503C;&#x7684;0&#xFF0C;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x9019;&#x6A23;&#x6E2C;&#x8A66;&#xFF1A;</p>
+<pre><code class="lang-Go">age, ok := ages[<span class="hljs-string">&quot;bob&quot;</span>]
+<span class="hljs-keyword">if</span> !ok { <span class="hljs-comment">/* &quot;bob&quot; is not a key in this map; age == 0. */</span> }
+</code></pre>
+<p>&#x4F60;&#x6703;&#x7D93;&#x5E38;&#x770B;&#x5230;&#x5C07;&#x9019;&#x5169;&#x500B;&#x7D50;&#x5408;&#x8D77;&#x4F86;&#x4F7F;&#x7528;&#xFF0C;&#x50CF;&#x9019;&#x6A23;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">if</span> age, ok := ages[<span class="hljs-string">&quot;bob&quot;</span>]; !ok { <span class="hljs-comment">/* ... */</span> }
+</code></pre>
+<p>&#x5728;&#x9019;&#x7A2E;&#x5834;&#x666F;&#x4E0B;&#xFF0C;map&#x7684;&#x4E0B;&#x6A19;&#x8A9E;&#x6CD5;&#x5C07;&#x7523;&#x751F;&#x5169;&#x500B;&#x503C;&#xFF1B;&#x7B2C;&#x4E8C;&#x500B;&#x662F;&#x4E00;&#x500B;&#x5E03;&#x723E;&#x503C;&#xFF0C;&#x7528;&#x65BC;&#x5831;&#x544A;&#x5143;&#x7D20;&#x662F;&#x5426;&#x771E;&#x7684;&#x5B58;&#x5728;&#x3002;&#x5E03;&#x723E;&#x8B8A;&#x91CF;&#x4E00;&#x822C;&#x547D;&#x540D;&#x7232;ok&#xFF0C;&#x7279;&#x522B;&#x9069;&#x5408;&#x99AC;&#x4E0A;&#x7528;&#x65BC;if&#x689D;&#x4EF6;&#x5224;&#x65B7;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x548C;slice&#x4E00;&#x6A23;&#xFF0C;map&#x4E4B;&#x9593;&#x4E5F;&#x4E0D;&#x80FD;&#x9032;&#x884C;&#x76F8;&#x7B49;&#x6BD4;&#x8F03;&#xFF1B;&#x552F;&#x4E00;&#x7684;&#x4F8B;&#x5916;&#x662F;&#x548C;nil&#x9032;&#x884C;&#x6BD4;&#x8F03;&#x3002;&#x8981;&#x5224;&#x65B7;&#x5169;&#x500B;map&#x662F;&#x5426;&#x5305;&#x542B;&#x76F8;&#x540C;&#x7684;key&#x548C;value&#xFF0C;&#x6211;&#x5011;&#x5FC5;&#x9B1A;&#x901A;&#x904E;&#x4E00;&#x500B;&#x5FAA;&#x74B0;&#x5BE6;&#x73FE;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> equal(x, y <span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">int</span>) <span class="hljs-typename">bool</span> {
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(x) != <span class="hljs-built_in">len</span>(y) {
+        <span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
+    }
+    <span class="hljs-keyword">for</span> k, xv := <span class="hljs-keyword">range</span> x {
+        <span class="hljs-keyword">if</span> yv, ok := y[k]; !ok || yv != xv {
+            <span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-constant">true</span>
+}
+</code></pre>
+<p>&#x8981;&#x8A3B;&#x610F;&#x6211;&#x5011;&#x662F;&#x5982;&#x4F55;&#x7528;!ok&#x4F86;&#x5340;&#x5206;&#x5143;&#x7D20;&#x7F3A;&#x5931;&#x548C;&#x5143;&#x7D20;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x6211;&#x5011;&#x4E0D;&#x80FD;&#x7C21;&#x55AE;&#x5730;&#x7528;xv != y[k]&#x5224;&#x65B7;&#xFF0C;&#x90A3;&#x6A23;&#x6703;&#x5C0E;&#x81F4;&#x5728;&#x5224;&#x65B7;&#x4E0B;&#x9762;&#x5169;&#x500B;map&#x6642;&#x7523;&#x751F;&#x932F;&#x8AA4;&#x7684;&#x7D50;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-comment">// True if equal is written incorrectly.</span>
+equal(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">int</span>{<span class="hljs-string">&quot;A&quot;</span>: <span class="hljs-number">0</span>}, <span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">int</span>{<span class="hljs-string">&quot;B&quot;</span>: <span class="hljs-number">42</span>})
+</code></pre>
+<p>Go&#x8A9E;&#x8A00;&#x4E2D;&#x4F75;&#x6C92;&#x6709;&#x63D0;&#x4F9B;&#x4E00;&#x500B;set&#x985E;&#x578B;&#xFF0C;&#x4F46;&#x662F;map&#x4E2D;&#x7684;key&#x4E5F;&#x662F;&#x4E0D;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;map&#x5BE6;&#x73FE;&#x985E;&#x4F3C;&#x7684;&#x529F;&#x80FD;&#x3002;&#x7232;&#x4E86;&#x8AAC;&#x660E;&#x9019;&#x4E00;&#x9EDE;&#xFF0C;&#x4E0B;&#x9762;&#x7684;dedup&#x7A0B;&#x5E8F;&#x8B80;&#x53D6;&#x591A;&#x884C;&#x8F38;&#x5165;&#xFF0C;&#x4F46;&#x662F;&#x96BB;&#x6253;&#x5370;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73FE;&#x7684;&#x884C;&#x3002;&#xFF08;&#x5B83;&#x662F;1.3&#x7BC0;&#x4E2D;&#x51FA;&#x73FE;&#x7684;dup&#x7A0B;&#x5E8F;&#x7684;&#x8B8A;&#x9AD4;&#x3002;&#xFF09;dedup&#x7A0B;&#x5E8F;&#x901A;&#x904E;map&#x4F86;&#x8868;&#x793A;&#x6240;&#x6709;&#x7684;&#x8F38;&#x5165;&#x884C;&#x6240;&#x5C0D;&#x61C9;&#x7684;set&#x96C6;&#x5408;&#xFF0C;&#x4EE5;&#x78BA;&#x4FDD;&#x5DF2;&#x7D93;&#x5728;&#x96C6;&#x5408;&#x5B58;&#x5728;&#x7684;&#x884C;&#x4E0D;&#x6703;&#x88AB;&#x91CD;&#x8907;&#x6253;&#x5370;&#x3002;</p>
+<pre><code class="lang-Go">gopl.io/ch4/dedup
+
+<span class="hljs-keyword">func</span> main() {
+    seen := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">bool</span>) <span class="hljs-comment">// a set of strings</span>
+    input := bufio.NewScanner(os.Stdin)
+    <span class="hljs-keyword">for</span> input.Scan() {
+        line := input.Text()
+        <span class="hljs-keyword">if</span> !seen[line] {
+            seen[line] = <span class="hljs-constant">true</span>
+            fmt.Println(line)
+        }
+    }
+
+    <span class="hljs-keyword">if</span> err := input.Err(); err != <span class="hljs-constant">nil</span> {
+        fmt.Fprintf(os.Stderr, <span class="hljs-string">&quot;dedup: %v\n&quot;</span>, err)
+        os.Exit(<span class="hljs-number">1</span>)
+    }
+}
+</code></pre>
+<p>Go&#x7A0B;&#x5E8F;&#x54E1;&#x5C07;&#x9019;&#x7A2E;&#x5FFD;&#x7565;value&#x7684;map&#x7576;&#x4F5C;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x4E32;&#x96C6;&#x5408;&#xFF0C;&#x4F75;&#x975E;&#x6240;&#x6709;map[string]bool&#x985E;&#x578B;value&#x90FD;&#x662F;&#x7121;&#x95DC;&#x7DCA;&#x8981;&#x7684;&#xFF1B;&#x6709;&#x4E00;&#x4E9B;&#x5247;&#x53EF;&#x80FD;&#x6703;&#x540C;&#x6642;&#x5305;&#x542B;tue&#x548C;false&#x7684;&#x503C;&#x3002;</p>
+<p>&#x6709;&#x6642;&#x5019;&#x6211;&#x5011;&#x9700;&#x8981;&#x4E00;&#x500B;map&#x6216;set&#x7684;key&#x662F;slice&#x985E;&#x578B;&#xFF0C;&#x4F46;&#x662F;map&#x7684;key&#x5FC5;&#x9B1A;&#x662F;&#x53EF;&#x6BD4;&#x8F03;&#x7684;&#xFF0C;&#x4F46;&#x662F;slice&#x4F75;&#x4E0D;&#x6EFF;&#x8DB3;&#x9019;&#x500B;&#x689D;&#x4EF6;&#x3002;&#x4E0D;&#x904E;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x5169;&#x500B;&#x6B65;&#x9A5F;&#x7E5E;&#x904E;&#x9019;&#x500B;&#x9650;&#x88FD;&#x3002;&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x5B9A;&#x7FA9;&#x4E00;&#x500B;&#x8F14;&#x52A9;&#x51FD;&#x6578;k&#xFF0C;&#x5C07;slice&#x8F49;&#x7232;map&#x5C0D;&#x61C9;&#x7684;string&#x985E;&#x578B;&#x7684;key&#xFF0C;&#x78BA;&#x4FDD;&#x96BB;&#x6709;x&#x548C;y&#x76F8;&#x7B49;&#x6642;k(x) == k(y)&#x624D;&#x6210;&#x7ACB;&#x3002;&#x7136;&#x5F8C;&#x5275;&#x5EFA;&#x4E00;&#x500B;key&#x7232;string&#x985E;&#x578B;&#x7684;map&#xFF0C;&#x5728;&#x6BCF;&#x6B21;&#x5C0D;map&#x64CD;&#x4F5C;&#x6642;&#x5148;&#x7528;k&#x8F14;&#x52A9;&#x51FD;&#x6578;&#x5C07;slice&#x8F49;&#x5316;&#x7232;string&#x985E;&#x578B;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;map&#x4F86;&#x8A18;&#x9332;&#x63D0;&#x4EA4;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5217;&#x8868;&#x7684;&#x6B21;&#x6578;&#x3002;&#x5B83;&#x4F7F;&#x7528;&#x4E86;fmt.Sprintf&#x51FD;&#x6578;&#x5C07;&#x5B57;&#x7B26;&#x4E32;&#x5217;&#x8868;&#x8F49;&#x63DB;&#x7232;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x4E32;&#x4EE5;&#x7528;&#x65BC;map&#x7684;key&#xFF0C;&#x901A;&#x904E;%q&#x53C3;&#x6578;&#x5FE0;&#x5BE6;&#x5730;&#x8A18;&#x9332;&#x6BCF;&#x500B;&#x5B57;&#x7B26;&#x4E32;&#x5143;&#x7D20;&#x7684;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> m = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">int</span>)
+
+<span class="hljs-keyword">func</span> k(list []<span class="hljs-typename">string</span>) <span class="hljs-typename">string</span> { <span class="hljs-keyword">return</span> fmt.Sprintf(<span class="hljs-string">&quot;%q&quot;</span>, list) }
+
+<span class="hljs-keyword">func</span> Add(list []<span class="hljs-typename">string</span>)       { m[k(list)]++ }
+<span class="hljs-keyword">func</span> Count(list []<span class="hljs-typename">string</span>) <span class="hljs-typename">int</span> { <span class="hljs-keyword">return</span> m[k(list)] }
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x540C;&#x6A23;&#x7684;&#x6280;&#x8853;&#x53EF;&#x4EE5;&#x8655;&#x7406;&#x4EFB;&#x4F55;&#x4E0D;&#x53EF;&#x6BD4;&#x8F03;&#x7684;key&#x985E;&#x578B;&#xFF0C;&#x800C;&#x4E0D;&#x50C5;&#x50C5;&#x662F;slice&#x985E;&#x578B;&#x3002;&#x5B83;&#x5C0D;&#x65BC;&#x60F3;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x7FA9;key&#x6BD4;&#x8F03;&#x51FD;&#x6578;&#x7684;&#x6642;&#x5019;&#x4E5F;&#x5F88;&#x6709;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#x5728;&#x6BD4;&#x8F03;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6642;&#x5019;&#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5BEB;&#x3002;&#x540C;&#x6642;&#xFF0C;&#x8F14;&#x52A9;&#x51FD;&#x6578;k(x)&#x4E5F;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x985E;&#x578B;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x8FD4;&#x8FF4;&#x4EFB;&#x4F55;&#x53EF;&#x6BD4;&#x8F03;&#x7684;&#x985E;&#x578B;&#xFF0C;&#x4F8B;&#x5982;&#x6574;&#x6578;&#x3001;&#x6578;&#x7D44;&#x6216;&#x7D50;&#x69CB;&#x9AD4;&#x7B49;&#x3002;</p>
+<p>&#x9019;&#x662F;map&#x7684;&#x53E6;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x7528;&#x65BC;&#x7D71;&#x8A08;&#x8F38;&#x5165;&#x4E2D;&#x6BCF;&#x500B;Unicode&#x78BC;&#x9EDE;&#x51FA;&#x73FE;&#x7684;&#x6B21;&#x6578;&#x3002;&#x96D6;&#x7136;Unicode&#x5168;&#x90E8;&#x78BC;&#x9EDE;&#x7684;&#x6578;&#x91CF;&#x9245;&#x5927;&#xFF0C;&#x4F46;&#x662F;&#x51FA;&#x73FE;&#x5728;&#x7279;&#x9EDE;&#x6587;&#x6A94;&#x4E2D;&#x7684;&#x5B57;&#x7B26;&#x4F75;&#x6C92;&#x6709;&#x591A;&#x5C11;&#xFF0C;&#x4F7F;&#x7528;map&#x53EF;&#x4EE5;&#x7528;&#x6BD4;&#x8F03;&#x81EA;&#x7136;&#x7684;&#x65B9;&#x5F0F;&#x4F86;&#x8DDF;&#x8E64;&#x90A3;&#x4E9B;&#x898B;&#x904E;&#x5B57;&#x7B26;&#x6B21;&#x6578;&#x3002;</p>
+<pre><code class="lang-Go">gopl.io/ch4/charcount
+
+<span class="hljs-comment">// Charcount computes counts of Unicode characters.</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;bufio&quot;</span>
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;io&quot;</span>
+    <span class="hljs-string">&quot;os&quot;</span>
+    <span class="hljs-string">&quot;unicode&quot;</span>
+    <span class="hljs-string">&quot;unicode/utf8&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    counts := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">rune</span>]<span class="hljs-typename">int</span>)    <span class="hljs-comment">// counts of Unicode characters</span>
+    <span class="hljs-keyword">var</span> utflen [utf8.UTFMax + <span class="hljs-number">1</span>]<span class="hljs-typename">int</span> <span class="hljs-comment">// count of lengths of UTF-8 encodings</span>
+    invalid := <span class="hljs-number">0</span>                    <span class="hljs-comment">// count of invalid UTF-8 characters</span>
+
+    in := bufio.NewReader(os.Stdin)
+    <span class="hljs-keyword">for</span> {
+        r, n, err := in.ReadRune() <span class="hljs-comment">// returns rune, nbytes, error</span>
+        <span class="hljs-keyword">if</span> err == io.EOF {
+            <span class="hljs-keyword">break</span>
+        }
+        <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+            fmt.Fprintf(os.Stderr, <span class="hljs-string">&quot;charcount: %v\n&quot;</span>, err)
+            os.Exit(<span class="hljs-number">1</span>)
+        }
+        <span class="hljs-keyword">if</span> r == unicode.ReplacementChar &amp;&amp; n == <span class="hljs-number">1</span> {
+            invalid++
+            <span class="hljs-keyword">continue</span>
+        }
+        counts[r]++
+        utflen[n]++
+    }
+    fmt.Printf(<span class="hljs-string">&quot;rune\tcount\n&quot;</span>)
+    <span class="hljs-keyword">for</span> c, n := <span class="hljs-keyword">range</span> counts {
+        fmt.Printf(<span class="hljs-string">&quot;%q\t%d\n&quot;</span>, c, n)
+    }
+    fmt.Print(<span class="hljs-string">&quot;\nlen\tcount\n&quot;</span>)
+    <span class="hljs-keyword">for</span> i, n := <span class="hljs-keyword">range</span> utflen {
+        <span class="hljs-keyword">if</span> i &gt; <span class="hljs-number">0</span> {
+            fmt.Printf(<span class="hljs-string">&quot;%d\t%d\n&quot;</span>, i, n)
+        }
+    }
+    <span class="hljs-keyword">if</span> invalid &gt; <span class="hljs-number">0</span> {
+        fmt.Printf(<span class="hljs-string">&quot;\n%d invalid UTF-8 characters\n&quot;</span>, invalid)
+    }
+}
+</code></pre>
+<p>ReadRune&#x65B9;&#x6CD5;&#x57F7;&#x884C;UTF-8&#x89E3;&#x78BC;&#x4F75;&#x8FD4;&#x8FF4;&#x4E09;&#x500B;&#x503C;&#xFF1A;&#x89E3;&#x78BC;&#x7684;rune&#x5B57;&#x7B26;&#x7684;&#x503C;&#xFF0C;&#x5B57;&#x7B26;UTF-8&#x7DE8;&#x78BC;&#x5F8C;&#x7684;&#x9577;&#x5EA6;&#xFF0C;&#x548C;&#x4E00;&#x500B;&#x932F;&#x8AA4;&#x503C;&#x3002;&#x6211;&#x5011;&#x53EF;&#x9810;&#x671F;&#x7684;&#x932F;&#x8AA4;&#x503C;&#x96BB;&#x6709;&#x5C0D;&#x61C9;&#x6587;&#x4EF6;&#x7D50;&#x5C3E;&#x7684;io.EOF&#x3002;&#x5982;&#x679C;&#x8F38;&#x5165;&#x7684;&#x662F;&#x7121;&#x6548;&#x7684;UTF-8&#x7DE8;&#x78BC;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x8FD4;&#x8FF4;&#x7684;&#x5C07;&#x662F;unicode.ReplacementChar&#x7121;&#x6548;&#x5B57;&#x7B26;&#xFF0C;&#x4F75;&#x4E14;&#x7DE8;&#x78BC;&#x9577;&#x5EA6;&#x662F;1&#x3002;</p>
+<p>charcount&#x7A0B;&#x5E8F;&#x540C;&#x6642;&#x6253;&#x5370;&#x4E0D;&#x540C;UTF-8&#x7DE8;&#x78BC;&#x9577;&#x5EA6;&#x7684;&#x5B57;&#x7B26;&#x6578;&#x76EE;&#x3002;&#x5C0D;&#x6B64;&#xFF0C;map&#x4F75;&#x4E0D;&#x662F;&#x4E00;&#x500B;&#x5408;&#x9069;&#x7684;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#xFF1B;&#x56E0;&#x7232;UTF-8&#x7DE8;&#x78BC;&#x7684;&#x9577;&#x5EA6;&#x7E3D;&#x662F;&#x5F9E;1&#x5230;utf8.UTFMax&#xFF08;&#x6700;&#x5927;&#x662F;4&#x500B;&#x5B57;&#x7BC0;&#xFF09;&#xFF0C;&#x4F7F;&#x7528;&#x6578;&#x7D44;&#x5C07;&#x66F4;&#x6709;&#x6548;&#x3002;</p>
+<p>&#x4F5C;&#x7232;&#x4E00;&#x500B;&#x5BE6;&#x9A57;&#xFF0C;&#x6211;&#x5011;&#x7528;charcount&#x7A0B;&#x5E8F;&#x5C0D;&#x672C;&#x8EAB;&#x7684;&#x5B57;&#x7B26;&#x9032;&#x884C;&#x4E86;&#x7D71;&#x8A08;&#x3002;&#x96D6;&#x7136;&#x5927;&#x90E8;&#x5206;&#x662F;&#x82F1;&#x8A9E;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x975E;ASCII&#x5B57;&#x7B26;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x6392;&#x540D;&#x524D;10&#x7684;&#x975E;ASCII&#x5B57;&#x7B26;&#xFF1A;</p>
+<p><img src="../images/ch4-xx-01.png" alt=""></p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E0D;&#x540C;UTF-8&#x7DE8;&#x78BC;&#x9577;&#x5EA6;&#x7684;&#x5B57;&#x7B26;&#x7684;&#x6578;&#x76EE;&#xFF1A;</p>
+<pre><code>len count
+1   765391
+2   60
+3   70
+4   0
+</code></pre><p>Map&#x7684;value&#x985E;&#x578B;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x500B;&#x805A;&#x5408;&#x985E;&#x578B;&#xFF0C;&#x6BD4;&#x5982;&#x662F;&#x4E00;&#x500B;map&#x6216;slice&#x3002;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;&#x5716;graph&#x7684;key&#x985E;&#x578B;&#x662F;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;value&#x985E;&#x578B;map[string]bool&#x4EE3;&#x8868;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x4E32;&#x96C6;&#x5408;&#x3002;&#x5F9E;&#x6982;&#x5FF5;&#x4E0A;&#x5C07;&#xFF0C;graph&#x5C07;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x4E32;&#x985E;&#x578B;&#x7684;key&#x6620;&#x5C04;&#x5230;&#x4E00;&#x7D44;&#x76F8;&#x95DC;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x96C6;&#x5408;&#xFF0C;&#x5B83;&#x5011;&#x6307;&#x5411;&#x65B0;&#x7684;graph&#x7684;key&#x3002;</p>
+<pre><code class="lang-Go">gopl.io/ch4/graph
+
+<span class="hljs-keyword">var</span> graph = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">bool</span>)
+
+<span class="hljs-keyword">func</span> addEdge(from, to <span class="hljs-typename">string</span>) {
+    edges := graph[from]
+    <span class="hljs-keyword">if</span> edges == <span class="hljs-constant">nil</span> {
+        edges = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">bool</span>)
+        graph[from] = edges
+    }
+    edges[to] = <span class="hljs-constant">true</span>
+}
+
+<span class="hljs-keyword">func</span> hasEdge(from, to <span class="hljs-typename">string</span>) <span class="hljs-typename">bool</span> {
+    <span class="hljs-keyword">return</span> graph[from][to]
+}
+</code></pre>
+<p>&#x5176;&#x4E2D;addEdge&#x51FD;&#x6578;&#x60F0;&#x6027;&#x521D;&#x59CB;&#x5316;map&#x662F;&#x4E00;&#x500B;&#x6163;&#x7528;&#x65B9;&#x5F0F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8AAC;&#x5728;&#x6BCF;&#x500B;&#x503C;&#x9996;&#x6B21;&#x4F5C;&#x7232;key&#x662F;&#x624D;&#x521D;&#x59CB;&#x5316;&#x3002;addEdge&#x51FD;&#x6578;&#x986F;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x8B93;map&#x7684;&#x96F6;&#x503C;&#x4E5F;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF1B;&#x537D;&#x4F7F;from&#x5230;to&#x7684;&#x908A;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;graph[from][to]&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;&#x6709;&#x610F;&#x7FA9;&#x7684;&#x7D50;&#x679C;&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 4.8&#xFF1A;</strong> &#x8129;&#x6539;charcount&#x7A0B;&#x5E8F;&#xFF0C;&#x4F7F;&#x7528;unicode.IsLetter&#x7B49;&#x76F8;&#x95DC;&#x7684;&#x51FD;&#x6578;&#xFF0C;&#x7D71;&#x8A08;&#x5B57;&#x6BCD;&#x3001;&#x6578;&#x5B57;&#x7B49;Unicode&#x4E2D;&#x4E0D;&#x540C;&#x7684;&#x5B57;&#x7B26;&#x985E;&#x522B;&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 4.9&#xFF1A;</strong> &#x7DE8;&#x5BEB;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;wordfreq&#x7A0B;&#x5E8F;&#xFF0C;&#x5831;&#x544A;&#x8F38;&#x5165;&#x6587;&#x672C;&#x4E2D;&#x6BCF;&#x500B;&#x55AE;&#x8A5E;&#x51FA;&#x73FE;&#x7684;&#x983B;&#x7387;&#x3002;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x8ABF;&#x7528;Scan&#x524D;&#x5148;&#x8ABF;&#x7528;input.Split(bufio.ScanWords)&#x51FD;&#x6578;&#xFF0C;&#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x6309;&#x55AE;&#x8A5E;&#x800C;&#x4E0D;&#x662F;&#x6309;&#x884C;&#x8F38;&#x5165;&#x3002;</p>
 
                     
                     </section>
@@ -2035,7 +2240,7 @@
         </div>
 
         
-        <a href="../ch4/ch4-02.html" class="navigation navigation-prev " aria-label="Previous page: 切片"><i class="fa fa-angle-left"></i></a>
+        <a href="../ch4/ch4-02.html" class="navigation navigation-prev " aria-label="Previous page: Slice"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../ch4/ch4-04.html" class="navigation navigation-next " aria-label="Next page: 結構體"><i class="fa fa-angle-right"></i></a>

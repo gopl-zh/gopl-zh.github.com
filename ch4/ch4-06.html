@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>文本和HTML模闆 | Go编程语言</title>
+        <title>文本和HTML模闆 | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="4.6" data-chapter-title="文本和HTML模闆" data-filepath="ch4/ch4-06.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="4.6" data-chapter-title="文本和HTML模闆" data-filepath="ch4/ch4-06.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -575,7 +575,7 @@
                         
                             <b>4.2.</b>
                         
-                        切片
+                        Slice
                     </a>
             
             
@@ -590,7 +590,7 @@
                         
                             <b>4.3.</b>
                         
-                        字典
+                        Map
                     </a>
             
             
@@ -2013,7 +2013,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Go编程语言</a>
+        <a href="../" >Go语言圣经</a>
     </h1>
 </div>
 
@@ -2024,7 +2024,124 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="46-&#x6587;&#x672C;&#x548C;html&#x6A21;&#x95C6;">4.6. &#x6587;&#x672C;&#x548C;HTML&#x6A21;&#x95C6;</h2>
-<p>TODO</p>
+<p>&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x96BB;&#x662F;&#x6700;&#x7C21;&#x55AE;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x4F7F;&#x7528;Printf&#x662F;&#x5B8C;&#x5168;&#x8DB3;&#x5920;&#x7684;&#x3002;&#x4F46;&#x662F;&#x6709;&#x6642;&#x5019;&#x6703;&#x9700;&#x8981;&#x8907;&#x96DC;&#x7684;&#x6253;&#x5370;&#x683C;&#x5F0F;&#xFF0C;&#x9019;&#x6642;&#x5019;&#x4E00;&#x822C;&#x9700;&#x8981;&#x5C07;&#x683C;&#x5F0F;&#x5316;&#x4EE3;&#x78BC;&#x5206;&#x96E2;&#x51FA;&#x4F86;&#x4EE5;&#x4FBF;&#x66F4;&#x5B89;&#x5168;&#x5730;&#x8129;&#x6539;&#x3002;&#x9019;&#x5BEB;&#x529F;&#x80FD;&#x662F;&#x7531;text/template&#x548C;html/template&#x7B49;&#x6A21;&#x95C6;&#x5305;&#x63D0;&#x4F9B;&#x7684;&#xFF0C;&#x5B83;&#x5011;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x500B;&#x7528;&#x8B8A;&#x91CF;&#x503C;&#x586B;&#x5145;&#x5230;&#x4E00;&#x500B;&#x6587;&#x672C;&#x6216;HTML&#x683C;&#x5F0F;&#x7684;&#x6A21;&#x95C6;&#x7684;&#x6A5F;&#x88FD;&#x3002;</p>
+<p>&#x4E00;&#x500B;&#x6A21;&#x95C6;&#x662F;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x4E00;&#x500B;&#x6587;&#x4EF6;&#xFF0C;&#x91CC;&#x9762;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x500B;&#x6216;&#x591A;&#x500B;&#x7531;&#x96D9;&#x82B1;&#x62EC;&#x865F;&#x5305;&#x542B;&#x7684;action&#x5C0D;&#x8C61;&#x3002;&#x5927;&#x90E8;&#x5206;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x96BB;&#x662F;&#x6309;&#x9762;&#x503C;&#x6253;&#x5370;&#xFF0C;&#x4F46;&#x662F;&#x5C0D;&#x65BC;actions&#x90E8;&#x5206;&#x5C07;&#x89F8;&#x767C;&#x5176;&#x5B83;&#x7684;&#x884C;&#x7232;&#x3002;&#x8CB7;&#x500B;actions&#x5305;&#x597D;&#x4E86;&#x4E00;&#x500B;&#x7528;&#x6A21;&#x95C6;&#x8A9E;&#x8A00;&#x66F8;&#x5BEB;&#x7684;&#x8868;&#x9054;&#x5F0F;&#xFF0C;&#x4E00;&#x500B;&#x96D6;&#x7136;&#x7C21;&#x77ED;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x8F38;&#x51FA;&#x8907;&#x96DC;&#x7684;&#x6253;&#x5370;&#x503C;&#xFF0C;&#x6A21;&#x95C6;&#x8A9E;&#x8A00;&#x5305;&#x542B;&#x901A;&#x904E;&#x9078;&#x64C7;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x6210;&#x54E1;&#x3001;&#x8ABF;&#x7528;&#x51FD;&#x6578;&#x6216;&#x65B9;&#x6CD5;&#x3001;&#x8868;&#x9054;&#x5F0F;&#x63A7;&#x88FD;&#x6D41;if-else&#x8A9E;&#x53E5;&#x548C;range&#x5FAA;&#x74B0;&#x8A9E;&#x53E5;&#xFF0C;&#x9084;&#x6709;&#x5176;&#x5B83;&#x5BE6;&#x4F8B;&#x5316;&#x6A21;&#x95C6;&#x7B49;&#x8AF8;&#x591A;&#x7279;&#x6027;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x500B;&#x7C21;&#x55AE;&#x7684;&#x6A21;&#x95C6;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;</p>
+<pre><code class="lang-Go">gopl.io/ch4/issuesreport
+
+<span class="hljs-keyword">const</span> templ = <span class="hljs-string">`{{.TotalCount}} issues:
+{{range .Items}}----------------------------------------
+Number: {{.Number}}
+User:   {{.User.Login}}
+Title:  {{.Title | printf &quot;%.64s&quot;}}
+Age:    {{.CreatedAt | daysAgo}} days
+{{end}}`</span>
+</code></pre>
+<p>&#x9019;&#x500B;&#x6A21;&#x95C6;&#x5148;&#x6253;&#x5370;&#x5339;&#x914D;&#x5230;&#x7684;issue&#x7E3D;&#x6578;&#xFF0C;&#x7136;&#x5F8C;&#x6253;&#x5370;&#x6BCF;&#x500B;issue&#x7684;&#x7DE8;&#x865F;&#x3001;&#x5275;&#x5EFA;&#x7528;&#x6236;&#x3001;&#x6A19;&#x984C;&#x9084;&#x6709;&#x5B58;&#x5728;&#x7684;&#x6642;&#x9593;&#x3002;&#x6BCF;&#x4E00;&#x500B;action&#xFF0C;&#x90FD;&#x6709;&#x4E00;&#x500B;&#x7576;&#x524D;&#x503C;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x5C0D;&#x61C9;&#x9EDE;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5BEB;&#x4F5C;&#x201C;.&#x201D;&#x3002;&#x7576;&#x524D;&#x503C;&#x201C;.&#x201D;&#x6700;&#x521D;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x7232;&#x8ABF;&#x7528;&#x6A21;&#x95C6;&#x662F;&#x7684;&#x53C3;&#x6578;&#xFF0C;&#x5728;&#x7576;&#x524D;&#x4F8B;&#x5B50;&#x4E2D;&#x5C0D;&#x61C9;github.IssuesSearchResult&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;&#x3002;&#x6A21;&#x95C6;&#x4E2D;<code>{{.TotalCount}}</code>&#x5C0D;&#x61C9;action&#x5C07;&#x5C55;&#x958B;&#x7232;&#x7D50;&#x69CB;&#x9AD4;&#x4E2D;TotalCount&#x6210;&#x54E1;&#x4EE5;&#x9ED8;&#x8A8D;&#x7684;&#x65B9;&#x5F0F;&#x6253;&#x5370;&#x7684;&#x503C;&#x3002;&#x6A21;&#x95C6;&#x4E2D;<code>{{range .Items}}</code>&#x548C;<code>{{end}}</code>&#x5C0D;&#x61C9;&#x4E00;&#x500B;&#x5FAA;&#x74B0;action&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x5011;&#x76F4;&#x63A5;&#x7684;&#x5167;&#x5BB9;&#x53EF;&#x80FD;&#x6703;&#x88AB;&#x5C55;&#x958B;&#x591A;&#x6B21;&#xFF0C;&#x5FAA;&#x74B0;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x7576;&#x524D;&#x503C;&#x5C0D;&#x61C9;&#x7576;&#x524D;&#x7684;Items&#x5143;&#x7D20;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x5728;&#x4E00;&#x500B;action&#x4E2D;&#xFF0C;<code>|</code>&#x64CD;&#x4F5C;&#x7B26;&#x8868;&#x793A;&#x5C07;&#x524D;&#x4E00;&#x500B;&#x8868;&#x9054;&#x5F0F;&#x7684;&#x7D50;&#x679C;&#x4F5C;&#x7232;&#x5F8C;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x7684;&#x8F38;&#x5165;&#xFF0C;&#x985E;&#x4F3C;&#x65BC;UNIX&#x4E2D;&#x7BA1;&#x9053;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x5728;Title&#x9019;&#x4E00;&#x884C;&#x7684;action&#x4E2D;&#xFF0C;&#x7B2C;&#x4E8C;&#x500B;&#x64CD;&#x4F5C;&#x662F;&#x4E00;&#x500B;printf&#x51FD;&#x6578;&#xFF0C;&#x662F;&#x4E00;&#x500B;&#x57FA;&#x65BC;fmt.Sprintf&#x5BE6;&#x73FE;&#x7684;&#x5167;&#x7F6E;&#x51FD;&#x6578;&#xFF0C;&#x6240;&#x6709;&#x6A21;&#x95C6;&#x90FD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;&#x5C0D;&#x65BC;Age&#x90E8;&#x5206;&#xFF0C;&#x7B2C;&#x4E8C;&#x500B;&#x52D5;&#x4F5C;&#x662F;&#x4E00;&#x500B;&#x53EB;daysAgo&#x7684;&#x51FD;&#x6578;&#xFF0C;&#x901A;&#x904E;time.Since&#x51FD;&#x6578;&#x5C07;CreatedAt&#x6210;&#x54E1;&#x8F49;&#x63DB;&#x7232;&#x904E;&#x53BB;&#x7684;&#x6642;&#x9593;&#x9577;&#x5EA6;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> daysAgo(t time.Time) <span class="hljs-typename">int</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-typename">int</span>(time.Since(t).Hours() / <span class="hljs-number">24</span>)
+}
+</code></pre>
+<p>&#x9700;&#x8981;&#x8A3B;&#x610F;&#x7684;&#x662F;CreatedAt&#x7684;&#x53C3;&#x6578;&#x985E;&#x578B;&#x662F;time.Time&#xFF0C;&#x4F75;&#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x4EE5;&#x540C;&#x6A23;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x5B9A;&#x7FA9;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#x4F86;&#x63A7;&#x88FD;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x683C;&#x5F0F;&#x5316;&#xFF08;&#xA7;2.5&#xFF09;&#xFF0C;&#x4E00;&#x500B;&#x985E;&#x578B;&#x540C;&#x6A23;&#x53EF;&#x4EE5;&#x5B9A;&#x88FD;&#x81EA;&#x5DF1;&#x7684;JSON&#x7DE8;&#x78BC;&#x548C;&#x89E3;&#x78BC;&#x884C;&#x7232;&#x3002;time.Time&#x985E;&#x578B;&#x5C0D;&#x61C9;&#x7684;JSON&#x503C;&#x662F;&#x4E00;&#x500B;&#x6A19;&#x6E96;&#x6642;&#x9593;&#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>&#x751F;&#x6210;&#x6A21;&#x95C6;&#x7684;&#x8F38;&#x51FA;&#x9700;&#x8981;&#x5169;&#x500B;&#x8655;&#x7406;&#x6B65;&#x9A5F;&#x3002;&#x7B2C;&#x4E00;&#x6B65;&#x662F;&#x8981;&#x5206;&#x6790;&#x6A21;&#x95C6;&#x4F75;&#x8F49;&#x7232;&#x5167;&#x90E8;&#x8868;&#x793A;&#xFF0C;&#x7136;&#x5F8C;&#x57FA;&#x65BC;&#x6307;&#x5B9A;&#x7684;&#x8F38;&#x5165;&#x57F7;&#x884C;&#x6A21;&#x95C6;&#x3002;&#x5206;&#x6790;&#x6A21;&#x95C6;&#x90E8;&#x5206;&#x4E00;&#x822C;&#x96BB;&#x9700;&#x8981;&#x57F7;&#x884C;&#x4E00;&#x6B21;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x5275;&#x5EFA;&#x4F75;&#x5206;&#x6790;&#x4E0A;&#x9762;&#x5B9A;&#x7FA9;&#x7684;&#x6A21;&#x95C6;templ&#x3002;&#x8A3B;&#x610F;&#x65B9;&#x6CD5;&#x8ABF;&#x7528;&#x93C8;&#x7684;&#x9806;&#x5E8F;&#xFF1A;template.New&#x5148;&#x5275;&#x5EFA;&#x4F75;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;&#x6A21;&#x95C6;&#xFF1B;Funcs&#x65B9;&#x6CD5;&#x5C07;daysAgo&#x7B49;&#x81EA;&#x5B9A;&#x7FA9;&#x51FD;&#x6578;&#x8A3B;&#x518A;&#x5230;&#x6A21;&#x95C6;&#x4E2D;&#xFF0C;&#x4F75;&#x8FD4;&#x8FF4;&#x6A21;&#x95C6;&#xFF1B;&#x6700;&#x5F8C;&#x8ABF;&#x7528;Parse&#x51FD;&#x6578;&#x5206;&#x6790;&#x6A21;&#x95C6;&#x3002;</p>
+<pre><code class="lang-Go">report, err := template.New(<span class="hljs-string">&quot;report&quot;</span>).
+    Funcs(template.FuncMap{<span class="hljs-string">&quot;daysAgo&quot;</span>: daysAgo}).
+    Parse(templ)
+<span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+    log.Fatal(err)
+}
+</code></pre>
+<p>&#x56E0;&#x7232;&#x6A21;&#x95C6;&#x901A;&#x5E38;&#x5728;&#x7DE8;&#x8B6F;&#x6642;&#x5C31;&#x6E2C;&#x8A66;&#x597D;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x6A21;&#x95C6;&#x89E3;&#x6790;&#x5931;&#x6557;&#x5C07;&#x662F;&#x4E00;&#x500B;&#x81F4;&#x547D;&#x7684;&#x932F;&#x8AA4;&#x3002;template.Must&#x8F14;&#x52A9;&#x51FD;&#x6578;&#x53EF;&#x4EE5;&#x7C21;&#x5316;&#x9019;&#x500B;&#x81F4;&#x547D;&#x932F;&#x8AA4;&#x7684;&#x8655;&#x7406;&#xFF1A;&#x5B83;&#x63A5;&#x53D7;&#x4E00;&#x500B;&#x6A21;&#x95C6;&#x548C;&#x4E00;&#x500B;error&#x985E;&#x578B;&#x7684;&#x53C3;&#x6578;&#xFF0C;&#x6AA2;&#x6E2C;error&#x662F;&#x5426;&#x7232;nil&#xFF08;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5247;&#x767C;&#x51FA;panic&#x7570;&#x5E38;&#xFF09;&#xFF0C;&#x7136;&#x5F8C;&#x8FD4;&#x8FF4;&#x50B3;&#x5165;&#x7684;&#x6A21;&#x95C6;&#x3002;&#x6211;&#x5011;&#x5C07;&#x5728;5.9&#x7BC0;&#x518D;&#x8A0E;&#x8AD6;&#x9019;&#x500B;&#x8A71;&#x984C;&#x3002;</p>
+<p>&#x4E00;&#x65E6;&#x6A21;&#x95C6;&#x5DF2;&#x7D93;&#x5275;&#x5EFA;&#x3001;&#x8A3B;&#x518A;&#x4E86;daysAgo&#x51FD;&#x6578;&#x3001;&#x4F75;&#x901A;&#x904E;&#x5206;&#x6790;&#x548C;&#x6AA2;&#x6E2C;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;github.IssuesSearchResult&#x4F5C;&#x7232;&#x8F38;&#x5165;&#x6E90;&#x3001;os.Stdout&#x4F5C;&#x7232;&#x8F38;&#x51FA;&#x6E90;&#x4F86;&#x57F7;&#x884C;&#x6A21;&#x95C6;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> report = template.Must(template.New(<span class="hljs-string">&quot;issuelist&quot;</span>).
+    Funcs(template.FuncMap{<span class="hljs-string">&quot;daysAgo&quot;</span>: daysAgo}).
+    Parse(templ))
+
+<span class="hljs-keyword">func</span> main() {
+    result, err := github.SearchIssues(os.Args[<span class="hljs-number">1</span>:])
+    <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+        log.Fatal(err)
+    }
+    <span class="hljs-keyword">if</span> err := report.Execute(os.Stdout, result); err != <span class="hljs-constant">nil</span> {
+        log.Fatal(err)
+    }
+}
+</code></pre>
+<p>&#x7A0B;&#x5E8F;&#x8F38;&#x51FA;&#x4E00;&#x500B;&#x7D14;&#x6587;&#x672C;&#x5831;&#x544A;&#xFF1A;</p>
+<pre><code>$ go build gopl.io/ch4/issuesreport
+$ ./issuesreport repo:golang/go is:open json decoder
+13 issues:
+----------------------------------------
+Number: 5680
+User:      eaigner
+Title:     encoding/json: set key converter on en/decoder
+Age:       750 days
+----------------------------------------
+Number: 6050
+User:      gopherbot
+Title:     encoding/json: provide tokenizer
+Age:       695 days
+----------------------------------------
+...
+</code></pre><p>&#x73FE;&#x5728;&#x8B93;&#x6211;&#x5011;&#x8F49;&#x5230;html/template&#x6A21;&#x95C6;&#x5305;&#x3002;&#x5B83;&#x4F7F;&#x7528;&#x548C;text/template&#x5305;&#x76F8;&#x540C;&#x7684;API&#x548C;&#x6A21;&#x95C6;&#x8A9E;&#x8A00;&#xFF0C;&#x4F46;&#x662F;&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x500B;&#x5C07;&#x5B57;&#x7B26;&#x4E32;&#x81EA;&#x52D5;&#x8F49;&#x7FA9;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x8F38;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x548C;HTML&#x3001;JavaScript&#x3001;CSS&#x6216;URL&#x8A9E;&#x6CD5;&#x7523;&#x751F;&#x885D;&#x7A81;&#x7684;&#x554F;&#x984C;&#x3002;&#x9019;&#x500B;&#x7279;&#x6027;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x4E00;&#x4E9B;&#x9577;&#x671F;&#x5B58;&#x5728;&#x7684;&#x5B89;&#x5168;&#x554F;&#x984C;&#xFF0C;&#x6BD4;&#x5982;&#x901A;&#x904E;&#x751F;&#x6210;HTML&#x8A3B;&#x5165;&#x653B;&#x64CA;&#xFF0C;&#x901A;&#x904E;&#x69CB;&#x9020;&#x4E00;&#x500B;&#x542B;&#x6709;&#x60E1;&#x610F;&#x4EE3;&#x78BC;&#x7684;&#x554F;&#x984C;&#x6A19;&#x984C;&#xFF0C;&#x9019;&#x4E9B;&#x90FD;&#x53EF;&#x80FD;&#x8B93;&#x6A21;&#x95C6;&#x8F38;&#x51FA;&#x932F;&#x8AA4;&#x7684;&#x8F38;&#x51FA;&#xFF0C;&#x5F9E;&#x800C;&#x8B93;&#x4ED6;&#x5011;&#x63A7;&#x88FD;&#x9801;&#x9762;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x6A21;&#x95C6;&#x4EE5;HTML&#x683C;&#x5F0F;&#x8F38;&#x51FA;issue&#x5217;&#x8868;&#x3002;&#x8A3B;&#x610F;import&#x8A9E;&#x53E5;&#x7684;&#x4E0D;&#x540C;&#xFF1A;</p>
+<pre><code class="lang-Go">gopl.io/ch4/issueshtml
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;html/template&quot;</span>
+
+<span class="hljs-keyword">var</span> issueList = template.Must(template.New(<span class="hljs-string">&quot;issuelist&quot;</span>).Parse(<span class="hljs-string">`
+&lt;h1&gt;{{.TotalCount}} issues&lt;/h1&gt;
+&lt;table&gt;
+&lt;tr style=&apos;text-align: left&apos;&gt;
+  &lt;th&gt;#&lt;/th&gt;
+  &lt;th&gt;State&lt;/th&gt;
+  &lt;th&gt;User&lt;/th&gt;
+  &lt;th&gt;Title&lt;/th&gt;
+&lt;/tr&gt;
+{{range .Items}}
+&lt;tr&gt;
+  &lt;td&gt;&lt;a href=&apos;{{.HTMLURL}}&apos;&gt;{{.Number}}&lt;/td&gt;
+  &lt;td&gt;{{.State}}&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&apos;{{.User.HTMLURL}}&apos;&gt;{{.User.Login}}&lt;/a&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&apos;{{.HTMLURL}}&apos;&gt;{{.Title}}&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+{{end}}
+&lt;/table&gt;
+`</span>))
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x5C07;&#x5728;&#x65B0;&#x7684;&#x6A21;&#x95C6;&#x4E0A;&#x57F7;&#x884C;&#x4E00;&#x500B;&#x7A0D;&#x5FAE;&#x4E0D;&#x540C;&#x7684;&#x67FB;&#x8A62;&#xFF1A;</p>
+<pre><code class="lang-Go">$ <span class="hljs-keyword">go</span> build gopl.io/ch4/issueshtml
+$ ./issueshtml repo:golang/<span class="hljs-keyword">go</span> commenter:gopherbot json encoder &gt;issues.html
+</code></pre>
+<p>&#x5716;4.4&#x986F;&#x793A;&#x4E86;&#x5728;web&#x700F;&#x89BD;&#x5668;&#x4E2D;&#x7684;&#x6548;&#x679C;&#x5716;&#x3002;&#x6BCF;&#x500B;issue&#x5305;&#x542B;&#x5230;Github&#x5C0D;&#x61C9;&#x9801;&#x9762;&#x7684;&#x93C8;&#x63A5;&#x3002;</p>
+<p><img src="../images/ch4-04.png" alt=""></p>
+<p>&#x5716;4.4&#x4E2D;&#x7684;&#x6C92;&#x6709;&#x554F;&#x984C;&#x6703;&#x5C0D;HTML&#x683C;&#x5F0F;&#x7523;&#x751F;&#x885D;&#x7A81;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x5011;&#x99AC;&#x4E0A;&#x5C07;&#x770B;&#x5230;&#x6A19;&#x984C;&#x4E2D;&#x542B;&#x6709;<code>&amp;</code>&#x548C;<code>&lt;</code>&#x5B57;&#x7B26;&#x7684;issue&#x3002;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x9078;&#x64C7;&#x4E86;&#x5169;&#x500B;&#x9019;&#x6A23;&#x7684;issue&#xFF1A;</p>
+<pre><code>$ ./issueshtml repo:golang/go 3133 10535 &gt;issues2.html
+</code></pre><p>&#x5716;4.5&#x986F;&#x793A;&#x4E86;&#x8A72;&#x67FB;&#x8A62;&#x7684;&#x7D50;&#x679C;&#x3002;&#x8A3B;&#x610F;&#xFF0C;html/template&#x5305;&#x5DF2;&#x7D93;&#x81EA;&#x52D5;&#x5C07;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x8F49;&#x7FA9;&#xFF0C;&#x6211;&#x5011;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6B63;&#x78BA;&#x7684;&#x5B57;&#x9762;&#x503C;&#x3002;&#x5982;&#x679C;&#x6211;&#x5011;&#x4F7F;&#x7528;text/template&#x5305;&#x7684;&#x8A71;&#xFF0C;&#x9019;2&#x500B;issue&#x5C07;&#x6703;&#x7523;&#x751F;&#x932F;&#x8AA4;&#xFF0C;&#x5176;&#x4E2D;&#x201C;&lt;&#x201D;&#x56DB;&#x500B;&#x5B57;&#x7B26;&#x5C07;&#x6703;&#x88AB;&#x7576;&#x4F5C;&#x5C0F;&#x65BC;&#x5B57;&#x7B26;&#x201C;&lt;&#x201D;&#x8655;&#x7406;&#xFF0C;&#x540C;&#x6642;&#x201C;<link>&#x201D;&#x5B57;&#x7B26;&#x4E32;&#x5C07;&#x6703;&#x88AB;&#x7576;&#x4F5C;&#x4E00;&#x500B;&#x93C8;&#x63A5;&#x5143;&#x7D20;&#x8655;&#x7406;&#xFF0C;&#x5B83;&#x5011;&#x90FD;&#x6703;&#x5C0E;&#x81F4;HTML&#x6587;&#x6A94;&#x7D50;&#x69CB;&#x7684;&#x6539;&#x8B8A;&#xFF0C;&#x5F9E;&#x800C;&#x5C0E;&#x81F4;&#x6709;&#x672A;&#x77E5;&#x7684;&#x98A8;&#x96AA;&#x3002;</p>
+<p>&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x5C0D;&#x4FE1;&#x4EFB;&#x7684;HTML&#x5B57;&#x7B26;&#x4E32;&#x4F7F;&#x7528;template.HTML&#x985E;&#x578B;&#x4F86;&#x6291;&#x88FD;&#x9019;&#x7A2E;&#x81EA;&#x52D5;&#x8F49;&#x7FA9;&#x7684;&#x884C;&#x7232;&#x3002;&#x9084;&#x6709;&#x5F88;&#x591A;&#x91C7;&#x7528;&#x985E;&#x578B;&#x547D;&#x540D;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x985E;&#x578B;&#x5C0D;&#x61C9;&#x4FE1;&#x4EFB;&#x7684;JavaScript&#x3001;CSS&#x548C;URL&#x3002;&#x4E0B;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x6F14;&#x793A;&#x4E86;&#x5169;&#x500B;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x985E;&#x578B;&#x7684;&#x76F8;&#x540C;&#x5B57;&#x7B26;&#x4E32;&#x7523;&#x751F;&#x7684;&#x4E0D;&#x540C;&#x7D50;&#x679C;&#xFF1A;A&#x662F;&#x4E00;&#x500B;&#x666E;&#x901A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;B&#x662F;&#x4E00;&#x500B;&#x4FE1;&#x4EFB;&#x7684;template.HTML&#x5B57;&#x7B26;&#x4E32;&#x985E;&#x578B;&#x3002;</p>
+<p><img src="../images/ch4-05.png" alt=""></p>
+<pre><code class="lang-Go">gopl.io/ch4/autoescape
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">const</span> templ = <span class="hljs-string">`&lt;p&gt;A: {{.A}}&lt;/p&gt;&lt;p&gt;B: {{.B}}&lt;/p&gt;`</span>
+    t := template.Must(template.New(<span class="hljs-string">&quot;escape&quot;</span>).Parse(templ))
+    <span class="hljs-keyword">var</span> data <span class="hljs-keyword">struct</span> {
+        A <span class="hljs-typename">string</span>        <span class="hljs-comment">// untrusted plain text</span>
+        B template.HTML <span class="hljs-comment">// trusted HTML</span>
+    }
+    data.A = <span class="hljs-string">&quot;&lt;b&gt;Hello!&lt;/b&gt;&quot;</span>
+    data.B = <span class="hljs-string">&quot;&lt;b&gt;Hello!&lt;/b&gt;&quot;</span>
+    <span class="hljs-keyword">if</span> err := t.Execute(os.Stdout, data); err != <span class="hljs-constant">nil</span> {
+        log.Fatal(err)
+    }
+}
+</code></pre>
+<p>&#x5716;4.6&#x986F;&#x793A;&#x4E86;&#x51FA;&#x73FE;&#x5728;&#x700F;&#x89BD;&#x5668;&#x4E2D;&#x7684;&#x6A21;&#x95C6;&#x8F38;&#x51FA;&#x3002;&#x6211;&#x5011;&#x770B;&#x5230;A&#x7684;&#x9ED1;&#x9AD4;&#x6A19;&#x8A18;&#x88AB;&#x8F49;&#x7FA9;&#x5931;&#x6548;&#x4E86;&#xFF0C;&#x4F46;&#x662F;B&#x6C92;&#x6709;&#x3002;</p>
+<p><img src="../images/ch4-06.png" alt=""></p>
+<p>&#x6211;&#x5011;&#x9019;&#x91CC;&#x96BB;&#x8B1B;&#x8FF0;&#x4E86;&#x6A21;&#x95C6;&#x7E6B;&#x7D71;&#x4E2D;&#x6700;&#x57FA;&#x672C;&#x7684;&#x7279;&#x6027;&#x3002;&#x4E00;&#x5982;&#x65E3;&#x5F80;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8ACB;&#x81EA;&#x5DF1;&#x67FB;&#x770B;&#x5305;&#x6587;&#x6A94;&#xFF1A;</p>
+<pre><code>$ go doc text/template
+$ go doc html/template
+</code></pre><p><strong>&#x7DF4;&#x7FD2; 4.14&#xFF1A;</strong> &#x5275;&#x5EFA;&#x4E00;&#x500B;web&#x670D;&#x52D9;&#x5668;&#xFF0C;&#x67FB;&#x8A62;&#x4E00;&#x6B21;GitHub&#xFF0C;&#x7136;&#x5F8C;&#x751F;&#x6210;BUG&#x5831;&#x544A;&#x3001;&#x91CC;&#x7A0B;&#x7891;&#x548C;&#x5C0D;&#x61C9;&#x7684;&#x7528;&#x6236;&#x4FE1;&#x606F;&#x3002;</p>
 
                     
                     </section>

@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>基於select的多路複用 | Go编程语言</title>
+        <title>基於select的多路複用 | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="8.7" data-chapter-title="基於select的多路複用" data-filepath="ch8/ch8-07.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="8.7" data-chapter-title="基於select的多路複用" data-filepath="ch8/ch8-07.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -575,7 +575,7 @@
                         
                             <b>4.2.</b>
                         
-                        切片
+                        Slice
                     </a>
             
             
@@ -590,7 +590,7 @@
                         
                             <b>4.3.</b>
                         
-                        字典
+                        Map
                     </a>
             
             
@@ -2013,7 +2013,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Go编程语言</a>
+        <a href="../" >Go语言圣经</a>
     </h1>
 </div>
 
@@ -2024,7 +2024,105 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="87-&#x57FA;&#x65BC;select&#x7684;&#x591A;&#x8DEF;&#x8907;&#x7528;">8.7. &#x57FA;&#x65BC;select&#x7684;&#x591A;&#x8DEF;&#x8907;&#x7528;</h2>
-<p>TODO</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x6703;&#x9032;&#x884C;&#x706B;&#x7BAD;&#x767C;&#x5C04;&#x7684;&#x5012;&#x8A08;&#x6642;&#x3002;time.Tick&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;channel&#xFF0C;&#x7A0B;&#x5E8F;&#x6703;&#x9031;&#x671F;&#x6027;&#x5730;&#x50CF;&#x4E00;&#x500B;&#x7BC0;&#x62CD;&#x5668;&#x4E00;&#x6A23;&#x5411;&#x9019;&#x500B;channel&#x767C;&#x9001;&#x4E8B;&#x4EF6;&#x3002;&#x6BCF;&#x4E00;&#x500B;&#x4E8B;&#x4EF6;&#x7684;&#x503C;&#x662F;&#x4E00;&#x500B;&#x6642;&#x9593;&#x6233;&#xFF0C;&#x4E0D;&#x904E;&#x66F4;&#x6709;&#x610F;&#x601D;&#x7684;&#x662F;&#x5176;&#x50B3;&#x9001;&#x65B9;&#x5F0F;&#x3002;</p>
+<pre><code class="lang-go">gopl.io/ch8/countdown1
+<span class="hljs-keyword">func</span> main() {
+    fmt.Println(<span class="hljs-string">&quot;Commencing countdown.&quot;</span>)
+    tick := time.Tick(<span class="hljs-number">1</span> * time.Second)
+    <span class="hljs-keyword">for</span> countdown := <span class="hljs-number">10</span>; countdown &gt; <span class="hljs-number">0</span>; countdown-- {
+        fmt.Println(countdown)
+        j&lt;-tick
+    }
+    launch()
+}
+</code></pre>
+<p>&#x73FE;&#x5728;&#x6211;&#x5011;&#x8B93;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x652F;&#x6301;&#x5728;&#x5012;&#x8A08;&#x6642;&#x4E2D;&#xFF0C;&#x7528;&#x6236;&#x6309;&#x4E0B;return&#x9375;&#x6642;&#x76F4;&#x63A5;&#x4E2D;&#x65B7;&#x767C;&#x5C04;&#x6D41;&#x7A0B;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x6211;&#x5011;&#x555F;&#x52D5;&#x4E00;&#x500B;goroutine&#xFF0C;&#x9019;&#x500B;goroutine&#x6703;&#x5690;&#x8A66;&#x5F9E;&#x6A19;&#x6E96;&#x8F38;&#x5165;&#x4E2D;&#x8ABF;&#x5165;&#x4E00;&#x500B;&#x55AE;&#x7368;&#x7684;byte&#x4F75;&#x4E14;&#xFF0C;&#x5982;&#x679C;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x6703;&#x5411;&#x540D;&#x7232;abort&#x7684;channel&#x767C;&#x9001;&#x4E00;&#x500B;&#x503C;&#x3002;</p>
+<pre><code class="lang-go">gopl.io/ch8/countdown2
+abort := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">struct</span>{})
+<span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>() {
+    os.Stdin.Read(<span class="hljs-built_in">make</span>([]<span class="hljs-typename">byte</span>, <span class="hljs-number">1</span>)) <span class="hljs-comment">// read a single byte</span>
+    abort &lt;- <span class="hljs-keyword">struct</span>{}{}
+}()
+</code></pre>
+<p>&#x73FE;&#x5728;&#x6BCF;&#x4E00;&#x6B21;&#x8A08;&#x6578;&#x5FAA;&#x74B0;&#x7684;&#x8FED;&#x4EE3;&#x90FD;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x5169;&#x500B;channel&#x4E2D;&#x7684;&#x5176;&#x4E2D;&#x4E00;&#x500B;&#x8FD4;&#x8FF4;&#x4E8B;&#x4EF6;&#x4E86;&#xFF1A;ticker channel&#x7576;&#x4E00;&#x5207;&#x6B63;&#x5E38;&#x6642;(&#x5C31;&#x50CF;NASA jorgon&#x7684;&quot;nominal&quot;&#xFF0C;&#x8B6F;&#x8A3B;&#xFF1A;&#x9019;&#x6897;&#x4F30;&#x8A08;&#x6211;&#x5011;&#x662F;&#x4E0D;&#x61C2;&#x4E86;)&#x6216;&#x8005;&#x7570;&#x5E38;&#x6642;&#x8FD4;&#x8FF4;&#x7684;abort&#x4E8B;&#x4EF6;&#x3002;&#x6211;&#x5011;&#x7121;&#x6CD5;&#x505A;&#x5230;&#x5F9E;&#x6BCF;&#x4E00;&#x500B;channel&#x4E2D;&#x63A5;&#x6536;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x9019;&#x9EBD;&#x505A;&#x7684;&#x8A71;&#xFF0C;&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x500B;channel&#x4E2D;&#x6C92;&#x6709;&#x4E8B;&#x4EF6;&#x767C;&#x904E;&#x4F86;&#x90A3;&#x9EBD;&#x7A0B;&#x5E8F;&#x5C31;&#x6703;&#x7ACB;&#x523B;&#x88AB;&#x963B;&#x585E;&#xFF0C;&#x9019;&#x6A23;&#x6211;&#x5011;&#x5C31;&#x7121;&#x6CD5;&#x6536;&#x5230;&#x7B2C;&#x4E8C;&#x500B;channel&#x4E2D;&#x767C;&#x904E;&#x4F86;&#x7684;&#x4E8B;&#x4EF6;&#x3002;&#x9019;&#x6642;&#x5019;&#x6211;&#x5011;&#x9700;&#x8981;&#x591A;&#x8DEF;&#x8907;&#x7528;(multiplex)&#x9019;&#x4E9B;&#x64CD;&#x4F5C;&#x4E86;&#xFF0C;&#x7232;&#x4E86;&#x80FD;&#x5920;&#x591A;&#x8DEF;&#x8907;&#x7528;&#xFF0C;&#x6211;&#x5011;&#x4F7F;&#x7528;&#x4E86;select&#x8A9E;&#x53E5;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">select</span> {
+<span class="hljs-keyword">case</span> &lt;-ch1:
+    <span class="hljs-comment">// ...</span>
+<span class="hljs-keyword">case</span> x := &lt;-ch2:
+    <span class="hljs-comment">// ...use x...</span>
+<span class="hljs-keyword">case</span> ch3 &lt;- y:
+    <span class="hljs-comment">// ...</span>
+<span class="hljs-keyword">default</span>:
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x662F;select&#x8A9E;&#x53E5;&#x7684;&#x4E00;&#x822C;&#x5F62;&#x5F0F;&#x3002;&#x548C;switch&#x8A9E;&#x53E5;&#x7A0D;&#x5FAE;&#x6709;&#x9EDE;&#x76F8;&#x4F3C;&#xFF0C;&#x4E5F;&#x6703;&#x6709;&#x5E7E;&#x500B;case&#x548C;&#x6700;&#x5F8C;&#x7684;default&#x9078;&#x64C7;&#x652F;&#x3002;&#x6BCF;&#x4E00;&#x500B;case&#x4EE3;&#x8868;&#x4E00;&#x500B;&#x901A;&#x4FE1;&#x64CD;&#x4F5C;(&#x5728;&#x67D0;&#x500B;channel&#x4E0A;&#x9032;&#x884C;&#x767C;&#x9001;&#x6216;&#x8005;&#x63A5;&#x6536;)&#x4F75;&#x4E14;&#x6703;&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x8A9E;&#x53E5;&#x7D44;&#x6210;&#x7684;&#x4E00;&#x500B;&#x8A9E;&#x53E5;&#x584A;&#x3002;&#x4E00;&#x500B;&#x63A5;&#x6536;&#x8868;&#x9054;&#x5F0F;&#x53EF;&#x80FD;&#x96BB;&#x5305;&#x542B;&#x63A5;&#x6536;&#x8868;&#x9054;&#x5F0F;&#x81EA;&#x8EAB;(&#x8B6F;&#x8A3B;&#xFF1A;&#x4E0D;&#x628A;&#x63A5;&#x6536;&#x5230;&#x7684;&#x503C;&#x8CE6;&#x503C;&#x7D66;&#x8B8A;&#x91CF;&#x4EC0;&#x9EBD;&#x7684;)&#xFF0C;&#x5C31;&#x50CF;&#x4E0A;&#x9762;&#x7684;&#x7B2C;&#x4E00;&#x500B;case&#xFF0C;&#x6216;&#x8005;&#x5305;&#x542B;&#x5728;&#x4E00;&#x500B;&#x7C21;&#x77ED;&#x7684;&#x8B8A;&#x91CF;&#x8072;&#x660E;&#x4E2D;&#xFF0C;&#x50CF;&#x7B2C;&#x4E8C;&#x500B;case&#x91CC;&#x4E00;&#x6A23;&#xFF1B;&#x7B2C;&#x4E8C;&#x7A2E;&#x5F62;&#x5F0F;&#x8B93;&#x4F60;&#x80FD;&#x5920;&#x5F15;&#x7528;&#x63A5;&#x6536;&#x5230;&#x7684;&#x503C;&#x3002;</p>
+<p>select&#x6703;&#x7B49;&#x5F85;case&#x4E2D;&#x6709;&#x80FD;&#x5920;&#x57F7;&#x884C;&#x7684;case&#x6642;&#x53BB;&#x57F7;&#x884C;&#x3002;&#x7576;&#x689D;&#x4EF6;&#x6EFF;&#x8DB3;&#x6642;&#xFF0C;select&#x624D;&#x6703;&#x53BB;&#x901A;&#x4FE1;&#x4F75;&#x57F7;&#x884C;case&#x4E4B;&#x5F8C;&#x7684;&#x8A9E;&#x53E5;&#xFF1B;&#x9019;&#x6642;&#x5019;&#x5176;&#x5B83;&#x901A;&#x4FE1;&#x662F;&#x4E0D;&#x6703;&#x57F7;&#x884C;&#x7684;&#x3002;&#x4E00;&#x500B;&#x6C92;&#x6709;&#x4EFB;&#x4F55;case&#x7684;select&#x8A9E;&#x53E5;&#x5BEB;&#x4F5C;select{}&#xFF0C;&#x6703;&#x6C38;&#x9060;&#x5730;&#x7B49;&#x5F85;&#x4E0B;&#x53BB;&#x3002;</p>
+<p>&#x8B93;&#x6211;&#x5011;&#x8FF4;&#x5230;&#x6211;&#x5011;&#x7684;&#x706B;&#x7BAD;&#x767C;&#x5C04;&#x7A0B;&#x5E8F;&#x3002;time.After&#x51FD;&#x6578;&#x6703;&#x7ACB;&#x537D;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;channel&#xFF0C;&#x4F75;&#x8D77;&#x4E00;&#x500B;&#x65B0;&#x7684;goroutine&#x5728;&#x7D93;&#x904E;&#x7279;&#x5B9A;&#x7684;&#x6642;&#x9593;&#x5F8C;&#x5411;&#x8A72;channel&#x767C;&#x9001;&#x4E00;&#x500B;&#x7368;&#x7ACB;&#x7684;&#x503C;&#x3002;&#x4E0B;&#x9762;&#x7684;select&#x8A9E;&#x53E5;&#x6703;&#x6703;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x5230;&#x5169;&#x500B;&#x4E8B;&#x4EF6;&#x4E2D;&#x7684;&#x4E00;&#x500B;&#x5230;&#x9054;&#xFF0C;&#x7121;&#x8AD6;&#x662F;abort&#x4E8B;&#x4EF6;&#x6216;&#x8005;&#x4E00;&#x500B;10&#x79D2;&#x7D93;&#x904E;&#x7684;&#x4E8B;&#x4EF6;&#x3002;&#x5982;&#x679C;10&#x79D2;&#x7D93;&#x904E;&#x4E86;&#x9084;&#x6C92;&#x6709;abort&#x4E8B;&#x4EF6;&#x9032;&#x5165;&#xFF0C;&#x90A3;&#x9EBD;&#x706B;&#x7BAD;&#x5C31;&#x6703;&#x767C;&#x5C04;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// ...create abort channel...</span>
+
+    fmt.Println(<span class="hljs-string">&quot;Commencing countdown.  Press return to abort.&quot;</span>)
+    <span class="hljs-keyword">select</span> {
+    <span class="hljs-keyword">case</span> &lt;-time.After(<span class="hljs-number">10</span> * time.Second):
+        <span class="hljs-comment">// Do nothing.</span>
+    <span class="hljs-keyword">case</span> &lt;-abort:
+        fmt.Println(<span class="hljs-string">&quot;Launch aborted!&quot;</span>)
+        <span class="hljs-keyword">return</span>
+    }
+    launch()
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x9019;&#x500B;&#x4F8B;&#x5B50;&#x66F4;&#x5FAE;&#x79D2;&#x3002;ch&#x9019;&#x500B;channel&#x7684;buffer&#x5927;&#x5C0F;&#x662F;1&#xFF0C;&#x6240;&#x4EE5;&#x6703;&#x4EA4;&#x66FF;&#x7684;&#x7232;&#x7A7A;&#x6216;&#x7232;&#x6EFF;&#xFF0C;&#x6240;&#x4EE5;&#x96BB;&#x6709;&#x4E00;&#x500B;case&#x53EF;&#x4EE5;&#x9032;&#x884C;&#x4E0B;&#x53BB;&#xFF0C;&#x7121;&#x8AD6;i&#x662F;&#x5947;&#x6578;&#x6216;&#x8005;&#x5076;&#x6578;&#xFF0C;&#x5B83;&#x90FD;&#x6703;&#x6253;&#x5370;0 2 4 6 8&#x3002;</p>
+<pre><code class="lang-go">ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-typename">int</span>, <span class="hljs-number">1</span>)
+<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+    <span class="hljs-keyword">select</span> {
+    <span class="hljs-keyword">case</span> x := &lt;-ch:
+        fmt.Println(x) <span class="hljs-comment">// &quot;0&quot; &quot;2&quot; &quot;4&quot; &quot;6&quot; &quot;8&quot;</span>
+    <span class="hljs-keyword">case</span> ch &lt;- i:
+    }
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x591A;&#x500B;case&#x540C;&#x6642;&#x5C31;&#x7DD2;&#x6642;&#xFF0C;select&#x6703;&#x96A8;&#x6A5F;&#x5730;&#x9078;&#x64C7;&#x4E00;&#x500B;&#x57F7;&#x884C;&#xFF0C;&#x9019;&#x6A23;&#x4F86;&#x4FDD;&#x8B49;&#x6BCF;&#x4E00;&#x500B;channel&#x90FD;&#x6709;&#x5E73;&#x7B49;&#x7684;&#x88AB;select&#x7684;&#x6A5F;&#x6703;&#x3002;&#x589E;&#x52A0;&#x524D;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#x7684;buffer&#x5927;&#x5C0F;&#x6703;&#x4F7F;&#x5176;&#x8F38;&#x51FA;&#x8B8A;&#x5F97;&#x4E0D;&#x78BA;&#x5B9A;&#xFF0C;&#x56E0;&#x7232;&#x7576;buffer&#x65E3;&#x4E0D;&#x7232;&#x6EFF;&#x4E5F;&#x4E0D;&#x7232;&#x7A7A;&#x6642;&#xFF0C;select&#x8A9E;&#x53E5;&#x7684;&#x57F7;&#x884C;&#x60C5;&#x6CC1;&#x5C31;&#x50CF;&#x662F;&#x62CB;&#x786C;&#x5E63;&#x7684;&#x884C;&#x7232;&#x4E00;&#x6A23;&#x662F;&#x96A8;&#x6A5F;&#x7684;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x8B93;&#x6211;&#x5011;&#x7684;&#x767C;&#x5C04;&#x7A0B;&#x5E8F;&#x6253;&#x5370;&#x5012;&#x8A08;&#x6642;&#x3002;&#x9019;&#x91CC;&#x7684;select&#x8A9E;&#x53E5;&#x6703;&#x4F7F;&#x6BCF;&#x6B21;&#x5FAA;&#x74B0;&#x8FED;&#x4EE3;&#x7B49;&#x5F85;&#x4E00;&#x79D2;&#x4F86;&#x57F7;&#x884C;&#x9000;&#x51FA;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-go">gopl.io/ch8/countdown3
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// ...create abort channel...</span>
+
+    fmt.Println(<span class="hljs-string">&quot;Commencing countdown.  Press return to abort.&quot;</span>)
+    tick := time.Tick(<span class="hljs-number">1</span> * time.Second)
+    <span class="hljs-keyword">for</span> countdown := <span class="hljs-number">10</span>; countdown &gt; <span class="hljs-number">0</span>; countdown-- {
+        fmt.Println(countdown)
+        <span class="hljs-keyword">select</span> {
+        <span class="hljs-keyword">case</span> &lt;-tick:
+            <span class="hljs-comment">// Do nothing.</span>
+        <span class="hljs-keyword">case</span> &lt;-abort:
+            fmt.Println(<span class="hljs-string">&quot;Launch aborted!&quot;</span>)
+            <span class="hljs-keyword">return</span>
+        }
+    }
+    launch()
+}
+</code></pre>
+<p>time.Tick&#x51FD;&#x6578;&#x8868;&#x73FE;&#x5F97;&#x597D;&#x50CF;&#x5B83;&#x5275;&#x5EFA;&#x4E86;&#x4E00;&#x500B;&#x5728;&#x5FAA;&#x74B0;&#x4E2D;&#x8ABF;&#x7528;time.Sleep&#x7684;goroutine&#xFF0C;&#x6BCF;&#x6B21;&#x88AB;&#x559A;&#x9192;&#x6642;&#x767C;&#x9001;&#x4E00;&#x500B;&#x4E8B;&#x4EF6;&#x3002;&#x7576;countdown&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x6642;&#xFF0C;&#x5B83;&#x6703;&#x505C;&#x6B62;&#x5F9E;tick&#x4E2D;&#x63A5;&#x6536;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F46;&#x662F;ticker&#x9019;&#x500B;goroutine&#x9084;&#x4F9D;&#x7136;&#x5B58;&#x6D3B;&#xFF0C;&#x7E7C;&#x7E8C;&#x5F92;&#x52DE;&#x5730;&#x5690;&#x8A66;&#x5F9E;channel&#x4E2D;&#x767C;&#x9001;&#x503C;&#xFF0C;&#x7136;&#x800C;&#x9019;&#x6642;&#x5019;&#x5DF2;&#x7D93;&#x6C92;&#x6709;&#x5176;&#x5B83;&#x7684;goroutine&#x6703;&#x5F9E;&#x8A72;channel&#x4E2D;&#x63A5;&#x6536;&#x503C;&#x4E86;--&#x9019;&#x88AB;&#x7A31;&#x7232;goroutine&#x6D29;&#x9732;(&#xA7;8.4.4)&#x3002;</p>
+<p>Tick&#x51FD;&#x6578;&#x633A;&#x65B9;&#x4FBF;&#xFF0C;&#x4F46;&#x662F;&#x96BB;&#x6709;&#x7576;&#x7A0B;&#x5E8F;&#x6574;&#x500B;&#x751F;&#x547D;&#x9031;&#x671F;&#x90FD;&#x9700;&#x8981;&#x9019;&#x500B;&#x6642;&#x9593;&#x6642;&#x6211;&#x5011;&#x4F7F;&#x7528;&#x5B83;&#x624D;&#x6BD4;&#x8F03;&#x5408;&#x9069;&#x3002;&#x5426;&#x5247;&#x7684;&#x8A71;&#xFF0C;&#x6211;&#x5011;&#x61C9;&#x8A72;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x9019;&#x7A2E;&#x6A21;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-go">ticker := time.NewTicker(<span class="hljs-number">1</span> * time.Second)
+&lt;-ticker.C <span class="hljs-comment">// receive from the ticker&apos;s channel</span>
+ticker.Stop() <span class="hljs-comment">// cause the ticker&apos;s goroutine to terminate</span>
+</code></pre>
+<p>&#x6709;&#x6642;&#x5019;&#x6211;&#x5011;&#x5E0C;&#x671B;&#x80FD;&#x5920;&#x5F9E;channel&#x4E2D;&#x767C;&#x9001;&#x6216;&#x8005;&#x63A5;&#x6536;&#x503C;&#xFF0C;&#x4F75;&#x907F;&#x514D;&#x56E0;&#x7232;&#x767C;&#x9001;&#x6216;&#x8005;&#x63A5;&#x6536;&#x5C0E;&#x81F4;&#x7684;&#x963B;&#x585E;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x7576;channel&#x6C92;&#x6709;&#x6E96;&#x5099;&#x597D;&#x5BEB;&#x6216;&#x8005;&#x8B80;&#x6642;&#x3002;select&#x8A9E;&#x53E5;&#x5C31;&#x53EF;&#x4EE5;&#x5BE6;&#x73FE;&#x9019;&#x6A23;&#x7684;&#x529F;&#x80FD;&#x3002;select&#x6703;&#x6709;&#x4E00;&#x500B;default&#x4F86;&#x8A2D;&#x7F6E;&#x7576;&#x5176;&#x5B83;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x4E0D;&#x80FD;&#x5920;&#x99AC;&#x4E0A;&#x88AB;&#x8655;&#x7406;&#x6642;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x57F7;&#x884C;&#x54EA;&#x4E9B;&#x908F;&#x8F2F;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;select&#x8A9E;&#x53E5;&#x6703;&#x5728;abort channel&#x4E2D;&#x6709;&#x503C;&#x6642;&#xFF0C;&#x5F9E;&#x5176;&#x4E2D;&#x63A5;&#x6536;&#x503C;&#xFF1B;&#x7121;&#x503C;&#x6642;&#x4EC0;&#x9EBD;&#x90FD;&#x4E0D;&#x505A;&#x3002;&#x9019;&#x662F;&#x4E00;&#x500B;&#x975E;&#x963B;&#x585E;&#x7684;&#x63A5;&#x6536;&#x64CD;&#x4F5C;&#xFF1B;&#x53CD;&#x8907;&#x5730;&#x505A;&#x9019;&#x6A23;&#x7684;&#x64CD;&#x4F5C;&#x53EB;&#x505A;&#x201C;&#x8F2A;&#x8A62;channel&#x201D;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">select</span> {
+<span class="hljs-keyword">case</span> &lt;-abort:
+    fmt.Printf(<span class="hljs-string">&quot;Launch aborted!\n&quot;</span>)
+    <span class="hljs-keyword">return</span>
+<span class="hljs-keyword">default</span>:
+    <span class="hljs-comment">// do nothing</span>
+}
+</code></pre>
+<p>channel&#x7684;&#x96F6;&#x503C;&#x662F;nil&#x3002;&#x4E5F;&#x8A31;&#x6703;&#x8B93;&#x4F60;&#x89BA;&#x5F97;&#x6BD4;&#x8F03;&#x5947;&#x602A;&#xFF0C;nil&#x7684;channel&#x6709;&#x6642;&#x5019;&#x4E5F;&#x662F;&#x6709;&#x4E00;&#x4E9B;&#x7528;&#x8655;&#x7684;&#x3002;&#x56E0;&#x7232;&#x5C0D;&#x4E00;&#x500B;nil&#x7684;channel&#x767C;&#x9001;&#x548C;&#x63A5;&#x6536;&#x64CD;&#x4F5C;&#x6703;&#x6C38;&#x9060;&#x963B;&#x585E;&#xFF0C;&#x5728;select&#x8A9E;&#x53E5;&#x4E2D;&#x64CD;&#x4F5C;nil&#x7684;channel&#x6C38;&#x9060;&#x90FD;&#x4E0D;&#x6703;&#x88AB;select&#x5230;&#x3002;</p>
+<p>&#x9019;&#x4F7F;&#x5F97;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7528;nil&#x4F86;&#x6FC0;&#x6D3B;&#x6216;&#x8005;&#x7981;&#x7528;case&#xFF0C;&#x4F86;&#x9054;&#x6210;&#x8655;&#x7406;&#x5176;&#x5B83;&#x8F38;&#x5165;&#x6216;&#x8F38;&#x51FA;&#x4E8B;&#x4EF6;&#x6642;&#x8D85;&#x6642;&#x548C;&#x53D6;&#x6D88;&#x7684;&#x908F;&#x8F2F;&#x3002;&#x6211;&#x5011;&#x6703;&#x5728;&#x4E0B;&#x4E00;&#x7BC0;&#x4E2D;&#x770B;&#x5230;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#x3002;</p>
+<p>&#x7DF4;&#x7FD2;8.8: &#x4F7F;&#x7528;select&#x4F86;&#x6539;&#x9020;8.3&#x7BC0;&#x4E2D;&#x7684;echo&#x670D;&#x52D9;&#x5668;&#xFF0C;&#x7232;&#x5176;&#x589E;&#x52A0;&#x8D85;&#x6642;&#xFF0C;&#x9019;&#x6A23;&#x670D;&#x52D9;&#x5668;&#x53EF;&#x4EE5;&#x5728;&#x5BA2;&#x6236;&#x7AEF;10&#x79D2;&#x4E2D;&#x6C92;&#x6709;&#x4EFB;&#x4F55;&#x558A;&#x8A71;&#x6642;&#x81EA;&#x52D5;&#x65B7;&#x958B;&#x9023;&#x63A5;&#x3002;</p>
 
                     
                     </section>

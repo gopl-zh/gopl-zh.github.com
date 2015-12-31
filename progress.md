@@ -27,11 +27,11 @@
  - [x] 3.6 Constants
 - [x] Chapter 4: Composite Types
  - [x] 4.1 Arrays
- - [ ] 4.2 Slices
- - [ ] 4.3 Maps
- - [ ] 4.4 Structs
- - [ ] 4.5 JSON
- - [ ] 4.6 Text and HTML Templates
+ - [x] 4.2 Slices
+ - [x] 4.3 Maps
+ - [x] 4.4 Structs
+ - [x] 4.5 JSON
+ - [x] 4.6 Text and HTML Templates
 - [ ] Chapter 5: Functions
  - [ ] 5.1 Function Declarations
  - [ ] 5.2 Recursion
@@ -69,11 +69,11 @@
 - [x] Chapter 8: Goroutines and Channels
  - [x] 8.1 Goroutines
  - [x] 8.2 Example: Concurrent Clock Server
- - [ ] 8.3 Example: Concu rent Echo Server
+ - [x] 8.3 Example: Concu rent Echo Server
  - [ ] 8.4 Channels
  - [ ] 8.5 Looping in Parallel
  - [x] 8.6 Example: Concurrent Web Crawler
- - [ ] 8.7 Multiplexing with select
+ - [x] 8.7 Multiplexing with select
  - [x] 8.8 Example: Concurrent Directory Traversal
  - [x] 8.9 Cancellation
  - [x] 8.10 Example: Chat Server

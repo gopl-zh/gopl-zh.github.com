@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>切片 | Go编程语言</title>
+        <title>Slice | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="4.2" data-chapter-title="切片" data-filepath="ch4/ch4-02.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="4.2" data-chapter-title="Slice" data-filepath="ch4/ch4-02.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -575,7 +575,7 @@
                         
                             <b>4.2.</b>
                         
-                        切片
+                        Slice
                     </a>
             
             
@@ -590,7 +590,7 @@
                         
                             <b>4.3.</b>
                         
-                        字典
+                        Map
                     </a>
             
             
@@ -2013,7 +2013,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Go编程语言</a>
+        <a href="../" >Go语言圣经</a>
     </h1>
 </div>
 
@@ -2023,12 +2023,253 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="42-&#x5207;&#x7247;">4.2. &#x5207;&#x7247;</h2>
-<p>TODO</p>
+                        <h2 id="42-slice">4.2. Slice</h2>
+<p>Slice&#xFF08;&#x5207;&#x7247;&#xFF09;&#x4EE3;&#x8868;&#x8B8A;&#x9577;&#x7684;&#x5E8F;&#x5217;&#xFF0C;&#x5E8F;&#x5217;&#x4E2D;&#x6BCF;&#x500B;&#x5143;&#x7D20;&#x90FD;&#x6709;&#x76F8;&#x540C;&#x7684;&#x985E;&#x578B;&#x3002;&#x4E00;&#x500B;slice&#x985E;&#x578B;&#x4E00;&#x822C;&#x5BEB;&#x4F5C;[]T&#xFF0C;&#x5176;&#x4E2D;T&#x4EE3;&#x8868;slice&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x985E;&#x578B;&#xFF1B;&#x8A9E;&#x6CD5;&#x548C;&#x6578;&#x7D44;&#x5F88;&#x50CF;&#x96BB;&#x662F;&#x6C92;&#x6709;&#x9577;&#x5EA6;&#x800C;&#x5DF2;&#x3002;</p>
+<p>&#x6578;&#x7D44;&#x548C;slice&#x4E4B;&#x9593;&#x6709;&#x7740;&#x7DCA;&#x5BC6;&#x7684;&#x806F;&#x7E6B;&#x3002;&#x4E00;&#x500B;slice&#x662F;&#x4E00;&#x500B;&#x8F15;&#x91CF;&#x7D1A;&#x7684;&#x6578;&#x64DA;&#x7D50;&#x679C;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x8A2A;&#x554F;&#x6578;&#x7D44;&#x5B50;&#x5E8F;&#x5217;&#xFF08;&#x6216;&#x8005;&#x5168;&#x90E8;&#xFF09;&#x5143;&#x7D20;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x56E0;&#x7232;slice&#x7684;&#x5E95;&#x5C64;&#x78BA;&#x5BE6;&#x5F15;&#x7528;&#x4E00;&#x500B;&#x6578;&#x7D44;&#x5C0D;&#x8C61;&#x3002;&#x4E00;&#x500B;slice&#x6709;&#x4E09;&#x500B;&#x90E8;&#x5206;&#x69CB;&#x6210;&#xFF1A;&#x6307;&#x91DD;&#x3001;&#x9577;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x3002;&#x6307;&#x91DD;&#x6307;&#x5411;&#x7B2C;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x5C0D;&#x61C9;&#x7684;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x5143;&#x7D20;&#x7684;&#x5730;&#x5740;&#xFF0C;slice&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x4F75;&#x4E0D;&#x4E00;&#x5B9A;&#x5C31;&#x662F;&#x6578;&#x7D44;&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x3002;&#x9577;&#x5EA6;&#x5C0D;&#x61C9;slice&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x6578;&#x76EE;&#xFF1B;&#x9577;&#x5EA6;&#x4E0D;&#x80FD;&#x8D85;&#x904E;&#x5BB9;&#x91CF;&#xFF0C;&#x5BB9;&#x91CF;&#x4E00;&#x822C;&#x662F;&#x5F9E;slice&#x7684;&#x958B;&#x59CB;&#x4F4D;&#x7F6E;&#x5230;&#x5E95;&#x5C64;&#x6578;&#x64DA;&#x7684;&#x7D50;&#x5C3E;&#x4F4D;&#x7F6E;&#x3002;&#x5167;&#x7F6E;&#x7684;len&#x548C;cap&#x51FD;&#x6578;&#x5206;&#x522B;&#x8FD4;&#x8FF4;slice&#x7684;&#x9577;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x3002;</p>
+<p>&#x591A;&#x500B;slice&#x4E4B;&#x9593;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x5E95;&#x5C64;&#x7684;&#x6578;&#x64DA;&#xFF0C;&#x4F75;&#x4E14;&#x5F15;&#x7528;&#x7684;&#x6578;&#x7D44;&#x90E8;&#x5206;&#x5340;&#x9593;&#x53EF;&#x80FD;&#x91CD;&#x758A;&#x3002;&#x5716;4.1&#x986F;&#x793A;&#x4E86;&#x8868;&#x793A;&#x4E00;&#x5E74;&#x4E2D;&#x6BCF;&#x500B;&#x6708;&#x4EFD;&#x540D;&#x5B57;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6578;&#x7D44;&#xFF0C;&#x9084;&#x6709;&#x91CD;&#x758A;&#x5F15;&#x7528;&#x4E86;&#x8A72;&#x6578;&#x7D44;&#x7684;&#x5169;&#x500B;slice&#x3002;&#x6578;&#x7D44;&#x9019;&#x6A23;&#x5B9A;&#x7FA9;</p>
+<pre><code class="lang-Go">months := [...]<span class="hljs-typename">string</span>{<span class="hljs-number">1</span>: <span class="hljs-string">&quot;January&quot;</span>, <span class="hljs-comment">/* ... */</span>, <span class="hljs-number">12</span>: <span class="hljs-string">&quot;December&quot;</span>}
+</code></pre>
+<p>&#x56E0;&#x6B64;&#x4E00;&#x6708;&#x4EFD;&#x662F;months[1]&#xFF0C;&#x5341;&#x4E8C;&#x6708;&#x4EFD;&#x662F;months[12]&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x6578;&#x7D44;&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x5F9E;&#x7D22;&#x5F15;0&#x958B;&#x59CB;&#xFF0C;&#x4F46;&#x662F;&#x6708;&#x4EFD;&#x4E00;&#x822C;&#x662F;&#x5F9E;1&#x958B;&#x59CB;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x5011;&#x8072;&#x660E;&#x6578;&#x7D44;&#x6642;&#x76F4;&#x63A5;&#x7B2C;0&#x500B;&#x5143;&#x7D20;&#xFF0C;&#x7B2C;0&#x500B;&#x5143;&#x7D20;&#x6703;&#x88AB;&#x81EA;&#x52D5;&#x521D;&#x59CB;&#x5316;&#x7232;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>slice&#x7684;&#x64CD;&#x4F5C;s[i:j]&#xFF0C;&#x5176;&#x4E2D;0 &#x2264; i&#x2264; j&#x2264; cap(s)&#xFF0C;&#x7528;&#x65BC;&#x5275;&#x5EFA;&#x4E00;&#x500B;&#x65B0;&#x7684;slice&#xFF0C;&#x5F15;&#x7528;s&#x7684;&#x5F9E;&#x7B2C;i&#x500B;&#x5143;&#x7D20;&#x958B;&#x59CB;&#x5230;&#x7B2C;j-1&#x500B;&#x5143;&#x7D20;&#x7684;&#x5B50;&#x5E8F;&#x5217;&#x3002;&#x65B0;&#x7684;slice&#x5C07;&#x96BB;&#x6709;j-i&#x500B;&#x5143;&#x7D20;&#x3002;&#x5982;&#x679C;i&#x4F4D;&#x7F6E;&#x7684;&#x7D22;&#x5F15;&#x88AB;&#x7701;&#x7565;&#x7684;&#x8A71;&#x5C07;&#x4F7F;&#x7528;0&#x4EE3;&#x66FF;&#xFF0C;&#x5982;&#x679C;j&#x4F4D;&#x7F6E;&#x7684;&#x7D22;&#x5F15;&#x88AB;&#x7701;&#x7565;&#x7684;&#x8A71;&#x5C07;&#x4F7F;&#x7528;len(s)&#x4EE3;&#x66FF;&#x3002;&#x56E0;&#x6B64;&#xFF0C;months[1:13]&#x5207;&#x7247;&#x64CD;&#x4F5C;&#x5C07;&#x5F15;&#x7528;&#x5168;&#x90E8;&#x6709;&#x6548;&#x7684;&#x6708;&#x4EFD;&#xFF0C;&#x548C;months[1:]&#x64CD;&#x4F5C;&#x7B49;&#x50F9;&#xFF1B;months[:]&#x5207;&#x7247;&#x64CD;&#x4F5C;&#x5247;&#x662F;&#x5F15;&#x7528;&#x6574;&#x500B;&#x6578;&#x7D44;&#x3002;&#x8B93;&#x6211;&#x5011;&#x5206;&#x522B;&#x5B9A;&#x7FA9;&#x8868;&#x793A;&#x7B2C;&#x4E8C;&#x5B63;&#x5EA6;&#x548C;&#x5317;&#x65B9;&#x590F;&#x5929;&#x7684;slice&#xFF0C;&#x5B83;&#x5011;&#x6709;&#x91CD;&#x758A;&#x90E8;&#x5206;&#xFF1A;</p>
+<p><img src="../images/ch4-01.png" alt=""></p>
+<pre><code class="lang-Go">Q2 := months[<span class="hljs-number">4</span>:<span class="hljs-number">7</span>]
+summer := months[<span class="hljs-number">6</span>:<span class="hljs-number">9</span>]
+fmt.Println(Q2)     <span class="hljs-comment">// [&quot;April&quot; &quot;May&quot; &quot;June&quot;]</span>
+fmt.Println(summer) <span class="hljs-comment">// [&quot;June&quot; &quot;July&quot; &quot;August&quot;]</span>
+</code></pre>
+<p>&#x5169;&#x500B;slice&#x90FD;&#x5305;&#x542B;&#x4E86;&#x516D;&#x6708;&#x4EFD;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x662F;&#x4E00;&#x500B;&#x5305;&#x542B;&#x76F8;&#x540C;&#x6708;&#x4EFD;&#x7684;&#x6E2C;&#x8A66;&#xFF08;&#x6027;&#x80FD;&#x8F03;&#x4F4E;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">for</span> _, s := <span class="hljs-keyword">range</span> summer {
+    <span class="hljs-keyword">for</span> _, q := <span class="hljs-keyword">range</span> Q2 {
+        <span class="hljs-keyword">if</span> s == q {
+            fmt.Printf(<span class="hljs-string">&quot;%s appears in both\n&quot;</span>, s)
+        }
+    }
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x5207;&#x7247;&#x64CD;&#x4F5C;&#x9577;&#x8655;cap(s)&#x7684;&#x4E0A;&#x9650;&#x5C07;&#x5C0E;&#x81F4;&#x4E00;&#x500B;panic&#x7570;&#x5E38;&#xFF0C;&#x4F46;&#x662F;&#x8D85;&#x51FA;len(s)&#x5247;&#x662F;&#x64F4;&#x5C55;&#x4E86;slice&#xFF0C;&#x56E0;&#x6B64;&#x65B0;slice&#x7684;&#x9577;&#x5EA6;&#x6703;&#x8B8A;&#x5927;&#xFF1A;</p>
+<pre><code class="lang-Go">fmt.Println(summer[:<span class="hljs-number">20</span>]) <span class="hljs-comment">// panic: out of range</span>
+
+endlessSummer := summer[:<span class="hljs-number">5</span>] <span class="hljs-comment">// extend a slice (within capacity)</span>
+fmt.Println(endlessSummer)  <span class="hljs-comment">// &quot;[June July August September October]&quot;</span>
+</code></pre>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5207;&#x7247;&#x64CD;&#x4F5C;&#x548C;[]byte&#x5B57;&#x7BC0;&#x985E;&#x578B;&#x5207;&#x7247;&#x7684;&#x5207;&#x7247;&#x64CD;&#x4F5C;&#x662F;&#x985E;&#x4F3C;&#x7684;&#x3002;&#x5B83;&#x5011;&#x90FD;&#x5BEB;&#x4F5C;x[m:n]&#xFF0C;&#x4F75;&#x4E14;&#x90FD;&#x662F;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;&#x539F;&#x59CB;&#x5B57;&#x7BC0;&#x7E6B;&#x5217;&#x7684;&#x5B50;&#x5E8F;&#x5217;&#xFF0C;&#x5E95;&#x5C64;&#x90FD;&#x662F;&#x5171;&#x4EAB;&#x4E4B;&#x524D;&#x7684;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#xFF0C;&#x56E0;&#x6B64;&#x5207;&#x7247;&#x64CD;&#x4F5C;&#x5C0D;&#x61C9;&#x5E38;&#x91CF;&#x6642;&#x9593;&#x8907;&#x96DC;&#x5EA6;&#x3002;x[m:n]&#x5207;&#x7247;&#x64CD;&#x4F5C;&#x5C0D;&#x65BC;&#x5B57;&#x7B26;&#x4E32;&#x5247;&#x751F;&#x6210;&#x4E00;&#x500B;&#x65B0;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5982;&#x679C;x&#x662F;[]byte&#x7684;&#x8A71;&#x5247;&#x751F;&#x6210;&#x4E00;&#x500B;&#x65B0;&#x7684;[]byte&#x3002;</p>
+<p>&#x56E0;&#x7232;slice&#x503C;&#x5305;&#x542B;&#x6307;&#x5411;&#x7B2C;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x7684;&#x6307;&#x91DD;&#xFF0C;&#x56E0;&#x6B64;&#x5411;&#x51FD;&#x6578;&#x50B3;&#x905E;slice&#x5C07;&#x904B;&#x884C;&#x5728;&#x51FD;&#x6578;&#x5167;&#x90E8;&#x8129;&#x6539;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x7684;&#x5143;&#x7D20;&#x3002;&#x63DB;&#x53E5;&#x8A71;&#x8AAC;&#xFF0C;&#x8907;&#x96DC;&#x4E00;&#x500B;slice&#x96BB;&#x662F;&#x5C0D;&#x5E95;&#x5C64;&#x7684;&#x6578;&#x7D44;&#x5275;&#x5EFA;&#x4E86;&#x4E00;&#x500B;&#x65B0;&#x7684;slice&#x522B;&#x540D;&#xFF08;&#xA7;2.3.2&#xFF09;&#x3002;&#x4E0B;&#x9762;&#x7684;reverse&#x51FD;&#x6578;&#x5728;&#x539F;&#x5167;&#x5B58;&#x7A7A;&#x9593;&#x5C07;[]int&#x985E;&#x578B;&#x7684;slice&#x53CD;&#x8F49;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x65BC;&#x4EFB;&#x610F;&#x9577;&#x5EA6;&#x7684;slice&#x3002;</p>
+<pre><code class="lang-Go">gopl.io/ch4/rev
+
+<span class="hljs-comment">// reverse reverses a slice of ints in place.</span>
+<span class="hljs-keyword">func</span> reverse(s []<span class="hljs-typename">int</span>) {
+    <span class="hljs-keyword">for</span> i, j := <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(s)-<span class="hljs-number">1</span>; i &lt; j; i, j = i+<span class="hljs-number">1</span>, j-<span class="hljs-number">1</span> {
+        s[i], s[j] = s[j], s[i]
+    }
+}
+</code></pre>
+<p>&#x9019;&#x91CC;&#x6211;&#x5011;&#x53CD;&#x8F49;&#x6578;&#x7D44;&#x7684;&#x61C9;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-Go">a := [...]<span class="hljs-typename">int</span>{<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+reverse(a[:])
+fmt.Println(a) <span class="hljs-comment">// &quot;[5 4 3 2 1 0]&quot;</span>
+</code></pre>
+<p>&#x4E00;&#x7A2E;&#x5C07;slice&#x5143;&#x7D20;&#x5FAA;&#x74B0;&#x5411;&#x5DE6;&#x955F;&#x8F49;n&#x500B;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4E09;&#x6B21;&#x8ABF;&#x7528;reverse&#x53CD;&#x8F49;&#x51FD;&#x6578;&#xFF0C;&#x7B2C;&#x4E00;&#x6B21;&#x662F;&#x53CD;&#x8F49;&#x958B;&#x982D;&#x7684;n&#x500B;&#x5143;&#x7D20;&#xFF0C;&#x7136;&#x5F8C;&#x662F;&#x53CD;&#x8F49;&#x5269;&#x4E0B;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x6700;&#x5F8C;&#x662F;&#x53CD;&#x8F49;&#x6574;&#x500B;slice&#x7684;&#x5143;&#x7D20;&#x3002;&#xFF08;&#x5982;&#x679C;&#x662F;&#x5411;&#x53F3;&#x5FAA;&#x74B0;&#x955F;&#x8F49;&#xFF0C;&#x5247;&#x5C07;&#x7B2C;&#x4E09;&#x500B;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x79FB;&#x5230;&#x7B2C;&#x4E00;&#x500B;&#x8ABF;&#x7528;&#x4F4D;&#x7F6E;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;&#xFF09;</p>
+<pre><code class="lang-Go">s := []<span class="hljs-typename">int</span>{<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+<span class="hljs-comment">// Rotate s left by two positions.</span>
+reverse(s[:<span class="hljs-number">2</span>])
+reverse(s[<span class="hljs-number">2</span>:])
+reverse(s)
+fmt.Println(s) <span class="hljs-comment">// &quot;[2 3 4 5 0 1]&quot;</span>
+</code></pre>
+<p>&#x8981;&#x8A3B;&#x610F;&#x7684;&#x662F;slice&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;s&#x548C;&#x6578;&#x7D44;&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;a&#x7684;&#x521D;&#x59CB;&#x5316;&#x8A9E;&#x6CD5;&#x7684;&#x5DEE;&#x7570;&#x3002;slice&#x548C;&#x6578;&#x7D44;&#x7684;&#x5B57;&#x9762;&#x503C;&#x8A9E;&#x6CD5;&#x5F88;&#x985E;&#x4F3C;&#xFF0C;&#x5B83;&#x5011;&#x90FD;&#x662F;&#x7528;&#x82B1;&#x62EC;&#x5F27;&#x5305;&#x542B;&#x4E00;&#x7E6B;&#x5217;&#x7684;&#x521D;&#x59CB;&#x5316;&#x5143;&#x7D20;&#xFF0C;&#x4F46;&#x662F;&#x5C0D;&#x65BC;slice&#x4F75;&#x6C92;&#x6709;&#x6307;&#x660E;&#x5E8F;&#x5217;&#x7684;&#x9577;&#x5EA6;&#x3002;&#x9019;&#x6703;&#x96B1;&#x5F0F;&#x5730;&#x5275;&#x5EFA;&#x4E00;&#x500B;&#x5408;&#x9069;&#x5927;&#x5C0F;&#x7684;&#x6578;&#x7D44;&#xFF0C;&#x7136;&#x5F8C;slice&#x7684;&#x6307;&#x91DD;&#x6307;&#x5411;&#x5E95;&#x5C64;&#x7684;&#x6578;&#x7D44;&#x3002;&#x5C31;&#x50CF;&#x6578;&#x7D44;&#x5B57;&#x9762;&#x503C;&#x4E00;&#x6A23;&#xFF0C;slice&#x7684;&#x5B57;&#x9762;&#x503C;&#x4E5F;&#x53EF;&#x4EE5;&#x6309;&#x9806;&#x5E8F;&#x6307;&#x5B9A;&#x521D;&#x59CB;&#x5316;&#x503C;&#x5E8F;&#x5217;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x901A;&#x904E;&#x7D22;&#x5F15;&#x548C;&#x5143;&#x7D20;&#x503C;&#x6307;&#x5B9A;&#xFF0C;&#x6216;&#x8005;&#x7684;&#x5169;&#x7A2E;&#x98A8;&#x683C;&#x7684;&#x6DF7;&#x5408;&#x8A9E;&#x6CD5;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<p>&#x548C;&#x6578;&#x7D44;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;slice&#x4E0D;&#x80FD;&#x6BD4;&#x8F03;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x5011;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;==&#x64CD;&#x4F5C;&#x7B26;&#x4F86;&#x5224;&#x65B7;&#x5169;&#x500B;slice&#x662F;&#x5426;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5143;&#x7D20;&#x3002;&#x4E0D;&#x904E;&#x6A19;&#x6E96;&#x5EAB;&#x63D0;&#x4F9B;&#x4E86;&#x9AD8;&#x5EA6;&#x512A;&#x5316;&#x7684;bytes.Equal&#x51FD;&#x6578;&#x4F86;&#x5224;&#x65B7;&#x5169;&#x500B;&#x5B57;&#x7BC0;&#x578B;slice&#x662F;&#x5426;&#x76F8;&#x7B49;&#xFF08;[]byte&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#x5C0D;&#x65BC;&#x5176;&#x4ED6;&#x985E;&#x578B;&#x7684;slice&#xFF0C;&#x6211;&#x5011;&#x5FC5;&#x9B1A;&#x81EA;&#x5DF1;&#x5C55;&#x958B;&#x6BCF;&#x500B;&#x5143;&#x7D20;&#x9032;&#x884C;&#x6BD4;&#x8F03;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> equal(x, y []<span class="hljs-typename">string</span>) <span class="hljs-typename">bool</span> {
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(x) != <span class="hljs-built_in">len</span>(y) {
+        <span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
+    }
+    <span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> x {
+        <span class="hljs-keyword">if</span> x[i] != y[i] {
+            <span class="hljs-keyword">return</span> <span class="hljs-constant">false</span>
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-constant">true</span>
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x95DC;&#x65BC;&#x5169;&#x500B;slice&#x7684;&#x6DF1;&#x5EA6;&#x76F8;&#x7B49;&#x6E2C;&#x8A66;&#xFF0C;&#x904B;&#x884C;&#x7684;&#x6642;&#x9593;&#x4F75;&#x4E0D;&#x6BD4;&#x652F;&#x6301;==&#x64CD;&#x4F5C;&#x7684;&#x6578;&#x7D44;&#x6216;&#x5B57;&#x7B26;&#x4E32;&#x66F4;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x7232;&#x4F55;slice&#x537B;&#x4E0D;&#x652F;&#x6301;&#x6BD4;&#x8F03;&#x904B;&#x7B97;&#x7B26;&#x5462;&#xFF1F;&#x9019;&#x65B9;&#x9762;&#x6709;&#x5169;&#x500B;&#x539F;&#x56E0;&#x3002;&#x7B2C;&#x4E00;&#x500B;&#x539F;&#x56E0;&#xFF0C;&#x4E00;&#x500B;slice&#x7684;&#x5143;&#x7D20;&#x662F;&#x9593;&#x63A5;&#x5F15;&#x7528;&#x7684;&#xFF0C;&#x4E00;&#x500B;slice&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x81EA;&#x8EAB;&#x3002;&#x96D6;&#x7136;&#x6709;&#x5F88;&#x591A;&#x8FA6;&#x6CD5;&#x8655;&#x7406;&#x9019;&#x7A2E;&#x60C5;&#x5F62;&#xFF0C;&#x4F46;&#x662F;&#x6C92;&#x6709;&#x4E00;&#x500B;&#x662F;&#x7C21;&#x55AE;&#x6709;&#x6548;&#x7684;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x500B;&#x539F;&#x56E0;&#xFF0C;&#x56E0;&#x7232;slice&#x7684;&#x5143;&#x7D20;&#x662F;&#x9593;&#x63A5;&#x5F15;&#x7528;&#x7684;&#xFF0C;&#x4E00;&#x500B;&#x56FA;&#x5B9A;&#x503C;&#x7684;slice&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6642;&#x9593;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x4E0D;&#x540C;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x56E0;&#x7232;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x7684;&#x5143;&#x7D20;&#x53EF;&#x80FD;&#x6703;&#x88AB;&#x8129;&#x6539;&#x3002;&#x4F75;&#x4E14;Go&#x8A9E;&#x8A00;&#x4E2D;map&#x7B49;&#x54C8;&#x5E0C;&#x8868;&#x4E4B;&#x985E;&#x7684;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x7684;key&#x96BB;&#x505A;&#x7C21;&#x55AE;&#x7684;&#x6DFA;&#x62F7;&#x8C9D;&#xFF0C;&#x5B83;&#x8981;&#x6C42;&#x5728;&#x6574;&#x500B;&#x8072;&#x660E;&#x9031;&#x671F;&#x4E2D;&#x76F8;&#x7B49;&#x7684;key&#x5FC5;&#x9B1A;&#x5C0D;&#x76F8;&#x540C;&#x7684;&#x5143;&#x7D20;&#x3002;&#x5C0D;&#x65BC;&#x50CF;&#x6307;&#x91DD;&#x6216;chan&#x4E4B;&#x985E;&#x7684;&#x5F15;&#x7528;&#x985E;&#x578B;&#xFF0C;==&#x76F8;&#x7B49;&#x6E2C;&#x8A66;&#x53EF;&#x4EE5;&#x5224;&#x65B7;&#x5169;&#x500B;&#x662F;&#x5426;&#x662F;&#x5F15;&#x7528;&#x76F8;&#x540C;&#x7684;&#x5C0D;&#x8C61;&#x3002;&#x4E00;&#x500B;&#x91DD;&#x5C0D;slice&#x7684;&#x6DFA;&#x76F8;&#x7B49;&#x6E2C;&#x8A66;&#x7684;==&#x64CD;&#x4F5C;&#x7B26;&#x53EF;&#x80FD;&#x662F;&#x6709;&#x4E00;&#x5B9A;&#x7528;&#x8655;&#x7684;&#xFF0C;&#x4E5F;&#x80FD;&#x81E8;&#x6642;&#x89E3;&#x6C7A;map&#x985E;&#x578B;&#x7684;key&#x554F;&#x984C;&#xFF0C;&#x4F46;&#x662F;slice&#x548C;&#x6578;&#x7D44;&#x4E0D;&#x540C;&#x7684;&#x76F8;&#x7B49;&#x6E2C;&#x8A66;&#x884C;&#x7232;&#x6703;&#x8B93;&#x4EBA;&#x774F;&#x60D1;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5B89;&#x5168;&#x7684;&#x505A;&#x98EF;&#x662F;&#x76F4;&#x63A5;&#x7981;&#x6B62;slice&#x4E4B;&#x9593;&#x7684;&#x6BD4;&#x8F03;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>slice&#x552F;&#x4E00;&#x5408;&#x6CD5;&#x7684;&#x6BD4;&#x8F03;&#x662F;&#x548C;nil&#x6BD4;&#x8F03;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">if</span> summer == <span class="hljs-constant">nil</span> { <span class="hljs-comment">/* ... */</span> }
+</code></pre>
+<p>&#x4E00;&#x500B;&#x96F6;&#x503C;&#x7684;slice&#x7B49;&#x65BC;nil&#x3002;&#x4E00;&#x500B;nil&#x503C;&#x7684;slice&#x4F75;&#x6C92;&#x6709;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x3002;&#x4E00;&#x500B;nil&#x503C;&#x7684;slice&#x7684;&#x9577;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x90FD;&#x662F;0&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x6709;&#x975E;nil&#x503C;&#x7684;slice&#x7684;&#x9577;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x4E5F;&#x662F;0&#x7684;&#xFF0C;&#x4F8B;&#x5982;[]int{}&#x6216;make([]int, 3)[3:]&#x3002;&#x8207;&#x4EFB;&#x610F;&#x985E;&#x578B;&#x7684;nil&#x503C;&#x4E00;&#x6A23;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7528;[]int(nil)&#x985E;&#x578B;&#x8F49;&#x63DB;&#x8868;&#x9054;&#x5F0F;&#x4F86;&#x751F;&#x6210;&#x4E00;&#x500B;&#x5C0D;&#x61C9;&#x985E;&#x578B;slice&#x7684;nil&#x503C;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> s []<span class="hljs-typename">int</span>    <span class="hljs-comment">// len(s) == 0, s == nil</span>
+s = <span class="hljs-constant">nil</span>        <span class="hljs-comment">// len(s) == 0, s == nil</span>
+s = []<span class="hljs-typename">int</span>(<span class="hljs-constant">nil</span>) <span class="hljs-comment">// len(s) == 0, s == nil</span>
+s = []<span class="hljs-typename">int</span>{}    <span class="hljs-comment">// len(s) == 0, s != nil</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x6E2C;&#x8A66;&#x4E00;&#x500B;slice&#x662F;&#x5426;&#x662F;&#x7A7A;&#x7684;&#xFF0C;&#x4F7F;&#x7528;len(s) == 0&#x4F86;&#x5224;&#x65B7;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7528;s == nil&#x4F86;&#x5224;&#x65B7;&#x3002;&#x9664;&#x4E86;&#x548C;nil&#x76F8;&#x7B49;&#x6BD4;&#x8F03;&#x5916;&#xFF0C;&#x4E00;&#x500B;nil&#x503C;&#x7684;slice&#x7684;&#x884C;&#x7232;&#x548C;&#x5176;&#x5B83;&#x4EFB;&#x610F;0&#x7523;&#x9577;&#x5EA6;&#x7684;slice&#x4E00;&#x6A23;&#xFF1B;&#x4F8B;&#x5982;reverse(nil)&#x4E5F;&#x662F;&#x5B89;&#x5168;&#x7684;&#x3002;&#x9664;&#x4E86;&#x6587;&#x6A94;&#x5DF2;&#x7D93;&#x660E;&#x78BA;&#x8AAC;&#x660E;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x6240;&#x6709;&#x7684;Go&#x8A9E;&#x8A00;&#x51FD;&#x6578;&#x61C9;&#x8A72;&#x4EE5;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x5C0D;&#x5F85;nil&#x503C;&#x7684;slice&#x548C;0&#x9577;&#x5EA6;&#x7684;slice&#x3002;</p>
+<p>&#x5167;&#x7F6E;&#x7684;make&#x51FD;&#x6578;&#x5275;&#x5EFA;&#x4E00;&#x500B;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x985E;&#x578B;&#x3001;&#x9577;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x7684;slice&#x3002;&#x5BB9;&#x91CF;&#x90E8;&#x5206;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#xFF0C;&#x5728;&#x9019;&#x7A2E;&#x60C5;&#x6CC1;&#x4E0B;&#xFF0C;&#x5BB9;&#x91CF;&#x5C07;&#x7B49;&#x65BC;&#x9577;&#x5EA6;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-built_in">make</span>([]T, <span class="hljs-built_in">len</span>)
+<span class="hljs-built_in">make</span>([]T, <span class="hljs-built_in">len</span>, <span class="hljs-built_in">cap</span>) <span class="hljs-comment">// same as make([]T, cap)[:len]</span>
+</code></pre>
+<p>&#x5728;&#x5E95;&#x5C64;&#xFF0C;make&#x5275;&#x5EFA;&#x4E86;&#x4E00;&#x500B;&#x533F;&#x540D;&#x7684;&#x6578;&#x7D44;&#x8B8A;&#x91CF;&#xFF0C;&#x7136;&#x5F8C;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;slice&#xFF1B;&#x96BB;&#x6709;&#x901A;&#x904E;&#x8FD4;&#x8FF4;&#x7684;slice&#x624D;&#x80FD;&#x5F15;&#x7528;&#x5E95;&#x5C64;&#x533F;&#x540D;&#x7684;&#x6578;&#x7D44;&#x8B8A;&#x91CF;&#x3002;&#x5728;&#x7B2C;&#x4E00;&#x7A2E;&#x8A9E;&#x53E5;&#x4E2D;&#xFF0C;slice&#x662F;&#x6574;&#x500B;&#x6578;&#x7D44;&#x7684;view&#x3002;&#x5728;&#x7B2C;&#x4E8C;&#x500B;&#x8A9E;&#x53E5;&#x4E2D;&#xFF0C;slice&#x96BB;&#x5F15;&#x7528;&#x4E86;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x7684;&#x524D;len&#x500B;&#x5143;&#x7D20;&#xFF0C;&#x4F46;&#x662F;&#x5BB9;&#x91CF;&#x5C07;&#x5305;&#x542B;&#x6574;&#x500B;&#x7684;&#x6578;&#x7D44;&#x3002;&#x984D;&#x5916;&#x7684;&#x5143;&#x7D20;&#x662F;&#x7559;&#x7D66;&#x672A;&#x4F86;&#x7684;&#x589E;&#x9577;&#x7528;&#x7684;&#x3002;</p>
 <h3 id="421-append&#x51FD;&#x6578;">4.2.1. append&#x51FD;&#x6578;</h3>
-<p>TODO</p>
+<p>&#x5167;&#x7F6E;&#x7684;append&#x51FD;&#x6578;&#x7528;&#x65BC;&#x5411;slice&#x8FFD;&#x52A0;&#x5143;&#x7D20;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> runes []<span class="hljs-typename">rune</span>
+<span class="hljs-keyword">for</span> _, r := <span class="hljs-keyword">range</span> <span class="hljs-string">&quot;Hello, &#x4E16;&#x754C;&quot;</span> {
+    runes = <span class="hljs-built_in">append</span>(runes, r)
+}
+fmt.Printf(<span class="hljs-string">&quot;%q\n&quot;</span>, runes) <span class="hljs-comment">// &quot;[&apos;H&apos; &apos;e&apos; &apos;l&apos; &apos;l&apos; &apos;o&apos; &apos;,&apos; &apos; &apos; &apos;&#x4E16;&apos; &apos;&#x754C;&apos;]&quot;</span>
+</code></pre>
+<p>&#x5728;&#x5FAA;&#x74B0;&#x4E2D;&#x4F7F;&#x7528;append&#x51FD;&#x6578;&#x69CB;&#x5EFA;&#x4E00;&#x500B;&#x6709;&#x4E5D;&#x500B;rune&#x5B57;&#x7B26;&#x69CB;&#x6210;&#x7684;slice&#xFF0C;&#x7576;&#x7136;&#x5C0D;&#x61C9;&#x9019;&#x500B;&#x7279;&#x6B8A;&#x7684;&#x554F;&#x984C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x901A;&#x904E;Go&#x8A9E;&#x8A00;&#x5167;&#x7F6E;&#x7684;[]rune(&quot;Hello, &#x4E16;&#x754C;&quot;)&#x8F49;&#x63DB;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x3002;</p>
+<p>append&#x51FD;&#x6578;&#x5C0D;&#x65BC;&#x7406;&#x89E3;slice&#x5E95;&#x5C64;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x6240;&#x4EE5;&#x8B93;&#x6211;&#x5011;&#x4ED4;&#x7D30;&#x67FB;&#x770B;&#x7A76;&#x7ADF;&#x662F;&#x767C;&#x751F;&#x4E86;&#x4EC0;&#x9EBD;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x7B2C;&#x4E00;&#x500B;&#x7248;&#x672C;&#x7684;appendInt&#x51FD;&#x6578;&#xFF0C;&#x5C08;&#x9580;&#x7528;&#x65BC;&#x8655;&#x7406;[]int&#x985E;&#x578B;&#x7684;slice&#xFF1A;</p>
+<pre><code class="lang-Go">gopl.io/ch4/<span class="hljs-built_in">append</span>
+
+<span class="hljs-keyword">func</span> appendInt(x []<span class="hljs-typename">int</span>, y <span class="hljs-typename">int</span>) []<span class="hljs-typename">int</span> {
+    <span class="hljs-keyword">var</span> z []<span class="hljs-typename">int</span>
+    zlen := <span class="hljs-built_in">len</span>(x) + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">if</span> zlen &lt;= <span class="hljs-built_in">cap</span>(x) {
+        <span class="hljs-comment">// There is room to grow.  Extend the slice.</span>
+        z = x[:zlen]
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// There is insufficient space.  Allocate a new array.</span>
+        <span class="hljs-comment">// Grow by doubling, for amortized linear complexity.</span>
+        zcap := zlen
+        <span class="hljs-keyword">if</span> zcap &lt; <span class="hljs-number">2</span>*<span class="hljs-built_in">len</span>(x) {
+            zcap = <span class="hljs-number">2</span> * <span class="hljs-built_in">len</span>(x)
+        }
+        z = <span class="hljs-built_in">make</span>([]<span class="hljs-typename">int</span>, zlen, zcap)
+        <span class="hljs-built_in">copy</span>(z, x) <span class="hljs-comment">// a built-in function; see text</span>
+    }
+    z[<span class="hljs-built_in">len</span>(x)] = y
+    <span class="hljs-keyword">return</span> z
+}
+</code></pre>
+<p>&#x6BCF;&#x6B21;&#x8ABF;&#x7528;appendInt&#x51FD;&#x6578;&#xFF0C;&#x5FC5;&#x9B1A;&#x5148;&#x6AA2;&#x6E2C;slice&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x662F;&#x5426;&#x6709;&#x8DB3;&#x5920;&#x7684;&#x5BB9;&#x91CF;&#x4F86;&#x4FDD;&#x5B58;&#x65B0;&#x6DFB;&#x52A0;&#x7684;&#x5143;&#x7D20;&#x3002;&#x5982;&#x679C;&#x6709;&#x8DB3;&#x5920;&#x7A7A;&#x9593;&#x7684;&#x8A71;&#xFF0C;&#x76F4;&#x63A5;&#x64F4;&#x5C55;slice&#xFF08;&#x4F9D;&#x7136;&#x5728;&#x539F;&#x6709;&#x7684;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x4E4B;&#x4E0A;&#xFF09;&#xFF0C;&#x5C07;&#x65B0;&#x6DFB;&#x52A0;&#x7684;y&#x5143;&#x7D20;&#x8907;&#x88FD;&#x5230;&#x65B0;&#x64F4;&#x5C55;&#x7684;&#x7A7A;&#x9593;&#xFF0C;&#x4F75;&#x8FD4;&#x8FF4;slice&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8F38;&#x5165;&#x7684;x&#x548C;&#x8F38;&#x51FA;&#x7684;z&#x5171;&#x4EAB;&#x76F8;&#x540C;&#x7684;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6C92;&#x6709;&#x8DB3;&#x5920;&#x7684;&#x589E;&#x9577;&#x7A7A;&#x9593;&#x7684;&#x8A71;&#xFF0C;appendInt&#x51FD;&#x6578;&#x5247;&#x6703;&#x5148;&#x5206;&#x914D;&#x4E00;&#x500B;&#x8DB3;&#x5920;&#x5927;&#x7684;slice&#x7528;&#x65BC;&#x4FDD;&#x5B58;&#x65B0;&#x7684;&#x7D50;&#x679C;&#xFF0C;&#x5148;&#x5C07;&#x8F38;&#x5165;&#x7684;x&#x8907;&#x88FD;&#x5230;&#x65B0;&#x7684;&#x7A7A;&#x9593;&#xFF0C;&#x7136;&#x5F8C;&#x6DFB;&#x52A0;y&#x5143;&#x7D20;&#x3002;&#x7D50;&#x679C;z&#x548C;&#x8F38;&#x5165;&#x7684;x&#x5F15;&#x7528;&#x7684;&#x5C07;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x3002;</p>
+<p>&#x96D6;&#x7136;&#x901A;&#x904E;&#x5FAA;&#x74B0;&#x8907;&#x88FD;&#x5143;&#x7D20;&#x66F4;&#x76F4;&#x63A5;&#xFF0C;&#x4E0D;&#x904E;&#x5167;&#x7F6E;&#x7684;copy&#x51FD;&#x6578;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x5C07;&#x4E00;&#x500B;slice&#x8907;&#x88FD;&#x53E6;&#x4E00;&#x500B;&#x76F8;&#x540C;&#x985E;&#x578B;&#x7684;slice&#x3002;copy&#x51FD;&#x6578;&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x53C3;&#x6578;&#x662F;&#x8981;&#x8907;&#x88FD;&#x7684;&#x76EE;&#x6A19;slice&#xFF0C;&#x7B2C;&#x4E8C;&#x500B;&#x53C3;&#x6578;&#x662F;&#x6E90;slice&#xFF0C;&#x76EE;&#x6A19;&#x548C;&#x6E90;&#x7684;&#x4F4D;&#x7F6E;&#x9806;&#x5E8F;&#x548C;dst = src&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;&#x5169;&#x500B;slice&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x500B;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#xFF0C;&#x751A;&#x81F3;&#x6709;&#x91CD;&#x758A;&#x4E5F;&#x6C92;&#x6709;&#x554F;&#x984C;&#x3002;copy&#x51FD;&#x6578;&#x5C07;&#x8FD4;&#x8FF4;&#x6210;&#x529F;&#x8907;&#x88FD;&#x7684;&#x5143;&#x7D20;&#x7684;&#x500B;&#x6578;&#xFF08;&#x6211;&#x5011;&#x9019;&#x91CC;&#x6C92;&#x6709;&#x7528;&#x5230;&#xFF09;&#xFF0C;&#x7B49;&#x65BC;&#x5169;&#x500B;slice&#x4E2D;&#x8F03;&#x5C0F;&#x7684;&#x9577;&#x5EA6;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x4E0D;&#x7528;&#x64D4;&#x5FC3;&#x8986;&#x84CB;&#x6703;&#x8D85;&#x51FA;&#x76EE;&#x7684;slice&#x7684;&#x8303;&#x570D;&#x3002;</p>
+<p>&#x7232;&#x4E86;&#x6548;&#x7387;&#xFF0C;&#x65B0;&#x5206;&#x914D;&#x7684;&#x6578;&#x7D44;&#x4E00;&#x822C;&#x7565;&#x5927;&#x65BC;&#x4FDD;&#x5B58;x&#x548C;y&#x6240;&#x9700;&#x8981;&#x7684;&#x6700;&#x4F4E;&#x5927;&#x5C0F;&#x3002;&#x901A;&#x904E;&#x5728;&#x6BCF;&#x6B21;&#x64F4;&#x5C55;&#x6578;&#x7D44;&#x6642;&#x76F4;&#x63A5;&#x5C07;&#x9577;&#x5EA6;&#x7FFB;&#x500D;&#x5F9E;&#x800C;&#x907F;&#x514D;&#x4E86;&#x591A;&#x6B21;&#x5167;&#x5B58;&#x5206;&#x914D;&#xFF0C;&#x4E5F;&#x78BA;&#x4FDD;&#x4E86;&#x6DFB;&#x52A0;&#x55AE;&#x500B;&#x5143;&#x7D20;&#x64CD;&#x7684;&#x5E73;&#x5747;&#x6642;&#x9593;&#x662F;&#x4E00;&#x500B;&#x5E38;&#x6578;&#x6642;&#x9593;&#x3002;&#x9019;&#x500B;&#x7A0B;&#x5E8F;&#x6F14;&#x793A;&#x4E86;&#x6548;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">var</span> x, y []<span class="hljs-typename">int</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        y = appendInt(x, i)
+        fmt.Printf(<span class="hljs-string">&quot;%d cap=%d\t%v\n&quot;</span>, i, <span class="hljs-built_in">cap</span>(y), y)
+        x = y
+    }
+}
+</code></pre>
+<p>&#x6BCF;&#x4E00;&#x6B21;&#x5BB9;&#x91CF;&#x7684;&#x8B8A;&#x5316;&#x90FD;&#x6703;&#x5C0E;&#x81F4;&#x91CD;&#x65B0;&#x5206;&#x914D;&#x5167;&#x5B58;&#x548C;copy&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code>0  cap=1    [0]
+1  cap=2    [0 1]
+2  cap=4    [0 1 2]
+3  cap=4    [0 1 2 3]
+4  cap=8    [0 1 2 3 4]
+5  cap=8    [0 1 2 3 4 5]
+6  cap=8    [0 1 2 3 4 5 6]
+7  cap=8    [0 1 2 3 4 5 6 7]
+8  cap=16   [0 1 2 3 4 5 6 7 8]
+9  cap=16   [0 1 2 3 4 5 6 7 8 9]
+</code></pre><p>&#x8B93;&#x6211;&#x5011;&#x4ED4;&#x7D30;&#x67FB;&#x770B;i=3&#x6B21;&#x7684;&#x8FED;&#x4EE3;&#x3002;&#x7576;&#x6642;x&#x5305;&#x542B;&#x4E86;[0 1 2]&#x4E09;&#x500B;&#x5143;&#x7D20;&#xFF0C;&#x4F46;&#x662F;&#x5BB9;&#x91CF;&#x662F;4&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x7C21;&#x55AE;&#x5C07;&#x65B0;&#x7684;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x5230;&#x672B;&#x5C3E;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x65B0;&#x7684;&#x5167;&#x5B58;&#x5206;&#x914D;&#x3002;&#x7136;&#x5F8C;&#x65B0;&#x7684;y&#x7684;&#x9577;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x90FD;&#x662F;4&#xFF0C;&#x4F75;&#x4E14;&#x548C;x&#x5F15;&#x7528;&#x7740;&#x76F8;&#x540C;&#x7684;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#xFF0C;&#x5982;&#x5716;4.2&#x6240;&#x793A;&#x3002;</p>
+<p><img src="../images/ch4-02.png" alt=""></p>
+<p>&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x6642;i=4&#xFF0C;&#x73FE;&#x5728;&#x6C92;&#x6709;&#x65B0;&#x7684;&#x7A7A;&#x9918;&#x7684;&#x7A7A;&#x9593;&#x4E86;&#xFF0C;&#x56E0;&#x6B64;appendInt&#x51FD;&#x6578;&#x5206;&#x914D;&#x4E00;&#x500B;&#x5BB9;&#x91CF;&#x7232;8&#x7684;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#xFF0C;&#x5C07;x&#x7684;4&#x500B;&#x5143;&#x7D20;[0 1 2 3]&#x8907;&#x88FD;&#x5230;&#x65B0;&#x7A7A;&#x9593;&#x7684;&#x958B;&#x982D;&#xFF0C;&#x7136;&#x5F8C;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5143;&#x7D20;i&#xFF0C;&#x65B0;&#x5143;&#x7D20;&#x7684;&#x503C;&#x662F;4&#x3002;&#x65B0;&#x7684;y&#x7684;&#x9577;&#x5EA6;&#x662F;5&#xFF0C;&#x5BB9;&#x91CF;&#x662F;8&#xFF1B;&#x5F8C;&#x9762;&#x6709;3&#x500B;&#x7A7A;&#x9592;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E09;&#x6B21;&#x8FED;&#x4EE3;&#x90FD;&#x4E0D;&#x9700;&#x8981;&#x5206;&#x914D;&#x65B0;&#x7684;&#x7A7A;&#x9593;&#x3002;&#x7576;&#x524D;&#x8FED;&#x4EE3;&#x4E2D;&#xFF0C;y&#x548C;x&#x662F;&#x5C0D;&#x61C9;&#x4E0D;&#x7528;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x7684;view&#x3002;&#x9019;&#x6B21;&#x64CD;&#x4F5C;&#x5982;&#x5716;4.3&#x6240;&#x793A;&#x3002;</p>
+<p><img src="../images/ch4-03.png" alt=""></p>
+<p>&#x5167;&#x7F6E;&#x7684;append&#x51FD;&#x6578;&#x53EF;&#x80FD;&#x4F7F;&#x7528;&#x6BD4;appendInt&#x66F4;&#x8907;&#x96DC;&#x7684;&#x5167;&#x5B58;&#x64F4;&#x5C55;&#x7B56;&#x7565;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x901A;&#x5E38;&#x6211;&#x5011;&#x4F75;&#x4E0D;&#x77E5;&#x9053;append&#x8ABF;&#x7528;&#x662F;&#x5426;&#x5C0E;&#x81F4;&#x4E86;&#x5167;&#x5B58;&#x7684;&#x5206;&#x914D;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x5011;&#x4E5F;&#x4E0D;&#x80FD;&#x78BA;&#x8A8D;&#x65B0;&#x7684;slice&#x548C;&#x539F;&#x59CB;&#x7684;slice&#x662F;&#x5426;&#x5F15;&#x7528;&#x7684;&#x662F;&#x76F8;&#x540C;&#x7684;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x7A7A;&#x9593;&#x3002;&#x540C;&#x6A23;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x80FD;&#x78BA;&#x8A8D;&#x5728;&#x539F;&#x5148;&#x7684;slice&#x4E0A;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x5426;&#x6703;&#x5F71;&#x97FF;&#x5230;&#x65B0;&#x7684;slice&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x5C07;append&#x8FD4;&#x8FF4;&#x7684;&#x7D50;&#x679C;&#x76F4;&#x63A5;&#x8CE6;&#x503C;&#x7D66;&#x8F38;&#x5165;&#x7684;slice&#x8B8A;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-Go">runes = <span class="hljs-built_in">append</span>(runes, r)
+</code></pre>
+<p>&#x66F4;&#x65B0;slice&#x8B8A;&#x91CF;&#x4E0D;&#x50C5;&#x5C0D;&#x8ABF;&#x7528;append&#x51FD;&#x6578;&#x662F;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x5BE6;&#x969B;&#x4E0A;&#x5C0D;&#x61C9;&#x4EFB;&#x4F55;&#x53EF;&#x80FD;&#x5C0E;&#x81F4;&#x9577;&#x5EA6;&#x3001;&#x5BB9;&#x91CF;&#x6216;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x8B8A;&#x5316;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5FC5;&#x8981;&#x7684;&#x3002;&#x8981;&#x6B63;&#x78BA;&#x5730;&#x4F7F;&#x7528;slice&#xFF0C;&#x9700;&#x8981;&#x8A18;&#x4F4F;&#x76E1;&#x7BA1;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x7684;&#x5143;&#x7D20;&#x662F;&#x9593;&#x63A5;&#x8A2A;&#x554F;&#xFF0C;&#x4F46;&#x662F;slice&#x672C;&#x8EAB;&#x7684;&#x6307;&#x91DD;&#x3001;&#x9577;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x662F;&#x76F4;&#x63A5;&#x8A2A;&#x554F;&#x7684;&#x3002;&#x8981;&#x66F4;&#x65B0;&#x9019;&#x4E9B;&#x4FE1;&#x606F;&#x9700;&#x8981;&#x50CF;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x90A3;&#x6A23;&#x4E00;&#x500B;&#x986F;&#x5F0F;&#x7684;&#x8CE6;&#x503C;&#x64CD;&#x4F5C;&#x3002;&#x5F9E;&#x9019;&#x500B;&#x89D2;&#x5EA6;&#x770B;&#xFF0C;slice&#x4F75;&#x4E0D;&#x662F;&#x4E00;&#x500B;&#x7D14;&#x7CB9;&#x7684;&#x5F15;&#x7528;&#x985E;&#x578B;&#xFF0C;&#x5B83;&#x5BE6;&#x969B;&#x4E0A;&#x662F;&#x4E00;&#x500B;&#x985E;&#x4F3C;&#x4E0B;&#x9762;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x805A;&#x5408;&#x985E;&#x578B;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> IntSlice <span class="hljs-keyword">struct</span> {
+    ptr      *<span class="hljs-typename">int</span>
+    <span class="hljs-built_in">len</span>, <span class="hljs-built_in">cap</span> <span class="hljs-typename">int</span>
+}
+</code></pre>
+<p>&#x6211;&#x5011;&#x7684;appendInt&#x51FD;&#x6578;&#x6BCF;&#x6B21;&#x96BB;&#x80FD;&#x5411;slice&#x8FFD;&#x52A0;&#x4E00;&#x500B;&#x5143;&#x7D20;&#xFF0C;&#x4F46;&#x662F;&#x5167;&#x7F6E;&#x7684;append&#x51FD;&#x6578;&#x5247;&#x53EF;&#x4EE5;&#x8FFD;&#x52A0;&#x591A;&#x500B;&#x5143;&#x7D20;&#xFF0C;&#x751A;&#x81F3;&#x8FFD;&#x52A0;&#x4E00;&#x500B;slice&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> x []<span class="hljs-typename">int</span>
+x = <span class="hljs-built_in">append</span>(x, <span class="hljs-number">1</span>)
+x = <span class="hljs-built_in">append</span>(x, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+x = <span class="hljs-built_in">append</span>(x, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>)
+x = <span class="hljs-built_in">append</span>(x, x...) <span class="hljs-comment">// append the slice x</span>
+fmt.Println(x)      <span class="hljs-comment">// &quot;[1 2 3 4 5 6 1 2 3 4 5 6]&quot;</span>
+</code></pre>
+<p>&#x901A;&#x904E;&#x4E0B;&#x9762;&#x7684;&#x5C0F;&#x8129;&#x6539;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x53EF;&#x4EE5;&#x9054;&#x5230;append&#x51FD;&#x6578;&#x985E;&#x4F3C;&#x7684;&#x529F;&#x80FD;&#x3002;&#x5176;&#x4E2D;&#x5728;appendInt&#x51FD;&#x6578;&#x53C3;&#x6578;&#x4E2D;&#x7684;&#x6700;&#x5F8C;&#x7684;&#x201C;...&#x201D;&#x7701;&#x7565;&#x865F;&#x8868;&#x793A;&#x63A5;&#x6536;&#x8B8A;&#x9577;&#x7684;&#x53C3;&#x6578;&#x7232;slice&#x3002;&#x6211;&#x5011;&#x5C07;&#x5728;5.7&#x7BC0;&#x8A73;&#x7D30;&#x89E3;&#x91CB;&#x9019;&#x500B;&#x7279;&#x6027;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> appendInt(x []<span class="hljs-typename">int</span>, y ...<span class="hljs-typename">int</span>) []<span class="hljs-typename">int</span> {
+    <span class="hljs-keyword">var</span> z []<span class="hljs-typename">int</span>
+    zlen := <span class="hljs-built_in">len</span>(x) + <span class="hljs-built_in">len</span>(y)
+    <span class="hljs-comment">// ...expand z to at least zlen...</span>
+    <span class="hljs-built_in">copy</span>(z[<span class="hljs-built_in">len</span>(x):], y)
+    <span class="hljs-keyword">return</span> z
+}
+</code></pre>
+<p>&#x7232;&#x4E86;&#x907F;&#x514D;&#x91CD;&#x8907;&#xFF0C;&#x548C;&#x524D;&#x9762;&#x76F8;&#x540C;&#x7684;&#x4EE3;&#x78BC;&#x4F75;&#x6C92;&#x6709;&#x986F;&#x793A;&#x3002;</p>
 <h3 id="422-slice&#x5167;&#x5B58;&#x6280;&#x5DE7;">4.2.2. Slice&#x5167;&#x5B58;&#x6280;&#x5DE7;</h3>
-<p>TODO</p>
+<p>&#x8B93;&#x6211;&#x5011;&#x770B;&#x770B;&#x66F4;&#x591A;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x6BD4;&#x5982;&#x955F;&#x8F49;slice&#x3001;&#x53CD;&#x8F49;slice&#x6216;&#x5728;slice&#x539F;&#x6709;&#x5167;&#x5B58;&#x7A7A;&#x9593;&#x8129;&#x6539;&#x5143;&#x7D20;&#x3002;&#x7D66;&#x5B9A;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x4E32;&#x5217;&#x8868;&#xFF0C;&#x4E0B;&#x9762;&#x7684;nonempty&#x51FD;&#x6578;&#x5C07;&#x5728;&#x539F;&#x6709;slice&#x5167;&#x5B58;&#x7A7A;&#x9593;&#x4E4B;&#x4E0A;&#x8FD4;&#x8FF4;&#x4E0D;&#x5305;&#x542B;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5217;&#x8868;&#xFF1A;</p>
+<pre><code class="lang-Go">gopl.io/ch4/nonempty
+
+<span class="hljs-comment">// Nonempty is an example of an in-place slice algorithm.</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-comment">// nonempty returns a slice holding only the non-empty strings.</span>
+<span class="hljs-comment">// The underlying array is modified during the call.</span>
+<span class="hljs-keyword">func</span> nonempty(strings []<span class="hljs-typename">string</span>) []<span class="hljs-typename">string</span> {
+    i := <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> _, s := <span class="hljs-keyword">range</span> strings {
+        <span class="hljs-keyword">if</span> s != <span class="hljs-string">&quot;&quot;</span> {
+            strings[i] = s
+            i++
+        }
+    }
+    <span class="hljs-keyword">return</span> strings[:i]
+}
+</code></pre>
+<p>&#x6BD4;&#x8F03;&#x5FAE;&#x5999;&#x7684;&#x5730;&#x65B9;&#x662F;&#xFF0C;&#x8F38;&#x5165;&#x7684;slice&#x548C;&#x8F38;&#x51FA;&#x7684;slice&#x5171;&#x4EAB;&#x4E00;&#x500B;&#x5E95;&#x5C64;&#x6578;&#x7D44;&#x3002;&#x9019;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x5206;&#x914D;&#x53E6;&#x4E00;&#x500B;&#x6578;&#x7D44;&#xFF0C;&#x4E0D;&#x904E;&#x539F;&#x4F86;&#x7684;&#x6578;&#x64DA;&#x5C07;&#x53EF;&#x80FD;&#x6703;&#x88AB;&#x8986;&#x84CB;&#xFF0C;&#x6B63;&#x5982;&#x4E0B;&#x9762;&#x5169;&#x500B;&#x6253;&#x5370;&#x8A9E;&#x53E5;&#x770B;&#x5230;&#x7684;&#x90A3;&#x6A23;&#xFF1A;</p>
+<pre><code class="lang-Go">data := []<span class="hljs-typename">string</span>{<span class="hljs-string">&quot;one&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;three&quot;</span>}
+fmt.Printf(<span class="hljs-string">&quot;%q\n&quot;</span>, nonempty(data)) <span class="hljs-comment">// `[&quot;one&quot; &quot;three&quot;]`</span>
+fmt.Printf(<span class="hljs-string">&quot;%q\n&quot;</span>, data)           <span class="hljs-comment">// `[&quot;one&quot; &quot;three&quot; &quot;three&quot;]`</span>
+</code></pre>
+<p>&#x56E0;&#x6B64;&#x6211;&#x5011;&#x901A;&#x5E38;&#x6703;&#x9019;&#x6A23;&#x4F7F;&#x7528;nonempty&#x51FD;&#x6578;&#xFF1A;data = nonempty(data)&#x3002;</p>
+<p>nonempty&#x51FD;&#x6578;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;append&#x51FD;&#x6578;&#x5BE6;&#x73FE;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> nonempty2(strings []<span class="hljs-typename">string</span>) []<span class="hljs-typename">string</span> {
+    out := strings[:<span class="hljs-number">0</span>] <span class="hljs-comment">// zero-length slice of original</span>
+    <span class="hljs-keyword">for</span> _, s := <span class="hljs-keyword">range</span> strings {
+        <span class="hljs-keyword">if</span> s != <span class="hljs-string">&quot;&quot;</span> {
+            out = <span class="hljs-built_in">append</span>(out, s)
+        }
+    }
+    <span class="hljs-keyword">return</span> out
+}
+</code></pre>
+<p>&#x7121;&#x8AD6;&#x5982;&#x4F55;&#x5BE6;&#x73FE;&#xFF0C;&#x4EE5;&#x9019;&#x7A2E;&#x65B9;&#x5F0F;&#x91CD;&#x7528;&#x4E00;&#x500B;slice&#x4E00;&#x822C;&#x8981;&#x6C42;&#x6700;&#x591A;&#x7232;&#x6BCF;&#x500B;&#x8F38;&#x5165;&#x503C;&#x7523;&#x751F;&#x4E00;&#x500B;&#x8F38;&#x51FA;&#x503C;&#xFF0C;&#x4E8B;&#x5BE6;&#x4E0A;&#x5F88;&#x591A;&#x7B97;&#x6CD5;&#x90FD;&#x662F;&#x7528;&#x4F86;&#x904E;&#x6FFE;&#x6216;&#x5408;&#x4F75;&#x5E8F;&#x5217;&#x4E2D;&#x76F8;&#x9130;&#x7684;&#x5143;&#x7D20;&#x3002;&#x9019;&#x7A2E;slice&#x7528;&#x6CD5;&#x662F;&#x6BD4;&#x8F03;&#x8907;&#x96DC;&#x7684;&#x6280;&#x5DE7;&#xFF0C;&#x96D6;&#x7136;&#x4F7F;&#x7528;&#x5230;&#x4E86;slice&#x7684;&#x4E00;&#x4E9B;&#x9ED1;&#x9B54;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x5C0D;&#x65BC;&#x67D0;&#x4E9B;&#x5834;&#x5408;&#x662F;&#x6BD4;&#x8F03;&#x6E05;&#x6670;&#x548C;&#x6709;&#x6548;&#x7684;&#x3002;</p>
+<p>&#x4E00;&#x500B;slice&#x53EF;&#x4EE5;&#x539F;&#x4F86;&#x5BE6;&#x73FE;&#x4E00;&#x500B;stack&#x3002;&#x6700;&#x521D;&#x7D66;&#x5B9A;&#x7684;&#x7A7A;slice&#x5C0D;&#x61C9;&#x4E00;&#x500B;&#x7A7A;&#x7684;stack&#xFF0C;&#x7136;&#x5F8C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;append&#x51FD;&#x6578;&#x5C07;&#x65B0;&#x7684;&#x503C;&#x58D3;&#x5165;stack&#xFF1A;</p>
+<pre><code class="lang-Go">stack = <span class="hljs-built_in">append</span>(stack, v) <span class="hljs-comment">// push v</span>
+</code></pre>
+<p>stack&#x7684;&#x9802;&#x90E8;&#x4F4D;&#x7F6E;&#x5C0D;&#x61C9;slice&#x7684;&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x5143;&#x7D20;&#xFF1A;</p>
+<pre><code class="lang-Go">top := stack[<span class="hljs-built_in">len</span>(stack)-<span class="hljs-number">1</span>] <span class="hljs-comment">// top of stack</span>
+</code></pre>
+<p>&#x901A;&#x904E;&#x6536;&#x7E2E;stack&#x53EF;&#x4EE5;&#x5F48;&#x51FA;&#x68E7;&#x9802;&#x7684;&#x5143;&#x7D20;</p>
+<pre><code class="lang-Go">stack = stack[:<span class="hljs-built_in">len</span>(stack)-<span class="hljs-number">1</span>] <span class="hljs-comment">// pop</span>
+</code></pre>
+<p>&#x8981;&#x522A;&#x9664;slice&#x4E2D;&#x9593;&#x7684;&#x67D0;&#x500B;&#x5143;&#x7D20;&#x4F75;&#x4FDD;&#x5B58;&#x539F;&#x6709;&#x7684;&#x5143;&#x7D20;&#x9806;&#x5E8F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x5167;&#x7F6E;&#x7684;copy&#x51FD;&#x6578;&#x5C07;&#x5F8C;&#x9762;&#x7684;&#x5B50;slice&#x5411;&#x524D;&#x4E00;&#x4F4D;&#x8907;&#x96DC;&#x5B8C;&#x6210;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> remove(slice []<span class="hljs-typename">int</span>, i <span class="hljs-typename">int</span>) []<span class="hljs-typename">int</span> {
+    <span class="hljs-built_in">copy</span>(slice[i:], slice[i+<span class="hljs-number">1</span>:])
+    <span class="hljs-keyword">return</span> slice[:<span class="hljs-built_in">len</span>(slice)-<span class="hljs-number">1</span>]
+}
+
+<span class="hljs-keyword">func</span> main() {
+    s := []<span class="hljs-typename">int</span>{<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>}
+    fmt.Println(remove(s, <span class="hljs-number">2</span>)) <span class="hljs-comment">// &quot;[5 6 8 9]&quot;</span>
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x522A;&#x9664;&#x5143;&#x7D20;&#x5F8C;&#x4E0D;&#x7528;&#x4FDD;&#x5B58;&#x539F;&#x4F86;&#x9806;&#x5E8F;&#x7684;&#x8A71;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x7C21;&#x55AE;&#x7684;&#x7528;&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x8986;&#x84CB;&#x88AB;&#x522A;&#x9664;&#x7684;&#x5143;&#x7D20;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> remove(slice []<span class="hljs-typename">int</span>, i <span class="hljs-typename">int</span>) []<span class="hljs-typename">int</span> {
+    slice[i] = slice[<span class="hljs-built_in">len</span>(slice)-<span class="hljs-number">1</span>]
+    <span class="hljs-keyword">return</span> slice[:<span class="hljs-built_in">len</span>(slice)-<span class="hljs-number">1</span>]
+}
+
+<span class="hljs-keyword">func</span> main() {
+    s := []<span class="hljs-typename">int</span>{<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>}
+    fmt.Println(remove(s, <span class="hljs-number">2</span>)) <span class="hljs-comment">// &quot;[5 6 9 8]</span>
+}
+</code></pre>
+<p><strong>&#x7DF4;&#x7FD2; 4.3&#xFF1A;</strong> &#x91CD;&#x5BEB;reverse&#x51FD;&#x6578;&#xFF0C;&#x4F7F;&#x7528;&#x6578;&#x7D44;&#x6307;&#x91DD;&#x4EE3;&#x66FF;slice&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 4.4&#xFF1A;</strong> &#x7DE8;&#x5BEB;&#x4E00;&#x500B;rotate&#x51FD;&#x6578;&#xFF0C;&#x901A;&#x904E;&#x4E00;&#x6B21;&#x5FAA;&#x74B0;&#x5B8C;&#x6210;&#x955F;&#x8F49;&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 4.5&#xFF1A;</strong> &#x5BEB;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x5728;&#x539F;&#x5730;&#x5B8C;&#x6210;&#x6D88;&#x9664;[]string&#x4E2D;&#x76F8;&#x9130;&#x91CD;&#x8907;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 4.6&#xFF1A;</strong> &#x7DE8;&#x5BEB;&#x4E00;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x539F;&#x5730;&#x5C07;&#x4E00;&#x500B;UTF-8&#x7DE8;&#x78BC;&#x7684;[]byte&#x985E;&#x578B;&#x7684;slice&#x4E2D;&#x76F8;&#x9130;&#x7684;&#x7A7A;&#x683C;&#xFF08;&#x53C3;&#x8003;unicode.IsSpace&#xFF09;&#x66FF;&#x63DB;&#x6210;&#x4E00;&#x500B;&#x7A7A;&#x683C;&#x8FD4;&#x8FF4;</p>
+<p><strong>&#x7DF4;&#x7FD2; 4.7&#xFF1A;</strong> &#x8129;&#x6539;reverse&#x51FD;&#x6578;&#x7528;&#x65BC;&#x539F;&#x5730;&#x53CD;&#x8F49;UTF-8&#x7DE8;&#x78BC;&#x7684;[]byte&#x3002;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5206;&#x914D;&#x984D;&#x5916;&#x7684;&#x5167;&#x5B58;&#xFF1F;</p>
 
                     
                     </section>
@@ -2042,7 +2283,7 @@
         <a href="../ch4/ch4-01.html" class="navigation navigation-prev " aria-label="Previous page: 數組"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../ch4/ch4-03.html" class="navigation navigation-next " aria-label="Next page: 字典"><i class="fa fa-angle-right"></i></a>
+        <a href="../ch4/ch4-03.html" class="navigation navigation-next " aria-label="Next page: Map"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

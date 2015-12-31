@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>示例: 併發的Echo服務 | Go编程语言</title>
+        <title>示例: 併發的Echo服務 | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="8.3" data-chapter-title="示例: 併發的Echo服務" data-filepath="ch8/ch8-03.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="8.3" data-chapter-title="示例: 併發的Echo服務" data-filepath="ch8/ch8-03.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -575,7 +575,7 @@
                         
                             <b>4.2.</b>
                         
-                        切片
+                        Slice
                     </a>
             
             
@@ -590,7 +590,7 @@
                         
                             <b>4.3.</b>
                         
-                        字典
+                        Map
                     </a>
             
             
@@ -2013,7 +2013,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Go编程语言</a>
+        <a href="../" >Go语言圣经</a>
     </h1>
 </div>
 
@@ -2024,7 +2024,91 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="83-&#x793A;&#x4F8B;-&#x4F75;&#x767C;&#x7684;echo&#x670D;&#x52D9;">8.3. &#x793A;&#x4F8B;: &#x4F75;&#x767C;&#x7684;Echo&#x670D;&#x52D9;</h2>
-<p>TODO</p>
+<p>clock&#x670D;&#x52D9;&#x5668;&#x6BCF;&#x4E00;&#x500B;&#x9023;&#x63A5;&#x90FD;&#x6703;&#x8D77;&#x4E00;&#x500B;goroutine&#x3002;&#x5728;&#x672C;&#x7BC0;&#x4E2D;&#x6211;&#x5011;&#x6703;&#x5275;&#x5EFA;&#x4E00;&#x500B;echo&#x670D;&#x52D9;&#x5668;&#xFF0C;&#x9019;&#x500B;&#x670D;&#x52D9;&#x5728;&#x6BCF;&#x500B;&#x9023;&#x63A5;&#x4E2D;&#x6703;&#x6709;&#x591A;&#x500B;goroutine&#x3002;&#x5927;&#x591A;&#x6578;echo&#x670D;&#x52D9;&#x50C5;&#x50C5;&#x6703;&#x8FD4;&#x8FF4;&#x4ED6;&#x5011;&#x8B80;&#x53D6;&#x5230;&#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x5C31;&#x50CF;&#x4E0B;&#x9762;&#x9019;&#x500B;&#x7C21;&#x55AE;&#x7684;handleConn&#x51FD;&#x6578;&#x6240;&#x505A;&#x7684;&#x4E00;&#x6A23;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> handleConn(c net.Conn) {
+    io.Copy(c, c) <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> ignoring errors</span>
+    c.Close()
+}
+</code></pre>
+<p>&#x4E00;&#x500B;&#x66F4;&#x6709;&#x610F;&#x601D;&#x7684;echo&#x670D;&#x52D9;&#x61C9;&#x8A72;&#x6A21;&#x64EC;&#x4E00;&#x500B;&#x5BE6;&#x969B;&#x7684;echo&#x7684;&#x201C;&#x8FF4;&#x97FF;&#x201D;&#xFF0C;&#x4F75;&#x4E14;&#x4E00;&#x958B;&#x59CB;&#x8981;&#x7528;&#x5927;&#x5BEB;HELLO&#x4F86;&#x8868;&#x793A;&#x201C;&#x8072;&#x97F3;&#x5F88;&#x5927;&#x201D;&#xFF0C;&#x4E4B;&#x5F8C;&#x7D93;&#x904E;&#x4E00;&#x5C0F;&#x6BB5;&#x5EF6;&#x9072;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;&#x6709;&#x6240;&#x7DE9;&#x548C;&#x7684;Hello&#xFF0C;&#x7136;&#x5F8C;&#x4E00;&#x500B;&#x5168;&#x5C0F;&#x5BEB;&#x5B57;&#x6BCD;&#x7684;hello&#x8868;&#x793A;&#x8072;&#x97F3;&#x6F38;&#x6F38;&#x8B8A;&#x5C0F;&#x76F4;&#x81F3;&#x6D88;&#x5931;&#xFF0C;&#x50CF;&#x4E0B;&#x9762;&#x9019;&#x500B;&#x7248;&#x672C;&#x7684;handleConn(&#x8B6F;&#x8A3B;&#xFF1A;&#x7B11;&#x770B;&#x4F5C;&#x8005;&#x8166;&#x6D1E;&#x5927;&#x958B;)&#xFF1A;</p>
+<pre><code class="lang-go">gopl.io/ch8/reverb1
+<span class="hljs-keyword">func</span> echo(c net.Conn, shout <span class="hljs-typename">string</span>, delay time.Duration) {
+    fmt.Fprintln(c, <span class="hljs-string">&quot;\t&quot;</span>, strings.ToUpper(shout))
+    time.Sleep(delay)
+    fmt.Fprintln(c, <span class="hljs-string">&quot;\t&quot;</span>, shout)
+    time.Sleep(delay)
+    fmt.Fprintln(c, <span class="hljs-string">&quot;\t&quot;</span>, strings.ToLower(shout))
+}
+
+<span class="hljs-keyword">func</span> handleConn(c net.Conn) {
+    input := bufio.NewScanner(c)
+    <span class="hljs-keyword">for</span> input.Scan() {
+        echo(c, input.Text(), <span class="hljs-number">1</span>*time.Second)
+    }
+    <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> ignoring potential errors from input.Err()</span>
+    c.Close()
+}
+</code></pre>
+<p>&#x6211;&#x5011;&#x9700;&#x8981;&#x965E;&#x7D1A;&#x6211;&#x5011;&#x7684;&#x5BA2;&#x6236;&#x7AEF;&#x7A0B;&#x5E8F;&#xFF0C;&#x9019;&#x6A23;&#x5B83;&#x5C31;&#x53EF;&#x4EE5;&#x767C;&#x9001;&#x7D42;&#x7AEF;&#x7684;&#x8F38;&#x5165;&#x5230;&#x670D;&#x52D9;&#x5668;&#xFF0C;&#x4F75;&#x628A;&#x670D;&#x52D9;&#x7AEF;&#x7684;&#x8FD4;&#x8FF4;&#x8F38;&#x51FA;&#x5230;&#x7D42;&#x7AEF;&#x4E0A;&#xFF0C;&#x9019;&#x4F7F;&#x6211;&#x5011;&#x6709;&#x4E86;&#x4F7F;&#x7528;&#x4F75;&#x767C;&#x7684;&#x53E6;&#x4E00;&#x500B;&#x597D;&#x6A5F;&#x6703;&#xFF1A;</p>
+<pre><code class="lang-go">gopl.io/ch8/netcat2
+<span class="hljs-keyword">func</span> main() {
+    conn, err := net.Dial(<span class="hljs-string">&quot;tcp&quot;</span>, <span class="hljs-string">&quot;localhost:8000&quot;</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+        log.Fatal(err)
+    }
+    <span class="hljs-keyword">defer</span> conn.Close()
+    <span class="hljs-keyword">go</span> mustCopy(os.Stdout, conn)
+    mustCopy(conn, os.Stdin)
+}
+</code></pre>
+<p>&#x7576;main goroutine&#x5F9E;&#x6A19;&#x6E96;&#x8F38;&#x5165;&#x6D41;&#x4E2D;&#x8B80;&#x53D6;&#x5167;&#x5BB9;&#x4F75;&#x5C07;&#x5176;&#x767C;&#x9001;&#x7D66;&#x670D;&#x52D9;&#x5668;&#x6642;&#xFF0C;&#x53E6;&#x4E00;&#x500B;goroutine&#x6703;&#x8B80;&#x53D6;&#x4F75;&#x6253;&#x5370;&#x670D;&#x52D9;&#x7AEF;&#x7684;&#x97FF;&#x61C9;&#x3002;&#x7576;main goroutine&#x78B0;&#x5230;&#x8F38;&#x5165;&#x7D42;&#x6B62;&#x6642;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x7528;&#x6236;&#x5728;&#x7D42;&#x7AEF;&#x4E2D;&#x6309;&#x4E86;Control-D(^D)&#xFF0C;&#x5728;windows&#x4E0A;&#x662F;Control-Z&#xFF0C;&#x9019;&#x6642;&#x7A0B;&#x5E8F;&#x5C31;&#x6703;&#x88AB;&#x7D42;&#x6B62;&#xFF0C;&#x76E1;&#x7BA1;&#x5176;&#x5B83;goroutine&#x4E2D;&#x9084;&#x6709;&#x9032;&#x884C;&#x4E2D;&#x7684;&#x4EFB;&#x52D9;&#x3002;(&#x5728;8.4.1&#x4E2D;&#x5F15;&#x5165;&#x4E86;channels&#x5F8C;&#x6211;&#x5011;&#x6703;&#x660E;&#x767D;&#x5982;&#x4F55;&#x8B93;&#x7A0B;&#x5E8F;&#x7B49;&#x5F85;&#x5169;&#x908A;&#x90FD;&#x7D50;&#x675F;)&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x9019;&#x500B;&#x6703;&#x8A71;&#x4E2D;&#xFF0C;&#x5BA2;&#x6236;&#x7AEF;&#x7684;&#x8F38;&#x5165;&#x662F;&#x5DE6;&#x5C0D;&#x9F4A;&#x7684;&#xFF0C;&#x670D;&#x52D9;&#x7AEF;&#x7684;&#x97FF;&#x61C9;&#x6703;&#x7528;&#x7E2E;&#x9032;&#x4F86;&#x5340;&#x522B;&#x986F;&#x793A;&#x3002;
+&#x5BA2;&#x6236;&#x7AEF;&#x6703;&#x5411;&#x670D;&#x52D9;&#x5668;&#x201C;&#x558A;&#x4E09;&#x6B21;&#x8A71;&#x201D;&#xFF1A;</p>
+<pre><code>$ go build gopl.io/ch8/reverb1
+$ ./reverb1 &amp;
+$ go build gopl.io/ch8/netcat2
+$ ./netcat2
+Hello?
+    HELLO?
+    Hello?
+    hello?
+Is there anybody there?
+    IS THERE ANYBODY THERE?
+Yooo-hooo!
+    Is there anybody there?
+    is there anybody there?
+    YOOO-HOOO!
+    Yooo-hooo!
+yooo-hooo!
+^D
+$ killall reverb1
+</code></pre><p>&#x8A3B;&#x610F;&#x5BA2;&#x6236;&#x7AEF;&#x7684;&#x7B2C;&#x4E09;&#x6B21;shout&#x5728;&#x524D;&#x4E00;&#x500B;shout&#x8655;&#x7406;&#x5B8C;&#x6210;&#x4E4B;&#x524D;&#x4E00;&#x76F4;&#x6C92;&#x6709;&#x88AB;&#x8655;&#x7406;&#xFF0C;&#x9019;&#x8C8C;&#x4F3C;&#x770B;&#x8D77;&#x4F86;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x201C;&#x73FE;&#x5BE6;&#x201D;&#x3002;&#x771E;&#x5BE6;&#x4E16;&#x754C;&#x91CC;&#x7684;&#x8FF4;&#x97FF;&#x61C9;&#x8A72;&#x662F;&#x6703;&#x7531;&#x4E09;&#x6B21;shout&#x7684;&#x8FF4;&#x8072;&#x7D44;&#x5408;&#x800C;&#x6210;&#x7684;&#x3002;&#x7232;&#x4E86;&#x6A21;&#x64EC;&#x771E;&#x5BE6;&#x4E16;&#x754C;&#x7684;&#x8FF4;&#x97FF;&#xFF0C;&#x6211;&#x5011;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;goroutine&#x4F86;&#x505A;&#x9019;&#x4EF6;&#x4E8B;&#x60C5;&#x3002;&#x9019;&#x6A23;&#x6211;&#x5011;&#x5C31;&#x518D;&#x4E00;&#x6B21;&#x5730;&#x9700;&#x8981;go&#x9019;&#x500B;&#x95DC;&#x9375;&#x8A5E;&#x4E86;&#xFF0C;&#x9019;&#x6B21;&#x6211;&#x5011;&#x7528;&#x5B83;&#x4F86;&#x8ABF;&#x7528;echo&#xFF1A;</p>
+<pre><code class="lang-go">gopl.io/ch8/reverb2
+<span class="hljs-keyword">func</span> handleConn(c net.Conn) {
+    input := bufio.NewScanner(c)
+    <span class="hljs-keyword">for</span> input.Scan() {
+        <span class="hljs-keyword">go</span> echo(c, input.Text(), <span class="hljs-number">1</span>*time.Second)
+    }
+    <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> ignoring potential errors from input.Err()</span>
+    c.Close()
+}
+</code></pre>
+<p>go&#x5F8C;&#x8DDF;&#x7684;&#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#x6703;&#x5728;go&#x8A9E;&#x53E5;&#x81EA;&#x8EAB;&#x57F7;&#x884C;&#x6642;&#x88AB;&#x6C42;&#x503C;&#xFF1B;&#x56E0;&#x6B64;input.Text()&#x6703;&#x5728;main goroutine&#x4E2D;&#x88AB;&#x6C42;&#x503C;&#x3002;
+&#x73FE;&#x5728;&#x8FF4;&#x97FF;&#x662F;&#x4F75;&#x767C;&#x4F75;&#x4E14;&#x6703;&#x6309;&#x6642;&#x9593;&#x4F86;&#x8986;&#x84CB;&#x6389;&#x5176;&#x5B83;&#x97FF;&#x61C9;&#x4E86;&#xFF1A;</p>
+<pre><code>$ go build gopl.io/ch8/reverb2
+$ ./reverb2 &amp;
+$ ./netcat2
+Is there anybody there?
+    IS THERE ANYBODY THERE?
+Yooo-hooo!
+    Is there anybody there?
+    YOOO-HOOO!
+    is there anybody there?
+    Yooo-hooo!
+    yooo-hooo!
+^D
+$ killall reverb2
+</code></pre><p>&#x8B93;&#x670D;&#x52D9;&#x4F7F;&#x7528;&#x4F75;&#x767C;&#x4E0D;&#x96BB;&#x662F;&#x8655;&#x7406;&#x591A;&#x500B;&#x5BA2;&#x6236;&#x7AEF;&#x7684;&#x8ACB;&#x6C42;&#xFF0C;&#x751A;&#x81F3;&#x5728;&#x8655;&#x7406;&#x55AE;&#x500B;&#x9023;&#x63A5;&#x6642;&#x4E5F;&#x53EF;&#x80FD;&#x6703;&#x7528;&#x5230;&#xFF0C;&#x5C31;&#x50CF;&#x6211;&#x5011;&#x4E0A;&#x9762;&#x7684;&#x5169;&#x500B;go&#x95DC;&#x9375;&#x8A5E;&#x7684;&#x7528;&#x6CD5;&#x3002;&#x7136;&#x800C;&#x5728;&#x6211;&#x5011;&#x4F7F;&#x7528;go&#x95DC;&#x9375;&#x8A5E;&#x7684;&#x540C;&#x6642;&#xFF0C;&#x9700;&#x8981;&#x614E;&#x91CD;&#x5730;&#x8003;&#x616E;net.Conn&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x5728;&#x4F75;&#x767C;&#x5730;&#x8ABF;&#x7528;&#x6642;&#x662F;&#x5426;&#x5B89;&#x5168;&#xFF0C;&#x4E8B;&#x5BE6;&#x4E0A;&#x5C0D;&#x65BC;&#x5927;&#x591A;&#x6578;&#x985E;&#x578B;&#x4F86;&#x8AAC;&#x4E5F;&#x78BA;&#x5BE6;&#x4E0D;&#x5B89;&#x5168;&#x3002;&#x6211;&#x5011;&#x6703;&#x5728;&#x4E0B;&#x4E00;&#x7AE0;&#x4E2D;&#x8A73;&#x7D30;&#x5730;&#x63A2;&#x8A0E;&#x4F75;&#x767C;&#x5B89;&#x5168;&#x6027;&#x3002;</p>
 
                     
                     </section>

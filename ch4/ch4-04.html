@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>結構體 | Go编程语言</title>
+        <title>結構體 | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="4.4" data-chapter-title="結構體" data-filepath="ch4/ch4-04.md" data-basepath=".." data-revision="Mon Dec 28 2015 16:03:52 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="4.4" data-chapter-title="結構體" data-filepath="ch4/ch4-04.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -575,7 +575,7 @@
                         
                             <b>4.2.</b>
                         
-                        切片
+                        Slice
                     </a>
             
             
@@ -590,7 +590,7 @@
                         
                             <b>4.3.</b>
                         
-                        字典
+                        Map
                     </a>
             
             
@@ -2013,7 +2013,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Go编程语言</a>
+        <a href="../" >Go语言圣经</a>
     </h1>
 </div>
 
@@ -2024,13 +2024,265 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="44-&#x7D50;&#x69CB;&#x9AD4;">4.4. &#x7D50;&#x69CB;&#x9AD4;</h2>
-<p>TODO</p>
+<p>&#x7D50;&#x69CB;&#x9AD4;&#x662F;&#x4E00;&#x7A2E;&#x805A;&#x5408;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;&#xFF0C;&#x7531;&#x96F6;&#x500B;&#x6216;&#x591A;&#x500B;&#x4EFB;&#x610F;&#x985E;&#x578B;&#x7684;&#x503C;&#x805A;&#x5408;&#x6210;&#x7684;&#x5BE6;&#x9AD4;&#x3002;&#x6BCF;&#x500B;&#x503C;&#x7A31;&#x7232;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x6210;&#x54E1;&#x3002;&#x662F;&#x7528;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x7D93;&#x5178;&#x6848;&#x4F8B;&#x8655;&#x7406;&#x516C;&#x53F8;&#x7684;&#x54E1;&#x5DE5;&#x4FE1;&#x606F;&#xFF0C;&#x6BCF;&#x500B;&#x54E1;&#x5DE5;&#x4FE1;&#x606F;&#x5305;&#x542B;&#x4E00;&#x500B;&#x552F;&#x4E00;&#x7684;&#x54E1;&#x5DE5;&#x7DE8;&#x865F;&#x3001;&#x54E1;&#x5DE5;&#x7684;&#x540D;&#x5B57;&#x3001;&#x5BB6;&#x5EAD;&#x4F4F;&#x5740;&#x3001;&#x51FA;&#x751F;&#x65E5;&#x671F;&#x3001;&#x5DE5;&#x4F5C;&#x5D17;&#x4F4D;&#x3001;&#x85AA;&#x8CC7;&#x3001;&#x4E0A;&#x7D1A;&#x9818;&#x5C0E;&#x7B49;&#x7B49;&#x3002;&#x6240;&#x6709;&#x7684;&#x9019;&#x4E9B;&#x6210;&#x54E1;&#x90FD;&#x9700;&#x8981;&#x7D81;&#x5B9A;&#x5230;&#x4E00;&#x500B;&#x5BE6;&#x9AD4;&#xFF0C;&#x53EF;&#x4EE5;&#x4F5C;&#x7232;&#x4E00;&#x500B;&#x6574;&#x9AD4;&#x55AE;&#x5143;&#x88AB;&#x8907;&#x88FD;&#xFF0C;&#x4F5C;&#x7232;&#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#x6216;&#x8FD4;&#x8FF4;&#x503C;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x88AB;&#x5B58;&#x5132;&#x5230;&#x6578;&#x7D44;&#x4E2D;&#xFF0C;&#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x5169;&#x500B;&#x8A9E;&#x53E5;&#x5206;&#x522B;&#x8072;&#x660E;&#x4E86;&#x4E00;&#x500B;&#x53EB;Employee&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#xFF0C;&#x4F75;&#x4E14;&#x8072;&#x660E;&#x4E86;&#x4E00;&#x500B;Employee&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;dilbert&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> Employee <span class="hljs-keyword">struct</span> {
+    ID        <span class="hljs-typename">int</span>
+    Name      <span class="hljs-typename">string</span>
+    Address   <span class="hljs-typename">string</span>
+    DoB       time.Time
+    Position  <span class="hljs-typename">string</span>
+    Salary    <span class="hljs-typename">int</span>
+    ManagerID <span class="hljs-typename">int</span>
+}
+
+<span class="hljs-keyword">var</span> dilbert Employee
+</code></pre>
+<p>dilbert&#x7D50;&#x69CB;&#x9AD4;&#x8B8A;&#x91CF;&#x7684;&#x6210;&#x54E1;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x9EDE;&#x64CD;&#x4F5C;&#x7B26;&#x8A2A;&#x554F;&#xFF0C;&#x6BD4;&#x5982;dilbert.Name&#x548C;dilbert.DoB&#x3002;&#x56E0;&#x7232;dilbert&#x662F;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#xFF0C;&#x5B83;&#x6240;&#x6709;&#x7684;&#x6210;&#x54E1;&#x4E5F;&#x540C;&#x6A23;&#x662F;&#x8B8A;&#x91CF;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5C0D;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x8CE6;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-Go">dilbert.Salary -= <span class="hljs-number">5000</span> <span class="hljs-comment">// demoted, for writing too few lines of code</span>
+</code></pre>
+<p>&#x6216;&#x8005;&#x662F;&#x5C0D;&#x6210;&#x54E1;&#x53D6;&#x5730;&#x5740;&#xFF0C;&#x7136;&#x5F8C;&#x901A;&#x904E;&#x6307;&#x91DD;&#x8A2A;&#x554F;&#xFF1A;</p>
+<pre><code class="lang-Go">position := &amp;dilbert.Position
+*position = <span class="hljs-string">&quot;Senior &quot;</span> + *position <span class="hljs-comment">// promoted, for outsourcing to Elbonia</span>
+</code></pre>
+<p>&#x9EDE;&#x64CD;&#x4F5C;&#x7B26;&#x4E5F;&#x53EF;&#x4EE5;&#x548C;&#x6307;&#x5411;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x6307;&#x91DD;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> employeeOfTheMonth *Employee = &amp;dilbert
+employeeOfTheMonth.Position += <span class="hljs-string">&quot; (proactive team player)&quot;</span>
+</code></pre>
+<p>&#x76F8;&#x7576;&#x65BC;&#x4E0B;&#x9762;&#x8A9E;&#x53E5;</p>
+<pre><code class="lang-Go">(*employeeOfTheMonth).Position += <span class="hljs-string">&quot; (proactive team player)&quot;</span>
+</code></pre>
+<p>EmployeeByID&#x51FD;&#x6578;&#x5C07;&#x6839;&#x64DA;&#x7D66;&#x5B9A;&#x7684;&#x54E1;&#x5DE5;ID&#x8FD4;&#x8FF4;&#x5C0D;&#x61C9;&#x7684;&#x54E1;&#x5DE5;&#x4FE1;&#x606F;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x6307;&#x91DD;&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9EDE;&#x64CD;&#x4F5C;&#x7B26;&#x4F86;&#x8A2A;&#x554F;&#x5B83;&#x91CC;&#x9762;&#x7684;&#x6210;&#x54E1;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> EmployeeByID(id <span class="hljs-typename">int</span>) *Employee { <span class="hljs-comment">/* ... */</span> }
+
+fmt.Println(EmployeeByID(dilbert.ManagerID).Position) <span class="hljs-comment">// &quot;Pointy-haired boss&quot;</span>
+
+id := dilbert.ID
+EmployeeByID(id).Salary = <span class="hljs-number">0</span> <span class="hljs-comment">// fired for... no real reason</span>
+</code></pre>
+<p>&#x5F8C;&#x9762;&#x7684;&#x8A9E;&#x53E5;&#x901A;&#x904E;EmployeeByID&#x8FD4;&#x8FF4;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x6307;&#x91DD;&#x66F4;&#x65B0;&#x4E86;Employee&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x6210;&#x54E1;&#x3002;&#x5982;&#x679C;&#x5C07;EmployeeByID&#x51FD;&#x6578;&#x7684;&#x8FD4;&#x8FF4;&#x503C;&#x5F9E;<code>*Employee</code>&#x6307;&#x91DD;&#x985E;&#x578B;&#x6539;&#x7232;Employee&#x503C;&#x985E;&#x578B;&#xFF0C;&#x90A3;&#x9EBD;&#x66F4;&#x65B0;&#x8A9E;&#x53E5;&#x5C07;&#x4E0D;&#x80FD;&#x7DE8;&#x8B6F;&#x901A;&#x904E;&#xFF0C;&#x56E0;&#x7232;&#x5728;&#x8CE6;&#x503C;&#x8A9E;&#x53E5;&#x7684;&#x5DE6;&#x908A;&#x4F75;&#x4E0D;&#x78BA;&#x5B9A;&#x662F;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x4E00;&#x884C;&#x5C0D;&#x61C9;&#x4E00;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#xFF0C;&#x6210;&#x54E1;&#x7684;&#x540D;&#x5B57;&#x5728;&#x524D;&#x985E;&#x578B;&#x5728;&#x5F8C;&#xFF0C;&#x4E0D;&#x904E;&#x5982;&#x679C;&#x76F8;&#x9130;&#x7684;&#x6210;&#x54E1;&#x985E;&#x578B;&#x5982;&#x679C;&#x76F8;&#x540C;&#x7684;&#x8A71;&#x53EF;&#x4EE5;&#x88AB;&#x5408;&#x4F75;&#x5230;&#x4E00;&#x884C;&#xFF0C;&#x5C31;&#x50CF;&#x4E0B;&#x9762;&#x7684;Name&#x548C;Address&#x6210;&#x54E1;&#x90A3;&#x6A23;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> Employee <span class="hljs-keyword">struct</span> {
+    ID            <span class="hljs-typename">int</span>
+    Name, Address <span class="hljs-typename">string</span>
+    DoB           time.Time
+    Position      <span class="hljs-typename">string</span>
+    Salary        <span class="hljs-typename">int</span>
+    ManagerID     <span class="hljs-typename">int</span>
+}
+</code></pre>
+<p>&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x7684;&#x8F38;&#x5165;&#x9806;&#x5E8F;&#x4E5F;&#x6709;&#x91CD;&#x8981;&#x7684;&#x610F;&#x7FA9;&#x3002;&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;&#x5C07;Position&#x6210;&#x54E1;&#x5408;&#x4F75;&#xFF08;&#x56E0;&#x7232;&#x4E5F;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x985E;&#x578B;&#xFF09;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x4EA4;&#x63DB;Name&#x548C;Address&#x51FA;&#x73FE;&#x7684;&#x5148;&#x5F8C;&#x9806;&#x5E8F;&#xFF0C;&#x90A3;&#x6A23;&#x7684;&#x8A71;&#x5C31;&#x662F;&#x5B9A;&#x7FA9;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x6211;&#x5011;&#x96BB;&#x662F;&#x5C07;&#x76F8;&#x95DC;&#x7684;&#x6210;&#x54E1;&#x5408;&#x4F75;&#x5230;&#x4E00;&#x8D77;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x540D;&#x5B57;&#x662F;&#x4EE5;&#x5927;&#x5BEB;&#x5B57;&#x6BCD;&#x958B;&#x982D;&#x7684;&#xFF0C;&#x90A3;&#x9EBD;&#x8A72;&#x6210;&#x54E1;&#x5C31;&#x662F;&#x5C0E;&#x51FA;&#x7684;&#xFF1B;&#x9019;&#x662F;Go&#x8A9E;&#x8A00;&#x5C0E;&#x51FA;&#x898F;&#x5247;&#x6C7A;&#x5B9A;&#x7684;&#x3002;&#x4E00;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x53EF;&#x80FD;&#x540C;&#x6642;&#x5305;&#x542B;&#x5C0E;&#x51FA;&#x548C;&#x672A;&#x5C0E;&#x51FA;&#x7684;&#x6210;&#x54E1;&#x3002;</p>
+<p>&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#x5F80;&#x5F80;&#x662F;&#x5197;&#x9577;&#x7684;&#xFF0C;&#x56E0;&#x7232;&#x5B83;&#x7684;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x53EF;&#x80FD;&#x90FD;&#x6703;&#x5360;&#x4E00;&#x884C;&#x3002;&#x96D6;&#x7136;&#x6211;&#x5011;&#x6BCF;&#x6B21;&#x90FD;&#x53EF;&#x4EE5;&#x91CD;&#x5BEB;&#x6574;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#xFF0C;&#x4F46;&#x662F;&#x91CD;&#x8907;&#x6703;&#x4EE4;&#x4EBA;&#x53AD;&#x7169;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5B8C;&#x6574;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x5BEB;&#x6CD5;&#x901A;&#x5E38;&#x96BB;&#x5728;&#x985E;&#x578B;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x7684;&#x5730;&#x65B9;&#x51FA;&#x73FE;&#xFF0C;&#x5C31;&#x50CF;Employee&#x985E;&#x578B;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#x90A3;&#x6A23;&#x3002;</p>
+<p>&#x4E00;&#x500B;&#x547D;&#x540D;&#x7232;S&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#x5C07;&#x4E0D;&#x80FD;&#x518D;&#x5305;&#x542B;S&#x985E;&#x578B;&#x7684;&#x6210;&#x54E1;&#xFF1A;&#x4E00;&#x500B;&#x805A;&#x5408;&#x7684;&#x503C;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x5B83;&#x81EA;&#x8EAB;&#x3002;&#xFF08;&#x8A72;&#x9650;&#x88FD;&#x540C;&#x6A23;&#x9069;&#x61C9;&#x65BC;&#x6578;&#x7D44;&#x3002;&#xFF09;&#x4F46;&#x662F;S&#x985E;&#x578B;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x53EF;&#x4EE5;&#x5305;&#x542B;<code>*S</code>&#x6307;&#x91DD;&#x985E;&#x578B;&#x7684;&#x6210;&#x54E1;&#xFF0C;&#x9019;&#x53EF;&#x4EE5;&#x8B93;&#x6211;&#x5011;&#x5275;&#x5EFA;&#x905E;&#x6B78;&#x7684;&#x6578;&#x64DA;&#x7D50;&#x69CB;&#xFF0C;&#x6BD4;&#x5982;&#x93C8;&#x8868;&#x548C;&#x6A39;&#x7D50;&#x69CB;&#x7B49;&#x3002;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x4F7F;&#x7528;&#x4E00;&#x500B;&#x4E8C;&#x53C9;&#x6A39;&#x4F86;&#x5BE6;&#x73FE;&#x4E00;&#x500B;&#x63D2;&#x5165;&#x6392;&#x5E8F;&#xFF1A;</p>
+<pre><code class="lang-Go">gopl.io/ch4/treesort
+
+<span class="hljs-keyword">type</span> tree <span class="hljs-keyword">struct</span> {
+    value       <span class="hljs-typename">int</span>
+    left, right *tree
+}
+
+<span class="hljs-comment">// Sort sorts values in place.</span>
+<span class="hljs-keyword">func</span> Sort(values []<span class="hljs-typename">int</span>) {
+    <span class="hljs-keyword">var</span> root *tree
+    <span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> values {
+        root = add(root, v)
+    }
+    appendValues(values[:<span class="hljs-number">0</span>], root)
+}
+
+<span class="hljs-comment">// appendValues appends the elements of t to values in order</span>
+<span class="hljs-comment">// and returns the resulting slice.</span>
+<span class="hljs-keyword">func</span> appendValues(values []<span class="hljs-typename">int</span>, t *tree) []<span class="hljs-typename">int</span> {
+    <span class="hljs-keyword">if</span> t != <span class="hljs-constant">nil</span> {
+        values = appendValues(values, t.left)
+        values = <span class="hljs-built_in">append</span>(values, t.value)
+        values = appendValues(values, t.right)
+    }
+    <span class="hljs-keyword">return</span> values
+}
+
+<span class="hljs-keyword">func</span> add(t *tree, value <span class="hljs-typename">int</span>) *tree {
+    <span class="hljs-keyword">if</span> t == <span class="hljs-constant">nil</span> {
+        <span class="hljs-comment">// Equivalent to return &amp;tree{value: value}.</span>
+        t = <span class="hljs-built_in">new</span>(tree)
+        t.value = value
+        <span class="hljs-keyword">return</span> t
+    }
+    <span class="hljs-keyword">if</span> value &lt; t.value {
+            t.left = add(t.left, value)
+    } <span class="hljs-keyword">else</span> {
+            t.right = add(t.right, value)
+    }
+    <span class="hljs-keyword">return</span> t
+}
+</code></pre>
+<p>&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#x7684;&#x96F6;&#x503C;&#x662F;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x90FD;&#x5C0D;&#x662F;&#x96F6;&#x503C;&#x3002;&#x901A;&#x5E38;&#x6703;&#x5C07;&#x96F6;&#x503C;&#x4F5C;&#x7232;&#x6700;&#x5408;&#x7406;&#x7684;&#x9ED8;&#x8A8D;&#x503C;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728;bytes.Buffer&#x985E;&#x578B;&#xFF0C;&#x7D50;&#x69CB;&#x9AD4;&#x521D;&#x59CB;&#x503C;&#x5C31;&#x662F;&#x4E00;&#x500B;&#x96A8;&#x6642;&#x53EF;&#x7528;&#x7684;&#x7A7A;&#x7DE9;&#x5B58;&#xFF0C;&#x9084;&#x6709;&#x5728;&#x7B2C;9&#x7AE0;&#x5C07;&#x6703;&#x8B1B;&#x5230;&#x7684;sync.Mutex&#x7684;&#x96F6;&#x503C;&#x4E5F;&#x662F;&#x6709;&#x6548;&#x7684;&#x672A;&#x9396;&#x72C0;&#x614B;&#x3002;&#x6709;&#x6642;&#x5019;&#x9019;&#x7A2E;&#x96F6;&#x503C;&#x53EF;&#x7528;&#x7684;&#x7279;&#x6027;&#x662F;&#x81EA;&#x7136;&#x7372;&#x5F97;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x6709;&#x4E9B;&#x985E;&#x578B;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x984D;&#x5916;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x7D50;&#x69CB;&#x9AD4;&#x6C92;&#x6709;&#x4EFB;&#x4F55;&#x6210;&#x54E1;&#x7684;&#x8A71;&#x5C31;&#x662F;&#x7A7A;&#x7D50;&#x69CB;&#x9AD4;&#xFF0C;&#x5BEB;&#x4F5C;struct{}&#x3002;&#x5B83;&#x7684;&#x5927;&#x5C0F;&#x7232;0&#xFF0C;&#x4E5F;&#x4E0D;&#x5305;&#x542B;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x6642;&#x5019;&#x4F9D;&#x7136;&#x662F;&#x6709;&#x50F9;&#x503C;&#x7684;&#x3002;&#x6709;&#x4E9B;Go&#x8A9E;&#x8A00;&#x7A0B;&#x5E8F;&#x54E1;&#x7528;map&#x5E36;&#x6A21;&#x64EC;set&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x6642;&#xFF0C;&#x7528;&#x5B83;&#x4F86;&#x4EE3;&#x66FF;map&#x4E2D;&#x5E03;&#x723E;&#x985E;&#x578B;&#x7684;value&#xFF0C;&#x96BB;&#x662F;&#x5F37;&#x8ABF;key&#x7684;&#x91CD;&#x8981;&#x6027;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x7232;&#x7BC0;&#x7D04;&#x7684;&#x7A7A;&#x9593;&#x6709;&#x9650;&#xFF0C;&#x800C;&#x4E14;&#x8A9E;&#x6CD5;&#x6BD4;&#x8F03;&#x8907;&#x96DC;&#xFF0C;&#x6240;&#x6709;&#x6211;&#x5011;&#x901A;&#x5E38;&#x907F;&#x514D;&#x907F;&#x514D;&#x9019;&#x6A23;&#x7684;&#x7528;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-Go">seen := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-keyword">struct</span>{}) <span class="hljs-comment">// set of strings</span>
+<span class="hljs-comment">// ...</span>
+<span class="hljs-keyword">if</span> _, ok := seen[s]; !ok {
+    seen[s] = <span class="hljs-keyword">struct</span>{}{}
+    <span class="hljs-comment">// ...first time seeing s...</span>
+}
+</code></pre>
 <h3 id="441-&#x7D50;&#x69CB;&#x9AD4;&#x9762;&#x503C;">4.4.1. &#x7D50;&#x69CB;&#x9AD4;&#x9762;&#x503C;</h3>
-<p>TODO</p>
+<p>&#x7D50;&#x69CB;&#x9AD4;&#x503C;&#x53EF;&#x4EE5;&#x7528;&#x7D50;&#x69CB;&#x9AD4;&#x9762;&#x503C;&#x8868;&#x793A;&#xFF0C;&#x7D50;&#x69CB;&#x9AD4;&#x9762;&#x503C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x7684;&#x503C;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> Point <span class="hljs-keyword">struct</span>{ X, Y <span class="hljs-typename">int</span> }
+
+p := Point{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+</code></pre>
+<p>&#x9019;&#x91CC;&#x6709;&#x5169;&#x7A2E;&#x5F62;&#x5F0F;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x9762;&#x503C;&#x8A9E;&#x6CD5;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x662F;&#x7B2C;&#x4E00;&#x7A2E;&#x5BEB;&#x6CD5;&#xFF0C;&#x8981;&#x6C42;&#x4EE5;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x5B9A;&#x7FA9;&#x7684;&#x9806;&#x5E8F;&#x7232;&#x6BCF;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x6307;&#x5B9A;&#x4E00;&#x500B;&#x9762;&#x503C;&#x3002;&#x5B83;&#x8981;&#x6C42;&#x5BEB;&#x4EE3;&#x78BC;&#x548C;&#x8B80;&#x4EE3;&#x78BC;&#x7684;&#x4EBA;&#x8981;&#x8A18;&#x4F4F;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x7684;&#x985E;&#x578B;&#x548C;&#x9806;&#x5E8F;&#xFF0C;&#x4F75;&#x4E14;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x6709;&#x7D30;&#x5FAE;&#x7684;&#x8ABF;&#x6574;&#x5C31;&#x53EF;&#x80FD;&#x5C0E;&#x81F4;&#x4E0A;&#x8FF0;&#x4EE3;&#x78BC;&#x4E0D;&#x80FD;&#x7DE8;&#x8B6F;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4E0A;&#x8FF0;&#x7684;&#x8A9E;&#x6CD5;&#x4E00;&#x822C;&#x96BB;&#x5728;&#x5B9A;&#x7FA9;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x5305;&#x5167;&#x90E8;&#x4F7F;&#x7528;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x5728;&#x8F03;&#x5C0F;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x9019;&#x4E9B;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x6210;&#x54E1;&#x6392;&#x5217;&#x6BD4;&#x8F03;&#x898F;&#x5247;&#xFF0C;&#x6BD4;&#x5982;image.Point{x, y}&#x6216;color.RGBA{red, green, blue, alpha}&#x3002;</p>
+<p>&#x5176;&#x5BE6;&#x66F4;&#x5E38;&#x7528;&#x7684;&#x662F;&#x7B2C;&#x4E8C;&#x7A2E;&#x5BEB;&#x6CD5;&#xFF0C;&#x4EE5;&#x6210;&#x54E1;&#x540D;&#x5B57;&#x548C;&#x76F8;&#x61C9;&#x7684;&#x503C;&#x4F86;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x90E8;&#x5206;&#x6216;&#x5168;&#x90E8;&#x7684;&#x6210;&#x54E1;&#xFF0C;&#x5982;1.4&#x7BC0;&#x7684;Lissajous&#x7A0B;&#x5E8F;&#x7684;&#x5BEB;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-Go">anim := gif.GIF{LoopCount: nframes}
+</code></pre>
+<p>&#x5728;&#x9019;&#x7A2E;&#x5F62;&#x5F0F;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x9762;&#x503C;&#x5BEB;&#x6CD5;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6210;&#x54E1;&#x88AB;&#x5FFD;&#x7565;&#x7684;&#x8A71;&#x5C07;&#x9ED8;&#x8A8D;&#x7528;&#x96F6;&#x503C;&#x3002;&#x56E0;&#x7232;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x6210;&#x54E1;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x6240;&#x6709;&#x6210;&#x54E1;&#x51FA;&#x73FE;&#x7684;&#x9806;&#x5E8F;&#x4F75;&#x4E0D;&#x91CD;&#x8981;&#x3002;</p>
+<p>&#x5169;&#x7A2E;&#x4E0D;&#x540C;&#x5F62;&#x5F0F;&#x7684;&#x5BEB;&#x6CD5;&#x4E0D;&#x80FD;&#x6DF7;&#x5408;&#x4F7F;&#x7528;&#x3002;&#x800C;&#x4E14;&#xFF0C;&#x4F60;&#x4E0D;&#x80FD;&#x4F01;&#x5716;&#x5728;&#x5916;&#x90E8;&#x5305;&#x4E2D;&#x7528;&#x7B2C;&#x4E00;&#x7A2E;&#x9806;&#x5E8F;&#x8CE6;&#x503C;&#x7684;&#x6280;&#x5DE7;&#x4F86;&#x5077;&#x5077;&#x5730;&#x521D;&#x59CB;&#x5316;&#x7D50;&#x69CB;&#x9AD4;&#x4E2D;&#x672A;&#x5C0E;&#x51FA;&#x7684;&#x6210;&#x54E1;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">package</span> p
+<span class="hljs-keyword">type</span> T <span class="hljs-keyword">struct</span>{ a, b <span class="hljs-typename">int</span> } <span class="hljs-comment">// a and b are not exported</span>
+
+<span class="hljs-keyword">package</span> q
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;p&quot;</span>
+<span class="hljs-keyword">var</span> _ = p.T{a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>} <span class="hljs-comment">// compile error: can&apos;t reference a, b</span>
+<span class="hljs-keyword">var</span> _ = p.T{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}       <span class="hljs-comment">// compile error: can&apos;t reference a, b</span>
+</code></pre>
+<p>&#x96D6;&#x7136;&#x4E0A;&#x9762;&#x6700;&#x5F8C;&#x4E00;&#x884C;&#x4EE3;&#x78BC;&#x7684;&#x7DE8;&#x8B6F;&#x932F;&#x8AA4;&#x4FE1;&#x606F;&#x4E2D;&#x4F75;&#x6C92;&#x6709;&#x986F;&#x5F0F;&#x63D0;&#x5230;&#x672A;&#x5C0E;&#x51FA;&#x7684;&#x6210;&#x54E1;&#xFF0C;&#x4F46;&#x662F;&#x9019;&#x6A23;&#x4F01;&#x5716;&#x96B1;&#x5F0F;&#x4F7F;&#x7528;&#x672A;&#x5C0E;&#x51FA;&#x6210;&#x54E1;&#x7684;&#x884C;&#x7232;&#x4E5F;&#x662F;&#x4E0D;&#x5141;&#x8A31;&#x7684;&#x3002;</p>
+<p>&#x7D50;&#x69CB;&#x9AD4;&#x53EF;&#x4EE5;&#x4F5C;&#x7232;&#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#x548C;&#x8FD4;&#x8FF4;&#x503C;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x9019;&#x500B;Scale&#x51FD;&#x6578;&#x5C07;Point&#x985E;&#x578B;&#x7684;&#x503C;&#x7E2E;&#x653E;&#x5F8C;&#x8FD4;&#x8FF4;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> Scale(p Point, factor <span class="hljs-typename">int</span>) Point {
+    <span class="hljs-keyword">return</span> Point{p.X * factor, p.Y * factor}
+}
+
+fmt.Println(Scale(Point{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}, <span class="hljs-number">5</span>)) <span class="hljs-comment">// &quot;{5 10}&quot;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x8003;&#x616E;&#x6548;&#x7387;&#x7684;&#x8A71;&#xFF0C;&#x8F03;&#x5927;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x901A;&#x5E38;&#x6703;&#x7528;&#x6307;&#x91DD;&#x7684;&#x65B9;&#x5F0F;&#x50B3;&#x5165;&#x548C;&#x8FD4;&#x8FF4;&#xFF0C;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> Bonus(e *Employee, percent <span class="hljs-typename">int</span>) <span class="hljs-typename">int</span> {
+    <span class="hljs-keyword">return</span> e.Salary * percent / <span class="hljs-number">100</span>
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x8981;&#x5728;&#x51FD;&#x6578;&#x5167;&#x90E8;&#x8129;&#x6539;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x7684;&#x8A71;&#xFF0C;&#x7528;&#x6307;&#x91DD;&#x50B3;&#x5165;&#x662F;&#x5FC5;&#x9B1A;&#x7684;&#xFF1B;&#x56E0;&#x7232;&#x5728;Go&#x8A9E;&#x8A00;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x51FD;&#x6578;&#x53C3;&#x6578;&#x90FD;&#x662F;&#x503C;&#x62F7;&#x8C9D;&#x51FA;&#x5165;&#x7684;&#xFF0C;&#x51FD;&#x6578;&#x53C3;&#x6578;&#x5C07;&#x4E0D;&#x518D;&#x662F;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x6642;&#x7684;&#x539F;&#x59CB;&#x8B8A;&#x91CF;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> AwardAnnualRaise(e *Employee) {
+    e.Salary = e.Salary * <span class="hljs-number">105</span> / <span class="hljs-number">100</span>
+}
+</code></pre>
+<p>&#x56E0;&#x7232;&#x7D50;&#x69CB;&#x9AD4;&#x901A;&#x5E38;&#x901A;&#x904E;&#x6307;&#x91DD;&#x8655;&#x7406;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x5BEB;&#x6CD5;&#x4F86;&#x5275;&#x5EFA;&#x4F75;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x8B8A;&#x91CF;&#xFF0C;&#x4F75;&#x8FD4;&#x8FF4;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x5730;&#x5740;&#xFF1A;</p>
+<pre><code class="lang-Go">pp := &amp;Point{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+</code></pre>
+<p>&#x5B83;&#x662F;&#x4E0B;&#x9762;&#x7684;&#x8A9E;&#x53E5;&#x662F;&#x7B49;&#x50F9;&#x7684;</p>
+<pre><code class="lang-Go">pp := <span class="hljs-built_in">new</span>(Point)
+*pp = Point{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+</code></pre>
+<p>&#x4E0D;&#x904E;&amp;Point{1, 2}&#x5BEB;&#x6CD5;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x8868;&#x9054;&#x5F0F;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x3002;</p>
 <h3 id="442-&#x7D50;&#x69CB;&#x9AD4;&#x6BD4;&#x8F03;">4.4.2. &#x7D50;&#x69CB;&#x9AD4;&#x6BD4;&#x8F03;</h3>
-<p>TODO</p>
+<p>&#x5982;&#x679C;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x5168;&#x90E8;&#x6210;&#x54E1;&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x6BD4;&#x8F03;&#x7684;&#xFF0C;&#x90A3;&#x9EBD;&#x7D50;&#x69CB;&#x9AD4;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x6BD4;&#x8F03;&#x7684;&#xFF0C;&#x90A3;&#x6A23;&#x7684;&#x8A71;&#x5169;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x5C07;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;==&#x6216;!=&#x904B;&#x7B97;&#x7B26;&#x9032;&#x884C;&#x6BD4;&#x8F03;&#x3002;&#x76F8;&#x7B49;&#x6BD4;&#x8F03;&#x904B;&#x7B97;&#x7B26;==&#x5C07;&#x6BD4;&#x8F03;&#x5169;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#xFF0C;&#x56E0;&#x6B64;&#x4E0B;&#x9762;&#x5169;&#x500B;&#x6BD4;&#x8F03;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x662F;&#x7B49;&#x50F9;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> Point <span class="hljs-keyword">struct</span>{ X, Y <span class="hljs-typename">int</span> }
+
+p := Point{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+q := Point{<span class="hljs-number">2</span>, <span class="hljs-number">1</span>}
+fmt.Println(p.X == q.X &amp;&amp; p.Y == q.Y) <span class="hljs-comment">// &quot;false&quot;</span>
+fmt.Println(p == q)                   <span class="hljs-comment">// &quot;false&quot;</span>
+</code></pre>
+<p>&#x53EF;&#x6BD4;&#x8F03;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#x548C;&#x5176;&#x4ED6;&#x53EF;&#x6BD4;&#x8F03;&#x7684;&#x985E;&#x578B;&#x4E00;&#x6A23;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x65BC;map&#x7684;key&#x985E;&#x578B;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> address <span class="hljs-keyword">struct</span> {
+    hostname <span class="hljs-typename">string</span>
+    port     <span class="hljs-typename">int</span>
+}
+
+hits := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[address]<span class="hljs-typename">int</span>)
+hits[address{<span class="hljs-string">&quot;golang.org&quot;</span>, <span class="hljs-number">443</span>}]++
+</code></pre>
 <h3 id="443-&#x7D50;&#x69CB;&#x9AD4;&#x5D4C;&#x5165;&#x548C;&#x533F;&#x540D;&#x6210;&#x54E1;">4.4.3. &#x7D50;&#x69CB;&#x9AD4;&#x5D4C;&#x5165;&#x548C;&#x533F;&#x540D;&#x6210;&#x54E1;</h3>
-<p>TODO</p>
+<p>&#x5728;&#x672C;&#x7BC0;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x770B;&#x5230;&#x5982;&#x679C;&#x4F7F;&#x7528;Go&#x8A9E;&#x8A00;&#x63D0;&#x4F9B;&#x7684;&#x4E0D;&#x540C;&#x5C0B;&#x5E38;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x5D4C;&#x5165;&#x6A5F;&#x88FD;&#x8B93;&#x4E00;&#x500B;&#x547D;&#x540D;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x5305;&#x542B;&#x53E6;&#x4E00;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#x7684;&#x533F;&#x540D;&#x6210;&#x54E1;&#xFF0C;&#x9019;&#x6A23;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x7C21;&#x55AE;&#x7684;&#x9EDE;&#x904B;&#x7B97;&#x7B26;x.f&#x4F86;&#x8A2A;&#x554F;&#x533F;&#x540D;&#x6210;&#x54E1;&#x93C8;&#x4E2D;&#x5D4C;&#x5957;&#x7684;x.d.e.f&#x6210;&#x54E1;&#x3002;</p>
+<p>&#x8003;&#x616E;&#x4E00;&#x500B;&#x4E8C;&#x7DAD;&#x7684;&#x7E6A;&#x5716;&#x7A0B;&#x5E8F;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x500B;&#x5404;&#x7A2E;&#x5716;&#x5F62;&#x7684;&#x5EAB;&#xFF0C;&#x4F8B;&#x5982;&#x77E9;&#x5F62;&#x3001;&#x6A62;&#x5713;&#x5F62;&#x3001;&#x661F;&#x5F62;&#x548C;&#x8F2A;&#x5F62;&#x7B49;&#x5E7E;&#x4F55;&#x5F62;&#x72C0;&#x3002;&#x9019;&#x91CC;&#x662F;&#x5176;&#x4E2D;&#x5169;&#x500B;&#x7684;&#x5B9A;&#x7FA9;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> Circle <span class="hljs-keyword">struct</span> {
+    X, Y, Radius <span class="hljs-typename">int</span>
+}
+
+<span class="hljs-keyword">type</span> Wheel <span class="hljs-keyword">struct</span> {
+    X, Y, Radius, Spokes <span class="hljs-typename">int</span>
+}
+</code></pre>
+<p>&#x4E00;&#x500B;Circle&#x4EE3;&#x8868;&#x7684;&#x5713;&#x5F62;&#x985E;&#x578B;&#x5305;&#x542B;&#x4E86;&#x6A19;&#x6E96;&#x5713;&#x5FC3;&#x7684;X&#x548C;Y&#x5750;&#x6A19;&#x4FE1;&#x606F;&#xFF0C;&#x548C;&#x4E00;&#x500B;Radius&#x8868;&#x793A;&#x7684;&#x534A;&#x5F91;&#x4FE1;&#x606F;&#x3002;&#x4E00;&#x500B;Wheel&#x8F2A;&#x5F62;&#x9664;&#x4E86;&#x5305;&#x542B;Circle&#x985E;&#x578B;&#x6240;&#x6709;&#x7684;&#x5168;&#x90E8;&#x6210;&#x54E1;&#x5916;&#xFF0C;&#x9084;&#x589E;&#x52A0;&#x4E86;Spokes&#x8868;&#x793A;&#x5F91;&#x5411;&#x8F3B;&#x689D;&#x7684;&#x6578;&#x91CF;&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x9019;&#x6A23;&#x5275;&#x5EFA;&#x4E00;&#x500B;wheel&#x8B8A;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> w Wheel
+w.X = <span class="hljs-number">8</span>
+w.Y = <span class="hljs-number">8</span>
+w.Radius = <span class="hljs-number">5</span>
+w.Spokes = <span class="hljs-number">20</span>
+</code></pre>
+<p>&#x96A8;&#x7740;&#x5EAB;&#x4E2D;&#x5E7E;&#x4F55;&#x5F62;&#x72C0;&#x6578;&#x91CF;&#x7684;&#x589E;&#x591A;&#xFF0C;&#x6211;&#x5011;&#x4E00;&#x5B9A;&#x6703;&#x8A3B;&#x610F;&#x5230;&#x5B83;&#x5011;&#x4E4B;&#x9593;&#x7684;&#x76F8;&#x4F3C;&#x548C;&#x91CD;&#x8907;&#x4E4B;&#x8655;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x53EF;&#x80FD;&#x7232;&#x4E86;&#x4FBF;&#x65BC;&#x7DAD;&#x8B77;&#x800C;&#x5C07;&#x76F8;&#x540C;&#x7684;&#x5C6C;&#x6027;&#x7368;&#x7ACB;&#x51FA;&#x4F86;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> Point <span class="hljs-keyword">struct</span> {
+    X, Y <span class="hljs-typename">int</span>
+}
+
+<span class="hljs-keyword">type</span> Circle <span class="hljs-keyword">struct</span> {
+    Center Point
+    Radius <span class="hljs-typename">int</span>
+}
+
+<span class="hljs-keyword">type</span> Wheel <span class="hljs-keyword">struct</span> {
+    Circle Circle
+    Spokes <span class="hljs-typename">int</span>
+}
+</code></pre>
+<p>&#x9019;&#x6A23;&#x6539;&#x52D5;&#x4E4B;&#x5F8C;&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#x8B8A;&#x7684;&#x6E05;&#x6670;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x9019;&#x7A2E;&#x8129;&#x6539;&#x540C;&#x6642;&#x4E5F;&#x5C0E;&#x81F4;&#x4E86;&#x8A2A;&#x554F;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x8B8A;&#x5F97;&#x7E41;&#x7463;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> w Wheel
+w.Circle.Center.X = <span class="hljs-number">8</span>
+w.Circle.Center.Y = <span class="hljs-number">8</span>
+w.Circle.Radius = <span class="hljs-number">5</span>
+w.Spokes = <span class="hljs-number">20</span>
+</code></pre>
+<p>Go&#x8A9E;&#x8A00;&#x6709;&#x4E00;&#x500B;&#x7279;&#x6027;&#x8B93;&#x6211;&#x5011;&#x96BB;&#x8072;&#x660E;&#x4E00;&#x500B;&#x6210;&#x54E1;&#x5C0D;&#x61C9;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;&#x800C;&#x4E0D;&#x6307;&#x540D;&#x6210;&#x54E1;&#x7684;&#x540D;&#x5B57;&#xFF1B;&#x9019;&#x985E;&#x6210;&#x54E1;&#x5C31;&#x53EB;&#x533F;&#x540D;&#x6210;&#x54E1;&#x3002;&#x533F;&#x540D;&#x6210;&#x54E1;&#x7684;&#x6578;&#x64DA;&#x985E;&#x578B;&#x5FC5;&#x9B1A;&#x662F;&#x547D;&#x540D;&#x7684;&#x985E;&#x578B;&#x6216;&#x6307;&#x5411;&#x4E00;&#x500B;&#x547D;&#x540D;&#x7684;&#x985E;&#x578B;&#x7684;&#x6307;&#x91DD;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;Circle&#x548C;Wheel&#x5404;&#x81EA;&#x90FD;&#x6709;&#x4E00;&#x500B;&#x533F;&#x540D;&#x6210;&#x54E1;&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x8AAC;Point&#x985E;&#x578B;&#x88AB;&#x5D4C;&#x5165;&#x4E86;Circle&#x7D50;&#x69CB;&#x9AD4;&#xFF0C;&#x540C;&#x6642;Circle&#x985E;&#x578B;&#x88AB;&#x5D4C;&#x5165;&#x4E86;Wheel&#x7D50;&#x69CB;&#x9AD4;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">type</span> Circle <span class="hljs-keyword">struct</span> {
+    Point
+    Radius <span class="hljs-typename">int</span>
+}
+
+<span class="hljs-keyword">type</span> Wheel <span class="hljs-keyword">struct</span> {
+    Circle
+    Spokes <span class="hljs-typename">int</span>
+}
+</code></pre>
+<p>&#x5F97;&#x610F;&#x65BC;&#x533F;&#x540D;&#x5D4C;&#x5165;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8A2A;&#x554F;&#x8449;&#x5B50;&#x5C6C;&#x6027;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x7D66;&#x51FA;&#x5B8C;&#x6574;&#x7684;&#x8DEF;&#x5F91;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> w Wheel
+w.X = <span class="hljs-number">8</span>            <span class="hljs-comment">// equivalent to w.Circle.Point.X = 8</span>
+w.Y = <span class="hljs-number">8</span>            <span class="hljs-comment">// equivalent to w.Circle.Point.Y = 8</span>
+w.Radius = <span class="hljs-number">5</span>       <span class="hljs-comment">// equivalent to w.Circle.Radius = 5</span>
+w.Spokes = <span class="hljs-number">20</span>
+</code></pre>
+<p>&#x5728;&#x53F3;&#x908A;&#x7684;&#x8A3B;&#x91CB;&#x4E2D;&#x7D66;&#x51FA;&#x7684;&#x986F;&#x5F0F;&#x5F62;&#x5F0F;&#x8A2A;&#x554F;&#x9019;&#x4E9B;&#x8449;&#x5B50;&#x6210;&#x54E1;&#x7684;&#x8A9E;&#x6CD5;&#x4F9D;&#x7136;&#x6709;&#x6548;&#xFF0C;&#x56E0;&#x6B64;&#x533F;&#x540D;&#x6210;&#x54E1;&#x4F75;&#x4E0D;&#x662F;&#x771E;&#x7684;&#x7121;&#x6CD5;&#x8A2A;&#x554F;&#x4E86;&#x3002;&#x5176;&#x4E2D;&#x533F;&#x540D;&#x6210;&#x54E1;Circle&#x548C;Point&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x540D;&#x5B57;&#x2014;&#x2014;&#x5C31;&#x662F;&#x547D;&#x540D;&#x7684;&#x985E;&#x578B;&#x540D;&#x5B57;&#x2014;&#x2014;&#x4F46;&#x662F;&#x9019;&#x4E9B;&#x540D;&#x5B57;&#x5728;&#x9EDE;&#x64CD;&#x4F5C;&#x7B26;&#x4E2D;&#x662F;&#x53EF;&#x9078;&#x7684;&#x3002;&#x6211;&#x5011;&#x5728;&#x8A2A;&#x554F;&#x5B50;&#x6210;&#x54E1;&#x7684;&#x6642;&#x5019;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x4EFB;&#x4F55;&#x533F;&#x540D;&#x6210;&#x54E1;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x4E0D;&#x5E78;&#x7684;&#x662F;&#xFF0C;&#x7D50;&#x69CB;&#x9AD4;&#x5B57;&#x9762;&#x503C;&#x4F75;&#x6C92;&#x6709;&#x7C21;&#x77ED;&#x8868;&#x793A;&#x533F;&#x540D;&#x6210;&#x54E1;&#x7684;&#x8A9E;&#x6CD5;&#xFF0C; &#x56E0;&#x6B64;&#x4E0B;&#x9762;&#x7684;&#x8A9E;&#x53E5;&#x90FD;&#x4E0D;&#x80FD;&#x7DE8;&#x8B6F;&#x901A;&#x904E;&#xFF1A;</p>
+<pre><code class="lang-Go">w = Wheel{<span class="hljs-number">8</span>, <span class="hljs-number">8</span>, <span class="hljs-number">5</span>, <span class="hljs-number">20</span>}                       <span class="hljs-comment">// compile error: unknown fields</span>
+w = Wheel{X: <span class="hljs-number">8</span>, Y: <span class="hljs-number">8</span>, Radius: <span class="hljs-number">5</span>, Spokes: <span class="hljs-number">20</span>} <span class="hljs-comment">// compile error: unknown fields</span>
+</code></pre>
+<p>&#x7D50;&#x69CB;&#x9AD4;&#x5B57;&#x9762;&#x503C;&#x5FC5;&#x9B1A;&#x9075;&#x5FAA;&#x5F62;&#x72C0;&#x985E;&#x578B;&#x8072;&#x660E;&#x6642;&#x7684;&#x7D50;&#x69CB;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x96BB;&#x80FD;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x5169;&#x7A2E;&#x8A9E;&#x6CD5;&#xFF0C;&#x5B83;&#x5011;&#x5F7C;&#x6B64;&#x662F;&#x7B49;&#x50F9;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-Go">gopl.io/ch4/embed
+
+w = Wheel{Circle{Point{<span class="hljs-number">8</span>, <span class="hljs-number">8</span>}, <span class="hljs-number">5</span>}, <span class="hljs-number">20</span>}
+
+w = Wheel{
+    Circle: Circle{
+        Point:  Point{X: <span class="hljs-number">8</span>, Y: <span class="hljs-number">8</span>},
+        Radius: <span class="hljs-number">5</span>,
+    },
+    Spokes: <span class="hljs-number">20</span>, <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> trailing comma necessary here (and at Radius)</span>
+}
+
+fmt.Printf(<span class="hljs-string">&quot;%#v\n&quot;</span>, w)
+<span class="hljs-comment">// Output:</span>
+<span class="hljs-comment">// Wheel{Circle:Circle{Point:Point{X:8, Y:8}, Radius:5}, Spokes:20}</span>
+
+w.X = <span class="hljs-number">42</span>
+
+fmt.Printf(<span class="hljs-string">&quot;%#v\n&quot;</span>, w)
+<span class="hljs-comment">// Output:</span>
+<span class="hljs-comment">// Wheel{Circle:Circle{Point:Point{X:42, Y:8}, Radius:5}, Spokes:20}</span>
+</code></pre>
+<p>&#x9700;&#x8981;&#x8A3B;&#x610F;&#x7684;&#x662F;Printf&#x51FD;&#x6578;&#x4E2D;%v&#x53C3;&#x6578;&#x5305;&#x542B;&#x7684;#&#x526F;&#x8A5E;&#xFF0C;&#x5B83;&#x8868;&#x793A;&#x7528;&#x548C;Go&#x8A9E;&#x8A00;&#x985E;&#x4F3C;&#x7684;&#x8A9E;&#x6CD5;&#x6253;&#x5370;&#x503C;&#x3002;&#x5C0D;&#x65BC;&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#x4F86;&#x8AAC;&#xFF0C;&#x5C07;&#x5305;&#x542B;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x7684;&#x540D;&#x5B57;&#x3002;</p>
+<p>&#x56E0;&#x7232;&#x533F;&#x540D;&#x6210;&#x54E1;&#x4E5F;&#x6709;&#x4E00;&#x500B;&#x96B1;&#x5F0F;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x80FD;&#x540C;&#x6642;&#x5305;&#x542B;&#x5169;&#x500B;&#x985E;&#x578B;&#x76F8;&#x540C;&#x7684;&#x533F;&#x540D;&#x6210;&#x54E1;&#xFF0C;&#x9019;&#x6703;&#x5C0E;&#x81F4;&#x540D;&#x5B57;&#x885D;&#x7A81;&#x3002;&#x540C;&#x6642;&#xFF0C;&#x56E0;&#x7232;&#x6210;&#x54E1;&#x7684;&#x540D;&#x5B57;&#x662F;&#x7531;&#x5176;&#x985E;&#x578B;&#x96B1;&#x5F0F;&#x5730;&#x6C7A;&#x5B9A;&#x7684;&#xFF0C;&#x6240;&#x6709;&#x533F;&#x540D;&#x6210;&#x54E1;&#x4E5F;&#x6709;&#x53EF;&#x898B;&#x6027;&#x7684;&#x898F;&#x5247;&#x7D04;&#x675F;&#x3002;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;Point&#x548C;Circle&#x533F;&#x540D;&#x6210;&#x54E1;&#x90FD;&#x662F;&#x5C0E;&#x51FA;&#x7684;&#x3002;&#x537D;&#x4F7F;&#x5B83;&#x5011;&#x4E0D;&#x5C0E;&#x51FA;&#xFF08;&#x6BD4;&#x5982;&#x6539;&#x6210;&#x5C0F;&#x5BEB;&#x5B57;&#x6BCD;&#x958B;&#x982D;&#x7684;point&#x548C;circle&#xFF09;&#xFF0C;&#x6211;&#x5011;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x7528;&#x7C21;&#x77ED;&#x5F62;&#x5F0F;&#x8A2A;&#x554F;&#x533F;&#x540D;&#x6210;&#x54E1;&#x5D4C;&#x5957;&#x7684;&#x6210;&#x54E1;</p>
+<pre><code class="lang-Go">w.X = <span class="hljs-number">8</span> <span class="hljs-comment">// equivalent to w.circle.point.X = 8</span>
+</code></pre>
+<p>&#x4F46;&#x662F;&#x5728;&#x5305;&#x5916;&#x90E8;&#xFF0C;&#x56E0;&#x7232;circle&#x548C;point&#x6C92;&#x6709;&#x5C0E;&#x51FA;&#x4E0D;&#x80FD;&#x8A2A;&#x554F;&#x5B83;&#x5011;&#x7684;&#x6210;&#x54E1;&#xFF0C;&#x56E0;&#x6B64;&#x7C21;&#x77ED;&#x8A9E;&#x6CD5;&#x4E5F;&#x662F;&#x7981;&#x6B62;&#x7684;&#x3002;</p>
+<p>&#x5230;&#x76EE;&#x524D;&#x672A;&#x77E5;&#xFF0C;&#x6211;&#x5011;&#x770B;&#x5230;&#x533F;&#x540D;&#x6210;&#x54E1;&#x7279;&#x6027;&#x96BB;&#x662F;&#x5C0D;&#x8A2A;&#x554F;&#x5D4C;&#x5957;&#x6210;&#x54E1;&#x7684;&#x9EDE;&#x904B;&#x7B97;&#x7B26;&#x63D0;&#x4F9B;&#x4E86;&#x7C21;&#x77ED;&#x7684;&#x8A9E;&#x6CD5;&#x91A3;&#x3002;&#x7A0D;&#x5F8C;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x6703;&#x770B;&#x5230;&#x533F;&#x540D;&#x6210;&#x54E1;&#x4F75;&#x4E0D;&#x8981;&#x6C42;&#x662F;&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#xFF1B;&#x5176;&#x5BE6;&#x4EFB;&#x4F55;&#x547D;&#x4EE4;&#x7684;&#x985E;&#x578B;&#x90FD;&#x53EF;&#x4EE5;&#x4F5C;&#x7232;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x533F;&#x540D;&#x6210;&#x54E1;&#x3002;&#x4F46;&#x662F;&#x7232;&#x4EC0;&#x9EBD;&#x8981;&#x5D4C;&#x5165;&#x4E00;&#x500B;&#x6C92;&#x6709;&#x4EFB;&#x4F55;&#x5B50;&#x6210;&#x54E1;&#x985E;&#x578B;&#x7684;&#x533F;&#x540D;&#x6210;&#x54E1;&#x985E;&#x578B;&#x5462;&#xFF1F;</p>
+<p>&#x7B54;&#x6848;&#x662F;&#x533F;&#x540D;&#x985E;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x96C6;&#x3002;&#x7C21;&#x77ED;&#x7684;&#x9EDE;&#x904B;&#x7B97;&#x7B26;&#x8A9E;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x65BC;&#x9078;&#x64C7;&#x533F;&#x540D;&#x6210;&#x54E1;&#x5D4C;&#x5957;&#x7684;&#x6210;&#x54E1;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x65BC;&#x8A2A;&#x554F;&#x5B83;&#x5011;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5BE6;&#x969B;&#x4E0A;&#xFF0C;&#x5916;&#x5C64;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x4E0D;&#x50C5;&#x50C5;&#x662F;&#x7372;&#x5F97;&#x4E86;&#x533F;&#x540D;&#x6210;&#x54E1;&#x985E;&#x578B;&#x7684;&#x6240;&#x6709;&#x6210;&#x54E1;&#xFF0C;&#x800C;&#x4E14;&#x4E5F;&#x7372;&#x5F97;&#x4E86;&#x8A72;&#x985E;&#x578B;&#x5C0E;&#x51FA;&#x7684;&#x5168;&#x90E8;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x9019;&#x500B;&#x6A5F;&#x88FD;&#x53EF;&#x4EE5;&#x7528;&#x65BC;&#x5C07;&#x4E00;&#x500B;&#x6709;&#x7C21;&#x55AE;&#x884C;&#x7232;&#x7684;&#x5C0D;&#x8C61;&#x7D44;&#x5408;&#x6210;&#x6709;&#x8907;&#x96DC;&#x884C;&#x7232;&#x7684;&#x5C0D;&#x8C61;&#x3002;&#x7D44;&#x5408;&#x662F;Go&#x8A9E;&#x8A00;&#x4E2D;&#x9762;&#x5411;&#x5C0D;&#x8C61;&#x7DE8;&#x7A0B;&#x7684;&#x8988;&#x5FC3;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x5728;6.3&#x7BC0;&#x4E2D;&#x5C08;&#x9580;&#x8A0E;&#x8AD6;&#x3002;</p>
 
                     
                     </section>
@@ -2041,7 +2293,7 @@
         </div>
 
         
-        <a href="../ch4/ch4-03.html" class="navigation navigation-prev " aria-label="Previous page: 字典"><i class="fa fa-angle-left"></i></a>
+        <a href="../ch4/ch4-03.html" class="navigation navigation-prev " aria-label="Previous page: Map"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../ch4/ch4-05.html" class="navigation navigation-next " aria-label="Next page: JSON"><i class="fa fa-angle-right"></i></a>
