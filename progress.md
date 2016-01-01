@@ -106,7 +106,7 @@
  - [x] 12.2 reflect.Type and reflect.Value
  - [x] 12.3 Display, a Recursive Value Printer
  - [x] 12.4 Example: Encoding S-Expressions
- - [ ] 12.5 Setting Variables with reflect.Value
+ - [x] 12.5 Setting Variables with reflect.Value
  - [ ] 12.6 Example: Decoding S-Expressions
  - [ ] 12.7 Accessing Struct Field Tags
  - [x] 12.8 Displaying the Methods of a Type
