@@ -34,7 +34,7 @@
  - [x] 4.6 Text and HTML Templates
 - [x] Chapter 5: Functions
  - [x] 5.1 Function Declarations
- - [ ] 5.2 Recursion
+ - [x] 5.2 Recursion
  - [ ] 5.3 Multiple Return Values
  - [ ] 5.4 Errors
  - [ ] 5.5 Function Values
@@ -118,4 +118,3 @@
  - [x] 13.4 Calling C Code with cgo
  - [x] 13.5 Another Word of Caution
 - [ ] Errata
-
