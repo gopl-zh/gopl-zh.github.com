@@ -108,7 +108,7 @@
  - [x] 12.4 Example: Encoding S-Expressions
  - [x] 12.5 Setting Variables with reflect.Value
  - [x] 12.6 Example: Decoding S-Expressions
- - [ ] 12.7 Accessing Struct Field Tags
+ - [x] 12.7 Accessing Struct Field Tags
  - [x] 12.8 Displaying the Methods of a Type
  - [x] 12.9 A Word of Caution
 - [x] Chapter 13: Low-Level Programming
