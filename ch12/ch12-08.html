@@ -8,7 +8,7 @@
         <title>顯示一個類型的方法集 | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.6.6">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -48,7 +48,13 @@
     <body>
         
         
-    <div class="book" data-level="12.8" data-chapter-title="顯示一個類型的方法集" data-filepath="ch12/ch12-08.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
+    <div class="book"
+        data-level="12.8"
+        data-chapter-title="顯示一個類型的方法集"
+        data-filepath="ch12/ch12-08.md"
+        data-basepath=".."
+        data-revision="Sat Jan 02 2016 16:00:23 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -2024,7 +2030,40 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="128-&#x986F;&#x793A;&#x4E00;&#x500B;&#x985E;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x96C6;">12.8. &#x986F;&#x793A;&#x4E00;&#x500B;&#x985E;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x96C6;</h2>
-<p>TODO</p>
+<p>&#x6211;&#x5011;&#x7684;&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#x662F;&#x4F7F;&#x7528;reflect.Type&#x4F86;&#x6253;&#x5370;&#x4EFB;&#x610F;&#x503C;&#x7684;&#x985E;&#x578B;&#x548C;&#x679A;&#x8209;&#x5B83;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-Go">gopl.io/ch12/methods
+
+<span class="hljs-comment">// Print prints the method set of the value x.</span>
+<span class="hljs-keyword">func</span> Print(x <span class="hljs-keyword">interface</span>{}) {
+    v := reflect.ValueOf(x)
+    t := v.Type()
+    fmt.Printf(<span class="hljs-string">&quot;type %s\n&quot;</span>, t)
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; v.NumMethod(); i++ {
+        methType := v.Method(i).Type()
+        fmt.Printf(<span class="hljs-string">&quot;func (%s) %s%s\n&quot;</span>, t, t.Method(i).Name,
+            strings.TrimPrefix(methType.String(), <span class="hljs-string">&quot;func&quot;</span>))
+    }
+}
+</code></pre>
+<p>reflect.Type&#x548C;reflect.Value&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x500B;Method&#x65B9;&#x6CD5;&#x3002;&#x6BCF;&#x6B21;t.Method(i)&#x8ABF;&#x7528;&#x5C07;&#x4E00;&#x500B;reflect.Method&#x7684;&#x5BE6;&#x4F8B;&#xFF0C;&#x5C0D;&#x61C9;&#x4E00;&#x500B;&#x7528;&#x65BC;&#x63CF;&#x8FF0;&#x4E00;&#x500B;&#x65B9;&#x6CD5;&#x7684;&#x540D;&#x7A31;&#x548C;&#x985E;&#x578B;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x3002;&#x6BCF;&#x6B21;v.Method(i)&#x65B9;&#x6CD5;&#x8ABF;&#x7528;&#x90FD;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;reflect.Value&#x4EE5;&#x8868;&#x793A;&#x5C0D;&#x61C9;&#x7684;&#x503C;&#xFF08;&#xA7;6.4&#xFF09;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x500B;&#x65B9;&#x6CD5;&#x662F;&#x5E6B;&#x5230;&#x5B83;&#x7684;&#x63A5;&#x6536;&#x8005;&#x7684;&#x3002;&#x4F7F;&#x7528;reflect.Value.Call&#x65B9;&#x6CD5;&#xFF08;&#x6211;&#x5011;&#x4E4B;&#x985E;&#x6C92;&#x6709;&#x6F14;&#x793A;&#xFF09;&#xFF0C;&#x5C07;&#x53EF;&#x4EE5;&#x8ABF;&#x7528;&#x4E00;&#x500B;Func&#x985E;&#x578B;&#x7684;Value&#xFF0C;&#x4F46;&#x662F;&#x9019;&#x500B;&#x4F8B;&#x5B50;&#x4E2D;&#x96BB;&#x7528;&#x5230;&#x4E86;&#x5B83;&#x7684;&#x985E;&#x578B;&#x3002;</p>
+<p>&#x9019;&#x662F;&#x5C6C;&#x65BC;time.Duration&#x548C;<code>*strings.Replacer</code>&#x5169;&#x500B;&#x985E;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-Go">methods.Print(time.Hour)
+<span class="hljs-comment">// Output:</span>
+<span class="hljs-comment">// type time.Duration</span>
+<span class="hljs-comment">// func (time.Duration) Hours() float64</span>
+<span class="hljs-comment">// func (time.Duration) Minutes() float64</span>
+<span class="hljs-comment">// func (time.Duration) Nanoseconds() int64</span>
+<span class="hljs-comment">// func (time.Duration) Seconds() float64</span>
+<span class="hljs-comment">// func (time.Duration) String() string</span>
+
+methods.Print(<span class="hljs-built_in">new</span>(strings.Replacer))
+<span class="hljs-comment">// Output:</span>
+<span class="hljs-comment">// type *strings.Replacer</span>
+<span class="hljs-comment">// func (*strings.Replacer) Replace(string) string</span>
+<span class="hljs-comment">// func (*strings.Replacer) WriteString(io.Writer, string) (int, error)</span>
+<span class="hljs-string">`
+</span></code></pre>
 
                     
                     </section>

@@ -8,7 +8,7 @@
         <title>函數聲明 | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.6.6">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -48,7 +48,13 @@
     <body>
         
         
-    <div class="book" data-level="5.1" data-chapter-title="函數聲明" data-filepath="ch5/ch5-01.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
+    <div class="book"
+        data-level="5.1"
+        data-chapter-title="函數聲明"
+        data-filepath="ch5/ch5-01.md"
+        data-basepath=".."
+        data-revision="Sat Jan 02 2016 16:00:23 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -2024,8 +2030,45 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="51-&#x51FD;&#x6578;&#x8072;&#x660E;">5.1. &#x51FD;&#x6578;&#x8072;&#x660E;</h2>
-<p>TODO</p>
+<p>&#x51FD;&#x6578;&#x8072;&#x660E;&#x5305;&#x62EC;&#x51FD;&#x6578;&#x540D;&#x3001;&#x5F62;&#x5F0F;&#x53C3;&#x6578;&#x5217;&#x8868;&#x3001;&#x8FD4;&#x8FF4;&#x503C;&#x5217;&#x8868;&#xFF08;&#x53EF;&#x7701;&#x7565;&#xFF09;&#x4EE5;&#x53CA;&#x51FD;&#x6578;&#x9AD4;&#x3002;</p>
+<pre><code>func name(parameter-list) (result-list) {
+        body
+}
+</code></pre><p>&#x5F62;&#x5F0F;&#x53C3;&#x6578;&#x5217;&#x8868;&#x63CF;&#x8FF0;&#x4E86;&#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#x540D;&#x4EE5;&#x53CA;&#x53C3;&#x6578;&#x985E;&#x578B;&#x3002;&#x9019;&#x4E9B;&#x53C3;&#x6578;&#x4F5C;&#x7232;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;&#xFF0C;&#x5176;&#x503C;&#x7531;&#x53C3;&#x6578;&#x8ABF;&#x7528;&#x8005;&#x63D0;&#x4F9B;&#x3002;&#x8FD4;&#x8FF4;&#x503C;&#x5217;&#x8868;&#x63CF;&#x8FF0;&#x4E86;&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x503C;&#x7684;&#x8B8A;&#x91CF;&#x540D;&#x4EE5;&#x53CA;&#x985E;&#x578B;&#x3002;&#x5982;&#x679C;&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;&#x7121;&#x540D;&#x8B8A;&#x91CF;&#x6216;&#x8005;&#x6C92;&#x6709;&#x8FD4;&#x8FF4;&#x503C;&#xFF0C;&#x8FD4;&#x8FF4;&#x503C;&#x5217;&#x8868;&#x7684;&#x62EC;&#x865F;&#x662F;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x7684;&#x3002;&#x5982;&#x679C;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x8072;&#x660E;&#x4E0D;&#x5305;&#x62EC;&#x8FD4;&#x8FF4;&#x503C;&#x5217;&#x8868;&#xFF0C;&#x90A3;&#x9EBD;&#x51FD;&#x6578;&#x9AD4;&#x57F7;&#x884C;&#x5B8C;&#x7562;&#x5F8C;&#xFF0C;&#x4E0D;&#x6703;&#x8FD4;&#x8FF4;&#x4EFB;&#x4F55;&#x503C;&#x3002;
+&#x5728;hypot&#x51FD;&#x6578;&#x4E2D;,</p>
+<pre><code>func hypot(x, y float64) float64 {
+        return math.Sqrt(x*x + y*y)
+}
+fmt.Println(hypot(3,4)) //&quot;5&quot;
+</code></pre><p>x&#x548C;y&#x662F;&#x5F62;&#x53C3;&#x540D;,3&#x548C;4&#x662F;&#x8ABF;&#x7528;&#x6642;&#x7684;&#x50B3;&#x5165;&#x7684;&#x5BE6;&#x6578;&#xFF0C;&#x51FD;&#x6578;&#x8FD4;&#x8FF4;&#x4E86;&#x4E00;&#x500B;float64&#x985E;&#x578B;&#x7684;&#x503C;&#x3002;
+&#x8FD4;&#x8FF4;&#x503C;&#x4E5F;&#x53EF;&#x4EE5;&#x50CF;&#x5F62;&#x5F0F;&#x53C3;&#x6578;&#x4E00;&#x6A23;&#x88AB;&#x547D;&#x540D;&#x3002;&#x5728;&#x9019;&#x7A2E;&#x60C5;&#x6CC1;&#x4E0B;&#xFF0C;&#x6BCF;&#x500B;&#x8FD4;&#x8FF4;&#x503C;&#x88AB;&#x8072;&#x660E;&#x6210;&#x4E00;&#x500B;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;&#xFF0C;&#x4F75;&#x6839;&#x64DA;&#x8A72;&#x8FD4;&#x8FF4;&#x503C;&#x7684;&#x985E;&#x578B;&#xFF0C;&#x5C07;&#x5176;&#x521D;&#x59CB;&#x5316;&#x7232;0&#x3002;
+&#x5982;&#x679C;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x5728;&#x8072;&#x660E;&#x6642;&#xFF0C;&#x5305;&#x542B;&#x8FD4;&#x8FF4;&#x503C;&#x5217;&#x8868;&#xFF0C;&#x8A72;&#x51FD;&#x6578;&#x5FC5;&#x9B1A;&#x4EE5; return&#x8A9E;&#x53E5;&#x7D50;&#x5C3E;&#xFF0C;&#x9664;&#x975E;&#x51FD;&#x6578;&#x660E;&#x986F;&#x7121;&#x6CD5;&#x904B;&#x884C;&#x5230;&#x7D50;&#x5C3E;&#x8655;&#x3002;&#x4F8B;&#x5982;&#x51FD;&#x6578;&#x5728;&#x7D50;&#x5C3E;&#x6642;&#x8ABF;&#x7528;&#x4E86;panic&#x7570;&#x5E38;&#x6216;&#x51FD;&#x6578;&#x4E2D;&#x5B58;&#x5728;&#x7121;&#x9650;&#x5FAA;&#x74B0;&#x3002;</p>
+<p>&#x6B63;&#x5982;hypot&#x4E00;&#x6A23;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x7D44;&#x5F62;&#x53C3;&#x6216;&#x8FD4;&#x8FF4;&#x503C;&#x6709;&#x76F8;&#x540C;&#x7684;&#x985E;&#x578B;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x5FC5;&#x7232;&#x6BCF;&#x500B;&#x5F62;&#x53C3;&#x90FD;&#x5BEB;&#x51FA;&#x53C3;&#x6578;&#x985E;&#x578B;&#x3002;&#x4E0B;&#x9762;2&#x500B;&#x8072;&#x660E;&#x662F;&#x7B49;&#x50F9;&#x7684;&#xFF1A;</p>
+<pre><code>func f(i, j, k int, s, t string){/* ...
+*/
+}
+func f(i int, j int, k int,  s string, t string){/* ...
+*/
+}
+</code></pre><p>&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x5011;&#x7D66;&#x51FA;4&#x7A2E;&#x65B9;&#x6CD5;&#x8072;&#x660E;&#x64C1;&#x6709;2&#x500B;int&#x578B;&#x53C3;&#x6578;&#x548C;1&#x500B;int&#x578B;&#x8FD4;&#x8FF4;&#x503C;&#x7684;&#x51FD;&#x6578;.blank identifier(&#x8B6F;&#x8005;&#x8A3B;&#xFF1A;&#x537D;&#x4E0B;&#x6587;&#x7684;_&#x7B26;&#x865F;)&#x53EF;&#x4EE5;&#x5F37;&#x8ABF;&#x67D0;&#x500B;&#x53C3;&#x6578;&#x672A;&#x88AB;&#x4F7F;&#x7528;&#x3002;</p>
+<pre><code>func add(x int, y int) int {return x + y}
+func sub(x, y int) (z int) { z = x - y; return}
+func first(x int, _ int) int { return x }
+func zero(int, int) int { return 0 }
 
+fmt.Printf(&quot;%T\n&quot;, add) //&quot;func(int, int) int&quot;
+fmt.Printf(&quot;%T\n&quot;, sub)//&quot;func(int, int) int&quot;
+fmt.Printf(&quot;%T\n&quot;, first)//&quot;func(int, int) int&quot;
+fmt.Printf(&quot;%T\n&quot;, zero)//&quot;func(int, int) int&quot;
+</code></pre><p>&#x51FD;&#x6578;&#x7684;&#x985E;&#x578B;&#x88AB;&#x7A31;&#x7232;&#x51FD;&#x6578;&#x7684;&#x6A19;&#x8B58;&#x7B26;&#x3002;&#x5982;&#x679C;&#x5169;&#x500B;&#x51FD;&#x6578;&#x5F62;&#x5F0F;&#x53C3;&#x6578;&#x5217;&#x8868;&#x548C;&#x8FD4;&#x8FF4;&#x503C;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x8B8A;&#x91CF;&#x985E;&#x578B;&#x4E00;&#x4E00;&#x5C0D;&#x61C9;&#xFF0C;&#x90A3;&#x9EBD;&#x9019;&#x5169;&#x500B;&#x51FD;&#x6578;&#x88AB;&#x8A8D;&#x7232;&#x6709;&#x76F8;&#x540C;&#x7684;&#x985E;&#x578B;&#x548C;&#x6A19;&#x8B58;&#x7B26;&#x3002;&#x5F62;&#x53C3;&#x548C;&#x8FD4;&#x8FF4;&#x503C;&#x7684;&#x8B8A;&#x91CF;&#x540D;&#x4E0D;&#x5F71;&#x97FF;&#x51FD;&#x6578;&#x6A19;&#x8B58;&#x7B26;&#x4E5F;&#x4E0D;&#x5F71;&#x97FF;&#x5B83;&#x5011;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x4EE5;&#x7701;&#x7565;&#x53C3;&#x6578;&#x985E;&#x578B;&#x7684;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#x3002;</p>
+<p>&#x6BCF;&#x4E00;&#x6B21;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x90FD;&#x5FC5;&#x9B1A;&#x6309;&#x7167;&#x8072;&#x660E;&#x9806;&#x5E8F;&#x7232;&#x6240;&#x6709;&#x53C3;&#x6578;&#x63D0;&#x4F9B;&#x5BE6;&#x53C3;&#xFF08;&#x53C3;&#x6578;&#x503C;&#xFF09;&#x3002;&#x5728;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x6642;&#xFF0C;Go&#x8A9E;&#x8A00;&#x6C92;&#x6709;&#x9ED8;&#x8A8D;&#x53C3;&#x6578;&#x503C;&#xFF0C;&#x4E5F;&#x6C92;&#x6709;&#x4EFB;&#x4F55;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x53C3;&#x6578;&#x540D;&#x6307;&#x5B9A;&#x5F62;&#x53C3;&#xFF0C;&#x56E0;&#x6B64;&#x5F62;&#x53C3;&#x548C;&#x8FD4;&#x8FF4;&#x503C;&#x7684;&#x8B8A;&#x91CF;&#x540D;&#x5C0D;&#x65BC;&#x51FD;&#x6578;&#x8ABF;&#x7528;&#x8005;&#x800C;&#x8A00;&#x6C92;&#x6709;&#x610F;&#x7FA9;&#x3002;</p>
+<p>&#x5728;&#x51FD;&#x6578;&#x9AD4;&#x4E2D;&#xFF0C;&#x51FD;&#x6578;&#x7684;&#x5F62;&#x53C3;&#x4F5C;&#x7232;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;&#xFF0C;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x7232;&#x8ABF;&#x7528;&#x8005;&#x63D0;&#x4F9B;&#x7684;&#x503C;&#x3002;&#x51FD;&#x6578;&#x7684;&#x5F62;&#x53C3;&#x548C;&#x6709;&#x540D;&#x8FD4;&#x8FF4;&#x503C;&#x4F5C;&#x7232;&#x51FD;&#x6578;&#x6700;&#x5916;&#x5C64;&#x7684;&#x5C40;&#x90E8;&#x8B8A;&#x91CF;&#xFF0C;&#x88AB;&#x5B58;&#x5132;&#x5728;&#x76F8;&#x540C;&#x7684;&#x8A5E;&#x6CD5;&#x584A;&#x4E2D;&#x3002;</p>
+<p>&#x5BE6;&#x53C3;&#x901A;&#x904E;&#x503C;&#x7684;&#x65B9;&#x5F0F;&#x50B3;&#x905E;&#xFF0C;&#x56E0;&#x6B64;&#x51FD;&#x6578;&#x7684;&#x5F62;&#x53C3;&#x662F;&#x5BE6;&#x53C3;&#x7684;&#x62F7;&#x8C9D;&#x3002;&#x5C0D;&#x5F62;&#x53C3;&#x9032;&#x884C;&#x8129;&#x6539;&#x4E0D;&#x6703;&#x5F71;&#x97FF;&#x5BE6;&#x53C3;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x5BE6;&#x53C3;&#x5305;&#x62EC;&#x5F15;&#x7528;&#x985E;&#x578B;&#xFF0C;&#x5982;&#x6307;&#x91DD;&#xFF0C;slice(&#x5207;&#x7247;)&#x3001;map&#x3001;function&#x3001;channel&#x7B49;&#x985E;&#x578B;&#xFF0C;&#x5BE6;&#x53C3;&#x53EF;&#x80FD;&#x6703;&#x7531;&#x65BC;&#x51FD;&#x6578;&#x7684;&#x7C21;&#x4ECB;&#x5F15;&#x7528;&#x88AB;&#x8129;&#x6539;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x6703;&#x5076;&#x723E;&#x9047;&#x5230;&#x6C92;&#x6709;&#x51FD;&#x6578;&#x9AD4;&#x7684;&#x51FD;&#x6578;&#x8072;&#x660E;&#xFF0C;&#x9019;&#x8868;&#x793A;&#x8A72;&#x51FD;&#x6578;&#x4E0D;&#x662F;&#x4EE5;Go&#x5BE6;&#x73FE;&#x7684;&#x3002;&#x9019;&#x6A23;&#x7684;&#x8072;&#x660E;&#x5B9A;&#x7FA9;&#x4E86;&#x51FD;&#x6578;&#x6A19;&#x8B58;&#x7B26;&#x3002;</p>
+<pre><code>package math
+
+func Sin(x float64) float //implemented in assembly language
+</code></pre>
                     
                     </section>
                 

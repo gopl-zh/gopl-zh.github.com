@@ -8,7 +8,7 @@
         <title>通過reflect.Value脩改值 | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.6.6">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -48,7 +48,13 @@
     <body>
         
         
-    <div class="book" data-level="12.5" data-chapter-title="通過reflect.Value脩改值" data-filepath="ch12/ch12-05.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
+    <div class="book"
+        data-level="12.5"
+        data-chapter-title="通過reflect.Value脩改值"
+        data-filepath="ch12/ch12-05.md"
+        data-basepath=".."
+        data-revision="Sat Jan 02 2016 16:00:23 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -2024,7 +2030,72 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="125-&#x901A;&#x904E;reflectvalue&#x8129;&#x6539;&#x503C;">12.5. &#x901A;&#x904E;reflect.Value&#x8129;&#x6539;&#x503C;</h2>
-<p>TODO</p>
+<p>&#x5230;&#x76EE;&#x524D;&#x7232;&#x6B62;&#xFF0C;&#x53CD;&#x5C04;&#x9084;&#x96BB;&#x662F;&#x7A0B;&#x5E8F;&#x4E2D;&#x8B8A;&#x91CF;&#x7684;&#x53E6;&#x4E00;&#x7A2E;&#x8A2A;&#x554F;&#x65B9;&#x5F0F;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5728;&#x672C;&#x7BC0;&#x4E2D;&#x6211;&#x5011;&#x5C07;&#x91CD;&#x9EDE;&#x8A0E;&#x8AD6;&#x5982;&#x679C;&#x901A;&#x904E;&#x53CD;&#x5C04;&#x6A5F;&#x88FD;&#x4F86;&#x8129;&#x6539;&#x8B8A;&#x91CF;&#x3002;</p>
+<p>&#x8FF4;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;Go&#x8A9E;&#x8A00;&#x4E2D;&#x985E;&#x4F3C;x&#x3001;x.f[1]&#x548C;*p&#x5F62;&#x5F0F;&#x7684;&#x8868;&#x9054;&#x5F0F;&#x90FD;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x8B8A;&#x91CF;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x5B83;&#x5982;x + 1&#x548C;f(2)&#x5247;&#x4E0D;&#x662F;&#x8B8A;&#x91CF;&#x3002;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x5C31;&#x662F;&#x4E00;&#x500B;&#x53EF;&#x5C0B;&#x5740;&#x7684;&#x5167;&#x5B58;&#x7A7A;&#x9593;&#xFF0C;&#x91CC;&#x9762;&#x5B58;&#x5132;&#x4E86;&#x4E00;&#x500B;&#x503C;&#xFF0C;&#x4F75;&#x4E14;&#x5B58;&#x5132;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x5167;&#x5B58;&#x5730;&#x5740;&#x4F86;&#x66F4;&#x65B0;&#x3002;</p>
+<p>&#x5C0D;&#x65BC;reflect.Values&#x4E5F;&#x6709;&#x985E;&#x4F3C;&#x7684;&#x5340;&#x522B;&#x3002;&#x6709;&#x4E00;&#x4E9B;reflect.Values&#x662F;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;&#xFF1B;&#x5176;&#x5B83;&#x4E00;&#x4E9B;&#x5247;&#x4E0D;&#x53EF;&#x4EE5;&#x3002;&#x8003;&#x616E;&#x4EE5;&#x4E0B;&#x7684;&#x8072;&#x660E;&#x8A9E;&#x53E5;&#xFF1A;</p>
+<pre><code class="lang-Go">x := <span class="hljs-number">2</span>                   <span class="hljs-comment">// value   type    variable?</span>
+a := reflect.ValueOf(<span class="hljs-number">2</span>)  <span class="hljs-comment">// 2       int     no</span>
+b := reflect.ValueOf(x)  <span class="hljs-comment">// 2       int     no</span>
+c := reflect.ValueOf(&amp;x) <span class="hljs-comment">// &amp;x      *int    no</span>
+d := c.Elem()            <span class="hljs-comment">// 2       int     yes (x)</span>
+</code></pre>
+<p>&#x5176;&#x4E2D;a&#x5C0D;&#x61C9;&#x7684;&#x8B8A;&#x91CF;&#x5247;&#x4E0D;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x3002;&#x56E0;&#x7232;a&#x4E2D;&#x7684;&#x503C;&#x50C5;&#x50C5;&#x662F;&#x6574;&#x6578;2&#x7684;&#x62F7;&#x8C9D;&#x526F;&#x672C;&#x3002;b&#x4E2D;&#x7684;&#x503C;&#x4E5F;&#x540C;&#x6A23;&#x4E0D;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x3002;c&#x4E2D;&#x7684;&#x503C;&#x9084;&#x662F;&#x4E0D;&#x53EF;&#x53D6;&#x5730;&#x5740;&#xFF0C;&#x5B83;&#x96BB;&#x662F;&#x4E00;&#x500B;&#x6307;&#x91DD;<code>&amp;x</code>&#x7684;&#x62F7;&#x8C9D;&#x3002;&#x5BE6;&#x969B;&#x4E0A;&#xFF0C;&#x6240;&#x6709;&#x901A;&#x904E;reflect.ValueOf(x)&#x8FD4;&#x8FF4;&#x7684;reflect.Value&#x90FD;&#x662F;&#x4E0D;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;&#x3002;&#x4F46;&#x662F;&#x5C0D;&#x65BC;d&#xFF0C;&#x5B83;&#x662F;c&#x7684;&#x89E3;&#x5F15;&#x7528;&#x65B9;&#x5F0F;&#x751F;&#x6210;&#x7684;&#xFF0C;&#x6307;&#x5411;&#x53E6;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#xFF0C;&#x56E0;&#x6B64;&#x662F;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x8ABF;&#x7528;reflect.ValueOf(&amp;x).Elem()&#xFF0C;&#x4F86;&#x7372;&#x53D6;&#x4EFB;&#x610F;&#x8B8A;&#x91CF;x&#x5C0D;&#x61C9;&#x7684;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;Value&#x3002;</p>
+<p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x8ABF;&#x7528;reflect.Value&#x7684;CanAddr&#x65B9;&#x6CD5;&#x4F86;&#x5224;&#x65B7;&#x5176;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x53D6;&#x5730;&#x5740;&#xFF1A;</p>
+<pre><code class="lang-Go">fmt.Println(a.CanAddr()) <span class="hljs-comment">// &quot;false&quot;</span>
+fmt.Println(b.CanAddr()) <span class="hljs-comment">// &quot;false&quot;</span>
+fmt.Println(c.CanAddr()) <span class="hljs-comment">// &quot;false&quot;</span>
+fmt.Println(d.CanAddr()) <span class="hljs-comment">// &quot;true&quot;</span>
+</code></pre>
+<p>&#x6BCF;&#x7576;&#x6211;&#x5011;&#x901A;&#x904E;&#x6307;&#x91DD;&#x9593;&#x63A5;&#x5730;&#x7372;&#x53D6;&#x7684;reflect.Value&#x90FD;&#x662F;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;&#xFF0C;&#x537D;&#x4F7F;&#x958B;&#x59CB;&#x7684;&#x662F;&#x4E00;&#x500B;&#x4E0D;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;Value&#x3002;&#x5728;&#x53CD;&#x5C04;&#x6A5F;&#x88FD;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x95DC;&#x65BC;&#x662F;&#x5426;&#x652F;&#x6301;&#x53D6;&#x5730;&#x5740;&#x7684;&#x898F;&#x5247;&#x90FD;&#x662F;&#x985E;&#x4F3C;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF0C;slice&#x7684;&#x7D22;&#x5F15;&#x8868;&#x9054;&#x5F0F;e[i]&#x5C07;&#x96B1;&#x5F0F;&#x5730;&#x5305;&#x542B;&#x4E00;&#x500B;&#x6307;&#x91DD;&#xFF0C;&#x5B83;&#x5C31;&#x662F;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;&#xFF0C;&#x537D;&#x4F7F;&#x958B;&#x59CB;&#x7684;e&#x8868;&#x9054;&#x5F0F;&#x4E0D;&#x652F;&#x6301;&#x4E5F;&#x6C92;&#x6709;&#x95DC;&#x7E6B;&#x3002;&#x4EE5;&#x6B64;&#x985E;&#x63A8;&#xFF0C;reflect.ValueOf(e).Index(i)&#x5C0D;&#x65BC;&#x7684;&#x503C;&#x4E5F;&#x662F;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;&#xFF0C;&#x537D;&#x4F7F;&#x539F;&#x59CB;&#x7684;reflect.ValueOf(e)&#x4E0D;&#x652F;&#x6301;&#x4E5F;&#x6C92;&#x6709;&#x95DC;&#x7E6B;&#x3002;</p>
+<p>&#x8981;&#x5F9E;&#x8B8A;&#x91CF;&#x5C0D;&#x61C9;&#x7684;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;reflect.Value&#x4F86;&#x8A2A;&#x554F;&#x8B8A;&#x91CF;&#x9700;&#x8981;&#x4E09;&#x500B;&#x6B65;&#x9A5F;&#x3002;&#x7B2C;&#x4E00;&#x6B65;&#x662F;&#x8ABF;&#x7528;Addr()&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;Value&#xFF0C;&#x91CC;&#x9762;&#x4FDD;&#x5B58;&#x4E86;&#x6307;&#x5411;&#x8B8A;&#x91CF;&#x7684;&#x6307;&#x91DD;&#x3002;&#x7136;&#x5F8C;&#x662F;&#x5728;Value&#x4E0A;&#x8ABF;&#x7528;Interface()&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;interface{}&#xFF0C;&#x91CC;&#x9762;&#x901A;&#x7528;&#x5305;&#x542B;&#x6307;&#x5411;&#x8B8A;&#x91CF;&#x7684;&#x6307;&#x91DD;&#x3002;&#x6700;&#x5F8C;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x5011;&#x77E5;&#x9053;&#x8B8A;&#x91CF;&#x7684;&#x985E;&#x578B;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x985E;&#x578B;&#x7684;&#x65B7;&#x8A00;&#x6A5F;&#x88FD;&#x5C07;&#x5F97;&#x5230;&#x7684;interface{}&#x985E;&#x578B;&#x7684;&#x63A5;&#x53E3;&#x5F37;&#x88FD;&#x74B0;&#x7232;&#x666E;&#x901A;&#x7684;&#x985E;&#x578B;&#x6307;&#x91DD;&#x3002;&#x9019;&#x6A23;&#x6211;&#x5011;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x904E;&#x9019;&#x500B;&#x666E;&#x901A;&#x6307;&#x91DD;&#x4F86;&#x66F4;&#x65B0;&#x8B8A;&#x91CF;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-Go">x := <span class="hljs-number">2</span>
+d := reflect.ValueOf(&amp;x).Elem()   <span class="hljs-comment">// d refers to the variable x</span>
+px := d.Addr().Interface().(*<span class="hljs-typename">int</span>) <span class="hljs-comment">// px := &amp;x</span>
+*px = <span class="hljs-number">3</span>                           <span class="hljs-comment">// x = 3</span>
+fmt.Println(x)                    <span class="hljs-comment">// &quot;3&quot;</span>
+</code></pre>
+<p>&#x6216;&#x8005;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;&#x6307;&#x91DD;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x904E;&#x8ABF;&#x7528;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;reflect.Value&#x7684;reflect.Value.Set&#x65B9;&#x6CD5;&#x4F86;&#x66F4;&#x65B0;&#x5C0D;&#x65BC;&#x7684;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-Go">d.Set(reflect.ValueOf(<span class="hljs-number">4</span>))
+fmt.Println(x) <span class="hljs-comment">// &quot;4&quot;</span>
+</code></pre>
+<p>Set&#x65B9;&#x6CD5;&#x5C07;&#x5728;&#x904B;&#x884C;&#x6642;&#x57F7;&#x884C;&#x548C;&#x7DE8;&#x8B6F;&#x6642;&#x985E;&#x4F3C;&#x7684;&#x53EF;&#x8CE6;&#x503C;&#x6027;&#x7D04;&#x675F;&#x7684;&#x6AA2;&#x67FB;&#x3002;&#x4EE5;&#x4E0A;&#x4EE3;&#x78BC;&#xFF0C;&#x8B8A;&#x91CF;&#x548C;&#x503C;&#x90FD;&#x662F;int&#x985E;&#x578B;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x8B8A;&#x91CF;&#x662F;int64&#x985E;&#x578B;&#xFF0C;&#x90A3;&#x9EBD;&#x7A0B;&#x5E8F;&#x5C07;&#x62CB;&#x51FA;&#x4E00;&#x500B;panic&#x7570;&#x5E38;&#xFF0C;&#x6240;&#x4EE5;&#x95DC;&#x9375;&#x554F;&#x984C;&#x662F;&#x8981;&#x78BA;&#x4FDD;&#x6539;&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x5C0D;&#x61C9;&#x7684;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-Go">d.Set(reflect.ValueOf(<span class="hljs-typename">int64</span>(<span class="hljs-number">5</span>))) <span class="hljs-comment">// panic: int64 is not assignable to int</span>
+</code></pre>
+<p>&#x901A;&#x7528;&#x5C0D;&#x4E00;&#x500B;&#x4E0D;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;reflect.Value&#x8ABF;&#x7528;Set&#x65B9;&#x6CD5;&#x4E5F;&#x6703;&#x5C0E;&#x81F4;panic&#x7570;&#x5E38;&#xFF1A;</p>
+<pre><code class="lang-Go">x := <span class="hljs-number">2</span>
+b := reflect.ValueOf(x)
+b.Set(reflect.ValueOf(<span class="hljs-number">3</span>)) <span class="hljs-comment">// panic: Set using unaddressable value</span>
+</code></pre>
+<p>&#x9019;&#x91CC;&#x6709;&#x5F88;&#x591A;&#x7528;&#x65BC;&#x57FA;&#x672C;&#x6578;&#x64DA;&#x985E;&#x578B;&#x7684;Set&#x65B9;&#x6CD5;&#xFF1A;SetInt&#x3001;SetUint&#x3001;SetString&#x548C;SetFloat&#x7B49;&#x3002;</p>
+<pre><code class="lang-Go">d := reflect.ValueOf(&amp;x).Elem()
+d.SetInt(<span class="hljs-number">3</span>)
+fmt.Println(x) <span class="hljs-comment">// &quot;3&quot;</span>
+</code></pre>
+<p>&#x5F9E;&#x67D0;&#x7A2E;&#x7A0B;&#x5EA6;&#x4E0A;&#x8AAC;&#xFF0C;&#x9019;&#x4E9B;Set&#x65B9;&#x6CD5;&#x7E3D;&#x662F;&#x76E1;&#x53EF;&#x80FD;&#x5730;&#x5B8C;&#x6210;&#x4EFB;&#x52D9;&#x3002;&#x4EE5;SetInt&#x7232;&#x4F8B;&#xFF0C;&#x96BB;&#x8981;&#x8B8A;&#x91CF;&#x662F;&#x67D0;&#x7A2E;&#x985E;&#x578B;&#x7684;&#x6709;&#x7B26;&#x865F;&#x6574;&#x6578;&#x5C31;&#x53EF;&#x4EE5;&#x5DE5;&#x4F5C;&#xFF0C;&#x537D;&#x4F7F;&#x662F;&#x4E00;&#x4E9B;&#x547D;&#x540D;&#x7684;&#x985E;&#x578B;&#xFF0C;&#x96BB;&#x8981;&#x5E95;&#x5C64;&#x6578;&#x64DA;&#x985E;&#x578B;&#x662F;&#x6709;&#x7B26;&#x865F;&#x6574;&#x6578;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x800C;&#x4E14;&#x5982;&#x679C;&#x5C0D;&#x65BC;&#x8B8A;&#x91CF;&#x985E;&#x578B;&#x503C;&#x592A;&#x5927;&#x7684;&#x8A71;&#x6703;&#x88AB;&#x81EA;&#x52D5;&#x622A;&#x65B7;&#x3002;&#x4F46;&#x9700;&#x8981;&#x8B39;&#x614E;&#x7684;&#x662F;&#xFF1A;&#x5C0D;&#x65BC;&#x4E00;&#x500B;&#x5F15;&#x7528;interface{}&#x985E;&#x578B;&#x7684;reflect.Value&#x8ABF;&#x7528;SetInt&#x6703;&#x5C0E;&#x81F4;panic&#x7570;&#x5E38;&#xFF0C;&#x537D;&#x4F7F;&#x90A3;&#x500B;interface{}&#x8B8A;&#x91CF;&#x5C0D;&#x65BC;&#x6574;&#x6578;&#x985E;&#x578B;&#x4E5F;&#x4E0D;&#x884C;&#x3002;</p>
+<pre><code class="lang-Go">x := <span class="hljs-number">1</span>
+rx := reflect.ValueOf(&amp;x).Elem()
+rx.SetInt(<span class="hljs-number">2</span>)                     <span class="hljs-comment">// OK, x = 2</span>
+rx.Set(reflect.ValueOf(<span class="hljs-number">3</span>))       <span class="hljs-comment">// OK, x = 3</span>
+rx.SetString(<span class="hljs-string">&quot;hello&quot;</span>)            <span class="hljs-comment">// panic: string is not assignable to int</span>
+rx.Set(reflect.ValueOf(<span class="hljs-string">&quot;hello&quot;</span>)) <span class="hljs-comment">// panic: string is not assignable to int</span>
+
+<span class="hljs-keyword">var</span> y <span class="hljs-keyword">interface</span>{}
+ry := reflect.ValueOf(&amp;y).Elem()
+ry.SetInt(<span class="hljs-number">2</span>)                     <span class="hljs-comment">// panic: SetInt called on interface Value</span>
+ry.Set(reflect.ValueOf(<span class="hljs-number">3</span>))       <span class="hljs-comment">// OK, y = int(3)</span>
+ry.SetString(<span class="hljs-string">&quot;hello&quot;</span>)            <span class="hljs-comment">// panic: SetString called on interface Value</span>
+ry.Set(reflect.ValueOf(<span class="hljs-string">&quot;hello&quot;</span>)) <span class="hljs-comment">// OK, y = &quot;hello&quot;</span>
+</code></pre>
+<p>&#x7576;&#x6211;&#x5011;&#x7528;Display&#x986F;&#x793A;os.Stdout&#x7D50;&#x69CB;&#x6642;&#xFF0C;&#x6211;&#x5011;&#x767C;&#x73FE;&#x53CD;&#x5C04;&#x53EF;&#x4EE5;&#x8D8A;&#x904E;Go&#x8A9E;&#x8A00;&#x7684;&#x5C0E;&#x51FA;&#x898F;&#x5247;&#x7684;&#x9650;&#x88FD;&#x8B80;&#x53D6;&#x7D50;&#x69CB;&#x9AD4;&#x4E2D;&#x672A;&#x5C0E;&#x51FA;&#x7684;&#x6210;&#x54E1;&#xFF0C;&#x6BD4;&#x5982;&#x5728;&#x985E;Unix&#x7E6B;&#x7D71;&#x4E0A;os.File&#x7D50;&#x69CB;&#x9AD4;&#x4E2D;&#x7684;fd int&#x6210;&#x54E1;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5229;&#x7528;&#x53CD;&#x5C04;&#x6A5F;&#x88FD;&#x4F75;&#x4E0D;&#x80FD;&#x8129;&#x6539;&#x9019;&#x4E9B;&#x672A;&#x5C0E;&#x51FA;&#x7684;&#x6210;&#x54E1;&#xFF1A;</p>
+<pre><code class="lang-Go">stdout := reflect.ValueOf(os.Stdout).Elem() <span class="hljs-comment">// *os.Stdout, an os.File var</span>
+fmt.Println(stdout.Type())                  <span class="hljs-comment">// &quot;os.File&quot;</span>
+fd := stdout.FieldByName(<span class="hljs-string">&quot;fd&quot;</span>)
+fmt.Println(fd.Int()) <span class="hljs-comment">// &quot;1&quot;</span>
+fd.SetInt(<span class="hljs-number">2</span>)          <span class="hljs-comment">// panic: unexported field</span>
+</code></pre>
+<p>&#x4E00;&#x500B;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x7684;reflect.Value&#x6703;&#x8A18;&#x9332;&#x4E00;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x662F;&#x5426;&#x662F;&#x672A;&#x5C0E;&#x51FA;&#x6210;&#x54E1;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x7684;&#x8A71;&#x5247;&#x62D2;&#x7D76;&#x8129;&#x6539;&#x64CD;&#x4F5C;&#x3002;&#x56E0;&#x6B64;&#xFF0C;CanAddr&#x65B9;&#x6CD5;&#x4F75;&#x4E0D;&#x80FD;&#x6B63;&#x78BA;&#x53CD;&#x6620;&#x4E00;&#x500B;&#x8B8A;&#x91CF;&#x662F;&#x5426;&#x662F;&#x53EF;&#x4EE5;&#x88AB;&#x8129;&#x6539;&#x7684;&#x3002;&#x53E6;&#x4E00;&#x500B;&#x76F8;&#x95DC;&#x7684;&#x65B9;&#x6CD5;CanSet&#x662F;&#x7528;&#x65BC;&#x6AA2;&#x67FB;&#x5C0D;&#x61C9;&#x7684;reflect.Value&#x662F;&#x5426;&#x662F;&#x53EF;&#x53D6;&#x5730;&#x5740;&#x4F75;&#x53EF;&#x88AB;&#x8129;&#x6539;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-Go">fmt.Println(fd.CanAddr(), fd.CanSet()) <span class="hljs-comment">// &quot;true false&quot;</span>
+</code></pre>
 
                     
                     </section>

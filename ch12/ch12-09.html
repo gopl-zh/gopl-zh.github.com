@@ -8,7 +8,7 @@
         <title>幾點忠告 | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.6.6">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -48,7 +48,13 @@
     <body>
         
         
-    <div class="book" data-level="12.9" data-chapter-title="幾點忠告" data-filepath="ch12/ch12-09.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
+    <div class="book"
+        data-level="12.9"
+        data-chapter-title="幾點忠告"
+        data-filepath="ch12/ch12-09.md"
+        data-basepath=".."
+        data-revision="Sat Jan 02 2016 16:00:23 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -2024,7 +2030,15 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="129-&#x5E7E;&#x9EDE;&#x5FE0;&#x544A;">12.9. &#x5E7E;&#x9EDE;&#x5FE0;&#x544A;</h2>
-<p>TODO</p>
+<p>&#x96D6;&#x7136;&#x53CD;&#x5C04;&#x63D0;&#x4F9B;&#x7684;API&#x9060;&#x591A;&#x65BC;&#x6211;&#x5011;&#x8B1B;&#x5230;&#x7684;&#xFF0C;&#x6211;&#x5011;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E3B;&#x8981;&#x662F;&#x7D66;&#x51FA;&#x4E86;&#x4E00;&#x500B;&#x65B9;&#x5411;&#xFF0C;&#x901A;&#x904E;&#x53CD;&#x5C04;&#x53EF;&#x4EE5;&#x5BE6;&#x73FE;&#x54EA;&#x4E9B;&#x529F;&#x80FD;&#x3002;&#x53CD;&#x5C04;&#x662F;&#x4E00;&#x500B;&#x5F37;&#x5927;&#x4F75;&#x5BCC;&#x6709;&#x8868;&#x9054;&#x529B;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x61C9;&#x8A72;&#x88AB;&#x5C0F;&#x5FC3;&#x5730;&#x4F7F;&#x7528;&#xFF0C;&#x539F;&#x56E0;&#x6709;&#x4E09;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x500B;&#x539F;&#x56E0;&#x662F;&#xFF0C;&#x57FA;&#x65BC;&#x53CD;&#x5C04;&#x7684;&#x4EE3;&#x78BC;&#x662F;&#x6BD4;&#x8F03;&#x8106;&#x5F31;&#x7684;&#x3002;&#x5C0D;&#x65BC;&#x6BCF;&#x4E00;&#x500B;&#x6703;&#x5C0E;&#x81F4;&#x7DE8;&#x8B6F;&#x5668;&#x5831;&#x544A;&#x985E;&#x578B;&#x932F;&#x8AA4;&#x7684;&#x554F;&#x984C;&#xFF0C;&#x5728;&#x53CD;&#x5C04;&#x4E2D;&#x90FD;&#x6709;&#x8207;&#x4E4B;&#x76F8;&#x5C0D;&#x61C9;&#x7684;&#x554F;&#x984C;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x7DE8;&#x8B6F;&#x5668;&#x6703;&#x5728;&#x69CB;&#x5EFA;&#x6642;&#x99AC;&#x4E0A;&#x5831;&#x544A;&#x932F;&#x8AA4;&#xFF0C;&#x800C;&#x53CD;&#x5C04;&#x5247;&#x662F;&#x5728;&#x771E;&#x6B63;&#x904B;&#x884C;&#x5230;&#x7684;&#x6642;&#x5019;&#x624D;&#x6703;&#x62CB;&#x51FA;panic&#x7570;&#x5E38;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x5BEB;&#x5B8C;&#x4EE3;&#x78BC;&#x5F88;&#x4E45;&#x4E4B;&#x5F8C;&#x7684;&#x6642;&#x5019;&#x4E86;&#xFF0C;&#x800C;&#x4E14;&#x7A0B;&#x5E8F;&#x4E5F;&#x53EF;&#x80FD;&#x904B;&#x884C;&#x4E86;&#x5F88;&#x9577;&#x7684;&#x6642;&#x9593;&#x3002;</p>
+<p>&#x4EE5;&#x524D;&#x9762;&#x7684;readList&#x51FD;&#x6578;&#xFF08;&#xA7;12.6&#xFF09;&#x7232;&#x4F8B;&#xFF0C;&#x7232;&#x4E86;&#x5F9E;&#x8F38;&#x5165;&#x8B80;&#x53D6;&#x5B57;&#x7B26;&#x4E32;&#x4F75;&#x586B;&#x5145;int&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;&#x800C;&#x8ABF;&#x7528;&#x7684;reflect.Value.SetString&#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x5C0E;&#x81F4;panic&#x7570;&#x5E38;&#x3002;&#x7D76;&#x5927;&#x591A;&#x6578;&#x4F7F;&#x7528;&#x53CD;&#x5C04;&#x7684;&#x7A0B;&#x5E8F;&#x90FD;&#x6709;&#x985E;&#x4F3C;&#x7684;&#x98A8;&#x96AA;&#xFF0C;&#x9700;&#x8981;&#x975E;&#x5E38;&#x5C0F;&#x5FC3;&#x5730;&#x6AA2;&#x67FB;&#x6BCF;&#x500B;reflect.Value&#x7684;&#x5C0D;&#x65BC;&#x503C;&#x7684;&#x985E;&#x578B;&#x3001;&#x662F;&#x5426;&#x53EF;&#x53D6;&#x5730;&#x5740;&#xFF0C;&#x9084;&#x6709;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x8129;&#x6539;&#x7B49;&#x3002;</p>
+<p>&#x907F;&#x514D;&#x9019;&#x7A2E;&#x56E0;&#x53CD;&#x5C04;&#x800C;&#x5C0E;&#x81F4;&#x7684;&#x8106;&#x5F31;&#x6027;&#x7684;&#x554F;&#x984C;&#x7684;&#x6700;&#x597D;&#x65B9;&#x6CD5;&#x662F;&#x5C07;&#x6240;&#x6709;&#x7684;&#x53CD;&#x5C04;&#x76F8;&#x95DC;&#x7684;&#x4F7F;&#x7528;&#x63A7;&#x88FD;&#x5728;&#x5305;&#x7684;&#x5167;&#x90E8;&#xFF0C;&#x5982;&#x679C;&#x53EF;&#x80FD;&#x7684;&#x8A71;&#x907F;&#x514D;&#x5728;&#x5305;&#x7684;API&#x4E2D;&#x76F4;&#x63A5;&#x66B4;&#x9732;reflect.Value&#x985E;&#x578B;&#xFF0C;&#x9019;&#x6A23;&#x53EF;&#x4EE5;&#x9650;&#x88FD;&#x4E00;&#x4E9B;&#x975E;&#x6CD5;&#x8F38;&#x5165;&#x3002;&#x5982;&#x679C;&#x7121;&#x6CD5;&#x505A;&#x5230;&#x9019;&#x4E00;&#x9EDE;&#xFF0C;&#x5728;&#x6BCF;&#x500B;&#x6709;&#x98A8;&#x96AA;&#x7684;&#x64CD;&#x4F5C;&#x524D;&#x6307;&#x5411;&#x984D;&#x5916;&#x7684;&#x985E;&#x578B;&#x6AA2;&#x67FB;&#x3002;&#x4EE5;&#x6A19;&#x6E96;&#x5EAB;&#x4E2D;&#x7684;&#x4EE3;&#x78BC;&#x7232;&#x4F8B;&#xFF0C;&#x7576;fmt.Printf&#x6536;&#x5230;&#x4E00;&#x500B;&#x975E;&#x6CD5;&#x7684;&#x64CD;&#x4F5C;&#x6578;&#x662F;&#xFF0C;&#x5B83;&#x4F75;&#x4E0D;&#x6703;&#x62CB;&#x51FA;panic&#x7570;&#x5E38;&#xFF0C;&#x800C;&#x662F;&#x6253;&#x5370;&#x76F8;&#x95DC;&#x7684;&#x932F;&#x8AA4;&#x4FE1;&#x606F;&#x3002;&#x7A0B;&#x5E8F;&#x96D6;&#x7136;&#x9084;&#x6709;BUG&#xFF0C;&#x4F46;&#x662F;&#x6703;&#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x8A3A;&#x65B7;&#x3002;</p>
+<pre><code class="lang-Go">fmt.Printf(<span class="hljs-string">&quot;%d %s\n&quot;</span>, <span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-number">42</span>) <span class="hljs-comment">// &quot;%!d(string=hello) %!s(int=42)&quot;</span>
+</code></pre>
+<p>&#x53CD;&#x5C04;&#x540C;&#x6A23;&#x964D;&#x4F4E;&#x4E86;&#x7A0B;&#x5E8F;&#x7684;&#x5B89;&#x5168;&#x6027;&#xFF0C;&#x9084;&#x5F71;&#x97FF;&#x4E86;&#x81EA;&#x52D5;&#x5316;&#x91CD;&#x69CB;&#x548C;&#x5206;&#x6790;&#x5DE5;&#x5177;&#x7684;&#x6E96;&#x78BA;&#x6027;&#xFF0C;&#x56E0;&#x7232;&#x5B83;&#x5011;&#x7121;&#x6CD5;&#x8B58;&#x522B;&#x904B;&#x884C;&#x6642;&#x624D;&#x80FD;&#x78BA;&#x8A8D;&#x7684;&#x985E;&#x578B;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x907F;&#x514D;&#x4F7F;&#x7528;&#x53CD;&#x5C04;&#x7684;&#x7B2C;&#x4E8C;&#x500B;&#x539F;&#x56E0;&#x662F;&#xFF0C;&#x537D;&#x4F7F;&#x5C0D;&#x61C9;&#x985E;&#x578B;&#x63D0;&#x4F9B;&#x4E86;&#x76F8;&#x540C;&#x6587;&#x6A94;&#xFF0C;&#x4F46;&#x662F;&#x53CD;&#x5C04;&#x7684;&#x64CD;&#x4F5C;&#x4E0D;&#x80FD;&#x505A;&#x975C;&#x614B;&#x985E;&#x578B;&#x6AA2;&#x67FB;&#xFF0C;&#x800C;&#x4E14;&#x5927;&#x91CF;&#x53CD;&#x5C04;&#x7684;&#x4EE3;&#x78BC;&#x901A;&#x5E38;&#x96E3;&#x4EE5;&#x7406;&#x89E3;&#x3002;&#x7E3D;&#x662F;&#x9700;&#x8981;&#x5C0F;&#x5FC3;&#x7FFC;&#x7FFC;&#x5730;&#x7232;&#x6BCF;&#x500B;&#x5C0E;&#x51FA;&#x7684;&#x985E;&#x578B;&#x548C;&#x5176;&#x5B83;&#x63A5;&#x53D7;interface{}&#x6216;reflect.Value&#x985E;&#x578B;&#x53C3;&#x6578;&#x7684;&#x51FD;&#x6578;&#x7DAD;&#x8B77;&#x8AAC;&#x660E;&#x6587;&#x6A94;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x500B;&#x539F;&#x56E0;&#xFF0C;&#x57FA;&#x65BC;&#x53CD;&#x5C04;&#x7684;&#x4EE3;&#x78BC;&#x901A;&#x5E38;&#x6BD4;&#x6B63;&#x5E38;&#x7684;&#x4EE3;&#x78BC;&#x904B;&#x884C;&#x901F;&#x5EA6;&#x6162;&#x4E00;&#x5230;&#x5169;&#x500B;&#x6578;&#x91CF;&#x7D1A;&#x3002;&#x5C0D;&#x65BC;&#x4E00;&#x500B;&#x5178;&#x578B;&#x7684;&#x9805;&#x76EE;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x51FD;&#x6578;&#x7684;&#x6027;&#x80FD;&#x548C;&#x7A0B;&#x5E8F;&#x7684;&#x6574;&#x9AD4;&#x6027;&#x80FD;&#x95DC;&#x7E6B;&#x4E0D;&#x5927;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x53CD;&#x5C04;&#x53EF;&#x80FD;&#x6703;&#x4F7F;&#x7A0B;&#x5E8F;&#x66F4;&#x52A0;&#x6E05;&#x6670;&#x3002;&#x6E2C;&#x8A66;&#x662F;&#x4E00;&#x500B;&#x7279;&#x522B;&#x9069;&#x5408;&#x4F7F;&#x7528;&#x53CD;&#x5C04;&#x7684;&#x5834;&#x666F;&#xFF0C;&#x56E0;&#x7232;&#x6BCF;&#x500B;&#x6E2C;&#x8A66;&#x7684;&#x6578;&#x64DA;&#x96C6;&#x90FD;&#x5F88;&#x5C0F;&#x3002;&#x4F46;&#x662F;&#x5C0D;&#x65BC;&#x6027;&#x80FD;&#x95DC;&#x9375;&#x8DEF;&#x5F91;&#x7684;&#x51FD;&#x6578;&#xFF0C;&#x6700;&#x597D;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x53CD;&#x5C04;&#x3002;</p>
 
                     
                     </section>

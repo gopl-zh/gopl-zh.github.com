@@ -8,7 +8,7 @@
         <title>獲取結構體字段標識 | Go语言圣经</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.6.6">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -48,7 +48,13 @@
     <body>
         
         
-    <div class="book" data-level="12.7" data-chapter-title="獲取結構體字段標識" data-filepath="ch12/ch12-07.md" data-basepath=".." data-revision="Thu Dec 31 2015 16:18:40 GMT+0800 (中国标准时间)">
+    <div class="book"
+        data-level="12.7"
+        data-chapter-title="獲取結構體字段標識"
+        data-filepath="ch12/ch12-07.md"
+        data-basepath=".."
+        data-revision="Sat Jan 02 2016 16:00:23 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -2024,7 +2030,122 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="127-&#x7372;&#x53D6;&#x7D50;&#x69CB;&#x9AD4;&#x5B57;&#x6BB5;&#x6A19;&#x8B58;">12.7. &#x7372;&#x53D6;&#x7D50;&#x69CB;&#x9AD4;&#x5B57;&#x6BB5;&#x6A19;&#x8B58;</h2>
-<p>TODO</p>
+<p>&#x5728;4.5&#x7BC0;&#x6211;&#x5011;&#x4F7F;&#x7528;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x7528;&#x65BC;&#x8A2D;&#x7F6E;&#x5C0D;&#x61C9;JSON&#x5C0D;&#x61C9;&#x7684;&#x540D;&#x5B57;&#x3002;&#x5176;&#x4E2D;json&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x8B93;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x9078;&#x64C7;&#x6210;&#x54E1;&#x7684;&#x540D;&#x5B57;&#x548C;&#x6291;&#x88FD;&#x96F6;&#x503C;&#x6210;&#x54E1;&#x7684;&#x8F38;&#x51FA;&#x3002;&#x5728;&#x672C;&#x7BC0;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x770B;&#x5230;&#x5982;&#x679C;&#x901A;&#x904E;&#x53CD;&#x5C04;&#x6A5F;&#x88FD;&#x985E;&#x7372;&#x53D6;&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x3002;</p>
+<p>&#x5C0D;&#x65BC;&#x4E00;&#x500B;web&#x670D;&#x52D9;&#xFF0C;&#x5927;&#x90E8;&#x5206;HTTP&#x8655;&#x7406;&#x51FD;&#x6578;&#x8981;&#x505A;&#x7684;&#x7B2C;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;&#x5C31;&#x662F;&#x5C55;&#x958B;&#x8ACB;&#x6C42;&#x4E2D;&#x7684;&#x53C3;&#x6578;&#x5230;&#x672C;&#x5730;&#x8B8A;&#x91CF;&#x4E2D;&#x3002;&#x6211;&#x5011;&#x5B9A;&#x7FA9;&#x4E86;&#x4E00;&#x500B;&#x5DE5;&#x5177;&#x51FD;&#x6578;&#xFF0C;&#x53EB;params.Unpack&#xFF0C;&#x901A;&#x904E;&#x4F7F;&#x7528;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x6A5F;&#x88FD;&#x4F86;&#x8B93;HTTP&#x8655;&#x7406;&#x51FD;&#x6578;&#x89E3;&#x6790;&#x8ACB;&#x6C42;&#x53C3;&#x6578;&#x66F4;&#x65B9;&#x4FBF;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x6211;&#x5011;&#x770B;&#x770B;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5B83;&#x3002;&#x4E0B;&#x9762;&#x7684;search&#x51FD;&#x6578;&#x662F;&#x4E00;&#x500B;HTTP&#x8ACB;&#x6C42;&#x8655;&#x7406;&#x51FD;&#x6578;&#x3002;&#x5B83;&#x5B9A;&#x7FA9;&#x4E86;&#x4E00;&#x500B;&#x533F;&#x540D;&#x7D50;&#x69CB;&#x9AD4;&#x985E;&#x578B;&#x7684;&#x8B8A;&#x91CF;&#xFF0C;&#x7528;&#x7D50;&#x69CB;&#x9AD4;&#x7684;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x8868;&#x793A;HTTP&#x8ACB;&#x6C42;&#x7684;&#x53C3;&#x6578;&#x3002;&#x5176;&#x4E2D;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x6307;&#x660E;&#x4E86;&#x5C0D;&#x65BC;&#x8ACB;&#x6C42;&#x53C3;&#x6578;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x7232;&#x4E86;&#x6E1B;&#x5C11;UTRL&#x7684;&#x9577;&#x5EA6;&#x9019;&#x4E9B;&#x53C3;&#x6578;&#x540D;&#x901A;&#x5E38;&#x90FD;&#x662F;&#x795E;&#x7955;&#x7684;&#x7E2E;&#x7565;&#x8A5E;&#x3002;Unpack&#x5C07;&#x8ACB;&#x6C42;&#x53C3;&#x6578;&#x586B;&#x5145;&#x5230;&#x5408;&#x9069;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x4E2D;&#xFF0C;&#x9019;&#x6A23;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x901A;&#x904E;&#x5408;&#x9069;&#x7684;&#x985E;&#x578B;&#x985E;&#x4F86;&#x8A2A;&#x554F;&#x9019;&#x4E9B;&#x53C3;&#x6578;&#x3002;</p>
+<pre><code class="lang-Go">gopl.io/ch12/search
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;gopl.io/ch12/params&quot;</span>
+
+<span class="hljs-comment">// search implements the /search URL endpoint.</span>
+<span class="hljs-keyword">func</span> search(resp http.ResponseWriter, req *http.Request) {
+    <span class="hljs-keyword">var</span> data <span class="hljs-keyword">struct</span> {
+        Labels     []<span class="hljs-typename">string</span> <span class="hljs-string">`http:&quot;l&quot;`</span>
+        MaxResults <span class="hljs-typename">int</span>      <span class="hljs-string">`http:&quot;max&quot;`</span>
+        Exact      <span class="hljs-typename">bool</span>     <span class="hljs-string">`http:&quot;x&quot;`</span>
+    }
+    data.MaxResults = <span class="hljs-number">10</span> <span class="hljs-comment">// set default</span>
+    <span class="hljs-keyword">if</span> err := params.Unpack(req, &amp;data); err != <span class="hljs-constant">nil</span> {
+        http.Error(resp, err.Error(), http.StatusBadRequest) <span class="hljs-comment">// 400</span>
+        <span class="hljs-keyword">return</span>
+    }
+
+    <span class="hljs-comment">// ...rest of handler...</span>
+    fmt.Fprintf(resp, <span class="hljs-string">&quot;Search: %+v\n&quot;</span>, data)
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x7684;Unpack&#x51FD;&#x6578;&#x4E3B;&#x8981;&#x5B8C;&#x6210;&#x4E09;&#x4EF6;&#x4E8B;&#x60C5;&#x3002;&#x7B2C;&#x4E00;&#xFF0C;&#x5B83;&#x8ABF;&#x7528;req.ParseForm()&#x4F86;&#x89E3;&#x6790;HTTP&#x8ACB;&#x6C42;&#x3002;&#x7136;&#x5F8C;&#xFF0C;req.Form&#x5C07;&#x5305;&#x542B;&#x6240;&#x6709;&#x7684;&#x8ACB;&#x6C42;&#x53C3;&#x6578;&#xFF0C;&#x4E0D;&#x7BA1;HTTP&#x5BA2;&#x6236;&#x7AEF;&#x4F7F;&#x7528;&#x7684;&#x662F;GET&#x9084;&#x662F;POST&#x8ACB;&#x6C42;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x4E0B;&#x4E00;&#x6B65;&#xFF0C;Unpack&#x51FD;&#x6578;&#x5C07;&#x69CB;&#x5EFA;&#x6BCF;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x6709;&#x6548;&#x53C3;&#x6578;&#x540D;&#x5B57;&#x5230;&#x6210;&#x54E1;&#x8B8A;&#x91CF;&#x7684;&#x6620;&#x5C04;&#x3002;&#x5982;&#x679C;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x6709;&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x7684;&#x8A71;&#xFF0C;&#x6709;&#x6548;&#x53C3;&#x6578;&#x540D;&#x5B57;&#x53EF;&#x80FD;&#x548C;&#x5BE6;&#x969B;&#x7684;&#x6210;&#x54E1;&#x540D;&#x5B57;&#x4E0D;&#x76F8;&#x540C;&#x3002;reflect.Type&#x7684;Field&#x65B9;&#x6CD5;&#x5C07;&#x8FD4;&#x8FF4;&#x4E00;&#x500B;reflect.StructField&#xFF0C;&#x91CC;&#x9762;&#x542B;&#x6709;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x7684;&#x540D;&#x5B57;&#x3001;&#x985E;&#x578B;&#x548C;&#x53EF;&#x9078;&#x7684;&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x7B49;&#x4FE1;&#x606F;&#x3002;&#x5176;&#x4E2D;&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x4FE1;&#x606F;&#x5C0D;&#x61C9;reflect.StructTag&#x985E;&#x578B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F75;&#x4E14;&#x63D0;&#x4F9B;&#x4E86;Get&#x65B9;&#x6CD5;&#x7528;&#x65BC;&#x89E3;&#x6790;&#x548C;&#x6839;&#x64DA;&#x7279;&#x5B9A;key&#x63D0;&#x53D6;&#x7684;&#x5B50;&#x4E32;&#xFF0C;&#x4F8B;&#x5982;&#x9019;&#x91CC;&#x7684;http:&quot;...&quot;&#x5F62;&#x5F0F;&#x7684;&#x5B50;&#x4E32;&#x3002;</p>
+<pre><code class="lang-Go">gopl.io/ch12/params
+
+<span class="hljs-comment">// Unpack populates the fields of the struct pointed to by ptr</span>
+<span class="hljs-comment">// from the HTTP request parameters in req.</span>
+<span class="hljs-keyword">func</span> Unpack(req *http.Request, ptr <span class="hljs-keyword">interface</span>{}) error {
+    <span class="hljs-keyword">if</span> err := req.ParseForm(); err != <span class="hljs-constant">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+
+    <span class="hljs-comment">// Build map of fields keyed by effective name.</span>
+    fields := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]reflect.Value)
+    v := reflect.ValueOf(ptr).Elem() <span class="hljs-comment">// the struct variable</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; v.NumField(); i++ {
+        fieldInfo := v.Type().Field(i) <span class="hljs-comment">// a reflect.StructField</span>
+        tag := fieldInfo.Tag           <span class="hljs-comment">// a reflect.StructTag</span>
+        name := tag.Get(<span class="hljs-string">&quot;http&quot;</span>)
+        <span class="hljs-keyword">if</span> name == <span class="hljs-string">&quot;&quot;</span> {
+            name = strings.ToLower(fieldInfo.Name)
+        }
+        fields[name] = v.Field(i)
+    }
+
+    <span class="hljs-comment">// Update struct field for each parameter in the request.</span>
+    <span class="hljs-keyword">for</span> name, values := <span class="hljs-keyword">range</span> req.Form {
+        f := fields[name]
+        <span class="hljs-keyword">if</span> !f.IsValid() {
+            <span class="hljs-keyword">continue</span> <span class="hljs-comment">// ignore unrecognized HTTP parameters</span>
+        }
+        <span class="hljs-keyword">for</span> _, value := <span class="hljs-keyword">range</span> values {
+            <span class="hljs-keyword">if</span> f.Kind() == reflect.Slice {
+                elem := reflect.New(f.Type().Elem()).Elem()
+                <span class="hljs-keyword">if</span> err := populate(elem, value); err != <span class="hljs-constant">nil</span> {
+                    <span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">&quot;%s: %v&quot;</span>, name, err)
+                }
+                f.Set(reflect.Append(f, elem))
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">if</span> err := populate(f, value); err != <span class="hljs-constant">nil</span> {
+                    <span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">&quot;%s: %v&quot;</span>, name, err)
+                }
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+}
+</code></pre>
+<p>&#x6700;&#x5F8C;&#xFF0C;Unpack&#x904D;&#x6B77;HTTP&#x8ACB;&#x6C42;&#x7684;name/valu&#x53C3;&#x6578;&#x9375;&#x503C;&#x5C0D;&#xFF0C;&#x4F75;&#x4E14;&#x6839;&#x64DA;&#x66F4;&#x65B0;&#x76F8;&#x61C9;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x3002;&#x8FF4;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x540C;&#x4E00;&#x500B;&#x540D;&#x5B57;&#x7684;&#x53C3;&#x6578;&#x53EF;&#x80FD;&#x51FA;&#x73FE;&#x591A;&#x6B21;&#x3002;&#x5982;&#x679C;&#x767C;&#x751F;&#x9019;&#x7A2E;&#x60C5;&#x6CC1;&#xFF0C;&#x4F75;&#x4E14;&#x5C0D;&#x61C9;&#x7684;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x662F;&#x4E00;&#x500B;slice&#xFF0C;&#x90A3;&#x9EBD;&#x5C31;&#x5C07;&#x6240;&#x6709;&#x7684;&#x53C3;&#x6578;&#x6DFB;&#x52A0;&#x5230;slice&#x4E2D;&#x3002;&#x5176;&#x5B83;&#x60C5;&#x6CC1;&#xFF0C;&#x5C0D;&#x61C9;&#x7684;&#x6210;&#x54E1;&#x503C;&#x5C07;&#x88AB;&#x8986;&#x84CB;&#xFF0C;&#x96BB;&#x6709;&#x6700;&#x5F8C;&#x4E00;&#x6B21;&#x51FA;&#x73FE;&#x7684;&#x53C3;&#x6578;&#x503C;&#x624D;&#x662F;&#x8D77;&#x4F5C;&#x7528;&#x7684;&#x3002;</p>
+<p>populate&#x51FD;&#x6578;&#x5C0F;&#x5FC3;&#x7528;&#x8ACB;&#x6C42;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x985E;&#x578B;&#x53C3;&#x6578;&#x503C;&#x4F86;&#x586B;&#x5145;&#x55AE;&#x4E00;&#x7684;&#x6210;&#x54E1;v&#xFF08;&#x6216;&#x8005;&#x662F;slice&#x985E;&#x578B;&#x6210;&#x54E1;&#x4E2D;&#x7684;&#x55AE;&#x4E00;&#x7684;&#x5143;&#x7D20;&#xFF09;&#x3002;&#x76EE;&#x524D;&#xFF0C;&#x5B83;&#x50C5;&#x652F;&#x6301;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x6709;&#x7B26;&#x865F;&#x6574;&#x6578;&#x548C;&#x5E03;&#x723E;&#x578B;&#x3002;&#x5176;&#x4E2D;&#x5176;&#x5B83;&#x7684;&#x985E;&#x578B;&#x5C07;&#x7559;&#x505A;&#x7DF4;&#x7FD2;&#x4EFB;&#x52D9;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> populate(v reflect.Value, value <span class="hljs-typename">string</span>) error {
+    <span class="hljs-keyword">switch</span> v.Kind() {
+    <span class="hljs-keyword">case</span> reflect.String:
+        v.SetString(value)
+
+    <span class="hljs-keyword">case</span> reflect.Int:
+        i, err := strconv.ParseInt(value, <span class="hljs-number">10</span>, <span class="hljs-number">64</span>)
+        <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+            <span class="hljs-keyword">return</span> err
+        }
+        v.SetInt(i)
+
+    <span class="hljs-keyword">case</span> reflect.Bool:
+        b, err := strconv.ParseBool(value)
+        <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+            <span class="hljs-keyword">return</span> err
+        }
+        v.SetBool(b)
+
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">&quot;unsupported kind %s&quot;</span>, v.Type())
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x6211;&#x5011;&#x4E0A;&#x4E0A;&#x9762;&#x7684;&#x8655;&#x7406;&#x7A0B;&#x5E8F;&#x6DFB;&#x52A0;&#x5230;&#x4E00;&#x500B;web&#x670D;&#x52D9;&#x5668;&#xFF0C;&#x5247;&#x53EF;&#x4EE5;&#x7523;&#x751F;&#x4EE5;&#x4E0B;&#x7684;&#x6703;&#x8A71;&#xFF1A;</p>
+<pre><code>$ go build gopl.io/ch12/search
+$ ./search &amp;
+$ ./fetch &apos;http://localhost:12345/search&apos;
+Search: {Labels:[] MaxResults:10 Exact:false}
+$ ./fetch &apos;http://localhost:12345/search?l=golang&amp;l=programming&apos;
+Search: {Labels:[golang programming] MaxResults:10 Exact:false}
+$ ./fetch &apos;http://localhost:12345/search?l=golang&amp;l=programming&amp;max=100&apos;
+Search: {Labels:[golang programming] MaxResults:100 Exact:false}
+$ ./fetch &apos;http://localhost:12345/search?x=true&amp;l=golang&amp;l=programming&apos;
+Search: {Labels:[golang programming] MaxResults:10 Exact:true}
+$ ./fetch &apos;http://localhost:12345/search?q=hello&amp;x=123&apos;
+x: strconv.ParseBool: parsing &quot;123&quot;: invalid syntax
+$ ./fetch &apos;http://localhost:12345/search?q=hello&amp;max=lots&apos;
+max: strconv.ParseInt: parsing &quot;lots&quot;: invalid syntax
+</code></pre><p><strong>&#x7DF4;&#x7FD2; 12.11&#xFF1A;</strong> &#x7DE8;&#x5BEB;&#x76F8;&#x61C9;&#x7684;Pack&#x51FD;&#x6578;&#xFF0C;&#x7D66;&#x5B9A;&#x4E00;&#x500B;&#x7D50;&#x69CB;&#x9AD4;&#x503C;&#xFF0C;Pack&#x51FD;&#x6578;&#x5C07;&#x8FD4;&#x8FF4;&#x5408;&#x4F75;&#x4E86;&#x6240;&#x6709;&#x7D50;&#x69CB;&#x9AD4;&#x6210;&#x54E1;&#x548C;&#x503C;&#x7684;URL&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 12.12&#xFF1A;</strong> &#x64F4;&#x5C55;&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x4EE5;&#x8868;&#x793A;&#x4E00;&#x500B;&#x8ACB;&#x6C42;&#x53C3;&#x6578;&#x7684;&#x6709;&#x6548;&#x503C;&#x898F;&#x5247;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x4E32;&#x53EF;&#x4EE5;&#x662F;&#x6709;&#x6548;&#x7684;email&#x5730;&#x5740;&#x6216;&#x4E00;&#x500B;&#x4FE1;&#x7528;&#x5361;&#x865F;&#x78BC;&#xFF0C;&#x9084;&#x6709;&#x4E00;&#x500B;&#x6574;&#x6578;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x662F;&#x6709;&#x6548;&#x7684;&#x90F5;&#x653F;&#x7DE8;&#x78BC;&#x3002;&#x8129;&#x6539;Unpack&#x51FD;&#x6578;&#x4EE5;&#x6AA2;&#x67FB;&#x9019;&#x4E9B;&#x898F;&#x5247;&#x3002;</p>
+<p><strong>&#x7DF4;&#x7FD2; 12.13&#xFF1A;</strong> &#x8129;&#x6539;S&#x8868;&#x9054;&#x5F0F;&#x7684;&#x7DE8;&#x78BC;&#x5668;&#xFF08;&#xA7;12.4&#xFF09;&#x548C;&#x89E3;&#x78BC;&#x5668;&#xFF08;&#xA7;12.6&#xFF09;&#xFF0C;&#x91C7;&#x7528;&#x548C;encoding/json&#x5305;&#xFF08;&#xA7;4.5&#xFF09;&#x985E;&#x4F3C;&#x7684;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x6210;&#x54E1;&#x6A19;&#x7C64;&#x4E2D;&#x7684;sexpr:&quot;...&quot;&#x5B57;&#x4E32;&#x3002;</p>
 
                     
                     </section>
