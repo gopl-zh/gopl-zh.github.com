@@ -76,7 +76,7 @@
   * [示例: 併發的Clock服務](ch8/ch8-02.md)
   * [示例: 併發的Echo服務](ch8/ch8-03.md)
   * [Channels](ch8/ch8-04.md)
-  * [併行的循環](ch8/ch8-05.md)
+  * [併發的循環](ch8/ch8-05.md)
   * [示例: 併發的Web爬蟲](ch8/ch8-06.md)
   * [基於select的多路複用](ch8/ch8-07.md)
   * [示例: 併發的字典遍歷](ch8/ch8-08.md)
