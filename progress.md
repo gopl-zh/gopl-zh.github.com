@@ -71,7 +71,7 @@
  - [x] 8.2 Example: Concurrent Clock Server
  - [x] 8.3 Example: Concu rent Echo Server
  - [ ] 8.4 Channels
- - [ ] 8.5 Looping in Parallel
+ - [x] 8.5 Looping in Parallel
  - [x] 8.6 Example: Concurrent Web Crawler
  - [x] 8.7 Multiplexing with select
  - [x] 8.8 Example: Concurrent Directory Traversal
