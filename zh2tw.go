@@ -201,6 +201,11 @@ var zh2twMapPatch = map[rune]rune{
 	'个': '個',
 	'家': '家',
 	'当': '當',
+	'才': '才',
+	'出': '出',
+	'台': '台',
+	'国': '国',
+	'获': '獲',
 }
 
 var _TSCharactersMap = map[rune]rune{

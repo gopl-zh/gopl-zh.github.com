@@ -6,16 +6,15 @@
 
 在早些的章節中，我們已經使用了標準庫提供的一些方法，比如time.Duration這個類型的Seconds方法：
 
-```
-   const day = 24 * time.Hour
-   fmt.Println(day.Seconds()) // "86400"
+```Go
+const day = 24 * time.Hour
+fmt.Println(day.Seconds()) // "86400"
 ```
 
 併且在2.5節中，我們定義了一個自己的方法，Celsius類型的String方法:
 
-```go
-   func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
+```Go
+func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
 ```
 
 在本章中，OOP編程的第一方面，我們會向你展示如何有效地定義和使用方法。我們會覆蓋到OOP編程的兩個關鍵點，封裝和組合。
-

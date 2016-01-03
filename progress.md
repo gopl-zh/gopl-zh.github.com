@@ -25,16 +25,16 @@
  - [x] 3.4 Booleans
  - [x] 3.5 Strings
  - [x] 3.6 Constants
-- [ ] Chapter 4: Composite Types
- - [ ] 4.1 Arrays
- - [ ] 4.2 Slices
- - [ ] 4.3 Maps
- - [ ] 4.4 Structs
- - [ ] 4.5 JSON
- - [ ] 4.6 Text and HTML Templates
-- [ ] Chapter 5: Functions
- - [ ] 5.1 Function Declarations
- - [ ] 5.2 Recursion
+- [x] Chapter 4: Composite Types
+ - [x] 4.1 Arrays
+ - [x] 4.2 Slices
+ - [x] 4.3 Maps
+ - [x] 4.4 Structs
+ - [x] 4.5 JSON
+ - [x] 4.6 Text and HTML Templates
+- [x] Chapter 5: Functions
+ - [x] 5.1 Function Declarations
+ - [x] 5.2 Recursion
  - [ ] 5.3 Multiple Return Values
  - [ ] 5.4 Errors
  - [ ] 5.5 Function Values
@@ -52,7 +52,7 @@
  - [x] 6.6 Encapsulation
 - [x] Chapter 7: Interfaces
  - [x] 7.1 Interfaces as Contracts
- - [ ] 7.2 Interface Types
+ - [x] 7.2 Interface Types
  - [ ] 7.3 Interface Satisfaction
  - [ ] 7.4 Parsing Flags with flag.Value
  - [ ] 7.5 Interface Values
@@ -69,18 +69,18 @@
 - [x] Chapter 8: Goroutines and Channels
  - [x] 8.1 Goroutines
  - [x] 8.2 Example: Concurrent Clock Server
- - [ ] 8.3 Example: Concu rent Echo Server
+ - [x] 8.3 Example: Concu rent Echo Server
  - [ ] 8.4 Channels
- - [ ] 8.5 Looping in Parallel
+ - [x] 8.5 Looping in Parallel
  - [x] 8.6 Example: Concurrent Web Crawler
- - [ ] 8.7 Multiplexing with select
+ - [x] 8.7 Multiplexing with select
  - [x] 8.8 Example: Concurrent Directory Traversal
  - [x] 8.9 Cancellation
  - [x] 8.10 Example: Chat Server
-- [ ] Chapter 9: Concurrency with Shared Variables
+- [x] Chapter 9: Concurrency with Shared Variables
  - [ ] 9.1 Race Conditions
  - [ ] 9.2 Mutual Exclusion: sync.Mutex
- - [ ] 9.3 Read/Write Mutexes: sync.RWMutex
+ - [x] 9.3 Read/Write Mutexes: sync.RWMutex
  - [ ] 9.4 Memory Synchronization
  - [ ] 9.5 Lazy Initialization: sync.Once
  - [ ] 9.6 The Race Detector
@@ -104,13 +104,13 @@
 - [x] Chapter 12: Reflection
  - [x] 12.1 Why Reflection?
  - [x] 12.2 reflect.Type and reflect.Value
- - [ ] 12.3 Display, a Recursive Value Printer
- - [ ] 12.4 Example: Encoding S-Expressions
- - [ ] 12.5 Setting Variables with reflect.Value
- - [ ] 12.6 Example: Decoding S-Expressions
- - [ ] 12.7 Accessing Struct Field Tags
- - [ ] 12.8 Displaying the Methods of a Type
- - [ ] 12.9 A Word of Caution
+ - [x] 12.3 Display, a Recursive Value Printer
+ - [x] 12.4 Example: Encoding S-Expressions
+ - [x] 12.5 Setting Variables with reflect.Value
+ - [x] 12.6 Example: Decoding S-Expressions
+ - [x] 12.7 Accessing Struct Field Tags
+ - [x] 12.8 Displaying the Methods of a Type
+ - [x] 12.9 A Word of Caution
 - [x] Chapter 13: Low-Level Programming
  - [x] 13.1 unsafe.Sizeof, Alignof, and Offsetof
  - [x] 13.2 unsafe.Pointer
@@ -118,4 +118,3 @@
  - [x] 13.4 Calling C Code with cgo
  - [x] 13.5 Another Word of Caution
 - [ ] Errata
-

@@ -1,8 +1,13 @@
 {
-	"title": "Go编程语言",
+	"gitbook": "2.x.x",
+	"title": "Go语言圣经",
 	"description": "<The Go Programming Language>中文版",
 	"language": "zh",
 	"structure": {
 		"readme": "preface.md"
-	}
+	},
+	"plugins": [
+		"katex",
+		"-search"
+	]
 }
