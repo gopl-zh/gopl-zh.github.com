@@ -53,7 +53,7 @@
 - [x] Chapter 7: Interfaces
  - [x] 7.1 Interfaces as Contracts
  - [x] 7.2 Interface Types
- - [ ] 7.3 Interface Satisfaction
+ - [x] 7.3 Interface Satisfaction
  - [ ] 7.4 Parsing Flags with flag.Value
  - [ ] 7.5 Interface Values
  - [ ] 7.6 Sorting with sort.Interface
