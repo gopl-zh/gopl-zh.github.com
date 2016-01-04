@@ -83,7 +83,7 @@
  - [x] 9.3 Read/Write Mutexes: sync.RWMutex
  - [ ] 9.4 Memory Synchronization
  - [ ] 9.5 Lazy Initialization: sync.Once
- - [ ] 9.6 The Race Detector
+ - [x] 9.6 The Race Detector
  - [ ] 9.7 Example: Concurrent Non-Blocking Cache
  - [ ] 9.8 Goroutines and Threads
 - [x] Chapter 10: Packages and the Go Tool
