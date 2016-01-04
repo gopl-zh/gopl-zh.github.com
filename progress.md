@@ -70,7 +70,7 @@
  - [x] 8.1 Goroutines
  - [x] 8.2 Example: Concurrent Clock Server
  - [x] 8.3 Example: Concu rent Echo Server
- - [ ] 8.4 Channels
+ - [x] 8.4 Channels
  - [x] 8.5 Looping in Parallel
  - [x] 8.6 Example: Concurrent Web Crawler
  - [x] 8.7 Multiplexing with select
