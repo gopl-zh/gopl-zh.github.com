@@ -35,7 +35,7 @@
 - [x] Chapter 5: Functions
  - [x] 5.1 Function Declarations
  - [x] 5.2 Recursion
- - [ ] 5.3 Multiple Return Values
+ - [x] 5.3 Multiple Return Values
  - [ ] 5.4 Errors
  - [ ] 5.5 Function Values
  - [ ] 5.6 Anonymous Functions
@@ -54,7 +54,7 @@
  - [x] 7.1 Interfaces as Contracts
  - [x] 7.2 Interface Types
  - [x] 7.3 Interface Satisfaction
- - [ ] 7.4 Parsing Flags with flag.Value
+ - [x] 7.4 Parsing Flags with flag.Value
  - [ ] 7.5 Interface Values
  - [ ] 7.6 Sorting with sort.Interface
  - [ ] 7.7 The http.Handler Interface
