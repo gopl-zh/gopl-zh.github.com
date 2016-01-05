@@ -36,7 +36,7 @@ Go語言尤其適合編寫網絡服務相關基礎設施，同時也適合開發
 因爲Go編寫的程序通常比腳本語言運行的更快也更安全，而且很少會發生意外的類型錯誤。
 
 Go語言還是一個開源的項目，可以免費獲編譯器、庫、配套工具的源代碼。
-Go語言的貢獻者來自一個活躍的全球社區。Go語言可以運行在類UNIX繫統——
+Go語言的貢獻者來自一個活躍的全球社區。Go語言可以運行在類[UNIX](http://doc.cat-v.org/unix/)繫統——
 比如[Linux](http://www.linux.org/)、[FreeBSD](https://www.freebsd.org/)、[OpenBSD](http://www.openbsd.org/)、[Mac OSX](http://www.apple.com/cn/osx/)——和[Plan9](http://plan9.bell-labs.com/plan9/)繫統和[Microsoft Windows](https://www.microsoft.com/zh-cn/windows/)操作繫統之上。
 Go語言編寫的程序無需脩改就可以運行在上面這些環境。
 
