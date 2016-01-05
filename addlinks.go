@@ -138,6 +138,8 @@ var _LinkTable = map[string]string{
 	"Robert Griesemer":   "http://research.google.com/pubs/author96.html",
 	"Rob Pike":           "http://genius.cat-v.org/rob-pike/",
 	"Ken Thompson":       "http://genius.cat-v.org/ken-thompson/",
+	"Niklaus Wirth":      "https://en.wikipedia.org/wiki/Niklaus_Wirth",
+	"Tony Hoare":         "https://en.wikipedia.org/wiki/Tony_Hoare",
 
 	// 图书
 	"The C Programming Language":  "http://s3-us-west-2.amazonaws.com/belllabs-microsite-dritchie/cbook/index.html",
@@ -151,6 +153,16 @@ var _LinkTable = map[string]string{
 	"gorename":        "https://godoc.org/golang.org/x/tools/cmd/gorename",
 
 	// 其他语言
+	"Alef":      "http://doc.cat-v.org/plan_9/2nd_edition/papers/alef/",
+	"APL":       "https://en.wikipedia.org/wiki/APL_(programming_language)",
+	"Limbo":     "http://doc.cat-v.org/inferno/4th_edition/limbo_language/",
+	"Modula-2":  "https://en.wikipedia.org/wiki/Modula-2",
+	"Newsqueak": "http://doc.cat-v.org/bell_labs/squeak/",
+	"Oberon":    "https://en.wikipedia.org/wiki/Oberon_(programming_language)",
+	"Oberon-2":  "https://en.wikipedia.org/wiki/Oberon-2_(programming_language)",
+	"Pascal":    "https://en.wikipedia.org/wiki/Pascal_(programming_language)",
+	"Scheme":    "https://en.wikipedia.org/wiki/Scheme_(programming_language)",
+	"Squeak":    "http://doc.cat-v.org/bell_labs/squeak/",
 
 	// 系统
 	"Unix":              "http://doc.cat-v.org/unix/",
@@ -164,5 +176,7 @@ var _LinkTable = map[string]string{
 	"Microsoft Windows": "https://www.microsoft.com/zh-cn/windows/",
 
 	// 其他
-	"Bell Labs": "http://www.cs.bell-labs.com/",
+	"Bell Labs":                          "http://www.cs.bell-labs.com/",
+	"communicating sequential processes": "https://en.wikipedia.org/wiki/Communicating_sequential_processes",
+	"CSP": "https://en.wikipedia.org/wiki/Communicating_sequential_processes",
 }
