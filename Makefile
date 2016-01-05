@@ -31,7 +31,7 @@ review:
 	go run zh2tw.go . .md$$ zh2tw
 
 fixlink:
-	go run addlinks.go . .md$$
+	go run fixlinks.go . .md$$
 
 cover:
 	composite  cover_patch.png cover_bgd.png cover.jpg

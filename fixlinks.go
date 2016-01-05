@@ -8,11 +8,11 @@
 // 给特殊模式标定的单词增加链接.
 //
 // Example:
-//	addlinks
-//	addlinks dir "\.go$"
+//	fixlinks
+//	fixlinks dir "\.go$"
 //
 // Help:
-//	addlinks -h
+//	fixlinks -h
 //
 package main
 
@@ -29,12 +29,12 @@ import (
 const MaxFileSize = 8 << 20 // 8MB
 
 const usage = `
-Usage: addlinks dir [nameFilter]
-       addlinks -h
+Usage: fixlinks dir [nameFilter]
+       fixlinks -h
 
 Example:
-  addlinks
-  addlinks dir "\.go$"
+  fixlinks
+  fixlinks dir "\.go$"
     
 Report bugs to <chaishushan{AT}gmail.com>.
 `
@@ -133,13 +133,17 @@ var _RegexpLinksTable = func() map[*regexp.Regexp]string {
 var _LinkTable = map[string]string{
 
 	// 人名
+	"Alan Donovan":       "https://github.com/adonovan",
+	"Brian Kernighan":    "http://www.cs.princeton.edu/~bwk/",
 	"Alan A. A. Donovan": "https://github.com/adonovan",
 	"Brian W. Kernighan": "http://www.cs.princeton.edu/~bwk/",
 	"Robert Griesemer":   "http://research.google.com/pubs/author96.html",
 	"Rob Pike":           "http://genius.cat-v.org/rob-pike/",
 	"Ken Thompson":       "http://genius.cat-v.org/ken-thompson/",
+	"Russ Cox":           "http://research.swtch.com/",
 	"Niklaus Wirth":      "https://en.wikipedia.org/wiki/Niklaus_Wirth",
 	"Tony Hoare":         "https://en.wikipedia.org/wiki/Tony_Hoare",
+	"Fred Brooks":        "http://www.cs.unc.edu/~brooks/",
 
 	// 图书
 	"The C Programming Language":  "http://s3-us-west-2.amazonaws.com/belllabs-microsite-dritchie/cbook/index.html",
