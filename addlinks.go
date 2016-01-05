@@ -17,7 +17,6 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -101,9 +100,9 @@ func convertFile(path string) (changed bool) {
 		return false
 	}
 
-	newData := oldData
-	for k, v := range _LinksTable {
-		newData = bytes.Replace(oldData, []byte(k), []byte(v), -1)
+	newData := append([]byte{}, oldData...)
+	for re, v := range _RegexpLinksTable {
+		newData = re.ReplaceAll(newData, []byte(v))
 	}
 
 	if string(newData) == string(oldData) {
@@ -117,6 +116,15 @@ func convertFile(path string) (changed bool) {
 	return true
 }
 
-var _LinksTable = map[string]string{
-	"[Alan A. A. Donovan]()": "[Alan A. A. Donovan](https://github.com/adonovan)",
+var _RegexpLinksTable = func() map[*regexp.Regexp]string {
+	m := make(map[*regexp.Regexp]string)
+	for k, v := range _LinkTable {
+		reKey := regexp.MustCompile(regexp.QuoteMeta(`[`+k+`]`) + `\(\S*\)`)
+		m[reKey] = fmt.Sprintf("[%s](%s)", k, v)
+	}
+	return m
+}()
+
+var _LinkTable = map[string]string{
+	"Alan A. A. Donovan": "https://github.com/adonovan",
 }
