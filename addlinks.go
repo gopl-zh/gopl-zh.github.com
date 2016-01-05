@@ -117,14 +117,52 @@ func convertFile(path string) (changed bool) {
 }
 
 var _RegexpLinksTable = func() map[*regexp.Regexp]string {
+	const (
+		reHttp     = `(https?://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|])?`
+		reWikiTail = `(\([-A-Za-z0-9+~_]+\))?`
+	)
+
 	m := make(map[*regexp.Regexp]string)
 	for k, v := range _LinkTable {
-		reKey := regexp.MustCompile(regexp.QuoteMeta(`[`+k+`]`) + `\(\S*\)`)
+		reKey := regexp.MustCompile(regexp.QuoteMeta(`[`+k+`]`) + `\(` + reHttp + reWikiTail + `\)`)
 		m[reKey] = fmt.Sprintf("[%s](%s)", k, v)
 	}
 	return m
 }()
 
 var _LinkTable = map[string]string{
+
+	// 人名
 	"Alan A. A. Donovan": "https://github.com/adonovan",
+	"Brian W. Kernighan": "http://www.cs.princeton.edu/~bwk/",
+	"Robert Griesemer":   "http://research.google.com/pubs/author96.html",
+	"Rob Pike":           "http://genius.cat-v.org/rob-pike/",
+	"Ken Thompson":       "http://genius.cat-v.org/ken-thompson/",
+
+	// 图书
+	"The C Programming Language":  "http://s3-us-west-2.amazonaws.com/belllabs-microsite-dritchie/cbook/index.html",
+	"The Practice of Programming": "https://en.wikipedia.org/wiki/The_Practice_of_Programming",
+
+	// Go语言
+	"Go":              "https://golang.org/",
+	"Google’s Go":     "https://golang.org/",
+	"oracle":          "https://godoc.org/golang.org/x/tools/oracle",
+	"godoc -analysis": "https://godoc.org/golang.org/x/tools/cmd/godoc",
+	"gorename":        "https://godoc.org/golang.org/x/tools/cmd/gorename",
+
+	// 其他语言
+
+	// 系统
+	"Unix":              "http://doc.cat-v.org/unix/",
+	"UNIX":              "http://doc.cat-v.org/unix/",
+	"Linux":             "http://www.linux.org/",
+	"FreeBSD":           "https://www.freebsd.org/",
+	"OpenBSD":           "http://www.openbsd.org/",
+	"Mac OSX":           "http://www.apple.com/cn/osx/",
+	"Mac OS X":          "http://www.apple.com/cn/osx/",
+	"Plan9":             "http://plan9.bell-labs.com/plan9/",
+	"Microsoft Windows": "https://www.microsoft.com/zh-cn/windows/",
+
+	// 其他
+	"Bell Labs": "http://www.cs.bell-labs.com/",
 }
