@@ -23,7 +23,7 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 *“Go是一個開源的編程語言，它很容易用於構建簡單、可靠和高效的軟件。”（摘自Go語言官方網站：http://golang.org ）*
 
-Go語言由來自Google公司的Robert Griesemer，Rob Pike和Ken Thompson三位大牛於2007年9月開始設計和實現，然後於2009年的11月對外正式發布（譯註：關於Go語言的創世紀過程請參考 http://talks.golang.org/2015/how-go-was-made.slide ）。語言及其配套工具的設計目標是具有表達力，高效的編譯和執行效率，有效地編寫高效和健壯的程序。
+Go語言由來自Google公司的[Robert Griesemer](http://research.google.com/pubs/author96.html)，[Rob Pike](http://genius.cat-v.org/rob-pike/)和[Ken Thompson](http://genius.cat-v.org/ken-thompson/)三位大牛於2007年9月開始設計和實現，然後於2009年的11月對外正式發布（譯註：關於Go語言的創世紀過程請參考 http://talks.golang.org/2015/how-go-was-made.slide ）。語言及其配套工具的設計目標是具有表達力，高效的編譯和執行效率，有效地編寫高效和健壯的程序。
 
 Go語言有着和C語言類似的語法外表，和C語言一樣是專業程序員的必備工具，可以用最小的代價獲得最大的戰果。
 但是它不僅僅是一個更新的C語言。它還從其他語言借鑒了很多好的想法，同時避免引入過度的複雜性。
@@ -36,8 +36,8 @@ Go語言尤其適合編寫網絡服務相關基礎設施，同時也適合開發
 因爲Go編寫的程序通常比腳本語言運行的更快也更安全，而且很少會發生意外的類型錯誤。
 
 Go語言還是一個開源的項目，可以免費獲編譯器、庫、配套工具的源代碼。
-Go語言的貢獻者來自一個活躍的全球社區。Go語言可以運行在類UNIX繫統——
-比如Linux、FreeBSD、OpenBSD、Mac OSX——和Plan9繫統和Microsoft Windows操作繫統之上。
+Go語言的貢獻者來自一個活躍的全球社區。Go語言可以運行在類[UNIX](http://doc.cat-v.org/unix/)繫統——
+比如[Linux](http://www.linux.org/)、[FreeBSD](https://www.freebsd.org/)、[OpenBSD](http://www.openbsd.org/)、[Mac OSX](http://www.apple.com/cn/osx/)——和[Plan9](http://plan9.bell-labs.com/plan9/)繫統和[Microsoft Windows](https://www.microsoft.com/zh-cn/windows/)操作繫統之上。
 Go語言編寫的程序無需脩改就可以運行在上面這些環境。
 
 本書是爲了幫助你開始以有效的方式使用Go語言，充分利用語言本身的特性和自帶的標準庫去編寫清晰地道的Go程序。

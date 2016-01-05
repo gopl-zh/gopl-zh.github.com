@@ -28,8 +28,6 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - `make zh2tw` 或 `go run zh2tw.go . "\.md$" zh2tw`，轉繁體。
 - `make tw2zh` 或 `go run zh2tw.go . "\.md$" tw2zh`，轉簡體。
 
-如果是使用簡體中文的用戶，可在執行上述命令前運行`make tw2zh`命令，將繁體中文轉換爲簡體中文。
-
 ### Markdown 格式預覽
 
 - [SUMMARY-github.md](SUMMARY-github.md)

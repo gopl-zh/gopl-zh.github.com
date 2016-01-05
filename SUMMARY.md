@@ -122,4 +122,4 @@
   * [示例: 深度相等判斷](ch13/ch13-03.md)
   * [通過cgo調用C代碼](ch13/ch13-04.md)
   * [幾點忠告](ch13/ch13-05.md)
-* [附録](CONTRIBUTORS.md)
+* [附録](appendix/appendix.md)

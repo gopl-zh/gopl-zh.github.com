@@ -30,6 +30,9 @@ review:
 	gitbook build
 	go run zh2tw.go . .md$$ zh2tw
 
+fixlink:
+	go run fixlinks.go . .md$$
+
 cover:
 	composite  cover_patch.png cover_bgd.png cover.jpg
 	convert    -resize 1800x2360! cover.jpg  cover.jpg
