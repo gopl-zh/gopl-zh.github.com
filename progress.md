@@ -55,7 +55,7 @@
  - [x] 7.2 Interface Types
  - [x] 7.3 Interface Satisfaction
  - [x] 7.4 Parsing Flags with flag.Value
- - [ ] 7.5 Interface Values
+ - [x] 7.5 Interface Values
  - [ ] 7.6 Sorting with sort.Interface
  - [ ] 7.7 The http.Handler Interface
  - [ ] 7.8 The error Interface
