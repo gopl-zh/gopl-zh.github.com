@@ -36,7 +36,7 @@
  - [x] 5.1 Function Declarations
  - [x] 5.2 Recursion
  - [x] 5.3 Multiple Return Values
- - [ ] 5.4 Errors
+ - [x] 5.4 Errors
  - [ ] 5.5 Function Values
  - [ ] 5.6 Anonymous Functions
  - [ ] 5.7 Variadic Functions
