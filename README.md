@@ -9,7 +9,7 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - 在線預覽：http://golang-china.github.io/gopl-zh
 - 原版官網：http://gopl.io
 
-[![](cover_small.jpg)](https://github.com/golang-china/gopl-zh)
+[![](cover_middle.jpg)](https://github.com/golang-china/gopl-zh)
 
 
 ### 從源文件構建
