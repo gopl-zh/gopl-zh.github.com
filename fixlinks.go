@@ -137,6 +137,7 @@ var _LinkTable = map[string]string{
 	"Brian Kernighan":    "http://www.cs.princeton.edu/~bwk/",
 	"Alan A. A. Donovan": "https://github.com/adonovan",
 	"Brian W. Kernighan": "http://www.cs.princeton.edu/~bwk/",
+	"Dennis M. Ritchie":  "http://genius.cat-v.org/dennis-ritchie/",
 	"Robert Griesemer":   "http://research.google.com/pubs/author96.html",
 	"Rob Pike":           "http://genius.cat-v.org/rob-pike/",
 	"Ken Thompson":       "http://genius.cat-v.org/ken-thompson/",
@@ -183,4 +184,5 @@ var _LinkTable = map[string]string{
 	"Bell Labs":                          "http://www.cs.bell-labs.com/",
 	"communicating sequential processes": "https://en.wikipedia.org/wiki/Communicating_sequential_processes",
 	"CSP": "https://en.wikipedia.org/wiki/Communicating_sequential_processes",
+	"K&R": "https://en.wikipedia.org/wiki/K%26R",
 }

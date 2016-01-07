@@ -23,21 +23,21 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 # 譯者序
 
-在上個世紀70年代，貝爾實驗室的Ken Thompson和Dennis M. Ritchie合作發明了UNIX操作繫統，同時Dennis M. Ritchie爲了解決UNIX繫統的移植性問題而發明了C語言，貝爾實驗室的UNIX和C語言兩大發明奠定了整個現代IT行業最重要的軟件基礎（目前的三大桌面操作繫統的中Linux和Mac OS X都是源於UINX繫統，兩大移動平台的操作繫統iOS和Android也都是源於UNIX繫統。C繫家族的編程語言占據統治地位達幾十年之久）。在UINX和C語言發明40年之後，目前已經在Google工作的Ken Thompson和Rob Pike（他們在貝爾實驗室時就是同事）、同樣還有Robert Griesemer一起合作，爲了解決21世紀的多覈和網絡化編程問題而發明了Go語言。從Go語言庫早期代碼庫日誌可以看出它的演化歷程：
+在上個世紀70年代，貝爾實驗室的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)合作發明了[UNIX](http://doc.cat-v.org/unix/)操作繫統，同時[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)爲了解決[UNIX](http://doc.cat-v.org/unix/)繫統的移植性問題而發明了C語言，貝爾實驗室的[UNIX](http://doc.cat-v.org/unix/)和C語言兩大發明奠定了整個現代IT行業最重要的軟件基礎（目前的三大桌面操作繫統的中[Linux](http://www.linux.org/)和[Mac OS X](http://www.apple.com/cn/osx/)都是源於[UINX]()繫統，兩大移動平台的操作繫統iOS和Android也都是源於[UNIX](http://doc.cat-v.org/unix/)繫統。C繫家族的編程語言占據統治地位達幾十年之久）。在[UINX]()和C語言發明40年之後，目前已經在Google工作的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Rob Pike](http://genius.cat-v.org/rob-pike/)（他們在貝爾實驗室時就是同事）、還有[Robert Griesemer](http://research.google.com/pubs/author96.html)一起合作，爲了解決在21世紀多核和網絡化環境下越來越複雜的編程問題而發明了Go語言。從Go語言庫早期代碼庫日誌可以看出它的演化歷程：
 
 ![](./images/go-log04.png)
 
-從早期提交日誌中也可以看出，Go語言是從Ken Thompson發明的B語言、Dennis M. Ritchie發明的C語言逐步演化過來的，是C語言家族的成員，因此很多人將Go語言稱爲21世紀的C語言。
+從早期提交日誌中也可以看出，Go語言是從[Ken Thompson](http://genius.cat-v.org/ken-thompson/)發明的B語言、[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)發明的C語言逐步演化過來的，是C語言家族的成員，因此很多人將Go語言稱爲21世紀的C語言。
 
-在C語言發明之後約5年的時間之後（1978年），Brian W. Kernighan和Dennis M. Ritchie合作編寫出版了C語言方面的經典敎材《The C Programming Language》，該書被譽爲C語言程序員的聖經，作者也被大家親切地稱爲K&R。同樣在Go語言正式發布（2009年）約5年之後（2014年開始寫作，2015年出版），由Go語言覈心糰隊成員Alan A. A. Donovan和K&R中的Brian W. Kernighan合作編寫了Go語言方面的經典敎材《The Go Programming Language》。Go語言被譽爲21世紀的C語言，如果説K&R所著的是聖經的舊約，那麽D&K所著的必將成爲聖經的新約。該書介紹了Go語言幾乎全部特性，併且隨着語言的深入層層遞進，對每個細節都解讀得非常細致，每一節內容都精綵不容錯過，是廣大Gopher的必讀書目。同時，大部分Go語言覈心糰隊的成員都參與了該書校對工作，因此該書的質量是可以完全放心的。
+在C語言發明之後約5年的時間之後（1978年），[Brian W. Kernighan](http://www.cs.princeton.edu/~bwk/)和[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)合作編寫出版了C語言方面的經典敎材《[The C Programming Language](The C Programming Language)》，該書被譽爲C語言程序員的聖經，作者也被大家親切地稱爲[K&R](https://en.wikipedia.org/wiki/K%26R)。同樣在Go語言正式發布（2009年）約5年之後（2014年開始寫作，2015年出版），由Go語言核心糰隊成員[Alan A. A. Donovan](https://github.com/adonovan)和[K&R](https://en.wikipedia.org/wiki/K%26R)中的[Brian W. Kernighan](http://www.cs.princeton.edu/~bwk/)合作編寫了Go語言方面的經典敎材《[The Go Programming Language](http://gopl.io)》。Go語言被譽爲21世紀的C語言，如果説K&R所著的是聖經的舊約，那麽D&K所著的必將成爲聖經的新約。該書介紹了Go語言幾乎全部特性，併且隨着語言的深入層層遞進，對每個細節都解讀得非常細致，每一節內容都精綵不容錯過，是廣大Gopher的必讀書目。同時，大部分Go語言核心糰隊的成員都參與了該書校對工作，因此該書的質量是可以完全放心的。
 
 同時，單憑閲讀和學習其語法結構併不能眞正地掌握一門編程語言，必鬚進行足夠多的編程實踐——親自編寫一些程序併研究學習别人寫的程序。要從利用Go語言良好的特性使得程序模塊化，充分利用Go的標準函數庫以Go語言自己的風格來編寫程序。書中包含了上百個精心挑選的習題，希望大家能先用自己的方式嚐試完成習題，然後再參考官方給出的解決方案。
 
-該書英文版約從2015年10月開始公開發售，同時同步發售的還有日文版本。不過比較可惜的是，中文版併沒有在同步發售之列，甚至連中文版是否會引進、卽使引進將由何人翻譯、何時出版都成了一個祕密。中国的Go語言社區是全球最大的Go語言社區，我們一直在緊跟Go語言發展的腳步。我們應該也完全有能力以Go語言社區的力量同步完成Go語言聖經中文版的翻譯工作。與此同時，国內有很多Go語言愛好者也在積極關註該書（本人也在第一時間購買了紙質版本，亞馬遜價格314人民幣）。爲了Go語言的學習和交流，大家決定合作免費翻譯該書。
+該書英文版約從2015年10月開始公開發售，同時同步發售的還有日文版本。不過比較可惜的是，中文版併沒有在同步發售之列，甚至連中文版是否會引進、是由哪個出版社引進、卽使引進將由何人來翻譯、何時能出版都成了一個祕密。中国的Go語言社區是全球最大的Go語言社區，我們從一開始就始終緊跟着Go語言的發展腳步。我們應該也完全有能力以中国Go語言社區的力量同步完成Go語言聖經中文版的翻譯工作。與此同時，国內有很多Go語言愛好者也在積極關註該書（本人也在第一時間購買了紙質版本，亞馬遜價格314人民幣）。爲了Go語言的學習和交流，大家決定合作免費翻譯該書。
 
-翻譯工作從2015年11月20日前後開始，到2016年1月底初步完成，前後歷時約2個月時間。其中，chai2010翻譯了前言、第2~4章、第10~13章，Xargin翻譯了第1章、第6章、第8~9章，CrazySssst翻譯了第5章，foreversmart翻譯了第7章，大家一起參與了基本的校驗工作，還有其他一些朋友提供了積極的反饋建議。如果大家有任何問題或建議，可以直接到中文版項目頁面提交Issue，如果發現英文原文有錯誤，可以直接去英文版項目提交。
+翻譯工作從2015年11月20日前後開始，到2016年1月底初步完成，前後歷時約2個月時間。其中，[chai2010](https://github.com/chai2010)翻譯了前言、第2~4章、第10~13章，[Xargin](https://github.com/cch123)翻譯了第1章、第6章、第8~9章，[CrazySssst](https://github.com/CrazySssst)翻譯了第5章，[foreversmart](https://github.com/foreversmart)翻譯了第7章，大家共同參與了基本的校驗工作，還有其他一些朋友提供了積極的反饋建議。如果大家還有任何問題或建議，可以直接到中文版項目頁面提交Issue，如果發現英文版原文有任何勘誤中未提到的錯誤，可以直接去英文版項目提交。
 
-最後，希望這本書能夠幫助大家成爲Go語言的高手。
+最後，希望這本書能夠幫助大家用Go語言快樂地編程。
 
 2016年 1月 於 武漢
 
