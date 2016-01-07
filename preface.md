@@ -23,11 +23,11 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 # 譯者序
 
-在上個世紀70年代，貝爾實驗室的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)合作發明了[UNIX](http://doc.cat-v.org/unix/)操作繫統，同時[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)爲了解決[UNIX](http://doc.cat-v.org/unix/)繫統的移植性問題而發明了C語言，貝爾實驗室的[UNIX](http://doc.cat-v.org/unix/)和C語言兩大發明奠定了整個現代IT行業最重要的軟件基礎（目前的三大桌面操作繫統的中[Linux](http://www.linux.org/)和[Mac OS X](http://www.apple.com/cn/osx/)都是源於[UINX]()繫統，兩大移動平台的操作繫統iOS和Android也都是源於[UNIX](http://doc.cat-v.org/unix/)繫統。C繫家族的編程語言占據統治地位達幾十年之久）。在[UINX]()和C語言發明40年之後，目前已經在Google工作的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Rob Pike](http://genius.cat-v.org/rob-pike/)（他們在貝爾實驗室時就是同事）、還有[Robert Griesemer](http://research.google.com/pubs/author96.html)一起合作，爲了解決在21世紀多核和網絡化環境下越來越複雜的編程問題而發明了Go語言。從Go語言庫早期代碼庫日誌可以看出它的演化歷程（Git用`git log --before={2008-03-03} --reverse`命令査看）：
+在上個世紀70年代，貝爾實驗室的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)合作發明了[UNIX](http://doc.cat-v.org/unix/)操作繫統，同時[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)爲了解決[UNIX](http://doc.cat-v.org/unix/)繫統的移植性問題而發明了C語言，貝爾實驗室的[UNIX](http://doc.cat-v.org/unix/)和C語言兩大發明奠定了整個現代IT行業最重要的軟件基礎（目前的三大桌面操作繫統的中[Linux](http://www.linux.org/)和[Mac OS X](http://www.apple.com/cn/osx/)都是源於[UINX]()繫統，兩大移動平台的操作繫統iOS和Android也都是源於[UNIX](http://doc.cat-v.org/unix/)繫統。C繫家族的編程語言占據統治地位達幾十年之久）。在[UINX]()和C語言發明40年之後，目前已經在Google工作的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Rob Pike](http://genius.cat-v.org/rob-pike/)（他們在貝爾實驗室時就是同事）、還有[Robert Griesemer](http://research.google.com/pubs/author96.html)（設計了V8引擎和HotSpot虛擬機）一起合作，爲了解決在21世紀多核和網絡化環境下越來越複雜的編程問題而發明了Go語言。從Go語言庫早期代碼庫日誌可以看出它的演化歷程（Git用`git log --before={2008-03-03} --reverse`命令査看）：
 
 ![](./images/go-log04.png)
 
-從早期提交日誌中也可以看出，Go語言是從[Ken Thompson](http://genius.cat-v.org/ken-thompson/)發明的B語言、[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)發明的C語言逐步演化過來的，是C語言家族的成員，因此很多人將Go語言稱爲21世紀的C語言。
+從早期提交日誌中也可以看出，Go語言是從[Ken Thompson](http://genius.cat-v.org/ken-thompson/)發明的B語言、[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)發明的C語言逐步演化過來的，是C語言家族的成員，因此很多人將Go語言稱爲21世紀的C語言。縱觀這幾年來的發展趨勢，Go語言已經成爲雲計算、雲存儲時代最重要的基礎編程語言。
 
 在C語言發明之後約5年的時間之後（1978年），[Brian W. Kernighan](http://www.cs.princeton.edu/~bwk/)和[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)合作編寫出版了C語言方面的經典敎材《[The C Programming Language](The C Programming Language)》，該書被譽爲C語言程序員的聖經，作者也被大家親切地稱爲[K&R](https://en.wikipedia.org/wiki/K%26R)。同樣在Go語言正式發布（2009年）約5年之後（2014年開始寫作，2015年出版），由Go語言核心糰隊成員[Alan A. A. Donovan](https://github.com/adonovan)和[K&R](https://en.wikipedia.org/wiki/K%26R)中的[Brian W. Kernighan](http://www.cs.princeton.edu/~bwk/)合作編寫了Go語言方面的經典敎材《[The Go Programming Language](http://gopl.io)》。Go語言被譽爲21世紀的C語言，如果説[K&R](https://en.wikipedia.org/wiki/K%26R)所著的是聖經的舊約，那麽D&K所著的必將成爲聖經的新約。該書介紹了Go語言幾乎全部特性，併且隨着語言的深入層層遞進，對每個細節都解讀得非常細致，每一節內容都精綵不容錯過，是廣大Gopher的必讀書目。同時，大部分Go語言核心糰隊的成員都參與了該書校對工作，因此該書的質量是可以完全放心的。
 
@@ -65,5 +65,3 @@ Go語言的貢獻者來自一個活躍的全球社區。Go語言可以運行在�
 Go語言編寫的程序無需脩改就可以運行在上面這些環境。
 
 本書是爲了幫助你開始以有效的方式使用Go語言，充分利用語言本身的特性和自帶的標準庫去編寫清晰地道的Go程序。
-
-
