@@ -25,7 +25,7 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 在上個世紀70年代，貝爾實驗室的Ken Thompson和Dennis M. Ritchie合作發明了UNIX操作繫統，同時Dennis M. Ritchie爲了解決UNIX繫統的移植性問題而發明了C語言，貝爾實驗室的UNIX和C語言兩大發明奠定了整個現代IT行業最重要的軟件基礎（目前的三大桌面操作繫統的中Linux和Mac OS X都是源於UINX繫統，兩大移動平台的操作繫統iOS和Android也都是源於UNIX繫統。C繫家族的編程語言占據統治地位達幾十年之久）。在UINX和C語言發明40年之後，目前已經在Google工作的Ken Thompson和Rob Pike（他們在貝爾實驗室時就是同事）、同樣還有Robert Griesemer一起合作，爲了解決21世紀的多覈和網絡化編程問題而發明了Go語言。從Go語言庫早期代碼庫日誌可以看出它的演化歷程：
 
-![](../images/go-log04.png)
+![](./images/go-log04.png)
 
 從早期提交日誌中也可以看出，Go語言是從Ken Thompson發明的B語言、Dennis M. Ritchie發明的C語言逐步演化過來的，是C語言家族的成員，因此很多人將Go語言稱爲21世紀的C語言。
 
