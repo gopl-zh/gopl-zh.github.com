@@ -38,7 +38,7 @@
  - [x] 5.3 Multiple Return Values
  - [x] 5.4 Errors
  - [x] 5.5 Function Values
- - [ ] 5.6 Anonymous Functions
+ - [x] 5.6 Anonymous Functions
  - [ ] 5.7 Variadic Functions
  - [ ] 5.8 Deferred Function Calls
  - [ ] 5.9 Panic
