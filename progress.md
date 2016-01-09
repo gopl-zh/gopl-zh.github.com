@@ -85,7 +85,7 @@
  - [ ] 9.5 Lazy Initialization: sync.Once
  - [x] 9.6 The Race Detector
  - [ ] 9.7 Example: Concurrent Non-Blocking Cache
- - [ ] 9.8 Goroutines and Threads
+ - [x] 9.8 Goroutines and Threads
 - [x] Chapter 10: Packages and the Go Tool
  - [x] 10.1 Introduction
  - [x] 10.2 Import Paths
