@@ -41,7 +41,7 @@
  - [x] 5.6 Anonymous Functions
  - [x] 5.7 Variadic Functions
  - [x] 5.8 Deferred Function Calls
- - [ ] 5.9 Panic
+ - [x] 5.9 Panic
  - [ ] 5.10 Recover
 - [x] Chapter 6: Methods
  - [x] 6.1 Method Declarations
