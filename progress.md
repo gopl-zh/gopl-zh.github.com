@@ -82,7 +82,7 @@
  - [ ] 9.2 Mutual Exclusion: sync.Mutex
  - [x] 9.3 Read/Write Mutexes: sync.RWMutex
  - [x] 9.4 Memory Synchronization
- - [ ] 9.5 Lazy Initialization: sync.Once
+ - [x] 9.5 Lazy Initialization: sync.Once
  - [x] 9.6 The Race Detector
  - [ ] 9.7 Example: Concurrent Non-Blocking Cache
  - [x] 9.8 Goroutines and Threads
