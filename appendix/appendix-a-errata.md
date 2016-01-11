@@ -23,10 +23,10 @@
 **p.68:** the table of UTF-8 encodings is missing a bit from each first byte. The corrected table is shown below.  (Thanks to Akshay Kumar, 2015-11-02. Corrected in the second printing.)
 
 ```
-0xxxxxxx                             runes 0?127     (ASCII)
-110xxxxx 10xxxxxx                    128?2047        (values <128 unused)
-1110xxxx 10xxxxxx 10xxxxxx           2048?65535      (values <2048 unused)
-11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536?0x10ffff  (other values unused)
+0xxxxxxx                             runes 0−127     (ASCII)
+110xxxxx 10xxxxxx                    128−2047        (values <128 unused)
+1110xxxx 10xxxxxx 10xxxxxx           2048−65535      (values <2048 unused)
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536−0x10ffff  (other values unused)
 ```
 
 **p.73, ¶1:** For "a exercise", read "an exercise". (Thanks to vrajmohan, 2015-12-28.)
