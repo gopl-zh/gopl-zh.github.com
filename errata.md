@@ -44,6 +44,10 @@ appears on the right-hand side of a variable declaration with an explicit type, 
 
 **p.166, ¶2:** for "way", read "a way".
 
+**p.222. Exercise 8.1:** The port numbers for `London` and `Tokyo` should be swapped in the final command to match the earlier commands. (Thanks to Kiyoshi Kamishima, 2016-01-08.)
+
+**p.288, code display following ¶4:** In the import declaration, for `"database/mysql"`, read `"database/sql"`. (Thanks to Jose Colon Rodriguez, 2016-01-09.)
+
 **p.200, TestEval function:** the format string in the final call to t.Errorf should format test.env with %v, not %s. (Thanks to Mitsuteru Sawa, 2015-12-07.)
 
 **p.347, Exercise 12.8:** for "like json.Marshal", read "like json.Unmarshal". (Thanks to @chai2010, 2016-01-01.)
