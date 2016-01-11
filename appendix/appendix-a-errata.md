@@ -1,4 +1,4 @@
-# 原文勘誤
+## 附録A：[原文勘誤](http://www.gopl.io/errata.html)
 
 **p.9, ¶2:** for "can compared", read "can be compared". (Thanks to Antonio Macías Ojeda, 2015-10-22. Corrected in the second printing.)
 
@@ -23,10 +23,10 @@
 **p.68:** the table of UTF-8 encodings is missing a bit from each first byte. The corrected table is shown below.  (Thanks to Akshay Kumar, 2015-11-02. Corrected in the second printing.)
 
 ```
-0xxxxxxx                             runes 0?127     (ASCII)
-110xxxxx 10xxxxxx                    128?2047        (values <128 unused)
-1110xxxx 10xxxxxx 10xxxxxx           2048?65535      (values <2048 unused)
-11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536?0x10ffff  (other values unused)
+0xxxxxxx                             runes 0−127     (ASCII)
+110xxxxx 10xxxxxx                    128−2047        (values <128 unused)
+1110xxxx 10xxxxxx 10xxxxxx           2048−65535      (values <2048 unused)
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536−0x10ffff  (other values unused)
 ```
 
 **p.73, ¶1:** For "a exercise", read "an exercise". (Thanks to vrajmohan, 2015-12-28.)
@@ -44,8 +44,13 @@ appears on the right-hand side of a variable declaration with an explicit type, 
 
 **p.166, ¶2:** for "way", read "a way".
 
+**p.222. Exercise 8.1:** The port numbers for `London` and `Tokyo` should be swapped in the final command to match the earlier commands. (Thanks to Kiyoshi Kamishima, 2016-01-08.)
+
+**p.288, code display following ¶4:** In the import declaration, for `"database/mysql"`, read `"database/sql"`. (Thanks to Jose Colon Rodriguez, 2016-01-09.)
+
 **p.200, TestEval function:** the format string in the final call to t.Errorf should format test.env with %v, not %s. (Thanks to Mitsuteru Sawa, 2015-12-07.)
 
 **p.347, Exercise 12.8:** for "like json.Marshal", read "like json.Unmarshal". (Thanks to @chai2010, 2016-01-01.)
 
 **p.362:** the `gopl.io/ch13/bzip` program does not comply with the [proposed rules for passing pointers between Go and C code](https://github.com/golang/proposal/blob/master/design/12416-cgo-pointers.md) because the C function `bz2compress` temporarily stores a Go pointer (in) into the Go heap (the `bz_stream` variable). The `bz_stream` variable should be allocated, and explicitly freed after the call to `BZ2_bzCompressEnd`, by C functions. (Thanks to Joe Tsai, 2015-11-18.)
+
