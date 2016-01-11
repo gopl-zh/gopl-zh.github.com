@@ -1,4 +1,4 @@
-# 原文勘誤
+## 附録A：[原文勘誤](http://www.gopl.io/errata.html)
 
 **p.9, ¶2:** for "can compared", read "can be compared". (Thanks to Antonio Macías Ojeda, 2015-10-22. Corrected in the second printing.)
 
@@ -53,3 +53,4 @@ appears on the right-hand side of a variable declaration with an explicit type, 
 **p.347, Exercise 12.8:** for "like json.Marshal", read "like json.Unmarshal". (Thanks to @chai2010, 2016-01-01.)
 
 **p.362:** the `gopl.io/ch13/bzip` program does not comply with the [proposed rules for passing pointers between Go and C code](https://github.com/golang/proposal/blob/master/design/12416-cgo-pointers.md) because the C function `bz2compress` temporarily stores a Go pointer (in) into the Go heap (the `bz_stream` variable). The `bz_stream` variable should be allocated, and explicitly freed after the call to `BZ2_bzCompressEnd`, by C functions. (Thanks to Joe Tsai, 2015-11-18.)
+

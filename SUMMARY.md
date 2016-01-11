@@ -123,3 +123,6 @@
   * [通過cgo調用C代碼](ch13/ch13-04.md)
   * [幾點忠告](ch13/ch13-05.md)
 * [附録](appendix/appendix.md)
+  * [附録A：原文勘誤](appendix/appendix-a-errata.md)
+  * [附録B：作者譯者](appendix/appendix-b-author.md)
+  * [附録C：譯文授權](appendix/appendix-c-cpoyright.md)

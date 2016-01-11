@@ -1,26 +1,6 @@
-## 附録：作者/譯者
+# 附録
 
-### 英文作者
+英文原版併沒有包含附録部分，隻有一個索引部分。中文版增加附録部分主要用於收録一些和本書相關的內容，比如英文原版的勘误（有些讀者可能會對照中文和英文原閲讀）、英文作者和中文譯者、譯文授權等內容。以後還可能會考慮增加一些習題解答相關的內容。
 
-- **[Alan A. A. Donovan](https://github.com/adonovan)** is a member of [Google’s Go](https://golang.org/) team in New York. He holds computer science degrees from Cambridge and MIT and has been programming in industry since 1996. Since 2005, he has worked at Google on infrastructure projects and was the co-designer of its proprietary build system, [Blaze](http://bazel.io/). He has built many libraries and tools for static analysis of Go programs, including [oracle](https://godoc.org/golang.org/x/tools/oracle), [`godoc -analysis`](https://godoc.org/golang.org/x/tools/cmd/godoc), eg, and [gorename](https://godoc.org/golang.org/x/tools/cmd/gorename).
-- **[Brian W. Kernighan](http://www.cs.princeton.edu/~bwk/)** is a professor in the Computer Science Department at Princeton University. He was a member of technical staff in the Computing Science Research Center at [Bell Labs](http://www.cs.bell-labs.com/) from 1969 until 2000, where he worked on languages and tools for [Unix](http://doc.cat-v.org/unix/). He is the co-author of several books, including [The C Programming Language, Second Edition (Prentice Hall, 1988)](http://s3-us-west-2.amazonaws.com/belllabs-microsite-dritchie/cbook/index.html), and [The Practice of Programming (Addison-Wesley, 1999)](https://en.wikipedia.org/wiki/The_Practice_of_Programming).
-
--------
-
-### 中文譯者
-
-中文譯者                               | 章節
--------------------------------------- | -------------------------
-`chai2010     <chaishushan@gmail.com>` | 前言/第2~4章/第10~13章
-`CrazySssst`                           | 第5章
-`foreversmart <njutree@gmail.com>`     | 第7章
-`Xargin       <cao1988228@163.com>`    | 第1章/第6章/第8~9章
-
--------
-
-## 譯文授權
-
-除特别註明外, 本站內容均采用[知識共享-署名(CC-BY) 3.0協議](http://creativecommons.org/licenses/by/3.0/)授權, 代碼遵循[Go項目的BSD協議](http://golang.org/LICENSE)授權.
-
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="../images/by-nc-sa-4.0-88x31.png"></img></a>
+需要特别説明的是，中文版附録併沒有包含英文原版的索引信息。因爲英文原版的索引信息主要是記録每個索引所在的英文頁面位置，而中文版是以GitBook方式組織的html網頁形式，將英文頁面位置轉爲章節位置可能會更合理，不過這個會涉及到繁瑣的手工操作。如果大家有更好的建議，請告知我們。
 
