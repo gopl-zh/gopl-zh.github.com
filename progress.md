@@ -117,4 +117,4 @@
  - [x] 13.3 Example: Deep Equivalence
  - [x] 13.4 Calling C Code with cgo
  - [x] 13.5 Another Word of Caution
-- [ ] Errata
+
