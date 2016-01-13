@@ -30,6 +30,9 @@ review:
 	gitbook build
 	go run zh2tw.go . .md$$ zh2tw
 
+qrcode:
+	go run mkqrcode.go
+
 fixlink:
 	go run fixlinks.go . .md$$
 

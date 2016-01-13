@@ -42,7 +42,7 @@
  - [x] 5.7 Variadic Functions
  - [x] 5.8 Deferred Function Calls
  - [x] 5.9 Panic
- - [ ] 5.10 Recover
+ - [x] 5.10 Recover
 - [x] Chapter 6: Methods
  - [x] 6.1 Method Declarations
  - [x] 6.2 Methods with a Pointer Receiver
@@ -56,7 +56,7 @@
  - [x] 7.3 Interface Satisfaction
  - [x] 7.4 Parsing Flags with flag.Value
  - [x] 7.5 Interface Values
- - [ ] 7.6 Sorting with sort.Interface
+ - [x] 7.6 Sorting with sort.Interface
  - [ ] 7.7 The http.Handler Interface
  - [ ] 7.8 The error Interface
  - [ ] 7.9 Example: Expression Evaluator
@@ -78,7 +78,7 @@
  - [x] 8.9 Cancellation
  - [x] 8.10 Example: Chat Server
 - [x] Chapter 9: Concurrency with Shared Variables
- - [ ] 9.1 Race Conditions
+ - [x] 9.1 Race Conditions
  - [ ] 9.2 Mutual Exclusion: sync.Mutex
  - [x] 9.3 Read/Write Mutexes: sync.RWMutex
  - [x] 9.4 Memory Synchronization
@@ -117,4 +117,4 @@
  - [x] 13.3 Example: Deep Equivalence
  - [x] 13.4 Calling C Code with cgo
  - [x] 13.5 Another Word of Caution
-- [ ] Errata
+
