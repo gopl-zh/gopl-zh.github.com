@@ -78,7 +78,7 @@
  - [x] 8.9 Cancellation
  - [x] 8.10 Example: Chat Server
 - [x] Chapter 9: Concurrency with Shared Variables
- - [ ] 9.1 Race Conditions
+ - [x] 9.1 Race Conditions
  - [ ] 9.2 Mutual Exclusion: sync.Mutex
  - [x] 9.3 Read/Write Mutexes: sync.RWMutex
  - [x] 9.4 Memory Synchronization
