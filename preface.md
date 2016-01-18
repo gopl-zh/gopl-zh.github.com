@@ -31,7 +31,7 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 在C語言發明之後約5年的時間之後（1978年），[Brian W. Kernighan](http://www.cs.princeton.edu/~bwk/)和[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)合作編寫出版了C語言方面的經典敎材《[The C Programming Language](http://s3-us-west-2.amazonaws.com/belllabs-microsite-dritchie/cbook/index.html)》，該書被譽爲C語言程序員的聖經，作者也被大家親切地稱爲[K&R](https://en.wikipedia.org/wiki/K%26R)。同樣在Go語言正式發布（2009年）約5年之後（2014年開始寫作，2015年出版），由Go語言核心糰隊成員[Alan A. A. Donovan](https://github.com/adonovan)和[K&R](https://en.wikipedia.org/wiki/K%26R)中的[Brian W. Kernighan](http://www.cs.princeton.edu/~bwk/)合作編寫了Go語言方面的經典敎材《[The Go Programming Language](http://gopl.io)》。Go語言被譽爲21世紀的C語言，如果説[K&R](https://en.wikipedia.org/wiki/K%26R)所著的是聖經的舊約，那麽D&K所著的必將成爲聖經的新約。該書介紹了Go語言幾乎全部特性，併且隨着語言的深入層層遞進，對每個細節都解讀得非常細致，每一節內容都精綵不容錯過，是廣大Gopher的必讀書目。大部分Go語言核心糰隊的成員都參與了該書校對工作，因此該書的質量是可以完全放心的。
 
-同時，單憑閲讀和學習其語法結構併不能眞正地掌握一門編程語言，必鬚進行足夠多的編程實踐——親自編寫一些程序併研究學習别人寫的程序。要從利用Go語言良好的特性使得程序模塊化，充分利用Go的標準函數庫以Go語言自己的風格來編寫程序。書中包含了上百個精心挑選的習題，希望大家能先用自己的方式嚐試完成習題，然後再參考官方給出的解決方案。
+同時，單憑閲讀和學習其語法結構併不能眞正地掌握一門編程語言，必須進行足夠多的編程實踐——親自編寫一些程序併研究學習别人寫的程序。要從利用Go語言良好的特性使得程序模塊化，充分利用Go的標準函數庫以Go語言自己的風格來編寫程序。書中包含了上百個精心挑選的習題，希望大家能先用自己的方式嚐試完成習題，然後再參考官方給出的解決方案。
 
 該書英文版約從2015年10月開始公開發售，其中日文版本最早參與翻譯和審校（參考致謝部分）。在2015年10月，我們併不知道中文版是否會及時引進、將由哪家出版社引進、引進將由何人來翻譯、何時能出版，這些信息都成了一個祕密。中国的Go語言社區是全球最大的Go語言社區，我們從一開始就始終緊跟着Go語言的發展腳步。我們應該也完全有能力以中国Go語言社區的力量同步完成Go語言聖經中文版的翻譯工作。與此同時，国內有很多Go語言愛好者也在積極關註該書（本人也在第一時間購買了紙質版本，[亞馬遜價格314人民幣](http://www.amazon.cn/The-Go-Programming-Language-Donovan-Alan-A-A/dp/0134190440/)）。爲了Go語言的學習和交流，大家決定合作免費翻譯該書。
 
