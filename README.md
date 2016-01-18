@@ -2,11 +2,9 @@
 
 Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本，僅供學習交流之用。
 
-- 項目主頁：http://github.com/golang-china/gopl-zh
-- 項目進度：http://github.com/golang-china/gopl-zh/blob/master/progress.md
-- 參與人員：http://github.com/golang-china/gopl-zh/blob/master/CONTRIBUTORS.md
-- 離線版本：http://github.com/golang-china/gopl-zh/archive/gh-pages.zip
 - 在線預覽：http://golang-china.github.io/gopl-zh
+- 項目主頁：http://github.com/golang-china/gopl-zh
+- 離線版本：http://github.com/golang-china/gopl-zh/archive/gh-pages.zip
 - 原版官網：http://gopl.io
 
 [![](cover_middle.jpg)](https://github.com/golang-china/gopl-zh)
