@@ -60,7 +60,7 @@
  - [x] 7.7 The http.Handler Interface
  - [x] 7.8 The error Interface
  - [x] 7.9 Example: Expression Evaluator
- - [ ] 7.10 Type Assertions
+ - [x] 7.10 Type Assertions
  - [ ] 7.11 Discriminating Errors with Type Assertions
  - [ ] 7.12 Querying Behaviors with Interface Type Assertions
  - [ ] 7.13 Type Switches
