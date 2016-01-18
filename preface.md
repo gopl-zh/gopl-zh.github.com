@@ -3,6 +3,7 @@
 Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本，僅供學習交流之用。
 
 - 在線預覽：http://golang-china.github.io/gopl-zh
+- 項目主頁：http://github.com/golang-china/gopl-zh
 - 離線版本：http://github.com/golang-china/gopl-zh/archive/gh-pages.zip
 - 原版官網：http://gopl.io
 
