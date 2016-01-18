@@ -171,3 +171,4 @@
   * [附録A：原文勘誤](appendix/appendix-a-errata.md)
   * [附録B：作者譯者](appendix/appendix-b-author.md)
   * [附録C：譯文授權](appendix/appendix-c-cpoyright.md)
+  * [附録D：其它語言](appendix/appendix-d-translations.md)
