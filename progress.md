@@ -61,8 +61,8 @@
  - [x] 7.8 The error Interface
  - [x] 7.9 Example: Expression Evaluator
  - [x] 7.10 Type Assertions
- - [ ] 7.11 Discriminating Errors with Type Assertions
- - [ ] 7.12 Querying Behaviors with Interface Type Assertions
+ - [x] 7.11 Discriminating Errors with Type Assertions
+ - [x] 7.12 Querying Behaviors with Interface Type Assertions
  - [ ] 7.13 Type Switches
  - [ ] 7.14 Example: Token-Based XML Decoding
  - [ ] 7.15 A Few Words of Advice
