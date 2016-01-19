@@ -48,7 +48,7 @@ appears on the right-hand side of a variable declaration with an explicit type, 
 
 **p.200, TestEval function:** the format string in the final call to t.Errorf should format test.env with %v, not %s. (Thanks to Mitsuteru Sawa, 2015-12-07. Corrected in the third printing.)
 
-**p.222. Exercise 8.1:** The port numbers for `London` and `Tokyo` should be swapped in the final command to match the earlier commands. (Thanks to Kiyoshi Kamishima, 2016-01-08.)
+**p.222, Exercise 8.1:** The port numbers for `London` and `Tokyo` should be swapped in the final command to match the earlier commands. (Thanks to Kiyoshi Kamishima, 2016-01-08.)
 
 **p.272, ¶3:** for "the request body", read "the response body". (Thanks to 曹春晖, 2016-01-19.)
 
