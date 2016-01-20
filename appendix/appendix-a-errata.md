@@ -42,6 +42,10 @@
 **p.79, ¶4:** "When an untyped constant is assigned to a variable, as in the first statement below, or
 appears on the right-hand side of a variable declaration with an explicit type, as in the other three statements, ..." has it backwards: the <i>first</i> statement is a declaration; the other three are assignments. (Thanks to Yoshiki Shibata, 2015-11-09. Corrected in the third printing.)
 
+**p.112:** Exercise 4.11 calls for a "CRUD" (create, read, update, delete) tool for GitHub Issues. Since GitHub does not currently allow Issues to be deleted, for "delete", read "close". (Thanks to Yoshiki Shibata, 2016-01-18.)
+
+**p.115:** The anchor element in `gopl.io/ch4/issueshtml`'s template is missing a closing `</a>` tag. (Thanks to Taj Khattra, 2016-01-19.)
+
 **p.132, code display following ¶3:** the final comment should read: `// compile error: can't assign func(int, int) int to func(int) int` (Thanks to Toni Suter, 2015-11-21. Corrected in the third printing.)
 
 **p.166, ¶2:** for "way", read "a way". (Corrected in the third printing.)
