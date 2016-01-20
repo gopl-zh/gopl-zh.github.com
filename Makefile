@@ -33,9 +33,6 @@ review:
 qrcode:
 	go run mkqrcode.go
 
-fixlink:
-	go run fixlinks.go . .md$$
-
 cover:
 	composite  cover_patch.png cover_bgd.png cover.jpg
 	convert    -resize 1800x2360! cover.jpg  cover.jpg
@@ -47,4 +44,3 @@ cover:
 	convert    -strip       cover.jpg        cover.jpg
 	convert    -strip       cover_small.jpg  cover_small.jpg
 	convert    -strip       cover_middle.jpg cover_middle.jpg
-
