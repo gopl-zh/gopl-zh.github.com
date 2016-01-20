@@ -209,6 +209,7 @@ var zh2twMapPatch = map[rune]rune{
 	'核': '核',
 	'糖': '糖',
 	'须': '須',
+	'晖': '晖',
 }
 
 var _TSCharactersMap = map[rune]rune{
