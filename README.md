@@ -26,10 +26,6 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - `make zh2tw` 或 `go run zh2tw.go . "\.md$" zh2tw`，轉繁體。
 - `make tw2zh` 或 `go run zh2tw.go . "\.md$" tw2zh`，轉簡體。
 
-### Markdown 格式預覽
-
-- [SUMMARY-github.md](SUMMARY-github.md)
-
 # 版權聲明
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>。
