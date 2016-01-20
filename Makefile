@@ -31,7 +31,7 @@ review:
 	go run zh2tw.go . .md$$ zh2tw
 
 qrcode:
-	go run mkqrcode.go
+	go run ./tools/mkqrcode.go
 
 cover:
 	composite  cover_patch.png cover_bgd.png cover.jpg
