@@ -14,7 +14,7 @@ Go語言聖經 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 # 譯者序
 
-在上個世紀70年代，貝爾實驗室的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)合作發明了[UNIX](http://doc.cat-v.org/unix/)操作繫統，同時[Dennis M. Ritchie](http://genius.cat-v.org/dennis-ritchie/)爲了解決[UNIX](http://doc.cat-v.org/unix/)繫統的移植性問題而發明了C語言，貝爾實驗室的[UNIX](http://doc.cat-v.org/unix/)和C語言兩大發明奠定了整個現代IT行業最重要的軟件基礎（目前的三大桌面操作繫統的中[Linux](http://www.linux.org/)和[Mac OS X](http://www.apple.com/cn/osx/)都是源於[UINX]()繫統，兩大移動平台的操作繫統iOS和Android也都是源於[UNIX](http://doc.cat-v.org/unix/)繫統。C繫家族的編程語言占據統治地位達幾十年之久）。在[UINX]()和C語言發明40年之後，目前已經在Google工作的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Rob Pike](http://genius.cat-v.org/rob-pike/)（他們在貝爾實驗室時就是同事）、還有[Robert Griesemer](http://research.google.com/pubs/author96.html)（設計了V8引擎和HotSpot虛擬機）一起合作，爲了解決在21世紀多核和網絡化環境下越來越複雜的編程問題而發明了Go語言。從Go語言庫早期代碼庫日誌可以看出它的演化歷程（Git用`git log --before={2008-03-03} --reverse`命令査看）：
+在上個世紀70年代，貝爾實驗室的[Ken Thompson][KenThompson]和[Dennis M. Ritchie][DennisRitchie]合作發明了[UNIX](http://doc.cat-v.org/unix/)操作繫統，同時[Dennis M. Ritchie][DennisRitchie]爲了解決[UNIX](http://doc.cat-v.org/unix/)繫統的移植性問題而發明了C語言，貝爾實驗室的[UNIX](http://doc.cat-v.org/unix/)和C語言兩大發明奠定了整個現代IT行業最重要的軟件基礎（目前的三大桌面操作繫統的中[Linux](http://www.linux.org/)和[Mac OS X](http://www.apple.com/cn/osx/)都是源於[UINX]()繫統，兩大移動平台的操作繫統iOS和Android也都是源於[UNIX](http://doc.cat-v.org/unix/)繫統。C繫家族的編程語言占據統治地位達幾十年之久）。在[UINX]()和C語言發明40年之後，目前已經在Google工作的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Rob Pike](http://genius.cat-v.org/rob-pike/)（他們在貝爾實驗室時就是同事）、還有[Robert Griesemer](http://research.google.com/pubs/author96.html)（設計了V8引擎和HotSpot虛擬機）一起合作，爲了解決在21世紀多核和網絡化環境下越來越複雜的編程問題而發明了Go語言。從Go語言庫早期代碼庫日誌可以看出它的演化歷程（Git用`git log --before={2008-03-03} --reverse`命令査看）：
 
 ![](./images/go-log04.png)
 
@@ -56,3 +56,5 @@ Go語言的貢獻者來自一個活躍的全球社區。Go語言可以運行在�
 Go語言編寫的程序無需脩改就可以運行在上面這些環境。
 
 本書是爲了幫助你開始以有效的方式使用Go語言，充分利用語言本身的特性和自帶的標準庫去編寫清晰地道的Go程序。
+
+{% include "./links.md" %}
