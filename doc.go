@@ -3,26 +3,14 @@
 // license that can be found in the LICENSE file.
 
 //
-// GitBook
-//
-// https://help.gitbook.com
-// https://github.com/GitbookIO/gitbook
-// https://github.com/wastemobile/gitbook
-//
-// npm install gitbook-cli -g
-//
-
-//go:generate gitbook build
-
-//
 // Go圣经中文版.
 //
-// 在线版本: http://golang-china.github.com/gopl-zh
+// 在线版本: http://golang-china.github.io/gopl-zh
 //
-// 从源文件构建:
+// 离线版本: http://github.com/golang-china/gopl-zh/archive/gh-pages.zip
 //
-//	1. npm install gitbook-cli -g
-//	2. go generate github.com/golang-china/gopl-zh
-//	3. 打开 _book/index.html
+// 项目主页: http://github.com/golang-china/gopl-zh
+//
+// 原版官网: http://gopl.io
 //
 package gopl_zh
