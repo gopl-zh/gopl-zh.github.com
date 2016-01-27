@@ -54,10 +54,10 @@ appears on the right-hand side of a variable declaration with an explicit type, 
 
 **p.222, Exercise 8.1:** The port numbers for `London` and `Tokyo` should be swapped in the final command to match the earlier commands. (Thanks to Kiyoshi Kamishima, 2016-01-08.)
 
-**p.272, ¶3:** for "the request body", read "the response body". (Thanks to 曹春晖, 2016-01-19.)
+**p.272, ¶3:** for "the request body", read "the response body". (Thanks to [曹春晖](https://github.com/cch123), 2016-01-19.)
 
 **p.288, code display following ¶4:** In the import declaration, for `"database/mysql"`, read `"database/sql"`. (Thanks to Jose Colon Rodriguez, 2016-01-09.)
 
-**p.347, Exercise 12.8:** for "like json.Marshal", read "like json.Unmarshal". (Thanks to chai2010, 2016-01-01.)
+**p.347, Exercise 12.8:** for "like json.Marshal", read "like json.Unmarshal". (Thanks to [chai2010](https://github.com/chai2010), 2016-01-01.)
 
 **p.362:** the `gopl.io/ch13/bzip` program does not comply with the [proposed rules for passing pointers between Go and C code](https://github.com/golang/proposal/blob/master/design/12416-cgo-pointers.md) because the C function `bz2compress` temporarily stores a Go pointer (in) into the Go heap (the `bz_stream` variable). The `bz_stream` variable should be allocated, and explicitly freed after the call to `BZ2_bzCompressEnd`, by C functions. (Thanks to Joe Tsai, 2015-11-18. Corrected in the third printing.)
