@@ -13,6 +13,7 @@
 # http://www.imagemagick.org/
 
 default:
+	go run update_version.go
 	gitbook build
 
 zh2tw:
@@ -26,6 +27,7 @@ loop:
 	go run zh2tw.go . .md$$ zh2tw
 
 review:
+	go run update_version.go
 	go run zh2tw.go . .md$$ tw2zh
 	gitbook build
 	go run zh2tw.go . .md$$ zh2tw
