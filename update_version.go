@@ -17,19 +17,19 @@ import (
 )
 
 func main() {
-	data := makeVersionMarkdown()
+	version := getGitCommitVersion()
+	data := makeVersionMarkdown(version)
 
 	err := ioutil.WriteFile("./version.md", []byte(data), 0666)
 	if err != nil {
 		log.Fatalf("ioutil.WriteFile: err = %v", err)
 	}
 
-	fmt.Println("MakeVersionMarkdown Done")
+	fmt.Println("build version", version)
 }
 
 // 生成版本文件
-func makeVersionMarkdown() string {
-	version := getGitCommitVersion()
+func makeVersionMarkdown(version string) string {
 	buildTime := time.Now().Format("2006-01-02")
 
 	return fmt.Sprintf(`
@@ -50,7 +50,7 @@ func makeVersionMarkdown() string {
 //	git log HEAD -1
 //	commit 0460c1b3bb8fbb7e2fc88961e69aa37f4041d6c1
 //	Merge: b2d582a e826457
-//	Author: chai2010 <chaishushan@gmail.com>
+//	Author: chai2010 <chaishushan{AT}gmail.com>
 //	Date:   Mon Feb 1 08:04:44 2016 +0800
 //
 //		Merge pull request #249 from sunclx/patch-3
@@ -59,7 +59,7 @@ func makeVersionMarkdown() string {
 func getGitCommitVersion() (version string) {
 	cmdOut, err := exec.Command(`git`, `log`, `HEAD`, `-1`).CombinedOutput()
 	if err != nil {
-		log.Fatalf("getGitCommitVersion: err = %s", err)
+		return "master"
 	}
 	for _, line := range strings.Split(string(cmdOut), "\n") {
 		line := strings.TrimSpace(line)
