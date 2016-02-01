@@ -15,6 +15,7 @@
 default:
 	go run update_version.go
 	gitbook build
+	go run fix-data-revision.go
 
 zh2tw:
 	go run zh2tw.go . .md$$
@@ -31,6 +32,7 @@ review:
 	go run zh2tw.go . .md$$ tw2zh
 	gitbook build
 	go run zh2tw.go . .md$$ zh2tw
+	go run fix-data-revision.go
 
 qrcode:
 	go run ./tools/mkqrcode.go
