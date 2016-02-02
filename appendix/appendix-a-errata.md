@@ -48,6 +48,8 @@ appears on the right-hand side of a variable declaration with an explicit type, 
 
 **p.132, code display following ¶3:** the final comment should read: `// compile error: can't assign func(int, int) int to func(int) int` (Thanks to Toni Suter, 2015-11-21. Corrected in the third printing.)
 
+**p.160, ¶4:** `For Get("item"))`, read `Get("item")`. (Thanks to Yoshiki Shibata, 2016-02-01.)
+
 **p.166, ¶2:** for "way", read "a way". (Corrected in the third printing.)
 
 **p.200, TestEval function:** the format string in the final call to t.Errorf should format test.env with %v, not %s. (Thanks to Mitsuteru Sawa, 2015-12-07. Corrected in the third printing.)
