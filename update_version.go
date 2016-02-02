@@ -33,7 +33,7 @@ func makeVersionMarkdown(version string) string {
 	buildTime := time.Now().Format("2006-01-02")
 
 	return fmt.Sprintf(`
-<!-- 版本號文件，用於被其它md文件包含 -->
+<!-- 版本号文件，用于被其它md文件包含 -->
 
 ### 版本信息
 
@@ -47,7 +47,7 @@ func makeVersionMarkdown(version string) string {
 
 // 获取Git最新的版本号
 //
-//	git log HEAD -1
+//	git log -1
 //	commit 0460c1b3bb8fbb7e2fc88961e69aa37f4041d6c1
 //	Merge: b2d582a e826457
 //	Author: chai2010 <chaishushan{AT}gmail.com>
@@ -57,7 +57,7 @@ func makeVersionMarkdown(version string) string {
 //
 //		fix typo
 func getGitCommitVersion() (version string) {
-	cmdOut, err := exec.Command(`git`, `log`, `HEAD`, `-1`).CombinedOutput()
+	cmdOut, err := exec.Command(`git`, `log`, `-1`).CombinedOutput()
 	if err != nil {
 		return "master"
 	}
