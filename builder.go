@@ -29,6 +29,9 @@ func main() {
 	// zip文件名
 	zipBaseName := fmt.Sprintf("gopl-zh-%s-%s", time.Now().Format("20060102"), gitVersion[:6])
 
+	// 导出Git
+	exportGitToZip("./_book/" + zipBaseName + ".source.zip")
+
 	os.Remove(zipBaseName + ".zip")
 	file, err := os.Create(zipBaseName + ".zip")
 	if err != nil {
@@ -110,6 +113,16 @@ func getGitCommitVersion() (version string) {
 		}
 	}
 	return "master"
+}
+
+// 导出Git到Zip文件
+func exportGitToZip(filename string) {
+	if !strings.HasSuffix(filename, ".zip") {
+		filename += ".zip"
+	}
+	if _, err := exec.Command(`git`, `archive`, `--format`, `zip`, `--output`, filename, `master`).CombinedOutput(); err != nil {
+		log.Fatal("cpFile: ", err)
+	}
 }
 
 func cpFile(dst, src string) {
