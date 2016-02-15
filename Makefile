@@ -16,6 +16,7 @@ default:
 	go run update_version.go
 	gitbook build
 	go run fix-data-revision.go
+	go run builder.go
 
 zh2tw:
 	go run zh2tw.go . .md$$

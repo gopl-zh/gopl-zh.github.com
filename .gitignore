@@ -16,4 +16,5 @@ _book
 *.pdf
 
 version.md
-
+gopl-zh-*
+_book.zip
