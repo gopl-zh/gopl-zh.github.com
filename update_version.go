@@ -37,10 +37,10 @@ func makeVersionMarkdown(version string) string {
 
 ### 版本信息
 
-- 仓库版本：[%s](https://github.com/golang-china/gopl-zh/commit/%s)
+- 仓库版本：%s
 - 构建时间：%s
 `,
-		version, version,
+		version,
 		buildTime,
 	)
 }

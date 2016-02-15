@@ -4,9 +4,8 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 [![](cover_middle.jpg)](https://github.com/golang-china/gopl-zh)
 
-- 在线版本：http://golang-china.github.io/gopl-zh
-- 离线版本：http://github.com/golang-china/gopl-zh/archive/gh-pages.zip
 - 项目主页：http://github.com/golang-china/gopl-zh
+- 项目主页：http://github.com/golang-china/gopl-zh-dmca
 - 原版官网：http://gopl.io
 
 {% include "./version.md" %}

@@ -27,16 +27,6 @@ loop:
 	go run zh2tw.go . .md$$ tw2zh
 	go run zh2tw.go . .md$$ zh2tw
 
-review:
-	go run update_version.go
-	go run zh2tw.go . .md$$ tw2zh
-	gitbook build
-	go run zh2tw.go . .md$$ zh2tw
-	go run fix-data-revision.go
-
-qrcode:
-	go run ./tools/mkqrcode.go
-
 cover:
 	composite  cover_patch.png cover_bgd.png cover.jpg
 	convert    -resize 1800x2360! cover.jpg  cover.jpg

@@ -4,9 +4,8 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 [![](cover_middle.jpg)](http://golang-china.github.io/gopl-zh)
 
-- 在线版本：http://golang-china.github.io/gopl-zh
-- 离线版本：http://github.com/golang-china/gopl-zh/archive/gh-pages.zip
 - 项目主页：http://github.com/golang-china/gopl-zh
+- 项目主页：http://github.com/golang-china/gopl-zh-dmca
 - 原版官网：http://gopl.io
 
 
@@ -19,12 +18,6 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 3. 运行`make`，生成`_book`目录。
 4. 打开`_book/index.html`文件。
 
-### 简体/繁体转换
-
-切片到 `gopl-zh` 目录：
-
-- `make zh2tw` 或 `go run zh2tw.go . "\.md$" zh2tw`，转繁体。
-- `make tw2zh` 或 `go run zh2tw.go . "\.md$" tw2zh`，转简体。
 
 # 版权声明
 
