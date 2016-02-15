@@ -1,4 +1,4 @@
-## 附録A：[原文勘誤](http://www.gopl.io/errata.html)
+## 附录A：[原文勘误](http://www.gopl.io/errata.html)
 
 **p.9, ¶2:** for "can compared", read "can be compared". (Thanks to Antonio Macías Ojeda, 2015-10-22. Corrected in the second printing.)
 

@@ -1,4 +1,4 @@
-<!-- 鏈接文件，用於被其它md文件包含 -->
+<!-- 链接文件，用于被其它md文件包含 -->
 
 <!-- 人名 -->
 [AlanDonovan]:      https://github.com/adonovan
@@ -12,19 +12,19 @@
 [TonyHoare]:        https://en.wikipedia.org/wiki/Tony_Hoare
 [FredBrooks]:       http://www.cs.unc.edu/~brooks/
 
-<!-- 圖書 -->
+<!-- 图书 -->
 [gopl]:                     http://gopl.io
 [tcpl]:                     http://s3-us-west-2.amazonaws.com/belllabs-microsite-dritchie/cbook/index.html
 [TheCProgrammingLanguage]:  http://s3-us-west-2.amazonaws.com/belllabs-microsite-dritchie/cbook/index.html
 [ThePracticeOfProgramming]: https://en.wikipedia.org/wiki/The_Practice_of_Programming
 
-<!-- Go語言 -->
+<!-- Go语言 -->
 [Golang]:                 https://golang.org/
 [Golang-oracle]:          https://godoc.org/golang.org/x/tools/oracle
 [Golang-godoc-analysis]:  https://godoc.org/golang.org/x/tools/cmd/godoc
 [Golang-gorename]:        https://godoc.org/golang.org/x/tools/cmd/gorename
 
-<!-- 其他語言 -->
+<!-- 其他语言 -->
 [Alef]:      http://doc.cat-v.org/plan_9/2nd_edition/papers/alef/
 [APL]:       https://en.wikipedia.org/wiki/APL_(programming_language)
 [Limbo]:     http://doc.cat-v.org/inferno/4th_edition/limbo_language/
@@ -36,7 +36,7 @@
 [Scheme]:    https://en.wikipedia.org/wiki/Scheme_(programming_language)
 [Squeak]:    http://doc.cat-v.org/bell_labs/squeak/
 
-<!-- 繫統 -->
+<!-- 系统 -->
 [Unix]:     http://doc.cat-v.org/unix/
 [UNIX]:     http://doc.cat-v.org/unix/
 [Linux]:    http://www.linux.org/
