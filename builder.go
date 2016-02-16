@@ -30,7 +30,7 @@ func main() {
 	zipBaseName := fmt.Sprintf("gopl-zh-%s-%s", time.Now().Format("20060102"), gitVersion[:6])
 
 	// 导出Git
-	exportGitToZip("./_book/" + zipBaseName + ".source.zip")
+	exportGitToZip("./_book/" + "gopl-zh-" + gitVersion + ".zip")
 
 	os.Remove(zipBaseName + ".zip")
 	file, err := os.Create(zipBaseName + ".zip")
@@ -103,7 +103,7 @@ func main() {
 func getGitCommitVersion() (version string) {
 	cmdOut, err := exec.Command(`git`, `log`, `-1`).CombinedOutput()
 	if err != nil {
-		return "master"
+		return "unknown"
 	}
 	for _, line := range strings.Split(string(cmdOut), "\n") {
 		line := strings.TrimSpace(line)
@@ -112,17 +112,18 @@ func getGitCommitVersion() (version string) {
 			return
 		}
 	}
-	return "master"
+	return "unknown"
 }
 
 // 导出Git到Zip文件
-func exportGitToZip(filename string) {
+func exportGitToZip(filename string) error {
 	if !strings.HasSuffix(filename, ".zip") {
 		filename += ".zip"
 	}
 	if _, err := exec.Command(`git`, `archive`, `--format`, `zip`, `--output`, filename, `master`).CombinedOutput(); err != nil {
-		log.Fatal("cpFile: ", err)
+		return err
 	}
+	return nil
 }
 
 func cpFile(dst, src string) {
@@ -154,14 +155,13 @@ func isIngoreFile(path string) bool {
 		return true
 	}
 
-	if strings.HasPrefix(path, "rpc.v2014") {
+	if strings.HasPrefix(path, "vendor") {
+		return true
+	}
+	if strings.HasPrefix(path, "tools") {
 		return true
 	}
 	if strings.HasPrefix(path, "testdata") {
-		return true
-	}
-
-	if strings.HasSuffix(path, "uis.zip") {
 		return true
 	}
 	if strings.HasSuffix(path, ".go") {
