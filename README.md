@@ -2,12 +2,18 @@
 
 Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本，仅供学习交流之用。
 
-[![](cover_middle.jpg)](http://golang-china.github.io/gopl-zh)
+![](cover_middle.jpg)
 
-- 项目主页：http://github.com/golang-china/gopl-zh
+- 项目主页：http://github.com/golang-china/gopl-zh (被屏蔽)
 - 项目主页：http://github.com/golang-china/gopl-zh-dmca
+- 项目主页：http://bitbucket.org/golang-china/gopl-zh
 - 原版官网：http://gopl.io
 
+
+在线预览：
+
+- http://docs.ruanjiadeng.com/gopl-zh/
+- http://shifei.me/gopl-zh/
 
 ### 从源文件构建
 
@@ -18,12 +24,16 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 3. 运行`make`，生成`_book`目录。
 4. 打开`_book/index.html`文件。
 
+### Go语言圣经DMCA相关
+
+目前Github上的[gopl-zh](https://github.com/golang-china/gopl-zh)因为[DMCA](https://github.com/github/dmca/blob/master/2016-02-03-TheGoProgrammingLanguage.md)问题暂时无法访问，需要私下交流的请转QQ群(531508541)。
 
 # 版权声明
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>。
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/)。
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="./images/by-nc-sa-4.0-88x31.png"></img></a>
+![Creative Commons License](./images/by-nc-sa-4.0-88x31.png)
+
 
 严禁任何商业行为使用或引用该文档的全部或部分内容！
 
