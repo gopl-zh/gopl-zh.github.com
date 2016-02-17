@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	gopl_zh_url = "http://golang-china.github.io/gopl-zh/"
+	gopl_zh_url = "https://bitbucket.org/golang-china/gopl-zh"
 	output      = "gopl-zh-qrcode.png"
 )
 
