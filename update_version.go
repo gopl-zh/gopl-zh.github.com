@@ -37,10 +37,10 @@ func makeVersionMarkdown(version string) string {
 
 ### 版本信息
 
-- 仓库版本：%s
+- 仓库版本：[%s](gopl-zh-%s.zip)
 - 构建时间：%s
 `,
-		version,
+		version, version,
 		buildTime,
 	)
 }
