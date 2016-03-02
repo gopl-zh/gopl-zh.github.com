@@ -37,7 +37,7 @@
 
 **p.75, ¶4:** for "%u", read "%o". (Thanks to William Hannish, 2015-12-21.)
 
-**p.76:** the comment `// "time.Duration 5ms0s` should have a closing double-quotation mark. (Corrected in the second printing.)
+**p.76:** the comment `// "time.Duration 5m0s` should have a closing double-quotation mark. (Corrected in the second printing.)
 
 **p.79, ¶4:** "When an untyped constant is assigned to a variable, as in the first statement below, or
 appears on the right-hand side of a variable declaration with an explicit type, as in the other three statements, ..." has it backwards: the <i>first</i> statement is a declaration; the other three are assignments. (Thanks to Yoshiki Shibata, 2015-11-09. Corrected in the third printing.)
