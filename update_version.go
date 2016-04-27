@@ -17,8 +17,10 @@ import (
 )
 
 func main() {
-	version := getGitCommitVersion()
-	data := makeVersionMarkdown(version)
+	version, commitTime := getGitCommitVersion()
+	buildTime := time.Now()
+
+	data := makeVersionMarkdown(version, commitTime, buildTime)
 
 	err := ioutil.WriteFile("./version.md", []byte(data), 0666)
 	if err != nil {
@@ -26,22 +28,24 @@ func main() {
 	}
 
 	fmt.Println("build version", version)
+	fmt.Println(commitTime.Format("2006-01-02"))
+	fmt.Println(buildTime.Format("2006-01-02"))
 }
 
 // 生成版本文件
-func makeVersionMarkdown(version string) string {
-	buildTime := time.Now().Format("2006-01-02")
-
+func makeVersionMarkdown(version string, commitTime, buildTime time.Time) string {
 	return fmt.Sprintf(`
 <!-- 版本号文件，用于被其它md文件包含 -->
 
 ### 版本信息
 
 - 仓库版本：[%s](gopl-zh-%s.zip)
+- 更新时间：%s
 - 构建时间：%s
 `,
 		version, version,
-		buildTime,
+		commitTime.Format("2006-01-02"),
+		buildTime.Format("2006-01-02"),
 	)
 }
 
@@ -56,17 +60,23 @@ func makeVersionMarkdown(version string) string {
 //		Merge pull request #249 from sunclx/patch-3
 //
 //		fix typo
-func getGitCommitVersion() (version string) {
+func getGitCommitVersion() (version string, date time.Time) {
 	cmdOut, err := exec.Command(`git`, `log`, `-1`).CombinedOutput()
 	if err != nil {
-		return "master"
+		return "unknown", time.Date(2016, 2, 1, 0, 0, 0, 0, time.UTC) // 第一版发布时间
 	}
 	for _, line := range strings.Split(string(cmdOut), "\n") {
 		line := strings.TrimSpace(line)
 		if strings.HasPrefix(line, "commit") {
 			version = strings.TrimSpace(line[len("commit"):])
-			return
+		}
+		if strings.HasPrefix(line, "Date") {
+			const longForm = "Mon Jan 2 15:04:05 2006 -0700"
+			date, _ = time.Parse(longForm, strings.TrimSpace(line[len("Date:"):]))
 		}
 	}
-	return "master"
+	if version == "" || date.IsZero() {
+		return "unknown", time.Date(2016, 2, 1, 0, 0, 0, 0, time.UTC) // 第一版发布时间
+	}
+	return
 }
