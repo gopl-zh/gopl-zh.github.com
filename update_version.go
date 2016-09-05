@@ -28,8 +28,8 @@ func main() {
 	}
 
 	fmt.Println("build version", version)
-	fmt.Println(commitTime.Format("2006-01-02"))
-	fmt.Println(buildTime.Format("2006-01-02"))
+	fmt.Println(commitTime.Format("2006-01-02 15:04:05"))
+	fmt.Println(buildTime.Format("2006-01-02 15:04:05"))
 }
 
 // 生成版本文件
@@ -44,8 +44,8 @@ func makeVersionMarkdown(version string, commitTime, buildTime time.Time) string
 - 构建时间：%s
 `,
 		version, version,
-		commitTime.Format("2006-01-02"),
-		buildTime.Format("2006-01-02"),
+		commitTime.Format("2006-01-02 15:04:05"),
+		buildTime.Format("2006-01-02 15:04:05"),
 	)
 }
 
