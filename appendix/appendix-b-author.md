@@ -11,7 +11,7 @@
 
 中文译者                               | 章节
 -------------------------------------- | -------------------------
-`chai2010     <chaishushan@gmail.com>` | 前言/第2~4章/第10~13章
-`Xargin       <cao1988228@163.com>`    | 第1章/第6章/第8~9章
+`chai2010     <chaishushan@gmail.com>` | 前言/第2 ~ 4章/第10 ~ 13章
+`Xargin       <cao1988228@163.com>`    | 第1章/第6章/第8 ~ 9章
 `CrazySssst`                           | 第5章
 `foreversmart <njutree@gmail.com>`     | 第7章

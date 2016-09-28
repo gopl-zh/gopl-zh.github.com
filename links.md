@@ -37,7 +37,6 @@
 [Squeak]:    http://doc.cat-v.org/bell_labs/squeak/
 
 <!-- 系统 -->
-[Unix]:     http://doc.cat-v.org/unix/
 [UNIX]:     http://doc.cat-v.org/unix/
 [Linux]:    http://www.linux.org/
 [FreeBSD]:  https://www.freebsd.org/

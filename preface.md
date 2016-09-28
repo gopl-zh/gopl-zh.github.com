@@ -23,7 +23,7 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 # 译者序
 
-在上个世纪70年代，贝尔实验室的[Ken Thompson][KenThompson]和[Dennis M. Ritchie][DennisRitchie]合作发明了[UNIX](http://doc.cat-v.org/unix/)操作系统，同时[Dennis M. Ritchie][DennisRitchie]为了解决[UNIX](http://doc.cat-v.org/unix/)系统的移植性问题而发明了C语言，贝尔实验室的[UNIX](http://doc.cat-v.org/unix/)和C语言两大发明奠定了整个现代IT行业最重要的软件基础（目前的三大桌面操作系统的中[Linux](http://www.linux.org/)和[Mac OS X](http://www.apple.com/cn/osx/)都是源于[UINX]()系统，两大移动平台的操作系统iOS和Android也都是源于[UNIX](http://doc.cat-v.org/unix/)系统。C系家族的编程语言占据统治地位达几十年之久）。在[UINX]()和C语言发明40年之后，目前已经在Google工作的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Rob Pike](http://genius.cat-v.org/rob-pike/)（他们在贝尔实验室时就是同事）、还有[Robert Griesemer](http://research.google.com/pubs/author96.html)（设计了V8引擎和HotSpot虚拟机）一起合作，为了解决在21世纪多核和网络化环境下越来越复杂的编程问题而发明了Go语言。从Go语言库早期代码库日志可以看出它的演化历程（Git用`git log --before={2008-03-03} --reverse`命令查看）：
+在上个世纪70年代，贝尔实验室的[Ken Thompson][KenThompson]和[Dennis M. Ritchie][DennisRitchie]合作发明了[UNIX](http://doc.cat-v.org/unix/)操作系统，同时[Dennis M. Ritchie][DennisRitchie]为了解决[UNIX](http://doc.cat-v.org/unix/)系统的移植性问题而发明了C语言，贝尔实验室的[UNIX](http://doc.cat-v.org/unix/)和C语言两大发明奠定了整个现代IT行业最重要的软件基础（目前的三大桌面操作系统的中[Linux](http://www.linux.org/)和[Mac OS X](http://www.apple.com/cn/osx/)都是源于[UNIX]()系统，两大移动平台的操作系统iOS和Android也都是源于[UNIX](http://doc.cat-v.org/unix/)系统。C系家族的编程语言占据统治地位达几十年之久）。在[UNIX]()和C语言发明40年之后，目前已经在Google工作的[Ken Thompson](http://genius.cat-v.org/ken-thompson/)和[Rob Pike](http://genius.cat-v.org/rob-pike/)（他们在贝尔实验室时就是同事）、还有[Robert Griesemer](http://research.google.com/pubs/author96.html)（设计了V8引擎和HotSpot虚拟机）一起合作，为了解决在21世纪多核和网络化环境下越来越复杂的编程问题而发明了Go语言。从Go语言库早期代码库日志可以看出它的演化历程（Git用`git log --before={2008-03-03} --reverse`命令查看）：
 
 ![](./images/go-log04.png)
 
@@ -35,7 +35,7 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 该书英文版约从2015年10月开始公开发售，其中日文版本最早参与翻译和审校（参考致谢部分）。在2015年10月，我们并不知道中文版是否会及时引进、将由哪家出版社引进、引进将由何人来翻译、何时能出版，这些信息都成了一个秘密。中国的Go语言社区是全球最大的Go语言社区，我们从一开始就始终紧跟着Go语言的发展脚步。我们应该也完全有能力以中国Go语言社区的力量同步完成Go语言圣经中文版的翻译工作。与此同时，国内有很多Go语言爱好者也在积极关注该书（本人也在第一时间购买了纸质版本，[亚马逊价格314人民币](http://www.amazon.cn/The-Go-Programming-Language-Donovan-Alan-A-A/dp/0134190440/)。补充：国内也即将出版英文版，[价格79元](http://product.china-pub.com/4912464)）。为了Go语言的学习和交流，大家决定合作免费翻译该书。
 
-翻译工作从2015年11月20日前后开始，到2016年1月底初步完成，前后历时约2个月时间（在其它语言版本中，全球第一个完成翻译的，基本做到和原版同步）。其中，[chai2010](https://github.com/chai2010)翻译了前言、第2~4章、第10~13章，[Xargin](https://github.com/cch123)翻译了第1章、第6章、第8~9章，[CrazySssst](https://github.com/CrazySssst)翻译了第5章，[foreversmart](https://github.com/foreversmart)翻译了第7章，大家共同参与了基本的校验工作，还有其他一些朋友提供了积极的反馈建议。如果大家还有任何问题或建议，可以直接到中文版项目页面提交[Issue](https://github.com/golang-china/gopl-zh/issues)，如果发现英文版原文在[勘误](http://www.gopl.io/errata.html)中未提到的任何错误，可以直接去[英文版项目](https://github.com/adonovan/gopl.io/)提交。
+翻译工作从2015年11月20日前后开始，到2016年1月底初步完成，前后历时约2个月时间（在其它语言版本中，全球第一个完成翻译的，基本做到和原版同步）。其中，[chai2010](https://github.com/chai2010)翻译了前言、第2 ~ 4章、第10 ~ 13章，[Xargin](https://github.com/cch123)翻译了第1章、第6章、第8 ~ 9章，[CrazySssst](https://github.com/CrazySssst)翻译了第5章，[foreversmart](https://github.com/foreversmart)翻译了第7章，大家共同参与了基本的校验工作，还有其他一些朋友提供了积极的反馈建议。如果大家还有任何问题或建议，可以直接到中文版项目页面提交[Issue](https://github.com/golang-china/gopl-zh/issues)，如果发现英文版原文在[勘误](http://www.gopl.io/errata.html)中未提到的任何错误，可以直接去[英文版项目](https://github.com/adonovan/gopl.io/)提交。
 
 最后，希望这本书能够帮助大家用Go语言快乐地编程。
 
