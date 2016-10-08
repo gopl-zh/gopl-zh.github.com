@@ -17,6 +17,7 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - http://2goo.info/media/html/gopl-zh-gh-pages/
 - http://docs.plhwin.com/gopl-zh/
 - http://gopl-zh.simple-is-best.tk/
+- https://docs.hacknode.org/gopl-zh/
 
 {% include "./version.md" %}
 
