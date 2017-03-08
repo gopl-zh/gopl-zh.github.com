@@ -1,0 +1,2377 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>匿名函数 | Go语言圣经</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../ch5/ch5-07.html" />
+    
+    
+    <link rel="prev" href="../ch5/ch5-05.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="5.6"
+        data-chapter-title="匿名函数"
+        data-filepath="ch5/ch5-06.md"
+        data-basepath=".."
+        data-revision="Wed Mar 08 2017 15:44:26 GMT+0300 (加里宁格勒标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        前言
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="0.1" data-path="ch0/ch0-01.html">
+            
+                
+                    <a href="../ch0/ch0-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.1.</b>
+                        
+                        Go语言起源
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="0.2" data-path="ch0/ch0-02.html">
+            
+                
+                    <a href="../ch0/ch0-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.</b>
+                        
+                        Go语言项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="0.3" data-path="ch0/ch0-03.html">
+            
+                
+                    <a href="../ch0/ch0-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.3.</b>
+                        
+                        本书的组织
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="0.4" data-path="ch0/ch0-04.html">
+            
+                
+                    <a href="../ch0/ch0-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.4.</b>
+                        
+                        更多的信息
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="0.5" data-path="ch0/ch0-05.html">
+            
+                
+                    <a href="../ch0/ch0-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.5.</b>
+                        
+                        致谢
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="ch1/ch1.html">
+            
+                
+                    <a href="../ch1/ch1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        入门
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="ch1/ch1-01.html">
+            
+                
+                    <a href="../ch1/ch1-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Hello, World
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="ch1/ch1-02.html">
+            
+                
+                    <a href="../ch1/ch1-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        命令行参数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ch1/ch1-03.html">
+            
+                
+                    <a href="../ch1/ch1-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        查找重复的行
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ch1/ch1-04.html">
+            
+                
+                    <a href="../ch1/ch1-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        GIF动画
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="ch1/ch1-05.html">
+            
+                
+                    <a href="../ch1/ch1-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        获取URL
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ch1/ch1-06.html">
+            
+                
+                    <a href="../ch1/ch1-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        并发获取多个URL
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="ch1/ch1-07.html">
+            
+                
+                    <a href="../ch1/ch1-07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        Web服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="ch1/ch1-08.html">
+            
+                
+                    <a href="../ch1/ch1-08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        本章要点
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="ch2/ch2.html">
+            
+                
+                    <a href="../ch2/ch2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        程序结构
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="ch2/ch2-01.html">
+            
+                
+                    <a href="../ch2/ch2-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        命名
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="ch2/ch2-02.html">
+            
+                
+                    <a href="../ch2/ch2-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        声明
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="ch2/ch2-03.html">
+            
+                
+                    <a href="../ch2/ch2-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="ch2/ch2-04.html">
+            
+                
+                    <a href="../ch2/ch2-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        赋值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="ch2/ch2-05.html">
+            
+                
+                    <a href="../ch2/ch2-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        类型
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="ch2/ch2-06.html">
+            
+                
+                    <a href="../ch2/ch2-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        包和文件
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="ch2/ch2-07.html">
+            
+                
+                    <a href="../ch2/ch2-07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        作用域
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="ch3/ch3.html">
+            
+                
+                    <a href="../ch3/ch3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        基础数据类型
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="ch3/ch3-01.html">
+            
+                
+                    <a href="../ch3/ch3-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        整型
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="ch3/ch3-02.html">
+            
+                
+                    <a href="../ch3/ch3-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        浮点数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="ch3/ch3-03.html">
+            
+                
+                    <a href="../ch3/ch3-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        复数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="ch3/ch3-04.html">
+            
+                
+                    <a href="../ch3/ch3-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        布尔型
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="ch3/ch3-05.html">
+            
+                
+                    <a href="../ch3/ch3-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        字符串
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="ch3/ch3-06.html">
+            
+                
+                    <a href="../ch3/ch3-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        常量
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="ch4/ch4.html">
+            
+                
+                    <a href="../ch4/ch4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        复合数据类型
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="ch4/ch4-01.html">
+            
+                
+                    <a href="../ch4/ch4-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        数组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="ch4/ch4-02.html">
+            
+                
+                    <a href="../ch4/ch4-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Slice
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="ch4/ch4-03.html">
+            
+                
+                    <a href="../ch4/ch4-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Map
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="ch4/ch4-04.html">
+            
+                
+                    <a href="../ch4/ch4-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        结构体
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="ch4/ch4-05.html">
+            
+                
+                    <a href="../ch4/ch4-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        JSON
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="ch4/ch4-06.html">
+            
+                
+                    <a href="../ch4/ch4-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        文本和HTML模板
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="ch5/ch5.html">
+            
+                
+                    <a href="../ch5/ch5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        函数
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="ch5/ch5-01.html">
+            
+                
+                    <a href="../ch5/ch5-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        函数声明
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="ch5/ch5-02.html">
+            
+                
+                    <a href="../ch5/ch5-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        递归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="ch5/ch5-03.html">
+            
+                
+                    <a href="../ch5/ch5-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        多返回值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="ch5/ch5-04.html">
+            
+                
+                    <a href="../ch5/ch5-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        错误
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="ch5/ch5-05.html">
+            
+                
+                    <a href="../ch5/ch5-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        函数值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.6" data-path="ch5/ch5-06.html">
+            
+                
+                    <a href="../ch5/ch5-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        匿名函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="ch5/ch5-07.html">
+            
+                
+                    <a href="../ch5/ch5-07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        可变参数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="ch5/ch5-08.html">
+            
+                
+                    <a href="../ch5/ch5-08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        Deferred函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="ch5/ch5-09.html">
+            
+                
+                    <a href="../ch5/ch5-09.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        Panic异常
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.10" data-path="ch5/ch5-10.html">
+            
+                
+                    <a href="../ch5/ch5-10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.10.</b>
+                        
+                        Recover捕获异常
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="ch6/ch6.html">
+            
+                
+                    <a href="../ch6/ch6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        方法
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="ch6/ch6-01.html">
+            
+                
+                    <a href="../ch6/ch6-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        方法声明
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="ch6/ch6-02.html">
+            
+                
+                    <a href="../ch6/ch6-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        基于指针对象的方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="ch6/ch6-03.html">
+            
+                
+                    <a href="../ch6/ch6-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        通过嵌入结构体来扩展类型
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="ch6/ch6-04.html">
+            
+                
+                    <a href="../ch6/ch6-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        方法值和方法表达式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="ch6/ch6-05.html">
+            
+                
+                    <a href="../ch6/ch6-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                        示例: Bit数组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="ch6/ch6-06.html">
+            
+                
+                    <a href="../ch6/ch6-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.6.</b>
+                        
+                        封装
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="ch7/ch7.html">
+            
+                
+                    <a href="../ch7/ch7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        接口
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="ch7/ch7-01.html">
+            
+                
+                    <a href="../ch7/ch7-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        接口是合约
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="ch7/ch7-02.html">
+            
+                
+                    <a href="../ch7/ch7-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        接口类型
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="ch7/ch7-03.html">
+            
+                
+                    <a href="../ch7/ch7-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        实现接口的条件
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="ch7/ch7-04.html">
+            
+                
+                    <a href="../ch7/ch7-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        flag.Value接口
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="ch7/ch7-05.html">
+            
+                
+                    <a href="../ch7/ch7-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        接口值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="ch7/ch7-06.html">
+            
+                
+                    <a href="../ch7/ch7-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        sort.Interface接口
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="ch7/ch7-07.html">
+            
+                
+                    <a href="../ch7/ch7-07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        http.Handler接口
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="ch7/ch7-08.html">
+            
+                
+                    <a href="../ch7/ch7-08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        error接口
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.9" data-path="ch7/ch7-09.html">
+            
+                
+                    <a href="../ch7/ch7-09.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.9.</b>
+                        
+                        示例: 表达式求值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.10" data-path="ch7/ch7-10.html">
+            
+                
+                    <a href="../ch7/ch7-10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.10.</b>
+                        
+                        类型断言
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.11" data-path="ch7/ch7-11.html">
+            
+                
+                    <a href="../ch7/ch7-11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.11.</b>
+                        
+                        基于类型断言识别错误类型
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.12" data-path="ch7/ch7-12.html">
+            
+                
+                    <a href="../ch7/ch7-12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.12.</b>
+                        
+                        通过类型断言查询接口
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.13" data-path="ch7/ch7-13.html">
+            
+                
+                    <a href="../ch7/ch7-13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.13.</b>
+                        
+                        类型分支
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.14" data-path="ch7/ch7-14.html">
+            
+                
+                    <a href="../ch7/ch7-14.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.14.</b>
+                        
+                        示例: 基于标记的XML解码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.15" data-path="ch7/ch7-15.html">
+            
+                
+                    <a href="../ch7/ch7-15.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.15.</b>
+                        
+                        补充几点
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="ch8/ch8.html">
+            
+                
+                    <a href="../ch8/ch8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Goroutines和Channels
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="ch8/ch8-01.html">
+            
+                
+                    <a href="../ch8/ch8-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        Goroutines
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="ch8/ch8-02.html">
+            
+                
+                    <a href="../ch8/ch8-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        示例: 并发的Clock服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="ch8/ch8-03.html">
+            
+                
+                    <a href="../ch8/ch8-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        示例: 并发的Echo服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="ch8/ch8-04.html">
+            
+                
+                    <a href="../ch8/ch8-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        Channels
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="ch8/ch8-05.html">
+            
+                
+                    <a href="../ch8/ch8-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        并发的循环
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="ch8/ch8-06.html">
+            
+                
+                    <a href="../ch8/ch8-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        示例: 并发的Web爬虫
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="ch8/ch8-07.html">
+            
+                
+                    <a href="../ch8/ch8-07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        基于select的多路复用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="ch8/ch8-08.html">
+            
+                
+                    <a href="../ch8/ch8-08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        示例: 并发的字典遍历
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="ch8/ch8-09.html">
+            
+                
+                    <a href="../ch8/ch8-09.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        并发的退出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="ch8/ch8-10.html">
+            
+                
+                    <a href="../ch8/ch8-10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        示例: 聊天服务
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="ch9/ch9.html">
+            
+                
+                    <a href="../ch9/ch9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        基于共享变量的并发
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="ch9/ch9-01.html">
+            
+                
+                    <a href="../ch9/ch9-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        竞争条件
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="ch9/ch9-02.html">
+            
+                
+                    <a href="../ch9/ch9-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        sync.Mutex互斥锁
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="ch9/ch9-03.html">
+            
+                
+                    <a href="../ch9/ch9-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        sync.RWMutex读写锁
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="ch9/ch9-04.html">
+            
+                
+                    <a href="../ch9/ch9-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                        内存同步
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.5" data-path="ch9/ch9-05.html">
+            
+                
+                    <a href="../ch9/ch9-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.5.</b>
+                        
+                        sync.Once初始化
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.6" data-path="ch9/ch9-06.html">
+            
+                
+                    <a href="../ch9/ch9-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.6.</b>
+                        
+                        竞争条件检测
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.7" data-path="ch9/ch9-07.html">
+            
+                
+                    <a href="../ch9/ch9-07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.7.</b>
+                        
+                        示例: 并发的非阻塞缓存
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.8" data-path="ch9/ch9-08.html">
+            
+                
+                    <a href="../ch9/ch9-08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.8.</b>
+                        
+                        Goroutines和线程
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="ch10/ch10.html">
+            
+                
+                    <a href="../ch10/ch10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        包和工具
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="ch10/ch10-01.html">
+            
+                
+                    <a href="../ch10/ch10-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        包简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="ch10/ch10-02.html">
+            
+                
+                    <a href="../ch10/ch10-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        导入路径
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="ch10/ch10-03.html">
+            
+                
+                    <a href="../ch10/ch10-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                        包声明
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="ch10/ch10-04.html">
+            
+                
+                    <a href="../ch10/ch10-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                        导入声明
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="ch10/ch10-05.html">
+            
+                
+                    <a href="../ch10/ch10-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                        包的匿名导入
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.6" data-path="ch10/ch10-06.html">
+            
+                
+                    <a href="../ch10/ch10-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.6.</b>
+                        
+                        包和命名
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.7" data-path="ch10/ch10-07.html">
+            
+                
+                    <a href="../ch10/ch10-07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.7.</b>
+                        
+                        工具
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="ch11/ch11.html">
+            
+                
+                    <a href="../ch11/ch11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        测试
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="ch11/ch11-01.html">
+            
+                
+                    <a href="../ch11/ch11-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        go test
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="ch11/ch11-02.html">
+            
+                
+                    <a href="../ch11/ch11-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                        测试函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="ch11/ch11-03.html">
+            
+                
+                    <a href="../ch11/ch11-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.3.</b>
+                        
+                        测试覆盖率
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.4" data-path="ch11/ch11-04.html">
+            
+                
+                    <a href="../ch11/ch11-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.4.</b>
+                        
+                        基准测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.5" data-path="ch11/ch11-05.html">
+            
+                
+                    <a href="../ch11/ch11-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.5.</b>
+                        
+                        剖析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.6" data-path="ch11/ch11-06.html">
+            
+                
+                    <a href="../ch11/ch11-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.6.</b>
+                        
+                        示例函数
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="ch12/ch12.html">
+            
+                
+                    <a href="../ch12/ch12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        反射
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.1" data-path="ch12/ch12-01.html">
+            
+                
+                    <a href="../ch12/ch12-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.1.</b>
+                        
+                        为何需要反射?
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="ch12/ch12-02.html">
+            
+                
+                    <a href="../ch12/ch12-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.2.</b>
+                        
+                        reflect.Type和reflect.Value
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" data-path="ch12/ch12-03.html">
+            
+                
+                    <a href="../ch12/ch12-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.3.</b>
+                        
+                        Display递归打印
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.4" data-path="ch12/ch12-04.html">
+            
+                
+                    <a href="../ch12/ch12-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.4.</b>
+                        
+                        示例: 编码S表达式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.5" data-path="ch12/ch12-05.html">
+            
+                
+                    <a href="../ch12/ch12-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.5.</b>
+                        
+                        通过reflect.Value修改值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.6" data-path="ch12/ch12-06.html">
+            
+                
+                    <a href="../ch12/ch12-06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.6.</b>
+                        
+                        示例: 解码S表达式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.7" data-path="ch12/ch12-07.html">
+            
+                
+                    <a href="../ch12/ch12-07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.7.</b>
+                        
+                        获取结构体字段标识
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.8" data-path="ch12/ch12-08.html">
+            
+                
+                    <a href="../ch12/ch12-08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.8.</b>
+                        
+                        显示一个类型的方法集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.9" data-path="ch12/ch12-09.html">
+            
+                
+                    <a href="../ch12/ch12-09.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.9.</b>
+                        
+                        几点忠告
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="ch13/ch13.html">
+            
+                
+                    <a href="../ch13/ch13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        底层编程
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="13.1" data-path="ch13/ch13-01.html">
+            
+                
+                    <a href="../ch13/ch13-01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.1.</b>
+                        
+                        unsafe.Sizeof, Alignof 和 Offsetof
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13.2" data-path="ch13/ch13-02.html">
+            
+                
+                    <a href="../ch13/ch13-02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.2.</b>
+                        
+                        unsafe.Pointer
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13.3" data-path="ch13/ch13-03.html">
+            
+                
+                    <a href="../ch13/ch13-03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.3.</b>
+                        
+                        示例: 深度相等判断
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13.4" data-path="ch13/ch13-04.html">
+            
+                
+                    <a href="../ch13/ch13-04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.4.</b>
+                        
+                        通过cgo调用C代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13.5" data-path="ch13/ch13-05.html">
+            
+                
+                    <a href="../ch13/ch13-05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.5.</b>
+                        
+                        几点忠告
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="appendix/appendix.html">
+            
+                
+                    <a href="../appendix/appendix.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        附录
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="14.1" data-path="appendix/appendix-a-errata.html">
+            
+                
+                    <a href="../appendix/appendix-a-errata.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.1.</b>
+                        
+                        附录A：原文勘误
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14.2" data-path="appendix/appendix-b-author.html">
+            
+                
+                    <a href="../appendix/appendix-b-author.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.2.</b>
+                        
+                        附录B：作者译者
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14.3" data-path="appendix/appendix-c-cpoyright.html">
+            
+                
+                    <a href="../appendix/appendix-c-cpoyright.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.3.</b>
+                        
+                        附录C：译文授权
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14.4" data-path="appendix/appendix-d-translations.html">
+            
+                
+                    <a href="../appendix/appendix-d-translations.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.4.</b>
+                        
+                        附录D：其它语言
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    本书使用 GitBook 发布
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Go语言圣经</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h2 id="56-&#x533F;&#x540D;&#x51FD;&#x6570;">5.6. &#x533F;&#x540D;&#x51FD;&#x6570;</h2>
+<p>&#x62E5;&#x6709;&#x51FD;&#x6570;&#x540D;&#x7684;&#x51FD;&#x6570;&#x53EA;&#x80FD;&#x5728;&#x5305;&#x7EA7;&#x8BED;&#x6CD5;&#x5757;&#x4E2D;&#x88AB;&#x58F0;&#x660E;&#xFF0C;&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x5B57;&#x9762;&#x91CF;&#xFF08;function literal&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x7ED5;&#x8FC7;&#x8FD9;&#x4E00;&#x9650;&#x5236;&#xFF0C;&#x5728;&#x4EFB;&#x4F55;&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x503C;&#x3002;&#x51FD;&#x6570;&#x5B57;&#x9762;&#x91CF;&#x7684;&#x8BED;&#x6CD5;&#x548C;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x76F8;&#x4F3C;&#xFF0C;&#x533A;&#x522B;&#x5728;&#x4E8E;func&#x5173;&#x952E;&#x5B57;&#x540E;&#x6CA1;&#x6709;&#x51FD;&#x6570;&#x540D;&#x3002;&#x51FD;&#x6570;&#x503C;&#x5B57;&#x9762;&#x91CF;&#x662F;&#x4E00;&#x79CD;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5B83;&#x7684;&#x503C;&#x88AB;&#x6210;&#x4E3A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF08;anonymous function&#xFF09;&#x3002;</p>
+<p>&#x51FD;&#x6570;&#x5B57;&#x9762;&#x91CF;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x518D;&#x5B9A;&#x4E49;&#x5B83;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x6280;&#x5DE7;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6539;&#x5199;&#x4E4B;&#x524D;&#x5BF9;strings.Map&#x7684;&#x8C03;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-Go">strings.Map(<span class="hljs-keyword">func</span>(r <span class="hljs-typename">rune</span>) <span class="hljs-typename">rune</span> { <span class="hljs-keyword">return</span> r + <span class="hljs-number">1</span> }, <span class="hljs-string">&quot;HAL-9000&quot;</span>)
+</code></pre>
+<p>&#x66F4;&#x4E3A;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5B8C;&#x6574;&#x7684;&#x8BCD;&#x6CD5;&#x73AF;&#x5883;&#xFF08;lexical environment&#xFF09;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5982;&#x4E0B;&#x4F8B;&#x6240;&#x793A;&#xFF1A;</p>
+<p><u><i>gopl.io/ch5/squares</i></u></p>
+<pre><code class="lang-Go"><span class="hljs-comment">// squares&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#x3002;</span>
+<span class="hljs-comment">// &#x8BE5;&#x533F;&#x540D;&#x51FD;&#x6570;&#x6BCF;&#x6B21;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;&#x4E0B;&#x4E00;&#x4E2A;&#x6570;&#x7684;&#x5E73;&#x65B9;&#x3002;</span>
+<span class="hljs-keyword">func</span> squares() <span class="hljs-keyword">func</span>() <span class="hljs-typename">int</span> {
+    <span class="hljs-keyword">var</span> x <span class="hljs-typename">int</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>() <span class="hljs-typename">int</span> {
+        x++
+        <span class="hljs-keyword">return</span> x * x
+    }
+}
+<span class="hljs-keyword">func</span> main() {
+    f := squares()
+    fmt.Println(f()) <span class="hljs-comment">// &quot;1&quot;</span>
+    fmt.Println(f()) <span class="hljs-comment">// &quot;4&quot;</span>
+    fmt.Println(f()) <span class="hljs-comment">// &quot;9&quot;</span>
+    fmt.Println(f()) <span class="hljs-comment">// &quot;16&quot;</span>
+}
+</code></pre>
+<p>&#x51FD;&#x6570;squares&#x8FD4;&#x56DE;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x4E3A; func() int &#x7684;&#x51FD;&#x6570;&#x3002;&#x5BF9;squares&#x7684;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;x&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#x3002;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x65F6;&#x533F;&#x540D;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x90FD;&#x4F1A;&#x5148;&#x4F7F;x&#x7684;&#x503C;&#x52A0;1&#xFF0C;&#x518D;&#x8FD4;&#x56DE;x&#x7684;&#x5E73;&#x65B9;&#x3002;&#x7B2C;&#x4E8C;&#x6B21;&#x8C03;&#x7528;squares&#x65F6;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#x7B2C;&#x4E8C;&#x4E2A;x&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x533F;&#x540D;&#x51FD;&#x6570;&#x3002;&#x65B0;&#x533F;&#x540D;&#x51FD;&#x6570;&#x64CD;&#x4F5C;&#x7684;&#x662F;&#x7B2C;&#x4E8C;&#x4E2A;x&#x53D8;&#x91CF;&#x3002;</p>
+<p>squares&#x7684;&#x4F8B;&#x5B50;&#x8BC1;&#x660E;&#xFF0C;&#x51FD;&#x6570;&#x503C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E32;&#x4EE3;&#x7801;&#xFF0C;&#x8FD8;&#x8BB0;&#x5F55;&#x4E86;&#x72B6;&#x6001;&#x3002;&#x5728;squares&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x533F;&#x540D;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x548C;&#x66F4;&#x65B0;squares&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x533F;&#x540D;&#x51FD;&#x6570;&#x548C;squares&#x4E2D;&#xFF0C;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x5F15;&#x7528;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x51FD;&#x6570;&#x503C;&#x5C5E;&#x4E8E;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x548C;&#x51FD;&#x6570;&#x503C;&#x4E0D;&#x53EF;&#x6BD4;&#x8F83;&#x7684;&#x539F;&#x56E0;&#x3002;Go&#x4F7F;&#x7528;&#x95ED;&#x5305;&#xFF08;closures&#xFF09;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x51FD;&#x6570;&#x503C;&#xFF0C;Go&#x7A0B;&#x5E8F;&#x5458;&#x4E5F;&#x628A;&#x51FD;&#x6570;&#x503C;&#x53EB;&#x505A;&#x95ED;&#x5305;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x53D8;&#x91CF;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E0D;&#x7531;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x51B3;&#x5B9A;&#xFF1A;squares&#x8FD4;&#x56DE;&#x540E;&#xFF0C;&#x53D8;&#x91CF;x&#x4ECD;&#x7136;&#x9690;&#x5F0F;&#x7684;&#x5B58;&#x5728;&#x4E8E;f&#x4E2D;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x8BA8;&#x8BBA;&#x4E00;&#x4E2A;&#x6709;&#x70B9;&#x5B66;&#x672F;&#x6027;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x8003;&#x8651;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;&#x7ED9;&#x5B9A;&#x4E00;&#x4E9B;&#x8BA1;&#x7B97;&#x673A;&#x8BFE;&#x7A0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x8BFE;&#x7A0B;&#x90FD;&#x6709;&#x524D;&#x7F6E;&#x8BFE;&#x7A0B;&#xFF0C;&#x53EA;&#x6709;&#x5B8C;&#x6210;&#x4E86;&#x524D;&#x7F6E;&#x8BFE;&#x7A0B;&#x624D;&#x53EF;&#x4EE5;&#x5F00;&#x59CB;&#x5F53;&#x524D;&#x8BFE;&#x7A0B;&#x7684;&#x5B66;&#x4E60;&#xFF1B;&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x6807;&#x662F;&#x9009;&#x62E9;&#x51FA;&#x4E00;&#x7EC4;&#x8BFE;&#x7A0B;&#xFF0C;&#x8FD9;&#x7EC4;&#x8BFE;&#x7A0B;&#x5FC5;&#x987B;&#x786E;&#x4FDD;&#x6309;&#x987A;&#x5E8F;&#x5B66;&#x4E60;&#x65F6;&#xFF0C;&#x80FD;&#x5168;&#x90E8;&#x88AB;&#x5B8C;&#x6210;&#x3002;&#x6BCF;&#x4E2A;&#x8BFE;&#x7A0B;&#x7684;&#x524D;&#x7F6E;&#x8BFE;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><u><i>gopl.io/ch5/toposort</i></u></p>
+<pre><code class="lang-Go"><span class="hljs-comment">// prereqs&#x8BB0;&#x5F55;&#x4E86;&#x6BCF;&#x4E2A;&#x8BFE;&#x7A0B;&#x7684;&#x524D;&#x7F6E;&#x8BFE;&#x7A0B;</span>
+<span class="hljs-keyword">var</span> prereqs = <span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>][]<span class="hljs-typename">string</span>{
+    <span class="hljs-string">&quot;algorithms&quot;</span>: {<span class="hljs-string">&quot;data structures&quot;</span>},
+    <span class="hljs-string">&quot;calculus&quot;</span>: {<span class="hljs-string">&quot;linear algebra&quot;</span>},
+    <span class="hljs-string">&quot;compilers&quot;</span>: {
+        <span class="hljs-string">&quot;data structures&quot;</span>,
+        <span class="hljs-string">&quot;formal languages&quot;</span>,
+        <span class="hljs-string">&quot;computer organization&quot;</span>,
+    },
+    <span class="hljs-string">&quot;data structures&quot;</span>:       {<span class="hljs-string">&quot;discrete math&quot;</span>},
+    <span class="hljs-string">&quot;databases&quot;</span>:             {<span class="hljs-string">&quot;data structures&quot;</span>},
+    <span class="hljs-string">&quot;discrete math&quot;</span>:         {<span class="hljs-string">&quot;intro to programming&quot;</span>},
+    <span class="hljs-string">&quot;formal languages&quot;</span>:      {<span class="hljs-string">&quot;discrete math&quot;</span>},
+    <span class="hljs-string">&quot;networks&quot;</span>:              {<span class="hljs-string">&quot;operating systems&quot;</span>},
+    <span class="hljs-string">&quot;operating systems&quot;</span>:     {<span class="hljs-string">&quot;data structures&quot;</span>, <span class="hljs-string">&quot;computer organization&quot;</span>},
+    <span class="hljs-string">&quot;programming languages&quot;</span>: {<span class="hljs-string">&quot;data structures&quot;</span>, <span class="hljs-string">&quot;computer organization&quot;</span>},
+}
+</code></pre>
+<p>&#x8FD9;&#x7C7B;&#x95EE;&#x9898;&#x88AB;&#x79F0;&#x4F5C;&#x62D3;&#x6251;&#x6392;&#x5E8F;&#x3002;&#x4ECE;&#x6982;&#x5FF5;&#x4E0A;&#x8BF4;&#xFF0C;&#x524D;&#x7F6E;&#x6761;&#x4EF6;&#x53EF;&#x4EE5;&#x6784;&#x6210;&#x6709;&#x5411;&#x56FE;&#x3002;&#x56FE;&#x4E2D;&#x7684;&#x9876;&#x70B9;&#x8868;&#x793A;&#x8BFE;&#x7A0B;&#xFF0C;&#x8FB9;&#x8868;&#x793A;&#x8BFE;&#x7A0B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x3002;&#x663E;&#x7136;&#xFF0C;&#x56FE;&#x4E2D;&#x5E94;&#x8BE5;&#x65E0;&#x73AF;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4ECE;&#x67D0;&#x70B9;&#x51FA;&#x53D1;&#x7684;&#x8FB9;&#xFF0C;&#x6700;&#x7EC8;&#x4E0D;&#x4F1A;&#x56DE;&#x5230;&#x8BE5;&#x70B9;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x7528;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x641C;&#x7D22;&#x4E86;&#x6574;&#x5F20;&#x56FE;&#xFF0C;&#x83B7;&#x5F97;&#x4E86;&#x7B26;&#x5408;&#x8981;&#x6C42;&#x7684;&#x8BFE;&#x7A0B;&#x5E8F;&#x5217;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">for</span> i, course := <span class="hljs-keyword">range</span> topoSort(prereqs) {
+        fmt.Printf(<span class="hljs-string">&quot;%d:\t%s\n&quot;</span>, i+<span class="hljs-number">1</span>, course)
+    }
+}
+
+<span class="hljs-keyword">func</span> topoSort(m <span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>][]<span class="hljs-typename">string</span>) []<span class="hljs-typename">string</span> {
+    <span class="hljs-keyword">var</span> order []<span class="hljs-typename">string</span>
+    seen := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">bool</span>)
+    <span class="hljs-keyword">var</span> visitAll <span class="hljs-keyword">func</span>(items []<span class="hljs-typename">string</span>)
+    visitAll = <span class="hljs-keyword">func</span>(items []<span class="hljs-typename">string</span>) {
+        <span class="hljs-keyword">for</span> _, item := <span class="hljs-keyword">range</span> items {
+            <span class="hljs-keyword">if</span> !seen[item] {
+                seen[item] = <span class="hljs-constant">true</span>
+                visitAll(m[item])
+                order = <span class="hljs-built_in">append</span>(order, item)
+            }
+        }
+    }
+    <span class="hljs-keyword">var</span> keys []<span class="hljs-typename">string</span>
+    <span class="hljs-keyword">for</span> key := <span class="hljs-keyword">range</span> m {
+        keys = <span class="hljs-built_in">append</span>(keys, key)
+    }
+    sort.Strings(keys)
+    visitAll(keys)
+    <span class="hljs-keyword">return</span> order
+}
+</code></pre>
+<p>&#x5F53;&#x533F;&#x540D;&#x51FD;&#x6570;&#x9700;&#x8981;&#x88AB;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x9996;&#x5148;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF08;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x58F0;&#x660E;&#x4E86; visitAll&#xFF09;&#xFF0C;&#x518D;&#x5C06;&#x533F;&#x540D;&#x51FD;&#x6570;&#x8D4B;&#x503C;&#x7ED9;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x5206;&#x6210;&#x4E24;&#x90E8;&#xFF0C;&#x51FD;&#x6570;&#x5B57;&#x9762;&#x91CF;&#x65E0;&#x6CD5;&#x4E0E;visitAll&#x7ED1;&#x5B9A;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x65E0;&#x6CD5;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x8BE5;&#x533F;&#x540D;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-Go">visitAll := <span class="hljs-keyword">func</span>(items []<span class="hljs-typename">string</span>) {
+    <span class="hljs-comment">// ...</span>
+    visitAll(m[item]) <span class="hljs-comment">// compile error: undefined: visitAll</span>
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x5728;topsort&#x4E2D;&#xFF0C;&#x9996;&#x5148;&#x5BF9;prereqs&#x4E2D;&#x7684;key&#x6392;&#x5E8F;&#xFF0C;&#x518D;&#x8C03;&#x7528;visitAll&#x3002;&#x56E0;&#x4E3A;prereqs&#x6620;&#x5C04;&#x7684;&#x662F;&#x5207;&#x7247;&#x800C;&#x4E0D;&#x662F;&#x66F4;&#x590D;&#x6742;&#x7684;map&#xFF0C;&#x6240;&#x4EE5;&#x6570;&#x636E;&#x7684;&#x904D;&#x5386;&#x6B21;&#x5E8F;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x6BCF;&#x6B21;&#x8FD0;&#x884C;topsort&#x5F97;&#x5230;&#x7684;&#x8F93;&#x51FA;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;    topsort&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x5982;&#x4E0B;:</p>
+<pre><code>1: intro to programming
+2: discrete math
+3: data structures
+4: algorithms
+5: linear algebra
+6: calculus
+7: formal languages
+8: computer organization
+9: compilers
+10: databases
+11: operating systems
+12: networks
+13: programming languages
+</code></pre><p>&#x8BA9;&#x6211;&#x4EEC;&#x56DE;&#x5230;findLinks&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x4EE3;&#x7801;&#x79FB;&#x52A8;&#x5230;&#x4E86;links&#x5305;&#x4E0B;&#xFF0C;&#x5C06;&#x51FD;&#x6570;&#x91CD;&#x547D;&#x540D;&#x4E3A;Extract&#xFF0C;&#x5728;&#x7B2C;&#x516B;&#x7AE0;&#x6211;&#x4EEC;&#x4F1A;&#x518D;&#x6B21;&#x7528;&#x5230;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x65B0;&#x7684;&#x533F;&#x540D;&#x51FD;&#x6570;&#x88AB;&#x5F15;&#x5165;&#xFF0C;&#x7528;&#x4E8E;&#x66FF;&#x6362;&#x539F;&#x6765;&#x7684;visit&#x51FD;&#x6570;&#x3002;&#x8BE5;&#x533F;&#x540D;&#x51FD;&#x6570;&#x8D1F;&#x8D23;&#x5C06;&#x65B0;&#x8FDE;&#x63A5;&#x6DFB;&#x52A0;&#x5230;&#x5207;&#x7247;&#x4E2D;&#x3002;&#x5728;Extract&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;forEachNode&#x904D;&#x5386;HTML&#x9875;&#x9762;&#xFF0C;&#x7531;&#x4E8E;Extract&#x53EA;&#x9700;&#x8981;&#x5728;&#x904D;&#x5386;&#x7ED3;&#x70B9;&#x524D;&#x64CD;&#x4F5C;&#x7ED3;&#x70B9;&#xFF0C;&#x6240;&#x4EE5;forEachNode&#x7684;post&#x53C2;&#x6570;&#x88AB;&#x4F20;&#x5165;nil&#x3002;</p>
+<p><u><i>gopl.io/ch5/links</i></u></p>
+<pre><code class="lang-Go"><span class="hljs-comment">// Package links provides a link-extraction function.</span>
+<span class="hljs-keyword">package</span> links
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;net/http&quot;</span>
+    <span class="hljs-string">&quot;golang.org/x/net/html&quot;</span>
+)
+<span class="hljs-comment">// Extract makes an HTTP GET request to the specified URL, parses</span>
+<span class="hljs-comment">// the response as HTML, and returns the links in the HTML document.</span>
+<span class="hljs-keyword">func</span> Extract(url <span class="hljs-typename">string</span>) ([]<span class="hljs-typename">string</span>, error) {
+    resp, err := http.Get(url)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, err
+    }
+    <span class="hljs-keyword">if</span> resp.StatusCode != http.StatusOK {
+    resp.Body.Close()
+        <span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, fmt.Errorf(<span class="hljs-string">&quot;getting %s: %s&quot;</span>, url, resp.Status)
+    }
+    doc, err := html.Parse(resp.Body)
+    resp.Body.Close()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-constant">nil</span>, fmt.Errorf(<span class="hljs-string">&quot;parsing %s as HTML: %v&quot;</span>, url, err)
+    }
+    <span class="hljs-keyword">var</span> links []<span class="hljs-typename">string</span>
+    visitNode := <span class="hljs-keyword">func</span>(n *html.Node) {
+        <span class="hljs-keyword">if</span> n.Type == html.ElementNode &amp;&amp; n.Data == <span class="hljs-string">&quot;a&quot;</span> {
+            <span class="hljs-keyword">for</span> _, a := <span class="hljs-keyword">range</span> n.Attr {
+                <span class="hljs-keyword">if</span> a.Key != <span class="hljs-string">&quot;href&quot;</span> {
+                    <span class="hljs-keyword">continue</span>
+                }
+                link, err := resp.Request.URL.Parse(a.Val)
+                <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+                    <span class="hljs-keyword">continue</span> <span class="hljs-comment">// ignore bad URLs</span>
+                }
+                links = <span class="hljs-built_in">append</span>(links, link.String())
+            }
+        }
+    }
+    forEachNode(doc, visitNode, <span class="hljs-constant">nil</span>)
+    <span class="hljs-keyword">return</span> links, <span class="hljs-constant">nil</span>
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5BF9;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x505A;&#x4E86;&#x6539;&#x8FDB;&#xFF0C;&#x73B0;&#x5728;links&#x4E2D;&#x5B58;&#x50A8;&#x7684;&#x4E0D;&#x662F;href&#x5C5E;&#x6027;&#x7684;&#x539F;&#x59CB;&#x503C;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;resp.Request.URL&#x89E3;&#x6790;&#x540E;&#x7684;&#x503C;&#x3002;&#x89E3;&#x6790;&#x540E;&#xFF0C;&#x8FD9;&#x4E9B;&#x8FDE;&#x63A5;&#x4EE5;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x5728;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x88AB;http.Get&#x8BBF;&#x95EE;&#x3002;</p>
+<p>&#x7F51;&#x9875;&#x6293;&#x53D6;&#x7684;&#x6838;&#x5FC3;&#x95EE;&#x9898;&#x5C31;&#x662F;&#x5982;&#x4F55;&#x904D;&#x5386;&#x56FE;&#x3002;&#x5728;topoSort&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5DF2;&#x7ECF;&#x5C55;&#x793A;&#x4E86;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x904D;&#x5386;&#xFF0C;&#x5728;&#x7F51;&#x9875;&#x6293;&#x53D6;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x7528;&#x5E7F;&#x5EA6;&#x4F18;&#x5148;&#x904D;&#x5386;&#x56FE;&#x3002;&#x5728;&#x7B2C;8&#x7AE0;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x5C06;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x548C;&#x5E7F;&#x5EA6;&#x4F18;&#x5148;&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x4E86;&#x5E7F;&#x5EA6;&#x4F18;&#x5148;&#x7B97;&#x6CD5;&#x3002;&#x8C03;&#x7528;&#x8005;&#x9700;&#x8981;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x7684;&#x5F85;&#x8BBF;&#x95EE;&#x5217;&#x8868;&#x548C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;f&#x3002;&#x5F85;&#x8BBF;&#x95EE;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;string&#x7C7B;&#x578B;&#x3002;&#x5E7F;&#x5EA6;&#x4F18;&#x5148;&#x7B97;&#x6CD5;&#x4F1A;&#x4E3A;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x8C03;&#x7528;&#x4E00;&#x6B21;f&#x3002;&#x6BCF;&#x6B21;f&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x7EC4;&#x5F85;&#x8BBF;&#x95EE;&#x5143;&#x7D20;&#x3002;&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x4F1A;&#x88AB;&#x52A0;&#x5165;&#x5230;&#x5F85;&#x8BBF;&#x95EE;&#x5217;&#x8868;&#x4E2D;&#x3002;&#x5F53;&#x5F85;&#x8BBF;&#x95EE;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x90FD;&#x88AB;&#x8BBF;&#x95EE;&#x540E;&#xFF0C;breadthFirst&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x3002;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x540C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x88AB;&#x8BBF;&#x95EE;&#x4E24;&#x6B21;&#xFF0C;&#x4EE3;&#x7801;&#x4E2D;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;map&#x3002;</p>
+<p><u><i>gopl.io/ch5/findlinks3</i></u></p>
+<pre><code class="lang-Go"><span class="hljs-comment">// breadthFirst calls f for each item in the worklist.</span>
+<span class="hljs-comment">// Any items returned by f are added to the worklist.</span>
+<span class="hljs-comment">// f is called at most once for each item.</span>
+<span class="hljs-keyword">func</span> breadthFirst(f <span class="hljs-keyword">func</span>(item <span class="hljs-typename">string</span>) []<span class="hljs-typename">string</span>, worklist []<span class="hljs-typename">string</span>) {
+    seen := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">bool</span>)
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">len</span>(worklist) &gt; <span class="hljs-number">0</span> {
+        items := worklist
+        worklist = <span class="hljs-constant">nil</span>
+        <span class="hljs-keyword">for</span> _, item := <span class="hljs-keyword">range</span> items {
+            <span class="hljs-keyword">if</span> !seen[item] {
+                seen[item] = <span class="hljs-constant">true</span>
+                worklist = <span class="hljs-built_in">append</span>(worklist, f(item)...)
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x5C31;&#x50CF;&#x6211;&#x4EEC;&#x5728;&#x7AE0;&#x8282;3&#x89E3;&#x91CA;&#x7684;&#x90A3;&#x6837;&#xFF0C;append&#x7684;&#x53C2;&#x6570;&#x201C;f(item)...&#x201D;&#xFF0C;&#x4F1A;&#x5C06;f&#x8FD4;&#x56DE;&#x7684;&#x4E00;&#x7EC4;&#x5143;&#x7D20;&#x4E00;&#x4E2A;&#x4E2A;&#x6DFB;&#x52A0;&#x5230;worklist&#x4E2D;&#x3002;</p>
+<p>&#x5728;&#x6211;&#x4EEC;&#x7F51;&#x9875;&#x6293;&#x53D6;&#x5668;&#x4E2D;&#xFF0C;&#x5143;&#x7D20;&#x7684;&#x7C7B;&#x578B;&#x662F;url&#x3002;crawl&#x51FD;&#x6570;&#x4F1A;&#x5C06;URL&#x8F93;&#x51FA;&#xFF0C;&#x63D0;&#x53D6;&#x5176;&#x4E2D;&#x7684;&#x65B0;&#x94FE;&#x63A5;&#xFF0C;&#x5E76;&#x5C06;&#x8FD9;&#x4E9B;&#x65B0;&#x94FE;&#x63A5;&#x8FD4;&#x56DE;&#x3002;&#x6211;&#x4EEC;&#x4F1A;&#x5C06;crawl&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;breadthFirst&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> crawl(url <span class="hljs-typename">string</span>) []<span class="hljs-typename">string</span> {
+    fmt.Println(url)
+    list, err := links.Extract(url)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-constant">nil</span> {
+        log.Print(err)
+    }
+    <span class="hljs-keyword">return</span> list
+}
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x4F7F;&#x6293;&#x53D6;&#x5668;&#x5F00;&#x59CB;&#x8FD0;&#x884C;&#xFF0C;&#x6211;&#x4EEC;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x8F93;&#x5165;&#x7684;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x521D;&#x59CB;&#x7684;&#x5F85;&#x8BBF;&#x95EE;url&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// Crawl the web breadth-first,</span>
+    <span class="hljs-comment">// starting from the command-line arguments.</span>
+    breadthFirst(crawl, os.Args[<span class="hljs-number">1</span>:])
+}
+</code></pre>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x4ECE; <a href="https://golang.org" target="_blank">https://golang.org</a> &#x5F00;&#x59CB;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x7A0B;&#x5E8F;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>$ go build gopl.io/ch5/findlinks3
+$ ./findlinks3 https://golang.org
+https://golang.org/
+https://golang.org/doc/
+https://golang.org/pkg/
+https://golang.org/project/
+https://code.google.com/p/go-tour/
+https://golang.org/doc/code.html
+https://www.youtube.com/watch?v=XCsL89YtqCs
+http://research.swtch.com/gotour
+</code></pre><p>&#x5F53;&#x6240;&#x6709;&#x53D1;&#x73B0;&#x7684;&#x94FE;&#x63A5;&#x90FD;&#x5DF2;&#x7ECF;&#x88AB;&#x8BBF;&#x95EE;&#x6216;&#x7535;&#x8111;&#x7684;&#x5185;&#x5B58;&#x8017;&#x5C3D;&#x65F6;&#xFF0C;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x3002;</p>
+<p><strong>&#x7EC3;&#x4E60;5.10&#xFF1A;</strong> &#x91CD;&#x5199;topoSort&#x51FD;&#x6570;&#xFF0C;&#x7528;map&#x4EE3;&#x66FF;&#x5207;&#x7247;&#x5E76;&#x79FB;&#x9664;&#x5BF9;key&#x7684;&#x6392;&#x5E8F;&#x4EE3;&#x7801;&#x3002;&#x9A8C;&#x8BC1;&#x7ED3;&#x679C;&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF08;&#x7ED3;&#x679C;&#x4E0D;&#x552F;&#x4E00;&#xFF09;&#x3002;</p>
+<p><strong>&#x7EC3;&#x4E60;5.11&#xFF1A;</strong> &#x73B0;&#x5728;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x7684;&#x8001;&#x5E08;&#x628A;&#x5FAE;&#x79EF;&#x5206;&#x8BBE;&#x4E3A;&#x4E86;&#x524D;&#x7F6E;&#x8BFE;&#x7A0B;&#x3002;&#x5B8C;&#x5584;topSort&#xFF0C;&#x4F7F;&#x5176;&#x80FD;&#x68C0;&#x6D4B;&#x6709;&#x5411;&#x56FE;&#x4E2D;&#x7684;&#x73AF;&#x3002;</p>
+<p><strong>&#x7EC3;&#x4E60;5.12&#xFF1A;</strong> gopl.io/ch5/outline2&#xFF08;5.5&#x8282;&#xFF09;&#x7684;startElement&#x548C;endElement&#x5171;&#x7528;&#x4E86;&#x5168;&#x5C40;&#x53D8;&#x91CF;depth&#xFF0C;&#x5C06;&#x5B83;&#x4EEC;&#x4FEE;&#x6539;&#x4E3A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x4F7F;&#x5176;&#x5171;&#x4EAB;outline&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;</p>
+<p><strong>&#x7EC3;&#x4E60;5.13&#xFF1A;</strong> &#x4FEE;&#x6539;crawl&#xFF0C;&#x4F7F;&#x5176;&#x80FD;&#x4FDD;&#x5B58;&#x53D1;&#x73B0;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x5FC5;&#x8981;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x76EE;&#x5F55;&#x6765;&#x4FDD;&#x5B58;&#x8FD9;&#x4E9B;&#x9875;&#x9762;&#x3002;&#x53EA;&#x4FDD;&#x5B58;&#x6765;&#x81EA;&#x539F;&#x59CB;&#x57DF;&#x540D;&#x4E0B;&#x7684;&#x9875;&#x9762;&#x3002;&#x5047;&#x8BBE;&#x521D;&#x59CB;&#x9875;&#x9762;&#x5728;golang.org&#x4E0B;&#xFF0C;&#x5C31;&#x4E0D;&#x8981;&#x4FDD;&#x5B58;vimeo.com&#x4E0B;&#x7684;&#x9875;&#x9762;&#x3002;</p>
+<p><strong>&#x7EC3;&#x4E60;5.14&#xFF1A;</strong> &#x4F7F;&#x7528;breadthFirst&#x904D;&#x5386;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;&#x6BD4;&#x5982;&#xFF0C;topoSort&#x4F8B;&#x5B50;&#x4E2D;&#x7684;&#x8BFE;&#x7A0B;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF08;&#x6709;&#x5411;&#x56FE;&#xFF09;,&#x4E2A;&#x4EBA;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x6587;&#x4EF6;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#xFF08;&#x6811;&#xFF09;&#xFF0C;&#x4F60;&#x6240;&#x5728;&#x57CE;&#x5E02;&#x7684;&#x516C;&#x4EA4;&#x6216;&#x5730;&#x94C1;&#x7EBF;&#x8DEF;&#xFF08;&#x65E0;&#x5411;&#x56FE;&#xFF09;&#x3002;</p>
+<h3 id="561-&#x8B66;&#x544A;&#xFF1A;&#x6355;&#x83B7;&#x8FED;&#x4EE3;&#x53D8;&#x91CF;">5.6.1. &#x8B66;&#x544A;&#xFF1A;&#x6355;&#x83B7;&#x8FED;&#x4EE3;&#x53D8;&#x91CF;</h3>
+<p>&#x672C;&#x8282;&#xFF0C;&#x5C06;&#x4ECB;&#x7ECD;Go&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x4E00;&#x4E2A;&#x9677;&#x9631;&#x3002;&#x8BF7;&#x52A1;&#x5FC5;&#x4ED4;&#x7EC6;&#x7684;&#x9605;&#x8BFB;&#xFF0C;&#x5F04;&#x6E05;&#x695A;&#x53D1;&#x751F;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;&#x3002;&#x5373;&#x4F7F;&#x662F;&#x7ECF;&#x9A8C;&#x4E30;&#x5BCC;&#x7684;&#x7A0B;&#x5E8F;&#x5458;&#x4E5F;&#x4F1A;&#x5728;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4E0A;&#x72AF;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x8003;&#x8651;&#x8FD9;&#x4E2A;&#x6837;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;&#x4F60;&#x88AB;&#x8981;&#x6C42;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E9B;&#x76EE;&#x5F55;&#xFF0C;&#x518D;&#x5C06;&#x76EE;&#x5F55;&#x5220;&#x9664;&#x3002;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x6211;&#x4EEC;&#x7528;&#x51FD;&#x6570;&#x503C;&#x6765;&#x5B8C;&#x6210;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x5F15;&#x5165;os&#x5305;&#x3002;&#x4E3A;&#x4E86;&#x4F7F;&#x4EE3;&#x7801;&#x7B80;&#x5355;&#xFF0C;&#x6211;&#x4EEC;&#x5FFD;&#x7565;&#x4E86;&#x6240;&#x6709;&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> rmdirs []<span class="hljs-keyword">func</span>()
+<span class="hljs-keyword">for</span> _, d := <span class="hljs-keyword">range</span> tempDirs() {
+    dir := d <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> necessary!</span>
+    os.MkdirAll(dir, <span class="hljs-number">0755</span>) <span class="hljs-comment">// creates parent directories too</span>
+    rmdirs = <span class="hljs-built_in">append</span>(rmdirs, <span class="hljs-keyword">func</span>() {
+        os.RemoveAll(dir)
+    })
+}
+<span class="hljs-comment">// ...do some work&#x2026;</span>
+<span class="hljs-keyword">for</span> _, rmdir := <span class="hljs-keyword">range</span> rmdirs {
+    rmdir() <span class="hljs-comment">// clean up</span>
+}
+</code></pre>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x611F;&#x5230;&#x56F0;&#x60D1;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728;&#x5FAA;&#x73AF;&#x4F53;&#x4E2D;&#x7528;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;d&#x8D4B;&#x503C;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x50CF;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E00;&#x6837;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;dir&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x9519;&#x8BEF;&#x7684;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> rmdirs []<span class="hljs-keyword">func</span>()
+<span class="hljs-keyword">for</span> _, dir := <span class="hljs-keyword">range</span> tempDirs() {
+    os.MkdirAll(dir, <span class="hljs-number">0755</span>)
+    rmdirs = <span class="hljs-built_in">append</span>(rmdirs, <span class="hljs-keyword">func</span>() {
+        os.RemoveAll(dir) <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> incorrect!</span>
+    })
+}
+</code></pre>
+<p>&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;&#x5728;&#x4E8E;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x3002;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;for&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x5F15;&#x5165;&#x4E86;&#x65B0;&#x7684;&#x8BCD;&#x6CD5;&#x5757;&#xFF0C;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;dir&#x5728;&#x8FD9;&#x4E2A;&#x8BCD;&#x6CD5;&#x5757;&#x4E2D;&#x88AB;&#x58F0;&#x660E;&#x3002;&#x5728;&#x8BE5;&#x5FAA;&#x73AF;&#x4E2D;&#x751F;&#x6210;&#x7684;&#x6240;&#x6709;&#x51FD;&#x6570;&#x503C;&#x90FD;&#x5171;&#x4EAB;&#x76F8;&#x540C;&#x7684;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x51FD;&#x6570;&#x503C;&#x4E2D;&#x8BB0;&#x5F55;&#x7684;&#x662F;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x67D0;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x503C;&#x3002;&#x4EE5;dir&#x4E3A;&#x4F8B;&#xFF0C;&#x540E;&#x7EED;&#x7684;&#x8FED;&#x4EE3;&#x4F1A;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;dir&#x7684;&#x503C;&#xFF0C;&#x5F53;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x6267;&#x884C;&#x65F6;&#xFF0C;for&#x5FAA;&#x73AF;&#x5DF2;&#x5B8C;&#x6210;&#xFF0C;dir&#x4E2D;&#x5B58;&#x50A8;&#x7684;&#x503C;&#x7B49;&#x4E8E;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x503C;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x6BCF;&#x6B21;&#x5BF9;os.RemoveAll&#x7684;&#x8C03;&#x7528;&#x5220;&#x9664;&#x7684;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#xFF0C;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x4E0E;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x540C;&#x540D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x4F5C;&#x4E3A;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;&#x7684;&#x526F;&#x672C;&#x3002;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x53D8;&#x91CF;dir&#xFF0C;&#x867D;&#x7136;&#x8FD9;&#x770B;&#x8D77;&#x6765;&#x5F88;&#x5947;&#x602A;&#xFF0C;&#x4F46;&#x5374;&#x5F88;&#x6709;&#x7528;&#x3002;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">for</span> _, dir := <span class="hljs-keyword">range</span> tempDirs() {
+    dir := dir <span class="hljs-comment">// declares inner dir, initialized to outer dir</span>
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4E0D;&#x4EC5;&#x5B58;&#x5728;&#x57FA;&#x4E8E;range&#x7684;&#x5FAA;&#x73AF;&#xFF0C;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5BF9;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;i&#x7684;&#x4F7F;&#x7528;&#x4E5F;&#x5B58;&#x5728;&#x540C;&#x6837;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">var</span> rmdirs []<span class="hljs-keyword">func</span>()
+dirs := tempDirs()
+<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(dirs); i++ {
+    os.MkdirAll(dirs[i], <span class="hljs-number">0755</span>) <span class="hljs-comment">// OK</span>
+    rmdirs = <span class="hljs-built_in">append</span>(rmdirs, <span class="hljs-keyword">func</span>() {
+        os.RemoveAll(dirs[i]) <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> incorrect!</span>
+    })
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;go&#x8BED;&#x53E5;&#xFF08;&#x7B2C;&#x516B;&#x7AE0;&#xFF09;&#x6216;&#x8005;defer&#x8BED;&#x53E5;&#xFF08;5.8&#x8282;&#xFF09;&#x4F1A;&#x7ECF;&#x5E38;&#x9047;&#x5230;&#x6B64;&#x7C7B;&#x95EE;&#x9898;&#x3002;&#x8FD9;&#x4E0D;&#x662F;go&#x6216;defer&#x672C;&#x8EAB;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x90FD;&#x4F1A;&#x7B49;&#x5F85;&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x518D;&#x6267;&#x884C;&#x51FD;&#x6570;&#x503C;&#x3002;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../ch5/ch5-05.html" class="navigation navigation-prev " aria-label="Previous page: 函数值"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../ch5/ch5-07.html" class="navigation navigation-next " aria-label="Next page: 可变参数"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
