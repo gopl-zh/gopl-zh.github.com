@@ -1,0 +1,106 @@
+### 4.2.2. Slice内存技巧
+
+让我们看看更多的例子，比如旋转slice、反转slice或在slice原有内存空间修改元素。给定一个字符串列表，下面的nonempty函数将在原有slice内存空间之上返回不包含空字符串的列表：
+
+<u><i>gopl.io/ch4/nonempty</i></u>
+```Go
+// Nonempty is an example of an in-place slice algorithm.
+package main
+
+import "fmt"
+
+// nonempty returns a slice holding only the non-empty strings.
+// The underlying array is modified during the call.
+func nonempty(strings []string) []string {
+	i := 0
+	for _, s := range strings {
+		if s != "" {
+			strings[i] = s
+			i++
+		}
+	}
+	return strings[:i]
+}
+```
+
+比较微妙的地方是，输入的slice和输出的slice共享一个底层数组。这可以避免分配另一个数组，不过原来的数据将可能会被覆盖，正如下面两个打印语句看到的那样：
+
+```Go
+data := []string{"one", "", "three"}
+fmt.Printf("%q\n", nonempty(data)) // `["one" "three"]`
+fmt.Printf("%q\n", data)           // `["one" "three" "three"]`
+```
+
+因此我们通常会这样使用nonempty函数：`data = nonempty(data)`。
+
+nonempty函数也可以使用append函数实现：
+
+```Go
+func nonempty2(strings []string) []string {
+	out := strings[:0] // zero-length slice of original
+	for _, s := range strings {
+		if s != "" {
+			out = append(out, s)
+		}
+	}
+	return out
+}
+```
+
+无论如何实现，以这种方式重用一个slice一般都要求最多为每个输入值产生一个输出值，事实上很多这类算法都是用来过滤或合并序列中相邻的元素。这种slice用法是比较复杂的技巧，虽然使用到了slice的一些技巧，但是对于某些场合是比较清晰和有效的。
+
+一个slice可以用来模拟一个stack。最初给定的空slice对应一个空的stack，然后可以使用append函数将新的值压入stack：
+
+```Go
+stack = append(stack, v) // push v
+```
+
+stack的顶部位置对应slice的最后一个元素：
+
+```Go
+top := stack[len(stack)-1] // top of stack
+```
+
+通过收缩stack可以弹出栈顶的元素
+
+```Go
+stack = stack[:len(stack)-1] // pop
+```
+
+要删除slice中间的某个元素并保存原有的元素顺序，可以通过内置的copy函数将后面的子slice向前依次移动一位完成：
+
+```Go
+func remove(slice []int, i int) []int {
+	copy(slice[i:], slice[i+1:])
+	return slice[:len(slice)-1]
+}
+
+func main() {
+	s := []int{5, 6, 7, 8, 9}
+	fmt.Println(remove(s, 2)) // "[5 6 8 9]"
+}
+```
+
+如果删除元素后不用保持原来顺序的话，我们可以简单的用最后一个元素覆盖被删除的元素：
+
+```Go
+func remove(slice []int, i int) []int {
+	slice[i] = slice[len(slice)-1]
+	return slice[:len(slice)-1]
+}
+
+func main() {
+	s := []int{5, 6, 7, 8, 9}
+	fmt.Println(remove(s, 2)) // "[5 6 9 8]
+}
+```
+
+**练习 4.3：** 重写reverse函数，使用数组指针代替slice。
+
+**练习 4.4：** 编写一个rotate函数，通过一次循环完成旋转。
+
+**练习 4.5：** 写一个函数在原地完成消除[]string中相邻重复的字符串的操作。
+
+**练习 4.6：** 编写一个函数，原地将一个UTF-8编码的[]byte类型的slice中相邻的空格（参考unicode.IsSpace）替换成一个空格返回
+
+**练习 4.7：** 修改reverse函数用于原地反转UTF-8编码的[]byte。是否可以不用分配额外的内存？
