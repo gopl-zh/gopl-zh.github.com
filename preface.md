@@ -61,7 +61,7 @@ Go语言尤其适合编写网络服务相关基础设施，同时也适合开发
 和机器学习等诸多领域。目前Go语言已经成为受欢迎的作为无类型的脚本语言的替代者：
 因为Go编写的程序通常比脚本语言运行的更快也更安全，而且很少会发生意外的类型错误。
 
-Go语言还是一个开源的项目，可以免费获编译器、库、配套工具的源代码。
+Go语言还是一个开源的项目，可以免费获取编译器、库、配套工具的源代码。
 Go语言的贡献者来自一个活跃的全球社区。Go语言可以运行在类[UNIX](http://doc.cat-v.org/unix/)系统——
 比如[Linux](http://www.linux.org/)、[FreeBSD](https://www.freebsd.org/)、[OpenBSD](http://www.openbsd.org/)、[Mac OSX](http://www.apple.com/cn/osx/)——和[Plan9](http://plan9.bell-labs.com/plan9/)系统和[Microsoft Windows](https://www.microsoft.com/zh-cn/windows/)操作系统之上。
 Go语言编写的程序无需修改就可以运行在上面这些环境。
