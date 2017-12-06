@@ -87,7 +87,7 @@
   * [sync.Mutex互斥锁](ch9/ch9-02.md)
   * [sync.RWMutex读写锁](ch9/ch9-03.md)
   * [内存同步](ch9/ch9-04.md)
-  * [sync.Once初始化](ch9/ch9-05.md)
+  * [sync.Once惰性初始化](ch9/ch9-05.md)
   * [竞争条件检测](ch9/ch9-06.md)
   * [示例: 并发的非阻塞缓存](ch9/ch9-07.md)
   * [Goroutines和线程](ch9/ch9-08.md)
