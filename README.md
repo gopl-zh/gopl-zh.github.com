@@ -8,17 +8,16 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - 项目主页：http://bitbucket.org/golang-china/gopl-zh
 - 原版官网：http://gopl.io
 
+## 关注微信公众号(golang-china)
 
-在线预览：
+![](weixin-golang-china.jpg)
 
-- http://gopl-zh.simple-is-best.tk/
-- http://gopl-zh.b0.upaiyun.com/
-- http://docs.ruanjiadeng.com/gopl-zh/
-- http://shifei.me/gopl-zh/
-- http://2goo.info/media/html/gopl-zh-gh-pages/
-- http://docs.plhwin.com/gopl-zh/
+
+## 在线预览
+
 - https://docs.hacknode.org/gopl-zh/
-- http://books.studygolang.com/gopl-zh/
+- https://books.studygolang.com/gopl-zh/
+- https://wizardforcel.gitbooks.io/gopl-zh/
 
 **注意，在线预览不是最新版，最新以仓库里的内容为准**
 
