@@ -1,6 +1,6 @@
 # Go语言圣经（中文版）
 
-Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本，仅供学习交流之用。
+Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本，仅供学习交流之用。对于希望学习CGO、Go汇编语言等高级用法的同学，我们推荐[《Go语言高级编程》](https://github.com/chai2010/advanced-go-programming-book)开源图书。
 
 [![](cover_middle.jpg)](https://github.com/golang-china/gopl-zh)
 
@@ -9,11 +9,16 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - 原版官网：http://gopl.io
 
 
-在线预览：
+## 关注微信公众号(golang-china)
 
-- https://gopl-zh.shanyy.xyz
+![](weixin-golang-china.jpg)
+
+
+## 在线预览
+
 - https://docs.hacknode.org/gopl-zh/
-- http://books.studygolang.com/gopl-zh/
+- https://books.studygolang.com/gopl-zh/
+- https://wizardforcel.gitbooks.io/gopl-zh/
 
 {% include "./version.md" %}
 
