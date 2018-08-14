@@ -6,8 +6,16 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 ![](cover_middle.jpg)
 
 - 项目主页：http://github.com/golang-china/gopl-zh
-- 项目主页：http://bitbucket.org/golang-china/gopl-zh
 - 原版官网：http://gopl.io
+
+
+译者信息：
+
+- 译者：柴树杉，Github [@chai2010](https://github.com/chai2010)，Twitter [@chaishushan](https://twitter.com/chaishushan)
+- 译者：Xargin, https://github.com/cch123
+- 译者：CrazySssst
+- 译者：foreversmart <njutree@gmail.com>
+
 
 ## 关注微信公众号(golang-china)
 
@@ -31,10 +39,6 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 2. 切换到 `gopl-zh` 目录，运行 `gitbook install`，安装GitBook插件。
 3. 运行`make`，生成`_book`目录。
 4. 打开`_book/index.html`文件。
-
-### Go语言圣经DMCA相关
-
-目前Github上的[gopl-zh](https://github.com/golang-china/gopl-zh)因为[DMCA](https://github.com/github/dmca/blob/master/2016-02-03-TheGoProgrammingLanguage.md)问题暂时无法访问，需要私下交流的请转QQ群(531508541)。
 
 # 版权声明
 

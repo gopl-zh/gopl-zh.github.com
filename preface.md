@@ -5,8 +5,15 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 [![](cover_middle.jpg)](https://github.com/golang-china/gopl-zh)
 
 - 项目主页：http://github.com/golang-china/gopl-zh
-- 项目主页：http://bitbucket.org/golang-china/gopl-zh
 - 原版官网：http://gopl.io
+
+
+译者信息：
+
+- 译者：柴树杉，Github [@chai2010](https://github.com/chai2010)，Twitter [@chaishushan](https://twitter.com/chaishushan)
+- 译者：Xargin, https://github.com/cch123
+- 译者：CrazySssst
+- 译者：foreversmart <njutree@gmail.com>
 
 
 ## 关注微信公众号(golang-china)
