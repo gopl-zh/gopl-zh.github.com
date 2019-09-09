@@ -27,6 +27,7 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - https://docs.hacknode.org/gopl-zh/
 - https://books.studygolang.com/gopl-zh/
 - https://wizardforcel.gitbooks.io/gopl-zh/
+- https://docs.hundan.org/gopl-zh/
 
 **注意，在线预览不是最新版，最新以仓库里的内容为准**
 
