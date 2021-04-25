@@ -17,9 +17,18 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - 译者：foreversmart <njutree@gmail.com>
 
 
-## 关注微信公众号(golang-china)
+## 关注微信公众号
 
-![](weixin-golang-china.jpg)
+<table>
+<tr>
+<td>
+<img width="222px"  src="https://github.com/chai2010/advanced-go-programming-book/raw/master/css.png">
+</td>
+<td>
+<img width="222px"  src="https://github.com/chai2010/advanced-go-programming-book/raw/master/cch.png">
+</td>
+</tr>
+</table>
 
 
 ## 在线预览
