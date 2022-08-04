@@ -10,6 +10,7 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 ![](cover.jpg)
 
+- 在线阅读：[https://gopl-zh.github.io](https://gopl-zh.github.io)
 - 项目主页：[https://github.com/gopl-zh](https://github.com/gopl-zh)
 - 项目主页(旧)：[http://github.com/golang-china/gopl-zh](http://github.com/golang-china/gopl-zh)
 - 原版官网：[http://gopl.io](http://gopl.io)
@@ -20,7 +21,7 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - 译者：柴树杉，Github [@chai2010](https://github.com/chai2010)，Twitter [@chaishushan](https://twitter.com/chaishushan)
 - 译者：Xargin, [https://github.com/cch123](https://github.com/cch123)
 - 译者：CrazySssst, [https://github.com/CrazySssst](https://github.com/CrazySssst)
-- 译者：foreversmart,[https://github.com/foreversmart](https://github.com/foreversmart) <njutree@gmail.com>
+- 译者：foreversmart, [https://github.com/foreversmart](https://github.com/foreversmart) <njutree@gmail.com>
 
 
 ## 关注微信公众号
@@ -35,15 +36,6 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 </td>
 </tr>
 </table>
-
-
-## 在线预览
-
-- https://docs.hacknode.org/gopl-zh/
-- https://books.studygolang.com/gopl-zh/
-- https://wizardforcel.gitbooks.io/gopl-zh/
-- https://docs.hundan.org/gopl-zh/
-- https://book.itsfun.top/gopl-zh/ #每夜自动构建
 
 
 **注意，在线预览不是最新版，最新以仓库里的内容为准**
