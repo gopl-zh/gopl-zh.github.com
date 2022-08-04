@@ -4,8 +4,6 @@
 
 # install mkbook
 
-# http://www.imagemagick.org/
-
 default:
 	mdbook serve
 

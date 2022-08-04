@@ -14,6 +14,6 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 - 译者：柴树杉，Github [@chai2010](https://github.com/chai2010)，Twitter [@chaishushan](https://twitter.com/chaishushan)
 - 译者：Xargin, [https://github.com/cch123](https://github.com/cch123)
-- 译者：CrazySssst
-- 译者：foreversmart <njutree@gmail.com>
+- 译者：CrazySssst, [https://github.com/CrazySssst](https://github.com/CrazySssst)
+- 译者：foreversmart,[https://github.com/foreversmart](https://github.com/foreversmart) <njutree@gmail.com>
 
