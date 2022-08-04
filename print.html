@@ -170,8 +170,8 @@
 <ul>
 <li>译者：柴树杉，Github <a href="https://github.com/chai2010">@chai2010</a>，Twitter <a href="https://twitter.com/chaishushan">@chaishushan</a></li>
 <li>译者：Xargin, <a href="https://github.com/cch123">https://github.com/cch123</a></li>
-<li>译者：CrazySssst</li>
-<li>译者：foreversmart <a href="mailto:njutree@gmail.com">njutree@gmail.com</a></li>
+<li>译者：CrazySssst, <a href="https://github.com/CrazySssst">https://github.com/CrazySssst</a></li>
+<li>译者：foreversmart,<a href="https://github.com/foreversmart">https://github.com/foreversmart</a> <a href="mailto:njutree@gmail.com">njutree@gmail.com</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="前言"><a class="header" href="#前言">前言</a></h1>
 <h2 id="go语言起源"><a class="header" href="#go语言起源">Go语言起源</a></h2>
@@ -3361,9 +3361,7 @@ Title:  {{.Title | printf &quot;%.64s&quot;}}
 Age:    {{.CreatedAt | daysAgo}} days
 {{end}}`
 </code></pre>
-<p>{% endraw %}</p>
 <p>这个模板先打印匹配到的issue总数，然后打印每个issue的编号、创建用户、标题还有存在的时间。对于每一个action，都有一个当前值的概念，对应点操作符，写作“.”。当前值“.”最初被初始化为调用模板时的参数，在当前例子中对应github.IssuesSearchResult类型的变量。模板中<code>{{.TotalCount}}</code>对应action将展开为结构体中TotalCount成员以默认的方式打印的值。模板中<code>{{range .Items}}</code>和<code>{{end}}</code>对应一个循环action，因此它们之间的内容可能会被展开多次，循环每次迭代的当前值对应当前的Items元素的值。</p>
-<p>{% endraw %}</p>
 <p>在一个action中，<code>|</code>操作符表示将前一个表达式的结果作为后一个函数的输入，类似于UNIX中管道的概念。在Title这一行的action中，第二个操作是一个printf函数，是一个基于fmt.Sprintf实现的内置函数，所有模板都可以直接使用。对于Age部分，第二个动作是一个叫daysAgo的函数，通过time.Since函数将CreatedAt成员转换为过去的时间长度：</p>
 <pre><code class="language-Go">func daysAgo(t time.Time) int {
 	return int(time.Since(t).Hours() / 24)
@@ -3436,7 +3434,6 @@ var issueList = template.Must(template.New(&quot;issuelist&quot;).Parse(`
 &lt;/table&gt;
 `))
 </code></pre>
-<p>{% endraw %}</p>
 <p>下面的命令将在新的模板上执行一个稍微不同的查询：</p>
 <pre><code>$ go build gopl.io/ch4/issueshtml
 $ ./issueshtml repo:golang/go commenter:gopherbot json encoder &gt;issues.html
@@ -3464,7 +3461,6 @@ $ ./issueshtml repo:golang/go commenter:gopherbot json encoder &gt;issues.html
 	}
 }
 </code></pre>
-<p>{% endraw %}</p>
 <p>图4.6显示了出现在浏览器中的模板输出。我们看到A的黑体标记被转义失效了，但是B没有。</p>
 <p><img src="ch4/../images/ch4-06.png" alt="" /></p>
 <p>我们这里只讲述了模板系统中最基本的特性。一如既往，如果想了解更多的信息，请自己查看包文档：</p>
@@ -8528,11 +8524,9 @@ gopl.io/ch7/xmlselect
 <pre><code>$ go list -f '{{join .Deps &quot; &quot;}}' strconv
 errors math runtime unicode/utf8 unsafe
 </code></pre>
-<p>{% endraw %}</p>
 <p>译注：上面的命令在Windows的命令行运行会遇到<code>template: main:1: unclosed action</code>的错误。产生这个错误的原因是因为命令行对命令中的<code>&quot; &quot;</code>参数进行了转义处理。可以按照下面的方法解决转义字符串的问题：</p>
 <pre><code>$ go list -f &quot;{{join .Deps \&quot; \&quot;}}&quot; strconv
 </code></pre>
-<p>{% endraw %}</p>
 <p>下面的命令打印compress子目录下所有包的导入包列表：</p>
 <pre><code>$ go list -f '{{.ImportPath}} -&gt; {{join .Imports &quot; &quot;}}' compress/...
 compress/bzip2 -&gt; bufio io sort
@@ -8541,11 +8535,9 @@ compress/gzip -&gt; bufio compress/flate errors fmt hash hash/crc32 io time
 compress/lzw -&gt; bufio errors fmt io
 compress/zlib -&gt; bufio compress/flate errors fmt hash hash/adler32 io
 </code></pre>
-<p>{% endraw %}</p>
 <p>译注：Windows下有同样有问题，要避免转义字符串的干扰：</p>
 <pre><code>$ go list -f &quot;{{.ImportPath}} -&gt; {{join .Imports \&quot; \&quot;}}&quot; compress/...
 </code></pre>
-<p>{% endraw %}</p>
 <p><code>go list</code>命令对于一次性的交互式查询或自动化构建或测试脚本都很有帮助。我们将在11.2.4节中再次使用它。每个子命令的更多信息，包括可设置的字段和意义，可以用<code>go help list</code>命令查看。</p>
 <p>在本章，我们解释了Go语言工具中除了测试命令之外的所有重要的子命令。在下一章，我们将看到如何用<code>go test</code>命令去运行Go语言程序中的测试代码。</p>
 <p><strong>练习 10.4：</strong> 创建一个工具，根据命令行指定的参数，报告工作区所有依赖包指定的其它包集合。提示：你需要运行<code>go list</code>命令两次，一次用于初始化包，一次用于所有包。你可能需要用encoding/json（§4.5）包来分析输出的JSON格式的信息。</p>
@@ -8979,18 +8971,15 @@ func TestCheckQuotaNotifiesUser(t *testing.T) {
 <pre><code>$ go list -f={{.GoFiles}} fmt
 [doc.go format.go print.go scan.go]
 </code></pre>
-<p>{% endraw %}</p>
 <p>TestGoFiles表示的是fmt包内部测试代码，以_test.go为后缀文件名，不过只在测试时被构建：</p>
 <pre><code>$ go list -f={{.TestGoFiles}} fmt
 [export_test.go]
 </code></pre>
-<p>{% endraw %}</p>
 <p>包的测试代码通常都在这些文件中，不过fmt包并非如此；稍后我们再解释export_test.go文件的作用。</p>
 <p>XTestGoFiles表示的是属于外部测试包的测试代码，也就是fmt_test包，因此它们必须先导入fmt包。同样，这些文件也只是在测试时被构建运行：</p>
 <pre><code>$ go list -f={{.XTestGoFiles}} fmt
 [fmt_test.go scan_test.go stringer_test.go]
 </code></pre>
-<p>{% endraw %}</p>
 <p>有时候外部测试包也需要访问被测试包内部的代码，例如在一个为了避免循环导入而被独立到外部测试包的白盒测试。在这种情况下，我们可以通过一些技巧解决：我们在包内的一个_test.go文件中导出一个内部的实现给外部测试包。因为这些代码只有在测试时才需要，因此一般会放在export_test.go文件中。</p>
 <p>例如，fmt包的fmt.Scanf函数需要unicode.IsSpace函数提供的功能。但是为了避免太多的依赖，fmt包并没有导入包含巨大表格数据的unicode包；相反fmt包有一个叫isSpace内部的简易实现。</p>
 <p>为了确保fmt.isSpace和unicode.IsSpace函数的行为保持一致，fmt包谨慎地包含了一个测试。一个在外部测试包内的白盒测试，是无法直接访问到isSpace内部函数的，因此fmt通过一个后门导出了isSpace函数。export_test.go文件就是专门用于外部测试包的后门。</p>
