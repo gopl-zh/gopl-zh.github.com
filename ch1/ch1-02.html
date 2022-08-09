@@ -162,10 +162,10 @@
 
                         <h2 id="12-命令行参数"><a class="header" href="#12-命令行参数">1.2. 命令行参数</a></h2>
 <p>大多数的程序都是处理输入，产生输出；这也正是“计算”的定义。但是，程序如何获取要处理的输入数据呢？一些程序生成自己的数据，但通常情况下，输入来自于程序外部：文件、网络连接、其它程序的输出、敲键盘的用户、命令行参数或其它类似输入源。下面几个例子会讨论其中几个输入源，首先是命令行参数。</p>
-<p><code>os</code>包以跨平台的方式，提供了一些与操作系统交互的函数和变量。程序的命令行参数可从os包的Args变量获取；os包外部使用os.Args访问该变量。</p>
-<p>os.Args变量是一个字符串（string）的<em>切片</em>（slice）（译注：slice和Python语言中的切片类似，是一个简版的动态数组），切片是Go语言的基础概念，稍后详细介绍。现在先把切片s当作数组元素序列，序列的长度动态变化，用<code>s[i]</code>访问单个元素，用<code>s[m:n]</code>获取子序列（译注：和python里的语法差不多）。序列的元素数目为len(s)。和大多数编程语言类似，区间索引时，Go语言里也采用左闭右开形式，即，区间包括第一个索引元素，不包括最后一个，因为这样可以简化逻辑。（译注：比如a = [1, 2, 3, 4, 5], a[0:3] = [1, 2, 3]，不包含最后一个元素）。比如s[m:n]这个切片，0 ≤ m ≤ n ≤ len(s)，包含n-m个元素。</p>
-<p>os.Args的第一个元素：os.Args[0]，是命令本身的名字；其它的元素则是程序启动时传给它的参数。s[m:n]形式的切片表达式，产生从第m个元素到第n-1个元素的切片，下个例子用到的元素包含在os.Args[1:len(os.Args)]切片中。如果省略切片表达式的m或n，会默认传入0或len(s)，因此前面的切片可以简写成os.Args[1:]。</p>
-<p>下面是Unix里echo命令的一份实现，echo把它的命令行参数打印成一行。程序导入了两个包，用括号把它们括起来写成列表形式，而没有分开写成独立的<code>import</code>声明。两种形式都合法，列表形式习惯上用得多。包导入顺序并不重要；gofmt工具格式化时按照字母顺序对包名排序。（示例有多个版本时，我们会对示例编号，这样可以明确当前正在讨论的是哪个。）</p>
+<p><code>os</code> 包以跨平台的方式，提供了一些与操作系统交互的函数和变量。程序的命令行参数可从 <code>os</code> 包的 <code>Args</code> 变量获取；<code>os</code> 包外部使用 <code>os.Args</code> 访问该变量。</p>
+<p><code>os.Args</code> 变量是一个字符串（string）的 <em>切片</em>（slice）（译注：slice 和 Python 语言中的切片类似，是一个简版的动态数组），切片是 Go 语言的基础概念，稍后详细介绍。现在先把切片 <code>s</code> 当作数组元素序列，序列的长度动态变化，用 <code>s[i]</code> 访问单个元素，用 <code>s[m:n]</code> 获取子序列（译注：和 Python 里的语法差不多）。序列的元素数目为 <code>len(s)</code>。和大多数编程语言类似，区间索引时，Go 语言里也采用左闭右开形式，即，区间包括第一个索引元素，不包括最后一个，因为这样可以简化逻辑。（译注：比如 <code>a=[1,2,3,4,5]</code>, <code>a[0:3]=[1,2,3]</code>，不包含最后一个元素）。比如 <code>s[m:n]</code> 这个切片，<code>0≤m≤n≤len(s)</code>，包含 <code>n-m</code> 个元素。</p>
+<p><code>os.Args</code> 的第一个元素：<code>os.Args[0]</code>，是命令本身的名字；其它的元素则是程序启动时传给它的参数。<code>s[m:n]</code> 形式的切片表达式，产生从第 <code>m</code> 个元素到第 <code>n-1</code> 个元素的切片，下个例子用到的元素包含在 <code>os.Args[1:len(os.Args)]</code> 切片中。如果省略切片表达式的 <code>m</code> 或 <code>n</code>，会默认传入 <code>0</code> 或 <code>len(s)</code>，因此前面的切片可以简写成 <code>os.Args[1:]</code>。</p>
+<p>下面是 Unix 里 <code>echo</code> 命令的一份实现，<code>echo</code> 把它的命令行参数打印成一行。程序导入了两个包，用括号把它们括起来写成列表形式，而没有分开写成独立的 <code>import</code> 声明。两种形式都合法，列表形式习惯上用得多。包导入顺序并不重要；<code>gofmt</code> 工具格式化时按照字母顺序对包名排序。（示例有多个版本时，我们会对示例编号，这样可以明确当前正在讨论的是哪个。）</p>
 <p><u><i>gopl.io/ch1/echo1</i></u></p>
 <pre><code class="language-go">// Echo1 prints its command-line arguments.
 package main
@@ -184,42 +184,34 @@ func main() {
 	fmt.Println(s)
 }
 </code></pre>
-<p>注释语句以<code>//</code>开头。对于程序员来说，//之后到行末之间所有的内容都是注释，被编译器忽略。按照惯例，我们在每个包的包声明前添加注释；对于<code>main package</code>，注释包含一句或几句话，从整体角度对程序做个描述。</p>
-<p>var声明定义了两个string类型的变量s和sep。变量会在声明时直接初始化。如果变量没有显式初始化，则被隐式地赋予其类型的<em>零值</em>（zero value），数值类型是0，字符串类型是空字符串&quot;&quot;。这个例子里，声明把s和sep隐式地初始化成空字符串。第2章再来详细地讲解变量和声明。</p>
-<p>对数值类型，Go语言提供了常规的数值和逻辑运算符。而对string类型，<code>+</code>运算符连接字符串（译注：和C++或者js是一样的）。所以表达式：</p>
-<pre><code class="language-go">sep + os.Args[i]
-</code></pre>
-<p>表示连接字符串sep和os.Args。程序中使用的语句：</p>
-<pre><code class="language-go">s += sep + os.Args[i]
-</code></pre>
-<p>是一条<em>赋值语句</em>，将s的旧值跟sep与os.Args[i]连接后赋值回s，等价于：</p>
-<pre><code class="language-go">s = s + sep + os.Args[i]
-</code></pre>
-<p>运算符<code>+=</code>是赋值运算符（assignment operator），每种数值运算符或逻辑运算符，如<code>+</code>或<code>*</code>，都有对应的赋值运算符。</p>
-<p>echo程序可以每循环一次输出一个参数，这个版本却是不断地把新文本追加到末尾来构造字符串。字符串s开始为空，即值为&quot;&quot;，每次循环会添加一些文本；第一次迭代之后，还会再插入一个空格，因此循环结束时每个参数中间都有一个空格。这是一种二次加工（quadratic process），当参数数量庞大时，开销很大，但是对于echo，这种情形不大可能出现。本章会介绍echo的若干改进版，下一章解决低效问题。</p>
-<p>循环索引变量i在for循环的第一部分中定义。符号<code>:=</code>是<em>短变量声明</em>（short variable declaration）的一部分，这是定义一个或多个变量并根据它们的初始值为这些变量赋予适当类型的语句。下一章有这方面更多说明。</p>
-<p>自增语句<code>i++</code>给<code>i</code>加1；这和<code>i += 1</code>以及<code>i = i + 1</code>都是等价的。对应的还有<code>i--</code>给<code>i</code>减1。它们是语句，而不像C系的其它语言那样是表达式。所以<code>j = i++</code>非法，而且++和--都只能放在变量名后面，因此<code>--i</code>也非法。</p>
-<p>Go语言只有for循环这一种循环语句。for循环有多种形式，其中一种如下所示：</p>
+<p>注释语句以 <code>//</code> 开头。对于程序员来说，<code>//</code> 之后到行末之间所有的内容都是注释，被编译器忽略。按照惯例，我们在每个包的包声明前添加注释；对于 <code>main package</code>，注释包含一句或几句话，从整体角度对程序做个描述。</p>
+<p><code>var</code> 声明定义了两个 <code>string</code> 类型的变量 <code>s</code> 和 <code>sep</code>。变量会在声明时直接初始化。如果变量没有显式初始化，则被隐式地赋予其类型的 <em>零值</em>（zero value），数值类型是 <code>0</code>，字符串类型是空字符串 <code>&quot;&quot;</code>。这个例子里，声明把 <code>s</code> 和 <code>sep</code> 隐式地初始化成空字符串。第 2 章再来详细地讲解变量和声明。</p>
+<p>对数值类型，Go 语言提供了常规的数值和逻辑运算符。而对 <code>string</code> 类型，<code>+</code> 运算符连接字符串（译注：和 C++ 或者 JavaScript 是一样的）。所以表达式：<code>sep + os.Args[i]</code> 表示连接字符串 <code>sep</code> 和 <code>os.Args</code>。程序中使用的语句：<code>s+=sep+os.Args[i]</code> 是一条 <em>赋值语句</em>，将 <code>s</code> 的旧值跟 <code>sep</code> 与 <code>os.Args[i]</code> 连接后赋值回 <code>s</code>，等价于：<code>s=s+sep+os.Args[i]</code>。</p>
+<p>运算符 <code>+=</code> 是赋值运算符（assignment operator），每种数值运算符或逻辑运算符，如 <code>+</code> 或 <code>*</code>，都有对应的赋值运算符。</p>
+<p><code>echo</code> 程序可以每循环一次输出一个参数，这个版本却是不断地把新文本追加到末尾来构造字符串。字符串 <code>s</code> 开始为空，即值为 <code>&quot;&quot;</code>，每次循环会添加一些文本；第一次迭代之后，还会再插入一个空格，因此循环结束时每个参数中间都有一个空格。这是一种二次加工（quadratic process），当参数数量庞大时，开销很大，但是对于 <code>echo</code>，这种情形不大可能出现。本章会介绍 <code>echo</code> 的若干改进版，下一章解决低效问题。</p>
+<p>循环索引变量 <code>i</code> 在 <code>for</code> 循环的第一部分中定义。符号 <code>:=</code> 是 <em>短变量声明</em>（short variable declaration）的一部分，这是定义一个或多个变量并根据它们的初始值为这些变量赋予适当类型的语句。下一章有这方面更多说明。</p>
+<p>自增语句 <code>i++</code> 给 <code>i</code> 加 <code>1</code>；这和 <code>i+=1</code> 以及 <code>i=i+1</code> 都是等价的。对应的还有 <code>i--</code> 给 <code>i</code> 减 <code>1</code>。它们是语句，而不像 C 系的其它语言那样是表达式。所以 <code>j=i++</code> 非法，而且 <code>++</code> 和 <code>--</code> 都只能放在变量名后面，因此 <code>--i</code> 也非法。</p>
+<p>Go 语言只有 <code>for</code> 循环这一种循环语句。<code>for</code> 循环有多种形式，其中一种如下所示：</p>
 <pre><code class="language-go">for initialization; condition; post {
 	// zero or more statements
 }
 </code></pre>
-<p>for循环三个部分不需括号包围。大括号强制要求，左大括号必须和<em>post</em>语句在同一行。</p>
-<p><em>initialization</em>语句是可选的，在循环开始前执行。<em>initalization</em>如果存在，必须是一条<em>简单语句</em>（simple statement），即，短变量声明、自增语句、赋值语句或函数调用。<code>condition</code>是一个布尔表达式（boolean expression），其值在每次循环迭代开始时计算。如果为<code>true</code>则执行循环体语句。<code>post</code>语句在循环体执行结束后执行，之后再次对<code>condition</code>求值。<code>condition</code>值为<code>false</code>时，循环结束。</p>
-<p>for循环的这三个部分每个都可以省略，如果省略<code>initialization</code>和<code>post</code>，分号也可以省略：</p>
+<p><code>for</code> 循环三个部分不需括号包围。大括号强制要求，左大括号必须和 <em><code>post</code></em> 语句在同一行。</p>
+<p><em><code>initialization</code></em> 语句是可选的，在循环开始前执行。<em><code>initalization</code></em> 如果存在，必须是一条 <em>简单语句</em>（simple statement），即，短变量声明、自增语句、赋值语句或函数调用。<code>condition</code> 是一个布尔表达式（boolean expression），其值在每次循环迭代开始时计算。如果为 <code>true</code> 则执行循环体语句。<code>post</code> 语句在循环体执行结束后执行，之后再次对 <code>condition</code> 求值。<code>condition</code> 值为 <code>false</code> 时，循环结束。</p>
+<p>for 循环的这三个部分每个都可以省略，如果省略 <code>initialization</code> 和 <code>post</code>，分号也可以省略：</p>
 <pre><code class="language-go">// a traditional &quot;while&quot; loop
 for condition {
 	// ...
 }
 </code></pre>
-<p>如果连<code>condition</code>也省略了，像下面这样：</p>
+<p>如果连 <code>condition</code> 也省略了，像下面这样：</p>
 <pre><code class="language-go">// a traditional infinite loop
 for {
 	// ...
 }
 </code></pre>
-<p>这就变成一个无限循环，尽管如此，还可以用其他方式终止循环，如一条<code>break</code>或<code>return</code>语句。</p>
-<p><code>for</code>循环的另一种形式，在某种数据类型的区间（range）上遍历，如字符串或切片。<code>echo</code>的第二版本展示了这种形式：</p>
+<p>这就变成一个无限循环，尽管如此，还可以用其他方式终止循环，如一条 <code>break</code> 或 <code>return</code> 语句。</p>
+<p><code>for</code> 循环的另一种形式，在某种数据类型的区间（range）上遍历，如字符串或切片。<code>echo</code> 的第二版本展示了这种形式：</p>
 <p><u><i>gopl.io/ch1/echo2</i></u></p>
 <pre><code class="language-go">// Echo2 prints its command-line arguments.
 package main
@@ -238,29 +230,30 @@ func main() {
 	fmt.Println(s)
 }
 </code></pre>
-<p>每次循环迭代，<code>range</code>产生一对值；索引以及在该索引处的元素值。这个例子不需要索引，但<code>range</code>的语法要求，要处理元素，必须处理索引。一种思路是把索引赋值给一个临时变量（如<code>temp</code>）然后忽略它的值，但Go语言不允许使用无用的局部变量（local variables），因为这会导致编译错误。</p>
-<p>Go语言中这种情况的解决方法是用<code>空标识符</code>（blank identifier），即<code>_</code>（也就是下划线）。空标识符可用于在任何语法需要变量名但程序逻辑不需要的时候（如：在循环里）丢弃不需要的循环索引，并保留元素值。大多数的Go程序员都会像上面这样使用<code>range</code>和<code>_</code>写<code>echo</code>程序，因为隐式地而非显式地索引os.Args，容易写对。</p>
-<p><code>echo</code>的这个版本使用一条短变量声明来声明并初始化<code>s</code>和<code>seps</code>，也可以将这两个变量分开声明，声明一个变量有好几种方式，下面这些都等价：</p>
+<p>每次循环迭代，<code>range</code> 产生一对值；索引以及在该索引处的元素值。这个例子不需要索引，但 <code>range</code> 的语法要求，要处理元素，必须处理索引。一种思路是把索引赋值给一个临时变量（如 <code>temp</code>）然后忽略它的值，但 Go 语言不允许使用无用的局部变量（local variables），因为这会导致编译错误。</p>
+<p>Go 语言中这种情况的解决方法是用 <em>空标识符</em>（blank identifier），即 <code>_</code>（也就是下划线）。空标识符可用于在任何语法需要变量名但程序逻辑不需要的时候（如：在循环里）丢弃不需要的循环索引，并保留元素值。大多数的 Go 程序员都会像上面这样使用 <code>range</code> 和 <code>_</code> 写 <code>echo</code> 程序，因为隐式地而非显式地索引 <code>os.Args</code>，容易写对。</p>
+<p><code>echo</code> 的这个版本使用一条短变量声明来声明并初始化 <code>s</code> 和 <code>seps</code>，也可以将这两个变量分开声明，声明一个变量有好几种方式，下面这些都等价：</p>
 <pre><code class="language-go">s := &quot;&quot;
 var s string
 var s = &quot;&quot;
 var s string = &quot;&quot;
 </code></pre>
-<p>用哪种不用哪种，为什么呢？第一种形式，是一条短变量声明，最简洁，但只能用在函数内部，而不能用于包变量。第二种形式依赖于字符串的默认初始化零值机制，被初始化为&quot;&quot;。第三种形式用得很少，除非同时声明多个变量。第四种形式显式地标明变量的类型，当变量类型与初值类型相同时，类型冗余，但如果两者类型不同，变量类型就必须了。实践中一般使用前两种形式中的某个，初始值重要的话就显式地指定变量的类型，否则使用隐式初始化。</p>
-<p>如前文所述，每次循环迭代字符串s的内容都会更新。<code>+=</code>连接原字符串、空格和下个参数，产生新字符串，并把它赋值给<code>s</code>。<code>s</code>原来的内容已经不再使用，将在适当时机对它进行垃圾回收。</p>
-<p>如果连接涉及的数据量很大，这种方式代价高昂。一种简单且高效的解决方案是使用<code>strings</code>包的<code>Join</code>函数：</p>
+<p>用哪种不用哪种，为什么呢？第一种形式，是一条短变量声明，最简洁，但只能用在函数内部，而不能用于包变量。第二种形式依赖于字符串的默认初始化零值机制，被初始化为 <code>&quot;&quot;</code>。第三种形式用得很少，除非同时声明多个变量。第四种形式显式地标明变量的类型，当变量类型与初值类型相同时，类型冗余，但如果两者类型不同，变量类型就必须了。实践中一般使用前两种形式中的某个，初始值重要的话就显式地指定变量的类型，否则使用隐式初始化。</p>
+<p>如前文所述，每次循环迭代字符串 <code>s</code> 的内容都会更新。<code>+=</code> 连接原字符串、空格和下个参数，产生新字符串，并把它赋值给 <code>s</code>。<code>s</code> 原来的内容已经不再使用，将在适当时机对它进行垃圾回收。</p>
+<p>如果连接涉及的数据量很大，这种方式代价高昂。一种简单且高效的解决方案是使用 <code>strings</code> 包的 <code>Join</code> 函数：</p>
 <p><u><i>gopl.io/ch1/echo3</i></u></p>
 <pre><code class="language-go">func main() {
 	fmt.Println(strings.Join(os.Args[1:], &quot; &quot;))
 }
 </code></pre>
-<p>最后，如果不关心输出格式，只想看看输出值，或许只是为了调试，可以用<code>Println</code>为我们格式化输出。</p>
+<p>最后，如果不关心输出格式，只想看看输出值，或许只是为了调试，可以用 <code>Println</code> 为我们格式化输出。</p>
 <pre><code class="language-go">fmt.Println(os.Args[1:])
 </code></pre>
-<p>这条语句的输出结果跟<code>strings.Join</code>得到的结果很像，只是被放到了一对方括号里。切片都会被打印成这种格式。</p>
-<p><strong>练习 1.1：</strong> 修改<code>echo</code>程序，使其能够打印<code>os.Args[0]</code>，即被执行命令本身的名字。</p>
-<p><strong>练习 1.2：</strong> 修改<code>echo</code>程序，使其打印每个参数的索引和值，每个一行。</p>
-<p><strong>练习 1.3：</strong> 做实验测量潜在低效的版本和使用了<code>strings.Join</code>的版本的运行时间差异。（1.6节讲解了部分<code>time</code>包，11.4节展示了如何写标准测试程序，以得到系统性的性能评测。）</p>
+<p>这条语句的输出结果跟 <code>strings.Join</code> 得到的结果很像，只是被放到了一对方括号里。切片都会被打印成这种格式。</p>
+<hr />
+<p><strong>练习 1.1：</strong> 修改 <code>echo</code> 程序，使其能够打印 <code>os.Args[0]</code>，即被执行命令本身的名字。</p>
+<p><strong>练习 1.2：</strong> 修改 <code>echo</code> 程序，使其打印每个参数的索引和值，每个一行。</p>
+<p><strong>练习 1.3：</strong> 做实验测量潜在低效的版本和使用了 <code>strings.Join</code> 的版本的运行时间差异。（<a href="./ch1-06.html">1.6 节</a>讲解了部分 <code>time</code> 包，<a href="../ch11/ch11-04.html">11.4 节</a>展示了如何写标准测试程序，以得到系统性的性能评测。）</p>
 
 
                         <!-- 公众号 -->
