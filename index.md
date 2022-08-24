@@ -6,6 +6,7 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 ![](cover.jpg)
 
 - 在线阅读：[https://gopl-zh.github.io](https://gopl-zh.github.io)
+- 在线阅读：[https://golang-china.github.io/gopl-zh](https://golang-china.github.io/gopl-zh)
 - 项目主页：[https://github.com/gopl-zh](https://github.com/gopl-zh)
 - 项目主页(旧)：[http://github.com/golang-china/gopl-zh](http://github.com/golang-china/gopl-zh)
 - 原版官网：[http://gopl.io](http://gopl.io)
