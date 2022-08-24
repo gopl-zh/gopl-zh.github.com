@@ -34,3 +34,14 @@ jobs:
           publish_branch: gh-pages
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+          
+
+      - name: Deploy Golang-China
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GOLANG_CHINA_DEPLOY_KEY }}
+          external_repository: golang-china/gopl-zh
+          publish_dir: ./book
+          publish_branch: gh-pages
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
