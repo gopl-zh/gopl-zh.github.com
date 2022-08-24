@@ -20,5 +20,6 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 
 Go 语言中国：
 
-- Go中国论坛：[https://github.com/golang-china/main.go/discussions](https://github.com/golang-china/main.go/discussions)
+- Go 语言中国：[https://github.com/golang-china](https://github.com/golang-china)
+- Go 语言中国论坛：[https://github.com/golang-china/main.go/discussions](https://github.com/golang-china/main.go/discussions)
 
