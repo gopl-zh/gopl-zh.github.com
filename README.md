@@ -12,6 +12,7 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 ![](cover.jpg)
 
 - 在线阅读：[https://gopl-zh.github.io](https://gopl-zh.github.io)
+- 在线阅读：[https://golang-china.github.io/gopl-zh](https://golang-china.github.io/gopl-zh)
 - 项目主页：[https://github.com/gopl-zh](https://github.com/gopl-zh)
 - 项目主页(旧)：[http://github.com/golang-china/gopl-zh](http://github.com/golang-china/gopl-zh)
 - 原版官网：[http://gopl.io](http://gopl.io)
@@ -23,6 +24,11 @@ Go语言圣经 [《The Go Programming Language》](http://gopl.io) 中文版本�
 - 译者：Xargin, [https://github.com/cch123](https://github.com/cch123)
 - 译者：CrazySssst, [https://github.com/CrazySssst](https://github.com/CrazySssst)
 - 译者：foreversmart, [https://github.com/foreversmart](https://github.com/foreversmart) <njutree@gmail.com>
+
+Go 语言中国：
+
+- Go 语言中国：[https://github.com/golang-china](https://github.com/golang-china)
+- Go 语言中国论坛：[https://github.com/golang-china/main.go/discussions](https://github.com/golang-china/main.go/discussions)
 
 
 ## 关注微信公众号
