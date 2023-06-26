@@ -1,7 +1,7 @@
 # Go语言圣经（中文版）
 
-- *KCL 配置编程语言(Rust): https://github.com/KusionStack/KCLVM*
-- *凹语言™: https://github.com/wa-lang/wa*
+- *凹语言(专为 WebAssembly 设计): https://github.com/wa-lang/wa*
+- *KCL 配置语言(Rust): https://github.com/kcl-lang/kcl*
 
 ----
 
