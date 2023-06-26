@@ -1,6 +1,7 @@
 # Summary
 
 [Go语言圣经](index.md)
+[译者序](preface-zh.md)
 [前言](preface.md)
 
 * [入门](ch1/ch1.md)
