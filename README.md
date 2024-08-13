@@ -1,7 +1,7 @@
 # Go语言圣经（中文版）
 
 - *凹语言(专为 WebAssembly 设计): https://github.com/wa-lang/wa*
-- *MnBook(Go语言实现的MD电子书构建工具): https://github.com/wa-lang/mnbook*
+- *WaBook(Go语言实现的MD电子书构建工具): https://github.com/wa-lang/wabook*
 
 ----
 

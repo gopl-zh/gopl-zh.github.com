@@ -26,8 +26,8 @@ jobs:
       - run: go version
       - run: go env
 
-      - run: go install github.com/wa-lang/mnbook@latest
-      - run: mnbook build
+      - run: go install github.com/wa-lang/wabook@latest
+      - run: wabook build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
